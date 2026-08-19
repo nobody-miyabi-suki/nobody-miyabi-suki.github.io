@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Star Rail · Character</title>
+    <!-- استایل‌های عمومی -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- استایل‌های صفحات شخصیت‌ها -->
+    <link rel="stylesheet" href="/css/character-pages.css">
+    <style>
+        /* ============================================================
+           استایل‌های اختصاصی برای صفحات شخصیت‌ها
+           ============================================================ */
+        .character-hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            min-height: 80vh;
+            padding: 50px 30px;
+            background: var(--hero-bg);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .character-hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--shadow-color) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        .character-hero .hero-text {
+            flex: 1;
+            max-width: 500px;
+            z-index: 1;
+        }
+        .character-hero .hero-text .badge {
+            display: inline-block;
+            background: var(--badge-bg);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            border: 1px solid var(--badge-border);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        .character-hero .hero-text h2 {
+            font-size: 48px;
+            color: var(--text-heading);
+            margin-bottom: 12px;
+            text-shadow: 0 0 30px var(--hero-shadow);
+            transition: color 0.3s ease;
+        }
+        .character-hero .hero-text h2 span {
+            color: var(--text-heading-span);
+            transition: color 0.3s ease;
+        }
+        .character-hero .hero-text .sub-title {
+            font-size: 18px;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 16px;
+            transition: color 0.3s ease;
+        }
+        .character-hero .hero-text p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            transition: color 0.3s ease;
+        }
+        .character-hero .hero-text .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .character-hero .hero-text .btn-primary {
+            display: inline-block;
+            padding: 12px 35px;
+            background: var(--btn-primary-bg);
+            color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px var(--shadow-color);
+            border: 1px solid var(--badge-border);
+        }
+        .character-hero .hero-text .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px var(--shadow-color);
+            background: var(--btn-primary-hover);
+        }
+        .character-hero .hero-text .btn-secondary {
+            display: inline-block;
+            padding: 12px 35px;
+            background: var(--btn-secondary-bg);
+            color: var(--text-secondary);
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 15px;
+            transition: all 0.3s;
+            border: 1px solid var(--btn-secondary-border);
+        }
+        .character-hero .hero-text .btn-secondary:hover {
+            background: var(--badge-bg);
+            color: var(--text-heading);
+            border-color: var(--border-color);
+            transform: translateY(-3px);
+        }
+        .character-hero .hero-image {
+            flex: 1;
+            max-width: 400px;
+            z-index: 1;
+            text-align: center;
+        }
+        .character-hero .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px var(--img-shadow);
+            border: 2px solid var(--img-border);
+            transition: all 0.4s;
+        }
+        .character-hero .hero-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 80px var(--img-shadow);
+        }
+
+        .character-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 60px 30px;
+            background: var(--features-bg);
+            flex-wrap: wrap;
+            transition: all 0.4s ease;
+        }
+        .character-features .feature-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            padding: 30px 25px;
+            border-radius: 16px;
+            text-align: center;
+            max-width: 280px;
+            flex: 1;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+        }
+        .character-features .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-color);
+            box-shadow: 0 10px 40px var(--feature-shadow);
+            background: var(--bg-card);
+        }
+        .character-features .feature-card .icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .character-features .feature-card h3 {
+            color: var(--text-heading);
+            font-size: 20px;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        .character-features .feature-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        .bio-section {
+            padding: 60px 30px;
+            background: var(--quick-nav-bg);
+            transition: all 0.4s ease;
+        }
+        .bio-section .bio-inner {
+            display: flex;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .bio-section .bio-text {
+            flex: 1.5;
+            min-width: 280px;
+        }
+        .bio-section .bio-text h3 {
+            font-size: 32px;
+            color: var(--text-heading);
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+        .bio-section .bio-text h3 span {
+            color: var(--text-heading-span);
+            transition: color 0.3s ease;
+        }
+        .bio-section .bio-text .bio-sub {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 16px;
+            transition: color 0.3s ease;
+        }
+        .bio-section .bio-text p {
+            color: var(--text-secondary);
+            line-height: 1.9;
+            font-size: 16px;
+            margin-bottom: 16px;
+            transition: color 0.3s ease;
+        }
+        .bio-section .bio-text p strong {
+            color: var(--text-heading-span);
+            transition: color 0.3s ease;
+        }
+        .bio-section .bio-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .bio-section .bio-stats .stat-item {
+            background: var(--bg-card);
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+        .bio-section .bio-stats .stat-item:hover {
+            border-color: var(--border-color);
+        }
+        .bio-section .bio-stats .stat-item .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+        .bio-section .bio-stats .stat-item .stat-value {
+            font-size: 16px;
+            color: var(--text-heading);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .bio-section .bio-image {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+        }
+        .bio-section .bio-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 18px;
+            box-shadow: 0 15px 50px var(--shadow-color);
+            border: 2px solid var(--border-light);
+            transition: all 0.4s;
+        }
+        .bio-section .bio-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 70px var(--shadow-color);
+        }
+
+        .skills-section {
+            padding: 60px 30px;
+            background: var(--features-bg);
+            border-top: 2px solid var(--border-light);
+            border-bottom: 2px solid var(--border-light);
+            transition: all 0.4s ease;
+        }
+        .skills-section h3 {
+            text-align: center;
+            font-size: 34px;
+            color: var(--text-heading);
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+        .skills-section .skills-desc {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-bottom: 40px;
+            transition: color 0.3s ease;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .skill-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            padding: 25px 20px;
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-color);
+            box-shadow: 0 10px 40px var(--feature-shadow);
+        }
+        .skill-card .skill-icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .skill-card .skill-name {
+            color: var(--text-heading);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+        .skill-card .skill-type {
+            display: inline-block;
+            padding: 2px 14px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            color: #fff;
+            background: var(--btn-primary-bg);
+            margin-bottom: 10px;
+        }
+        .skill-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+            transition: color 0.3s ease;
+        }
+
+        .gallery-section {
+            padding: 60px 30px;
+            background: var(--quick-nav-bg);
+            transition: all 0.4s ease;
+        }
+        .gallery-section h3 {
+            text-align: center;
+            font-size: 34px;
+            color: var(--text-heading);
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+        .gallery-section .gallery-desc {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-bottom: 40px;
+            transition: color 0.3s ease;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .gallery-item {
+            background: var(--bg-card);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+        .gallery-item:hover {
+            transform: scale(1.04);
+            border-color: var(--border-color);
+            box-shadow: 0 8px 30px var(--card-hover-shadow);
+            opacity: 1;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 900px) {
+            .character-hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+                padding: 40px 20px;
+                min-height: auto;
+            }
+            .character-hero .hero-text h2 { font-size: 32px; }
+            .character-hero .hero-image { max-width: 300px; }
+            .character-features { flex-direction: column; align-items: center; padding: 40px 20px; }
+            .character-features .feature-card { max-width: 100%; width: 100%; }
+            .bio-section { padding: 40px 20px; }
+            .bio-section .bio-inner { flex-direction: column; text-align: center; }
+            .bio-section .bio-text h3 { font-size: 28px; }
+            .bio-section .bio-stats { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .bio-section .bio-image { max-width: 100%; }
+            .skills-section { padding: 40px 20px; }
+            .skills-section h3 { font-size: 28px; }
+            .skills-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+            .gallery-section { padding: 40px 20px; }
+            .gallery-section h3 { font-size: 28px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        }
+        @media (max-width: 480px) {
+            .character-hero .hero-text h2 { font-size: 26px; }
+            .character-hero .hero-image { max-width: 220px; }
+            .bio-section .bio-stats { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .gallery-item { font-size: 40px; }
+            .skill-card .skill-icon { font-size: 38px; }
+            .character-hero .hero-text .btn-primary,
+            .character-hero .hero-text .btn-secondary {
+                padding: 10px 24px;
+                font-size: 13px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE
+    ========================================================== -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label" id="themeLabel">🔴 Red</span>
+        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Honkai</span> Star Rail ✦</h1>
+            <p id="headerSub">Character Profile</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
+        </div>
+
+        <!-- ===== MENU (همان منوی استاندارد) ===== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/s-rank.html">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    HERO SECTION (داینامیک)
+    ========================================================== -->
+    <section class="character-hero" id="characterHero">
+        <div class="hero-text">
+            <span class="badge" id="charBadge">✦ Faction</span>
+            <h2 id="charName">Character <span>Name</span></h2>
+            <div class="sub-title" id="charSubTitle">Subtitle</div>
+            <p id="charDescription">Loading character information...</p>
+            <div class="btn-group">
+                <a href="#skills" class="btn-primary" id="skillsBtn">⚔️ View Skills</a>
+                <a href="#bio" class="btn-secondary" id="bioBtn">📖 Biography</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img id="charImage" src="" alt="Character" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Crect fill=%22%231a0a0a%22 width=%22400%22 height=%22400%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%236a9aff%22%3E⭐%3C/text%3E%3C/svg%3E'">
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    FEATURES (داینامیک)
+    ========================================================== -->
+    <section class="character-features" id="featuresSection"></section>
+
+    <!-- ==========================================================
+    BIOGRAPHY (داینامیک)
+    ========================================================== -->
+    <section class="bio-section" id="bio">
+        <div class="bio-inner">
+            <div class="bio-text">
+                <h3 id="bioTitle">Biography · <span>Character</span></h3>
+                <div class="bio-sub" id="bioSub">Subtitle</div>
+                <div id="bioContent"><p>Loading biography...</p></div>
+                <div class="bio-stats" id="bioStats"></div>
+            </div>
+            <div class="bio-image">
+                <img id="bioImage" src="" alt="Character Portrait" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22350%22 height=%22350%22%3E%3Crect fill=%22%231a0a0a%22 width=%22350%22 height=%22350%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%236a9aff%22%3E⭐%3C/text%3E%3C/svg%3E'">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    SKILLS (داینامیک)
+    ========================================================== -->
+    <section class="skills-section" id="skills">
+        <h3 id="skillsTitle">⚔️ Skills &amp; Abilities</h3>
+        <p class="skills-desc" id="skillsDesc">Loading skills...</p>
+        <div class="skills-grid" id="skillsGrid"></div>
+    </section>
+
+    <!-- ==========================================================
+    GALLERY (داینامیک)
+    ========================================================== -->
+    <section class="gallery-section" id="gallery">
+        <h3 id="galleryTitle">🖼️ Gallery</h3>
+        <p class="gallery-desc" id="galleryDesc">A glimpse into this character</p>
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Honkai Star Rail Fans ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT — LOADER
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+    <script>
+        // ============================================================
+        // LOAD CHARACTER FROM JSON
+        // ============================================================
+        async function loadCharacter(charId) {
+            try {
+                const response = await fetch('/data/characters.json');
+                const charactersData = await response.json();
+                const data = charactersData[charId];
+
+                if (!data) {
+                    document.getElementById('charName').innerHTML = 'Character <span>Not Found</span>';
+                    document.getElementById('charDescription').textContent = 'Character not found. Please check the URL.';
+                    return;
+                }
+
+                // Page Title
+                document.title = `${data.name} · Honkai Star Rail`;
+                document.getElementById('pageTitle').textContent = `${data.name} · Honkai Star Rail`;
+                document.getElementById('headerSub').textContent = `${data.name} · Character Profile`;
+
+                // Hero
+                document.getElementById('charBadge').textContent = data.faction;
+                document.getElementById('charName').innerHTML = `${data.name}`;
+                document.getElementById('charSubTitle').textContent = data.title;
+                document.getElementById('charDescription').textContent = data.description;
+                document.getElementById('charImage').src = data.image;
+
+                // Features
+                const featuresSection = document.getElementById('featuresSection');
+                featuresSection.innerHTML = '';
+                data.features.forEach(f => {
+                    const card = document.createElement('div');
+                    card.className = 'feature-card';
+                    card.innerHTML = `
+                        <span class="icon">${f.icon}</span>
+                        <h3>${f.title}</h3>
+                        <p>${f.desc}</p>
+                    `;
+                    featuresSection.appendChild(card);
+                });
+
+                // Bio
+                document.getElementById('bioTitle').innerHTML = `Biography · <span>${data.name}</span>`;
+                document.getElementById('bioSub').textContent = data.bioSub;
+                const bioContent = document.getElementById('bioContent');
+                bioContent.innerHTML = '';
+                data.bioContent.forEach(p => {
+                    const para = document.createElement('p');
+                    para.innerHTML = p;
+                    bioContent.appendChild(para);
+                });
+
+                const statsContainer = document.getElementById('bioStats');
+                statsContainer.innerHTML = '';
+                data.stats.forEach(stat => {
+                    const item = document.createElement('div');
+                    item.className = 'stat-item';
+                    item.innerHTML = `
+                        <div class="stat-label">${stat.label}</div>
+                        <div class="stat-value">${stat.value}</div>
+                    `;
+                    statsContainer.appendChild(item);
+                });
+                document.getElementById('bioImage').src = data.bioImage;
+
+                // Skills
+                document.getElementById('skillsDesc').textContent = `${data.name}'s combat style is deadly and precise.`;
+                const skillsGrid = document.getElementById('skillsGrid');
+                skillsGrid.innerHTML = '';
+                data.skills.forEach(skill => {
+                    const card = document.createElement('div');
+                    card.className = 'skill-card';
+                    card.innerHTML = `
+                        <span class="skill-icon">${skill.icon}</span>
+                        <div class="skill-name">${skill.name}</div>
+                        <span class="skill-type">${skill.type}</span>
+                        <p>${skill.desc}</p>
+                    `;
+                    skillsGrid.appendChild(card);
+                });
+
+                // Gallery
+                const galleryGrid = document.getElementById('galleryGrid');
+                galleryGrid.innerHTML = '';
+                data.gallery.forEach((emoji, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'gallery-item';
+                    const imgSrc = data.galleryImages[index] || '';
+                    if (imgSrc) {
+                        item.innerHTML = `<img src="${imgSrc}" alt="Gallery ${index+1}" onerror="this.parentElement.textContent='${emoji}'">`;
+                    } else {
+                        item.textContent = emoji;
+                    }
+                    galleryGrid.appendChild(item);
+                });
+
+            } catch (error) {
+                console.error('Error loading character:', error);
+                document.getElementById('charDescription').textContent = 'Error loading character data. Please try again later.';
+            }
+        }
+
+        // ============================================================
+        // GET CHARACTER FROM URL
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const charId = params.get('id') || 'kafka';
+            loadCharacter(charId);
+        });
+    </script>
+
+</body>
+</html>

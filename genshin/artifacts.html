@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin · Artifacts</title>
+    <!-- استایل‌های عمومی -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- استایل‌های صفحات داخلی -->
+    <link rel="stylesheet" href="/css/pages.css">
+    <!-- استایل‌های اختصاصی این صفحه -->
+    <style>
+        /* ============================================================
+           استایل‌های اختصاصی ARTIFACTS
+           ============================================================ */
+        
+        .artifact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .artifact-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(6px);
+            border-radius: 18px;
+            padding: 20px 15px 18px 15px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s;
+        }
+
+        .artifact-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-color);
+            box-shadow: 0 12px 40px var(--card-shadow);
+        }
+
+        .artifact-card .image-wrapper {
+            width: 80px;
+            height: 80px;
+            background: var(--image-bg);
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 12px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--image-border);
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .artifact-card .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .artifact-card .image-wrapper .no-image {
+            font-size: 38px;
+            color: var(--no-image-color);
+            opacity: 0.7;
+        }
+
+        .artifact-card .rarity {
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #ffd700;
+        }
+
+        .artifact-card h4 {
+            color: var(--text-heading);
+            font-size: 18px;
+            margin: 8px 0 6px 0;
+            transition: color 0.3s ease;
+        }
+
+        .artifact-card .bonus {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            background: var(--bonus-bg);
+            padding: 6px 10px;
+            border-radius: 8px;
+            line-height: 1.6;
+            transition: color 0.3s ease, background 0.3s ease;
+        }
+
+        .artifact-card .bonus strong {
+            color: var(--bonus-strong);
+            display: block;
+            margin-bottom: 2px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .artifact-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 15px;
+            }
+            .artifact-card .image-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .artifact-grid {
+                grid-template-columns: 1fr;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE (توسط base.css مدیریت میشه)
+    ========================================================== -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label" id="themeLabel">🔴 Red</span>
+        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Genshin</span> Impact ✦</h1>
+            <p>Artifacts of Teyvat</p>
+            <a href="/index.html" class="back-link">← Back to Home</a>
+        </div>
+
+        <!-- ==========================================================
+        MENU — استاندارد (آیکون تصویری برای بازی‌ها، ایموجی برای بقیه)
+        ========================================================== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/s-rank.html">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html">🗺️ Map</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>💎 <span>Artifacts</span> of Teyvat</h2>
+        <p>Every set that defines the power of your characters</p>
+    </section>
+
+    <!-- ==========================================================
+    ARTIFACT GRID — ALL 18 SETS
+    ========================================================== -->
+    <section class="content-section">
+        <h3 class="section-header">⭐ 5‑Star Artifact Sets</h3>
+        <div class="artifact-grid">
+
+            <!-- 1. Emblem of Severed Fate -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/emblem.jpg" alt="Emblem" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">⚜️</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Emblem of Severed Fate</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> Energy Recharge +20%
+                    <strong style="margin-top:6px;">4-Piece</strong> Increases Elemental Burst DMG by 25% of Energy Recharge. Max 75%.
+                </div>
+            </div>
+
+            <!-- 2. Crimson Witch of Flames -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/crimson.jpg" alt="Crimson Witch" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🔥</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Crimson Witch of Flames</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> Pyro DMG Bonus +15%
+                    <strong style="margin-top:6px;">4-Piece</strong> Increases Overloaded, Burning, Burgeon DMG by 40%. Increases Vaporize, Melt DMG by 15%.
+                </div>
+            </div>
+
+            <!-- 3. Blizzard Strayer -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/blizzard.jpg" alt="Blizzard" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">❄️</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Blizzard Strayer</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> Cryo DMG Bonus +15%
+                    <strong style="margin-top:6px;">4-Piece</strong> When attacking an enemy affected by Cryo, CRIT Rate +20%. If frozen, CRIT Rate +40%.
+                </div>
+            </div>
+
+            <!-- 4. Viridescent Venerer -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/viridescent.jpg" alt="Viridescent" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🌪️</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Viridescent Venerer</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> Anemo DMG Bonus +15%
+                    <strong style="margin-top:6px;">4-Piece</strong> Increases Swirl DMG by 60%. Decreases opponent's Elemental RES to the element infused by 40% for 10s.
+                </div>
+            </div>
+
+            <!-- 5. Noblesse Oblige -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/noblesse.jpg" alt="Noblesse" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">👑</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Noblesse Oblige</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> Elemental Burst DMG +20%
+                    <strong style="margin-top:6px;">4-Piece</strong> Using Elemental Burst increases all party members' ATK by 20% for 12s. (Non-stackable)
+                </div>
+            </div>
+
+            <!-- 6. Gladiator's Finale -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/gladiator.jpg" alt="Gladiator" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">⚔️</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Gladiator's Finale</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> ATK +18%
+                    <strong style="margin-top:6px;">4-Piece</strong> Increases Normal ATK DMG by 35% for Sword, Claymore, Polearm users.
+                </div>
+            </div>
+
+            <!-- 7. Thundering Fury -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/thundering.jpg" alt="Thundering" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">⚡</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Thundering Fury</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> Electro DMG Bonus +15%
+                    <strong style="margin-top:6px;">4-Piece</strong> Increases damage of Overloaded, Electro-Charged, Superconduct, Hyperbloom by 40%. Skill CD decreased by 1s.
+                </div>
+            </div>
+
+            <!-- 8. Deepwood Memories -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/deepwood.jpg" alt="Deepwood" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🌿</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Deepwood Memories</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> Dendro DMG Bonus +15%
+                    <strong style="margin-top:6px;">4-Piece</strong> After Elemental Skill or Burst hits, decreases enemy Dendro RES by 30% for 8s. (Active even off-field)
+                </div>
+            </div>
+
+            <!-- 9. Gilded Dreams -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/gilded.jpg" alt="Gilded" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">✨</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Gilded Dreams</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> Elemental Mastery +80
+                    <strong style="margin-top:6px;">4-Piece</strong> After triggering a reaction, ATK +14% and EM +100 for 8s. (Can be doubled if party has different elements)
+                </div>
+            </div>
+
+            <!-- 10. Tenacity of the Millelith -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/tenacity.jpg" alt="Tenacity" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🛡️</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Tenacity of the Millelith</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> HP +20%
+                    <strong style="margin-top:6px;">4-Piece</strong> When E hits enemy, party ATK +20% and Shield Strength +30% for 3s. (Can trigger off-field)
+                </div>
+            </div>
+
+            <!-- 11. Wanderer's Troupe -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/wanderer.jpg" alt="Wanderer" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🎵</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Wanderer's Troupe</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> Elemental Mastery +80
+                    <strong style="margin-top:6px;">4-Piece</strong> Increases Charged Attack DMG by 35% for Catalyst and Bow users.
+                </div>
+            </div>
+
+            <!-- 12. Husk of Opulent Dreams -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/husk.jpg" alt="Husk" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🏺</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Husk of Opulent Dreams</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> DEF +30%
+                    <strong style="margin-top:6px;">4-Piece</strong> Gain 6% DEF and 6% Geo DMG every 0.3s (max 4 stacks). Lose 1 stack every 6s if no Geo DMG.
+                </div>
+            </div>
+
+            <!-- 13. Ocean-Hued Clam -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/clam.jpg" alt="Clam" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🐚</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Ocean-Hued Clam</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> Healing Bonus +15%
+                    <strong style="margin-top:6px;">4-Piece</strong> Creates a Sea-Dyed Foam that deals Physical DMG based on healing for 3s (max 30,000 HP).
+                </div>
+            </div>
+
+            <!-- 14. Marechaussee Hunter -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/marechaussee.jpg" alt="Marechaussee" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🎯</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Marechaussee Hunter</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> Normal & Charged Attack DMG +15%
+                    <strong style="margin-top:6px;">4-Piece</strong> When HP changes, CRIT Rate +12% for 5s (max 3 stacks). Only active if HP changes.
+                </div>
+            </div>
+
+            <!-- 15. Golden Troupe -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/golden.jpg" alt="Golden Troupe" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🎭</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Golden Troupe</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> Elemental Skill DMG +20%
+                    <strong style="margin-top:6px;">4-Piece</strong> Elemental Skill DMG +25%. If off-field, Skill DMG +70% (total 95%).
+                </div>
+            </div>
+
+            <!-- 16. Pale Flame -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/pale-flame.jpg" alt="Pale Flame" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">💀</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Pale Flame</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> Physical DMG +25%
+                    <strong style="margin-top:6px;">4-Piece</strong> When E hits enemy, ATK +9% for 7s (max 2 stacks). At 2 stacks, 2-Piece bonus is doubled (+50% Phys DMG).
+                </div>
+            </div>
+
+            <!-- 17. Shimenawa's Reminiscence -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/shimenawa.jpg" alt="Shimenawa" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">⛩️</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Shimenawa's Reminiscence</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> ATK +18%
+                    <strong style="margin-top:6px;">4-Piece</strong> When casting E, lose 15 energy but Normal/Charged/Plunge DMG +50% for 10s. (Triggers once every 10s)
+                </div>
+            </div>
+
+            <!-- 18. Vourukasha's Glow -->
+            <div class="artifact-card">
+                <div class="image-wrapper">
+                    <img src="/img/artifacts/vourukasha.jpg" alt="Vourukasha" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🌸</span>
+                </div>
+                <div class="rarity">★★★★★</div>
+                <h4>Vourukasha's Glow</h4>
+                <div class="bonus">
+                    <strong>2-Piece</strong> HP +20%
+                    <strong style="margin-top:6px;">4-Piece</strong> When taking damage, E Skill DMG +10% for 5s (max 5 stacks). Can trigger off-field.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER (توسط base.css مدیریت میشه)
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Genshin Impact Fans ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT (توسط script.js مدیریت میشه)
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

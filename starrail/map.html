@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rail · Map</title>
+    <!-- استایل‌های عمومی (هدر، منو، فوتر، دکمه‌ی تغییر تم) -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- استایل‌های صفحات داخلی -->
+    <link rel="stylesheet" href="/css/pages.css">
+    <!-- استایل‌های اختصاصی این صفحه (نقشه) -->
+    <style>
+        /* ============================================================
+           استایل‌های اختصاصی MAP
+           ============================================================ */
+        :root {
+            --region-border: rgba(180, 60, 60, 0.15);
+            --region-bg: rgba(60, 20, 20, 0.35);
+            --region-sub-color: #c0a8a8;
+            --region-p-color: #b09898;
+            --element-tag-bg: rgba(200, 50, 50, 0.15);
+            --element-tag-border: rgba(180, 60, 60, 0.2);
+            --element-tag-color: #dbb8b8;
+            --list-bg: rgba(0, 0, 0, 0.2);
+        }
+
+        [data-theme="blue"] {
+            --region-border: rgba(60, 120, 255, 0.15);
+            --region-bg: rgba(60, 120, 255, 0.08);
+            --region-sub-color: #8a9ac0;
+            --region-p-color: #8a9ab0;
+            --element-tag-bg: rgba(60, 120, 255, 0.12);
+            --element-tag-border: rgba(60, 120, 255, 0.2);
+            --element-tag-color: #8a9ac0;
+            --list-bg: rgba(0, 0, 0, 0.2);
+        }
+
+        .region-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .region-card {
+            background: var(--region-bg);
+            backdrop-filter: blur(8px);
+            padding: 30px 25px 25px 25px;
+            border-radius: 18px;
+            border: 1px solid var(--region-border);
+            transition: all 0.4s;
+        }
+
+        .region-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-color);
+            box-shadow: 0 12px 40px var(--card-shadow);
+        }
+
+        .region-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .region-header .icon {
+            font-size: 48px;
+            line-height: 1;
+        }
+
+        .region-header .region-title {
+            flex: 1;
+        }
+
+        .region-header .region-title h4 {
+            color: var(--text-heading);
+            font-size: 28px;
+            transition: color 0.3s ease;
+        }
+
+        .region-header .region-title .sub {
+            color: var(--region-sub-color);
+            font-size: 16px;
+            font-style: italic;
+            transition: color 0.3s ease;
+        }
+
+        .region-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .region-body .description {
+            color: var(--region-p-color);
+            font-size: 15px;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .region-body .description strong {
+            color: var(--text-heading-span);
+            transition: color 0.3s ease;
+        }
+
+        .region-body .sub-regions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            margin-top: 4px;
+        }
+
+        .region-body .sub-regions .sub-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            background: var(--list-bg);
+            border: 1px solid var(--border-light);
+            font-size: 13px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .region-body .element-tag {
+            display: inline-block;
+            margin-top: 4px;
+            padding: 4px 18px;
+            border-radius: 20px;
+            background: var(--element-tag-bg);
+            border: 1px solid var(--element-tag-border);
+            font-size: 13px;
+            color: var(--element-tag-color);
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        @media (max-width: 768px) {
+            .region-header .region-title h4 {
+                font-size: 22px;
+            }
+            .region-header .icon {
+                font-size: 38px;
+            }
+            .region-card {
+                padding: 20px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .region-header {
+                gap: 12px;
+            }
+            .region-header .icon {
+                font-size: 32px;
+            }
+            .region-header .region-title h4 {
+                font-size: 19px;
+            }
+            .region-header .region-title .sub {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE (توسط base.css مدیریت میشه)
+    ========================================================== -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label" id="themeLabel">🔴 Red</span>
+        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+    HEADER (توسط base.css مدیریت میشه)
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Honkai</span> Star Rail ✦</h1>
+            <p>Map of the Cosmos</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
+        </div>
+
+        <!-- ==========================================================
+        MENU — استاندارد (آیکون تصویری برای بازی‌ها، ایموجی برای بقیه)
+        ========================================================== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/s-rank.html">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>🗺️ <span>Map</span> of the Cosmos</h2>
+        <p>Explore the worlds of the Astral Express</p>
+    </section>
+
+    <!-- ==========================================================
+    REGIONS — محتوای نقشه (همون قبلی)
+    ========================================================== -->
+    <section class="content-section">
+        <div class="region-grid">
+
+            <!-- 1. Astral Express -->
+            <div class="region-card" id="astral">
+                <div class="region-header">
+                    <span class="icon">🚂</span>
+                    <div class="region-title">
+                        <h4>Astral Express</h4>
+                        <div class="sub">The Star-Sailing Train</div>
+                    </div>
+                </div>
+                <div class="region-body">
+                    <p class="description">
+                        The <strong>Astral Express</strong> is a train that travels through the stars, invented by the Aeon of Trailblaze, Akivili. It serves as the <strong>home base</strong> for the Trailblazer and the crew, and is the primary mode of transportation between worlds.
+                    </p>
+                    <div class="sub-regions">
+                        <span class="sub-tag">🚃 Parlor Car</span>
+                        <span class="sub-tag">🛋️ Guest Cabin</span>
+                        <span class="sub-tag">📚 Archives</span>
+                        <span class="sub-tag">🌌 Observation Deck</span>
+                    </div>
+                    <span class="element-tag">🌟 The Nameless · Akivili</span>
+                </div>
+            </div>
+
+            <!-- 2. Herta Space Station -->
+            <div class="region-card" id="herta">
+                <div class="region-header">
+                    <span class="icon">🛸</span>
+                    <div class="region-title">
+                        <h4>Herta Space Station</h4>
+                        <div class="sub">The Museum Among the Stars</div>
+                    </div>
+                </div>
+                <div class="region-body">
+                    <p class="description">
+                        The <strong>Herta Space Station</strong> is the first location players visit. Founded by <strong>Herta</strong>, a member of The Genius Society, it is a vast space museum filled with countless Curios and a research base. It is home to researchers, the "Simulated Universe," and is where the Trailblazer's journey begins.
+                    </p>
+                    <div class="sub-regions">
+                        <span class="sub-tag">🎛️ Master Control Zone</span>
+                        <span class="sub-tag">🏗️ Base Zone</span>
+                        <span class="sub-tag">📦 Supply Zone</span>
+                        <span class="sub-tag">🗄️ Storage Zone</span>
+                        <span class="sub-tag">🔮 Seclusion Zone</span>
+                    </div>
+                    <span class="element-tag">🧠 Genius Society · Herta</span>
+                </div>
+            </div>
+
+            <!-- 3. Jarilo-VI -->
+            <div class="region-card" id="jarilo">
+                <div class="region-header">
+                    <span class="icon">❄️</span>
+                    <div class="region-title">
+                        <h4>Jarilo-VI</h4>
+                        <div class="sub">The Planet of Eternal Freeze</div>
+                    </div>
+                </div>
+                <div class="region-body">
+                    <p class="description">
+                        <strong>Jarilo-VI</strong> is the first actual world visited by the Astral Express. A frozen planet encased in an "Eternal Freeze" caused by a Stellaron. The only safe haven is the city of <strong>Belobog</strong>, divided into the <strong>Overworld</strong> and <strong>Underworld</strong>.
+                    </p>
+                    <div class="sub-regions">
+                        <span class="sub-tag">🏛️ Administrative District</span>
+                        <span class="sub-tag">🌨️ Outlying Snow Plains</span>
+                        <span class="sub-tag">⚔️ Silvermane Guard Restricted Zone</span>
+                        <span class="sub-tag">🌫️ Corridor of Fading Echoes</span>
+                        <span class="sub-tag">⛰️ Everwinter Hill</span>
+                        <span class="sub-tag">🪨 Boulder Town</span>
+                        <span class="sub-tag">⛏️ Great Mine</span>
+                        <span class="sub-tag">🏚️ Rivet Town</span>
+                        <span class="sub-tag">🤖 Robot Settlement</span>
+                    </div>
+                    <span class="element-tag">❄️ Eternal Freeze · Stellaron</span>
+                </div>
+            </div>
+
+            <!-- 4. The Xianzhou Luofu -->
+            <div class="region-card" id="luofu">
+                <div class="region-header">
+                    <span class="icon">🌿</span>
+                    <div class="region-title">
+                        <h4>The Xianzhou Luofu</h4>
+                        <div class="sub">The Flagship of the Xianzhou Alliance</div>
+                    </div>
+                </div>
+                <div class="region-body">
+                    <p class="description">
+                        The <strong>Xianzhou Luofu</strong> is one of the six flagships of the Xianzhou Alliance. It sails through the galaxy like a one-way arrow, with the goal of eradicating the <strong>Denizens of Abundance</strong>. It is the third accessible world.
+                    </p>
+                    <div class="sub-regions">
+                        <span class="sub-tag">⛵ Central Starskiff Haven</span>
+                        <span class="sub-tag">☁️ Cloudford</span>
+                        <span class="sub-tag">🌌 Stargazer Navalia</span>
+                        <span class="sub-tag">🛸 Aurum Alley</span>
+                        <span class="sub-tag">🏯 Palace of Astrum</span>
+                        <span class="sub-tag">🌳 Scalegorge Waterscape</span>
+                        <span class="sub-tag">⚔️ Alchemy Commission</span>
+                        <span class="sub-tag">🔮 Divination Commission</span>
+                        <span class="sub-tag">🌲 Arbor</span>
+                    </div>
+                    <span class="element-tag">🎯 The Hunt · Lan</span>
+                </div>
+            </div>
+
+            <!-- 5. Penacony -->
+            <div class="region-card" id="penacony">
+                <div class="region-header">
+                    <span class="icon">🌙</span>
+                    <div class="region-title">
+                        <h4>Penacony</h4>
+                        <div class="sub">The Planet of Festivities</div>
+                    </div>
+                </div>
+                <div class="region-body">
+                    <p class="description">
+                        <strong>Penacony</strong> is the fourth accessible world. Also known as the "Planet of Festivities," it is located in the Asdana star system. Once an IPC frontier prison, it is now a luxurious dreamscape hotel where guests can experience the <strong>Sweetdream Paradise</strong>.
+                    </p>
+                    <div class="sub-regions">
+                        <span class="sub-tag">🏨 The Reverie (Hotel)</span>
+                        <span class="sub-tag">🌅 Moment of Daybreak</span>
+                        <span class="sub-tag">🌄 Moment of Scorchsand</span>
+                        <span class="sub-tag">✨ Moment of Stars</span>
+                        <span class="sub-tag">💧 Moment of Morning Dew</span>
+                        <span class="sub-tag">🧊 Moment of Sol</span>
+                        <span class="sub-tag">🎠 Dreamscape</span>
+                    </div>
+                    <span class="element-tag">💤 The Family · Memoria</span>
+                </div>
+            </div>
+
+            <!-- 6. Amphoreus -->
+            <div class="region-card" id="amphoreus">
+                <div class="region-header">
+                    <span class="icon">🏛️</span>
+                    <div class="region-title">
+                        <h4>Amphoreus</h4>
+                        <div class="sub">The Eternal Land</div>
+                    </div>
+                </div>
+                <div class="region-body">
+                    <p class="description">
+                        <strong>Amphoreus</strong>, also known as the Eternal Land, is the fifth accessible world. It is an isolated "sandbox world" created by Scepter δ-me13. A world of ancient ruins and mysteries.
+                    </p>
+                    <div class="sub-regions">
+                        <span class="sub-tag">🏛️ Okhema</span>
+                        <span class="sub-tag">⛏️ Old Quarry Ground</span>
+                        <span class="sub-tag">🏰 Castrum Kremnos</span>
+                        <span class="sub-tag">🌌 Evernight</span>
+                        <span class="sub-tag">🌅 Dawn</span>
+                        <span class="sub-tag">🌍 Outworld</span>
+                        <span class="sub-tag">🌿 Exotale</span>
+                    </div>
+                    <span class="element-tag">⚙️ Scepter · Sandbox</span>
+                </div>
+            </div>
+
+            <!-- 7. Planarcadia -->
+            <div class="region-card" id="planarcadia">
+                <div class="region-header">
+                    <span class="icon">🎭</span>
+                    <div class="region-title">
+                        <h4>Planarcadia</h4>
+                        <div class="sub">The World of Elation</div>
+                    </div>
+                </div>
+                <div class="region-body">
+                    <p class="description">
+                        <strong>Planarcadia</strong> is a civilization on Ahatopia, a world covered in the Elation. It is <strong>Himeko's homeland</strong> and the place where the Astral Express once crashed.
+                    </p>
+                    <div class="sub-regions">
+                        <span class="sub-tag">🏙️ Duomension City</span>
+                        <span class="sub-tag">📚 Graphia Academy</span>
+                        <span class="sub-tag">🌆 Dovebrook District</span>
+                        <span class="sub-tag">🍻 "World's End" Tavern</span>
+                    </div>
+                    <span class="element-tag">🎉 The Elation · Aha</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER (توسط base.css مدیریت میشه)
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Honkai Star Rail Fans ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

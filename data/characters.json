@@ -1,0 +1,572 @@
+{
+  "danhengil": {
+    "name": "Dan Heng · Imbibitor Lunae",
+    "faction": "🐉 Astral Express",
+    "title": "The Azure Dragon's Heir",
+    "description": "The true and awakened form of Dan Heng, wielding the power of the Azure Dragon. As a master of the Destruction path, he unleashes devastating Imaginary attacks that shatter the battlefield.",
+    "image": "/img/charadters/dan-heng.jpg",
+    "bioImage": "/img/charactes/dan-heng2.jpg",
+    "bioSub": "\"The dragon awakens. And with it, the storm.\"",
+    "bioContent": [
+      "<strong>Dan Heng · Imbibitor Lunae</strong> is the awakened form of the Astral Express's guardian, Dan Heng.",
+      "He has inherited the power of the <strong>Azure Dragon</strong>, one of the legendary Xianzhou Vidyadhara, granting him immense control over Imaginary forces.",
+      "He is a being of calm resolve, but when his full power is unleashed, he brings forth a storm that can level mountains and reshape the battlefield."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🐉 Astral Express" },
+      { "label": "Role", "value": "🌀 Destruction" },
+      { "label": "Element", "value": "🌊 Imaginary" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "🐉", "title": "Azure Dragon", "desc": "Wields the ancient power of the Xianzhou's Vidyadhara." },
+      { "icon": "🌀", "title": "Destruction", "desc": "Devastating area-of-effect and single-target Imaginary damage." },
+      { "icon": "🌊", "title": "Imaginary", "desc": "His attacks distort reality, dealing massive Imaginary damage." }
+    ],
+    "skills": [
+      { "icon": "🐉", "name": "Dragon's Breath", "type": "Basic Attack", "desc": "Dan Heng strikes with a blast of Imaginary energy." },
+      { "icon": "🌀", "name": "Azure Burst", "type": "Skill", "desc": "Unleashes a torrent of draconic energy, dealing heavy Imaginary damage to enemies." },
+      { "icon": "🌊", "name": "Eternal Requiem", "type": "Ultimate", "desc": "The Azure Dragon descends, dealing massive Imaginary damage to all enemies." },
+      { "icon": "♾️", "name": "Dragon's Resolve", "type": "Passive", "desc": "Gains a stack of 'Dragon's Might' for each enemy hit, increasing ATK." }
+    ],
+    "gallery": ["🐉", "🌀", "🌊", "♾️"],
+    "galleryImages": [
+      "/img/starrail/danheng-il-gallery-1.jpg",
+      "/img/starrail/danheng-il-gallery-2.jpg",
+      "/img/starrail/danheng-il-gallery-3.jpg",
+      "/img/starrail/danheng-il-gallery-4.jpg"
+    ]
+  },
+  "seele": {
+    "name": "Seele",
+    "faction": "🌌 Wildfire",
+    "title": "The Quantum Butterfly",
+    "description": "A fierce member of Wildfire from the underworld of Belobog. Seele is a fast-paced single-target DPS who harnesses the power of Quantum to eliminate her enemies with lightning speed.",
+    "image": "/img/characters/Seele.jpg",
+    "bioImage": "/img/characters/Seele2.jpg",
+    "bioSub": "\"I'll cut through any obstacle that stands in my way.\"",
+    "bioContent": [
+      "<strong>Seele</strong> is a member of <strong>Wildfire</strong>, a resistance group fighting for the freedom of Belobog's underworld.",
+      "She wields the power of the <strong>Hunt</strong> path, specializing in eliminating high-priority targets with devastating single-target Quantum damage.",
+      "Her speed and precision make her a formidable opponent on the battlefield, always striking before her enemies can react."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🌌 Wildfire" },
+      { "label": "Role", "value": "🎯 The Hunt" },
+      { "label": "Element", "value": "🌌 Quantum" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "🌌", "title": "Quantum Damage", "desc": "Deals powerful Quantum damage to single targets." },
+      { "icon": "🎯", "title": "The Hunt", "desc": "Specializes in eliminating high-priority targets." },
+      { "icon": "⚡", "title": "Speed", "desc": "Her fast attacks allow her to take down enemies quickly." }
+    ],
+    "skills": [
+      { "icon": "🌌", "name": "Quantum Strike", "type": "Basic Attack", "desc": "Seele strikes a single enemy with Quantum energy." },
+      { "icon": "🎯", "name": "Butterfly's Dance", "type": "Skill", "desc": "Seele unleashes a flurry of attacks on a single enemy." },
+      { "icon": "⚡", "name": "Quantum Eclipse", "type": "Ultimate", "desc": "Seele delivers a devastating blow that deals massive Quantum damage." },
+      { "icon": "🌀", "name": "Resurgence", "type": "Passive", "desc": "After defeating an enemy, Seele gains an extra turn." }
+    ],
+    "gallery": ["🌌", "🎯", "⚡", "🌀"],
+    "galleryImages": [
+      "/img/starrail/seele-gallery-1.jpg",
+      "/img/starrail/seele-gallery-2.jpg",
+      "/img/starrail/seele-gallery-3.jpg",
+      "/img/starrail/seele-gallery-4.jpg"
+    ]
+  },
+  "jingyuan": {
+    "name": "Jing Yuan",
+    "faction": "⚡ Xianzhou Luofu",
+    "title": "The Cloud Knight General",
+    "description": "The general of the Xianzhou Luofu's Cloud Knights. A master of strategy and Lightning, Jing Yuan commands the Lightning Lord to deliver devastating Erudition attacks.",
+    "image": "/img/characters/jingyuan.jpg",
+    "bioImage": "/img/starrail/jingyuan-bio.jpg",
+    "bioSub": "\"The storm is a part of me. And I am its master.\"",
+    "bioContent": [
+      "<strong>Jing Yuan</strong> is the general of the <strong>Xianzhou Luofu's Cloud Knights</strong>.",
+      "He is a master of the <strong>Erudition</strong> path, capable of controlling the mythical Lightning Lord to strike down multiple enemies with devastating AoE damage.",
+      "Despite his calm and approachable demeanor, he is a brilliant strategist who has defended the Luofu from countless threats."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "⚡ Xianzhou Luofu" },
+      { "label": "Role", "value": "📚 Erudition" },
+      { "label": "Element", "value": "⚡ Lightning" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "⚡", "title": "Lightning Lord", "desc": "Commands a mythical beast of lightning." },
+      { "icon": "📚", "title": "Erudition", "desc": "Devastating area-of-effect damage." },
+      { "icon": "🎯", "title": "Strategic Mind", "desc": "His tactics are as sharp as his blade." }
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Storm's Edge", "type": "Basic Attack", "desc": "Jing Yuan strikes with a blade of lightning." },
+      { "icon": "📚", "name": "Lightning's Wrath", "type": "Skill", "desc": "Calls down a bolt of lightning that deals AoE damage." },
+      { "icon": "⚡", "name": "Lord's Decree", "type": "Ultimate", "desc": "The Lightning Lord descends, dealing massive Lightning damage to all enemies." },
+      { "icon": "🌀", "name": "Benevolent Thunder", "type": "Passive", "desc": "Increases the Lightning Lord's follow-up attack damage." }
+    ],
+    "gallery": ["⚡", "📚", "🎯", "🌀"],
+    "galleryImages": [
+      "/img/starrail/jingyuan-gallery-1.jpg",
+      "/img/starrail/jingyuan-gallery-2.jpg",
+      "/img/starrail/jingyuan-gallery-3.jpg",
+      "/img/starrail/jingyuan-gallery-4.jpg"
+    ]
+  },
+  "blade": {
+    "name": "Blade",
+    "faction": "💀 Stellaron Hunters",
+    "title": "The Immortal Swordsman",
+    "description": "A mysterious swordsman seeking death. Blade wields the power of the Destruction path, consuming his own HP to deal devastating Imaginary damage.",
+    "image": "/img/characters/blade.jpg",
+    "bioImage": "/img/starrail/blade-bio.jpg",
+    "bioSub": "\"Death is not the end. It is merely a beginning.\"",
+    "bioContent": [
+      "<strong>Blade</strong> is a member of the <strong>Stellaron Hunters</strong>, an immortal swordsman cursed with eternal life.",
+      "He wields the power of the <strong>Destruction</strong> path, sacrificing his own health to unleash devastating Imaginary attacks.",
+      "His past is shrouded in tragedy, and he seeks nothing but an end to his eternal suffering."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "💀 Stellaron Hunters" },
+      { "label": "Role", "value": "🌀 Destruction" },
+      { "label": "Element", "value": "🌊 Imaginary" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "💀", "title": "Immortal Swordsman", "desc": "Cursed with eternal life." },
+      { "icon": "🌀", "title": "Destruction", "desc": "Attacks consume his own HP for power." },
+      { "icon": "🌊", "title": "Imaginary", "desc": "Deals devastating Imaginary damage." }
+    ],
+    "skills": [
+      { "icon": "💀", "name": "Soul Rend", "type": "Basic Attack", "desc": "Blade slashes with his sword, dealing Imaginary damage." },
+      { "icon": "🌀", "name": "Blood Thirst", "type": "Skill", "desc": "Blade sacrifices HP to deal massive Imaginary damage." },
+      { "icon": "🌊", "name": "Eternal Requiem", "type": "Ultimate", "desc": "Unleashes the full power of his curse, dealing devastating Imaginary damage to all enemies." },
+      { "icon": "♾️", "name": "Immortal Will", "type": "Passive", "desc": "When Blade is knocked down, he revives with a percentage of his HP." }
+    ],
+    "gallery": ["💀", "🌀", "🌊", "♾️"],
+    "galleryImages": [
+      "/img/starrail/blade-gallery-1.jpg",
+      "/img/starrail/blade-gallery-2.jpg",
+      "/img/starrail/blade-gallery-3.jpg",
+      "/img/starrail/blade-gallery-4.jpg"
+    ]
+  },
+  "kafka": {
+    "name": "Kafka",
+    "faction": "🕸️ Stellaron Hunters",
+    "title": "The Elegant Stellaron Hunter",
+    "description": "A member of the mysterious Stellaron Hunters, Kafka wields lightning with deadly precision. She specializes in applying Shock and triggering devastating follow-up attacks.",
+    "image": "/img/characters/kafka.jpg",
+    "bioImage": "/img/starrail/kafka-bio.jpg",
+    "bioSub": "\"The universe is full of surprises. I intend to enjoy every single one.\"",
+    "bioContent": [
+      "<strong>Kafka</strong> is a member of the <strong>Stellaron Hunters</strong>, a group of enigmatic individuals who operate outside the laws of the universe.",
+      "Her powers are a testament to her connection to the <strong>Nihility</strong> path. She can weave lightning into her attacks, paralyzing enemies with Shock.",
+      "Despite her fearsome reputation, Kafka is not without her own code of ethics. She often appears to help those in need — though always on her own terms."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🕸️ Stellaron Hunters" },
+      { "label": "Role", "value": "🌌 Nihility" },
+      { "label": "Element", "value": "⚡ Lightning" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "⚡", "title": "Lightning Wielder", "desc": "Commands the power of lightning." },
+      { "icon": "🕸️", "title": "Stellaron Hunter", "desc": "Operates outside the laws of the universe." },
+      { "icon": "🌌", "title": "Nihility", "desc": "Excels at debuffs and follow-up attacks." }
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Lightning Bolt", "type": "Basic Attack", "desc": "Hurls a bolt of lightning with a chance to apply Shock." },
+      { "icon": "🕸️", "name": "Caress of the Spider", "type": "Skill", "desc": "Unleashes a web of lightning that applies Shock to all enemies." },
+      { "icon": "🌌", "name": "Twilight of the Hunt", "type": "Ultimate", "desc": "Triggers massive chain lightning, consuming all Shock stacks for bonus damage." },
+      { "icon": "🌀", "name": "Nihility's Embrace", "type": "Passive", "desc": "Gains stacks of DoT Amplification on shocked enemies, increasing follow-up attack damage." }
+    ],
+    "gallery": ["🕸️", "⚡", "🌌", "🌀"],
+    "galleryImages": [
+      "/img/starrail/kafka-gallery-1.jpg",
+      "/img/starrail/kafka-gallery-2.jpg",
+      "/img/starrail/kafka-gallery-3.jpg",
+      "/img/starrail/kafka-gallery-4.jpg"
+    ]
+  },
+  "bronya": {
+    "name": "Bronya",
+    "faction": "🌀 Belobog",
+    "title": "The Silvermane Commander",
+    "description": "The commander of the Silvermane Guards of Belobog. Bronya is a top-tier support who excels at boosting her team's ATK and manipulating turn order with the Harmony path.",
+    "image": "/img/characters/bronya.jpg",
+    "bioImage": "/img/starrail/bronya-bio.jpg",
+    "bioSub": "\"For Belobog! For the future!\"",
+    "bioContent": [
+      "<strong>Bronya</strong> is the commander of the <strong>Silvermane Guards</strong> of Belobog.",
+      "She follows the <strong>Harmony</strong> path, using her leadership to boost the combat effectiveness of her entire team.",
+      "Raised as a noble, she has grown into a wise and just leader, fighting tirelessly for the survival of her people."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🌀 Belobog" },
+      { "label": "Role", "value": "🎵 Harmony" },
+      { "label": "Element", "value": "🌪️ Wind" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "🎵", "title": "Harmony", "desc": "Provides exceptional team support." },
+      { "icon": "🌪️", "title": "Wind", "desc": "Deals Wind damage." },
+      { "icon": "🛡️", "title": "Commander", "desc": "Her leadership inspires the entire team." }
+    ],
+    "skills": [
+      { "icon": "🌪️", "name": "Wind Strike", "type": "Basic Attack", "desc": "A swift wind attack." },
+      { "icon": "🎵", "name": "March of the Guards", "type": "Skill", "desc": "Boosts an ally's ATK and advances their action." },
+      { "icon": "🛡️", "name": "Belobog's Glory", "type": "Ultimate", "desc": "Boosts the entire team's ATK and removes debuffs." },
+      { "icon": "🌀", "name": "Battlefield Presence", "type": "Passive", "desc": "Increases the team's damage based on Bronya's ATK." }
+    ],
+    "gallery": ["🌪️", "🎵", "🛡️", "🌀"],
+    "galleryImages": [
+      "/img/starrail/bronya-gallery-1.jpg",
+      "/img/starrail/bronya-gallery-2.jpg",
+      "/img/starrail/bronya-gallery-3.jpg",
+      "/img/starrail/bronya-gallery-4.jpg"
+    ]
+  },
+  "luocha": {
+    "name": "Luocha",
+    "faction": "⚕️ Interastral Merchant",
+    "title": "The Mysterious Merchant",
+    "description": "A mysterious merchant from beyond the stars. Luocha is a powerful healer on the Abundance path, excelling at removing debuffs and keeping his team alive.",
+    "image": "/img/characters/luocha.jpg",
+    "bioImage": "/img/starrail/luocha-bio.jpg",
+    "bioSub": "\"Debts must always be repaid. One way or another.\"",
+    "bioContent": [
+      "<strong>Luocha</strong> is a mysterious merchant who travels the galaxy.",
+      "He is a follower of the <strong>Abundance</strong> path, gifted with incredible healing abilities that can cleanse even the most potent curses.",
+      "Despite his friendly demeanor, his true motives remain a secret to everyone he meets."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "⚕️ Interastral Merchant" },
+      { "label": "Role", "value": "🌿 Abundance" },
+      { "label": "Element", "value": "🌊 Imaginary" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "🌿", "title": "Abundance", "desc": "Exceptional healing capabilities." },
+      { "icon": "🌊", "title": "Imaginary", "desc": "Deals Imaginary damage." },
+      { "icon": "⚕️", "title": "Cleanser", "desc": "Removes debuffs from allies." }
+    ],
+    "skills": [
+      { "icon": "🌊", "name": "Imaginary Blade", "type": "Basic Attack", "desc": "Deals Imaginary damage to a single enemy." },
+      { "icon": "🌿", "name": "Healing Pulse", "type": "Skill", "desc": "Heals an ally and removes a debuff." },
+      { "icon": "⚕️", "name": "Cycle of Life", "type": "Ultimate", "desc": "Heals all allies and deals damage to all enemies." },
+      { "icon": "🌀", "name": "Mercenary's Favor", "type": "Passive", "desc": "Increases healing done to allies who are below a certain HP threshold." }
+    ],
+    "gallery": ["🌊", "🌿", "⚕️", "🌀"],
+    "galleryImages": [
+      "/img/starrail/luocha-gallery-1.jpg",
+      "/img/starrail/luocha-gallery-2.jpg",
+      "/img/starrail/luocha-gallery-3.jpg",
+      "/img/starrail/luocha-gallery-4.jpg"
+    ]
+  },
+  "silverwolf": {
+    "name": "Silver Wolf",
+    "faction": "🐺 Stellaron Hunters",
+    "title": "The Ultimate Hacker",
+    "description": "A genius hacker from the Stellaron Hunters. Silver Wolf uses her unique abilities to implant weaknesses onto enemies, making them vulnerable to any element.",
+    "image": "/img/characters/silverwolf.jpg",
+    "bioImage": "/img/starrail/silverwolf-bio.jpg",
+    "bioSub": "\"Hacking reality is just a matter of finding the right bugs.\"",
+    "bioContent": [
+      "<strong>Silver Wolf</strong> is a member of the <strong>Stellaron Hunters</strong> and a legendary hacker.",
+      "She follows the <strong>Nihility</strong> path, using her coding skills to 'hack' reality and implant elemental weaknesses into her opponents.",
+      "She is playful and mischievous, treating combat like a video game, but her efficiency is undeniable."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🐺 Stellaron Hunters" },
+      { "label": "Role", "value": "🌌 Nihility" },
+      { "label": "Element", "value": "🌌 Quantum" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "🐺", "title": "Stellaron Hunter", "desc": "Operates outside the system." },
+      { "icon": "🌌", "title": "Nihility", "desc": "Applies powerful debuffs." },
+      { "icon": "🔧", "title": "Hacker", "desc": "Implements weaknesses onto enemies." }
+    ],
+    "skills": [
+      { "icon": "🌌", "name": "Quantum Bolt", "type": "Basic Attack", "desc": "Deals Quantum damage." },
+      { "icon": "🔧", "name": "System Shock", "type": "Skill", "desc": "Implements a random weakness onto an enemy." },
+      { "icon": "🐺", "name": "Hack & Slash", "type": "Ultimate", "desc": "Deals Quantum damage and reduces enemy DEF." },
+      { "icon": "🌀", "name": "Debugging", "type": "Passive", "desc": "Reduces the target's effect resistance when a weakness is implemented." }
+    ],
+    "gallery": ["🐺", "🌌", "🔧", "🌀"],
+    "galleryImages": [
+      "/img/starrail/silverwolf-gallery-1.jpg",
+      "/img/starrail/silverwolf-gallery-2.jpg",
+      "/img/starrail/silverwolf-gallery-3.jpg",
+      "/img/starrail/silverwolf-gallery-4.jpg"
+    ]
+  },
+  "asta": {
+    "name": "Asta",
+    "faction": "🔥 Herta Space Station",
+    "title": "The Passionate Researcher",
+    "description": "A researcher at Herta Space Station with a fiery passion for discovery. Asta is a Harmony character who boosts the team's ATK and speed, making her a valuable support.",
+    "image": "/img/characters/asta.jpg",
+    "bioImage": "/img/starrail/asta-bio.jpg",
+    "bioSub": "\"The stars hold infinite secrets!\"",
+    "bioContent": [
+      "<strong>Asta</strong> is a researcher at the <strong>Herta Space Station</strong>.",
+      "She is a follower of the <strong>Harmony</strong> path, using her fiery enthusiasm to boost the ATK and Speed of her allies.",
+      "Her research focuses on the cosmos, and she treats every battle as an exciting experiment."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🔥 Herta Space Station" },
+      { "label": "Role", "value": "🎵 Harmony" },
+      { "label": "Element", "value": "🔥 Fire" },
+      { "label": "Rarity", "value": "⭐ 4-Star" }
+    ],
+    "features": [
+      { "icon": "🎵", "title": "Harmony", "desc": "Boosts team ATK and Speed." },
+      { "icon": "🔥", "title": "Fire", "desc": "Deals Fire damage." },
+      { "icon": "📚", "title": "Researcher", "desc": "Analyzes enemies to find weaknesses." }
+    ],
+    "skills": [
+      { "icon": "🔥", "name": "Firebolt", "type": "Basic Attack", "desc": "Deals Fire damage." },
+      { "icon": "🎵", "name": "Astral Inspiration", "type": "Skill", "desc": "Boosts an ally's ATK." },
+      { "icon": "📚", "name": "Supernova", "type": "Ultimate", "desc": "Boosts the entire team's ATK based on Asta's stacks." },
+      { "icon": "🌀", "name": "Observation", "type": "Passive", "desc": "Gains stacks of ATK boost for each enemy hit." }
+    ],
+    "gallery": ["🔥", "🎵", "📚", "🌀"],
+    "galleryImages": [
+      "/img/starrail/asta-gallery-1.jpg",
+      "/img/starrail/asta-gallery-2.jpg",
+      "/img/starrail/asta-gallery-3.jpg",
+      "/img/starrail/asta-gallery-4.jpg"
+    ]
+  },
+  "natasha": {
+    "name": "Natasha",
+    "faction": "💉 Underworld Belobog",
+    "title": "The Underground Doctor",
+    "description": "A doctor from Belobog's underworld. Natasha is a kind-hearted healer on the Abundance path, providing essential healing and debuff removal for her team.",
+    "image": "/img/characters/natasha.jpg",
+    "bioImage": "/img/starrail/natasha-bio.jpg",
+    "bioSub": "\"A healthy body is a healthy mind.\"",
+    "bioContent": [
+      "<strong>Natasha</strong> is a dedicated doctor from the <strong>Underworld</strong> of Belobog.",
+      "She is a follower of the <strong>Abundance</strong> path, providing reliable healing and cleansing debuffs to keep her allies in fighting shape.",
+      "Despite the harsh conditions of the underworld, she remains caring and compassionate."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "💉 Underworld Belobog" },
+      { "label": "Role", "value": "🌿 Abundance" },
+      { "label": "Element", "value": "☣️ Physical" },
+      { "label": "Rarity", "value": "⭐ 4-Star" }
+    ],
+    "features": [
+      { "icon": "🌿", "title": "Abundance", "desc": "Provides reliable healing." },
+      { "icon": "☣️", "title": "Physical", "desc": "Deals Physical damage." },
+      { "icon": "💉", "title": "Doctor", "desc": "Removes debuffs from allies." }
+    ],
+    "skills": [
+      { "icon": "☣️", "name": "Surgical Strike", "type": "Basic Attack", "desc": "Deals Physical damage." },
+      { "icon": "🌿", "name": "Healing Salve", "type": "Skill", "desc": "Heals an ally." },
+      { "icon": "💉", "name": "Panacea", "type": "Ultimate", "desc": "Heals all allies and removes debuffs." },
+      { "icon": "🌀", "name": "Bedside Manner", "type": "Passive", "desc": "Increases healing done to allies with low HP." }
+    ],
+    "gallery": ["☣️", "🌿", "💉", "🌀"],
+    "galleryImages": [
+      "/img/starrail/natasha-gallery-1.jpg",
+      "/img/starrail/natasha-gallery-2.jpg",
+      "/img/starrail/natasha-gallery-3.jpg",
+      "/img/starrail/natasha-gallery-4.jpg"
+    ]
+  },
+  "pela": {
+    "name": "Pela",
+    "faction": "❄️ Silvermane Guards",
+    "title": "The Ice-Cold Intelligence Officer",
+    "description": "An intelligence officer of the Silvermane Guards. Pela uses her ice-cold precision to dispel enemy buffs and shred their defenses on the Nihility path.",
+    "image": "/img/characters/pela.jpg",
+    "bioImage": "/img/starrail/pela-bio.jpg",
+    "bioSub": "\"Intelligence is the sharpest weapon.\"",
+    "bioContent": [
+      "<strong>Pela</strong> is an intelligence officer for the <strong>Silvermane Guards</strong>.",
+      "She follows the <strong>Nihility</strong> path, specializing in dispelling enemy buffs and reducing their defense, making them easy targets.",
+      "She is calm, collected, and highly analytical, always thinking several steps ahead."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "❄️ Silvermane Guards" },
+      { "label": "Role", "value": "🌌 Nihility" },
+      { "label": "Element", "value": "❄️ Ice" },
+      { "label": "Rarity", "value": "⭐ 4-Star" }
+    ],
+    "features": [
+      { "icon": "🌌", "title": "Nihility", "desc": "Dispels buffs and shreds defenses." },
+      { "icon": "❄️", "title": "Ice", "desc": "Deals Ice damage." },
+      { "icon": "🛡️", "title": "Officer", "desc": "Analyzes enemy weaknesses." }
+    ],
+    "skills": [
+      { "icon": "❄️", "name": "Ice Shot", "type": "Basic Attack", "desc": "Deals Ice damage." },
+      { "icon": "🌌", "name": "Defense Shred", "type": "Skill", "desc": "Reduces an enemy's DEF." },
+      { "icon": "🛡️", "name": "Full Sweep", "type": "Ultimate", "desc": "Deals Ice damage to all enemies and dispels their buffs." },
+      { "icon": "🌀", "name": "Strategic Analysis", "type": "Passive", "desc": "Increases efficiency of defense reduction." }
+    ],
+    "gallery": ["❄️", "🌌", "🛡️", "🌀"],
+    "galleryImages": [
+      "/img/starrail/pela-gallery-1.jpg",
+      "/img/starrail/pela-gallery-2.jpg",
+      "/img/starrail/pela-gallery-3.jpg",
+      "/img/starrail/pela-gallery-4.jpg"
+    ]
+  },
+  "sushang": {
+    "name": "Sushang",
+    "faction": "⚔️ Xianzhou Alliance",
+    "title": "The Eager Young Warrior",
+    "description": "A young warrior from the Xianzhou Alliance. Sushang is a Hunt character who combines Physical damage with speed, taking down single targets with rapid strikes.",
+    "image": "/img/characters/sushang.jpg",
+    "bioImage": "/img/starrail/sushang-bio.jpg",
+    "bioSub": "\"I'll prove my strength!\"",
+    "bioContent": [
+      "<strong>Sushang</strong> is a young and eager warrior from the <strong>Xianzhou Alliance</strong>.",
+      "She is a follower of the <strong>Hunt</strong> path, excelling at single-target Physical damage.",
+      "She is energetic and determined to prove herself, often charging into battle without hesitation."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "⚔️ Xianzhou Alliance" },
+      { "label": "Role", "value": "🎯 The Hunt" },
+      { "label": "Element", "value": "☣️ Physical" },
+      { "label": "Rarity", "value": "⭐ 4-Star" }
+    ],
+    "features": [
+      { "icon": "🎯", "title": "The Hunt", "desc": "Single-target DPS specialist." },
+      { "icon": "☣️", "title": "Physical", "desc": "Deals Physical damage." },
+      { "icon": "⚡", "title": "Speed", "desc": "Attacks with incredible speed." }
+    ],
+    "skills": [
+      { "icon": "☣️", "name": "Swift Strike", "type": "Basic Attack", "desc": "Deals Physical damage." },
+      { "icon": "🎯", "name": "Rapid Assault", "type": "Skill", "desc": "Unleashes a rapid flurry of attacks on a single enemy." },
+      { "icon": "⚡", "name": "Verdict", "type": "Ultimate", "desc": "Deals massive Physical damage to a single enemy." },
+      { "icon": "🌀", "name": "Swordheart", "type": "Passive", "desc": "Increases damage against enemies with lower HP." }
+    ],
+    "gallery": ["☣️", "🎯", "⚡", "🌀"],
+    "galleryImages": [
+      "/img/starrail/sushang-gallery-1.jpg",
+      "/img/starrail/sushang-gallery-2.jpg",
+      "/img/starrail/sushang-gallery-3.jpg",
+      "/img/starrail/sushang-gallery-4.jpg"
+    ]
+  },
+  "tingyun": {
+    "name": "Tingyun",
+    "faction": "🦊 Xianzhou Luofu",
+    "title": "The Foxian Merchant",
+    "description": "A charming Foxian merchant from the Xianzhou Luofu. Tingyun is a Harmony character who boosts ally ATK and provides energy regeneration.",
+    "image": "/img/characters/tingyun.jpg",
+    "bioImage": "/img/starrail/tingyun-bio.jpg",
+    "bioSub": "\"A little charm goes a long way.\"",
+    "bioContent": [
+      "<strong>Tingyun</strong> is a charismatic <strong>Foxian</strong> merchant from the Xianzhou Luofu.",
+      "She walks the <strong>Harmony</strong> path, using her charm to boost her allies' ATK and even restore their energy.",
+      "Though she appears delicate, she is a skilled negotiator and a capable fighter."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🦊 Xianzhou Luofu" },
+      { "label": "Role", "value": "🎵 Harmony" },
+      { "label": "Element", "value": "⚡ Lightning" },
+      { "label": "Rarity", "value": "⭐ 4-Star" }
+    ],
+    "features": [
+      { "icon": "🎵", "title": "Harmony", "desc": "Boosts ATK and provides energy." },
+      { "icon": "⚡", "title": "Lightning", "desc": "Deals Lightning damage." },
+      { "icon": "🦊", "title": "Foxian", "desc": "Charming and cunning." }
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Lightning Whip", "type": "Basic Attack", "desc": "Deals Lightning damage." },
+      { "icon": "🎵", "name": "Benediction", "type": "Skill", "desc": "Boosts an ally's ATK and provides energy regeneration." },
+      { "icon": "🦊", "name": "Fox's Gambit", "type": "Ultimate", "desc": "Boosts the entire team's ATK." },
+      { "icon": "🌀", "name": "Merchant's Grace", "type": "Passive", "desc": "Increases the team's damage when Tingyun is on the field." }
+    ],
+    "gallery": ["⚡", "🎵", "🦊", "🌀"],
+    "galleryImages": [
+      "/img/starrail/tingyun-gallery-1.jpg",
+      "/img/starrail/tingyun-gallery-2.jpg",
+      "/img/starrail/tingyun-gallery-3.jpg",
+      "/img/starrail/tingyun-gallery-4.jpg"
+    ]
+  },
+  "qingque": {
+    "name": "Qingque",
+    "faction": "🀄 Xianzhou Luofu",
+    "title": "The Lazy Diviner",
+    "description": "A lazy but incredibly skilled diviner of the Xianzhou Luofu. Qingque follows the Erudition path, using a unique tile-drawing mechanic to unleash powerful attacks.",
+    "image": "/img/characters/qingque.jpg",
+    "bioImage": "/img/starrail/qingque-bio.jpg",
+    "bioSub": "\"Why work hard when you can work smart?\"",
+    "bioContent": [
+      "<strong>Qingque</strong> is a diviner of the <strong>Xianzhou Luofu</strong> who is famous for her lazy attitude.",
+      "Despite her laziness, she is a genius on the <strong>Erudition</strong> path. Her attacks revolve around drawing mahjong tiles, which can lead to massive bursts of damage if she's lucky.",
+      "She prefers playing games and napping over working, but when pushed, she proves her incredible talent."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🀄 Xianzhou Luofu" },
+      { "label": "Role", "value": "📚 Erudition" },
+      { "label": "Element", "value": "🌌 Quantum" },
+      { "label": "Rarity", "value": "⭐ 4-Star" }
+    ],
+    "features": [
+      { "icon": "📚", "title": "Erudition", "desc": "Deals AoE Quantum damage." },
+      { "icon": "🌌", "title": "Quantum", "desc": "Deals Quantum damage." },
+      { "icon": "🀄", "title": "Gambler", "desc": "Uses a unique tile-drawing mechanic for power." }
+    ],
+    "skills": [
+      { "icon": "🌌", "name": "Tile Strike", "type": "Basic Attack", "desc": "Deals Quantum damage." },
+      { "icon": "🀄", "name": "Draw Hand", "type": "Skill", "desc": "Draws tiles, enhancing the next attack." },
+      { "icon": "📚", "name": "Wild Card", "type": "Ultimate", "desc": "Deals massive AoE Quantum damage based on the number of tiles drawn." },
+      { "icon": "🌀", "name": "Lady Luck", "type": "Passive", "desc": "Increases critical damage based on tile stacks." }
+    ],
+    "gallery": ["🌌", "🀄", "📚", "🌀"],
+    "galleryImages": [
+      "/img/starrail/qingque-gallery-1.jpg",
+      "/img/starrail/qingque-gallery-2.jpg",
+      "/img/starrail/qingque-gallery-3.jpg",
+      "/img/starrail/qingque-gallery-4.jpg"
+    ]
+  },
+  "herta": {
+    "name": "Herta",
+    "faction": "🧪 Genius Society",
+    "title": "The Genius Owner",
+    "description": "The genius owner of Herta Space Station. Herta is an Erudition character who uses Ice to deal massive AoE damage and trigger follow-up attacks.",
+    "image": "/img/characters/herta.jpg",
+    "bioImage": "/img/starrail/herta-bio.jpg",
+    "bioSub": "\"I am always right. It's a fact.\"",
+    "bioContent": [
+      "<strong>Herta</strong> is the genius owner of the <strong>Herta Space Station</strong>.",
+      "She is a follower of the <strong>Erudition</strong> path, utilizing Ice to freeze her enemies and strike them down with powerful follow-up attacks.",
+      "She is highly confident in her intelligence and views everything as a fascinating experiment."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🧪 Genius Society" },
+      { "label": "Role", "value": "📚 Erudition" },
+      { "label": "Element", "value": "❄️ Ice" },
+      { "label": "Rarity", "value": "⭐ 4-Star" }
+    ],
+    "features": [
+      { "icon": "📚", "title": "Erudition", "desc": "Excels at AoE damage." },
+      { "icon": "❄️", "title": "Ice", "desc": "Deals Ice damage." },
+      { "icon": "🧪", "title": "Genius", "desc": "Her intellect is unmatched." }
+    ],
+    "skills": [
+      { "icon": "❄️", "name": "Ice Bolt", "type": "Basic Attack", "desc": "Deals Ice damage." },
+      { "icon": "📚", "name": "Crystalline Whip", "type": "Skill", "desc": "Deals Ice damage to all enemies." },
+      { "icon": "🧪", "name": "The Herta Curse", "type": "Ultimate", "desc": "Deals massive Ice damage to all enemies." },
+      { "icon": "🌀", "name": "Experimental Follow-up", "type": "Passive", "desc": "Triggers a follow-up attack when an ally's HP drops below a certain threshold." }
+    ],
+    "gallery": ["❄️", "📚", "🧪", "🌀"],
+    "galleryImages": [
+      "/img/starrail/herta-gallery-1.jpg",
+      "/img/starrail/herta-gallery-2.jpg",
+      "/img/starrail/herta-gallery-3.jpg",
+      "/img/starrail/herta-gallery-4.jpg"
+    ]
+  }
+}

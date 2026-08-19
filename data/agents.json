@@ -1,0 +1,572 @@
+{
+  "miyabi": {
+    "name": "Miyabi",
+    "faction": "🏛️ Void Hunters",
+    "title": "The Crimson Void Hunter",
+    "description": "A legendary warrior from the Void Hunters, Miyabi is a force of nature with her blazing red eyes and unmatched sword skills. She cuts through the Hollows with grace and fury, leaving nothing but frozen silence in her wake.",
+    "image": "/img/characters/miyabi-2.jpg",
+    "bioImage": "/img/miyabi.png",
+    "bioSub": "\"The Hollows fear my blade. And so should you.\"",
+    "bioContent": [
+      "<strong>Miyabi</strong> is a legendary <strong>Void Hunter</strong>, one of the most elite warriors in New Eridu.",
+      "Her katana, forged from Hollow energy, is said to be capable of slicing through dimensions themselves.",
+      "She fights with a purpose: to protect the innocent and ensure that the Hollows never claim another life."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏛️ Void Hunters" },
+      { "label": "Role", "value": "⚔️ Anomaly" },
+      { "label": "Element", "value": "❄️ Ice" },
+      { "label": "Rarity", "value": "⭐ S-Rank" }
+    ],
+    "features": [
+      { "icon": "🗡️", "title": "Blade of the Void", "desc": "Her katana is forged from Hollow energy, capable of slicing through dimensions." },
+      { "icon": "🔥", "title": "Crimson Eyes", "desc": "Her piercing red eyes can see through the chaos of the Hollows." },
+      { "icon": "🌪️", "title": "Void Hunter", "desc": "One of the elite Void Hunters protecting New Eridu." }
+    ],
+    "skills": [
+      { "icon": "🗡️", "name": "Void Slash", "type": "Basic Attack", "desc": "A swift series of katana slashes that tear through the fabric of reality, dealing massive Ice damage." },
+      { "icon": "🌀", "name": "Crimson Vortex", "type": "Special Attack", "desc": "Miyabi spins with blinding speed, creating a vortex of crimson energy that pulls in and devastates all nearby enemies." },
+      { "icon": "🌌", "name": "Void Eclipse", "type": "Ultimate", "desc": "Miyabi unleashes the full power of her Void katana, tearing open a rift that consumes all enemies in a blast of pure void energy." },
+      { "icon": "👁️", "name": "Crimson Sight", "type": "Passive", "desc": "Miyabi's crimson eyes allow her to perceive enemy weaknesses, increasing critical hit rate against marked foes." }
+    ],
+    "gallery": ["🗡️", "🔥", "🌪️", "🌌"],
+    "galleryImages": [
+      "/img/zzz/miyabi-gallery-1.jpg",
+      "/img/zzz/miyabi-gallery-2.jpg",
+      "/img/zzz/miyabi-gallery-3.jpg",
+      "/img/zzz/miyabi-gallery-4.jpg"
+    ]
+  },
+  "ellen": {
+    "name": "Ellen Joe",
+    "faction": "🏫 Victoria Housekeeping",
+    "title": "The Elegant Ice-Bladed Maid",
+    "description": "A graceful and deadly maid from Victoria Housekeeping. Ellen wields ice-bladed weapons with unmatched precision, delivering swift justice to the enemies of New Eridu.",
+    "image": "/img/characters/ellen.jpg",
+    "bioImage": "/img/characters/ellen-bio.jpg",
+    "bioSub": "\"Elegance is a weapon. And I wield it perfectly.\"",
+    "bioContent": [
+      "<strong>Ellen Joe</strong> is a maid of the prestigious <strong>Victoria Housekeeping</strong> organization.",
+      "Despite her cold exterior, Ellen harbors a deep sense of loyalty to her comrades and a fierce determination to protect the innocent.",
+      "Her ice-bladed weapons are not just tools of combat — they are extensions of her very being."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏫 Victoria Housekeeping" },
+      { "label": "Role", "value": "⚔️ Attack" },
+      { "label": "Element", "value": "❄️ Ice" },
+      { "label": "Rarity", "value": "⭐ S-Rank" }
+    ],
+    "features": [
+      { "icon": "❄️", "title": "Ice-Bladed Weapons", "desc": "Ellen wields blades forged from pure ice, capable of freezing enemies solid." },
+      { "icon": "🎭", "title": "Elegant Combat", "desc": "Her fighting style is a deadly dance — graceful, precise, and devastating." },
+      { "icon": "🏫", "title": "Victoria Housekeeping", "desc": "She serves with unwavering loyalty and deadly efficiency." }
+    ],
+    "skills": [
+      { "icon": "❄️", "name": "Frozen Blades", "type": "Basic Attack", "desc": "Ellen unleashes a flurry of ice-bladed slashes, dealing Ice damage to all enemies." },
+      { "icon": "🌀", "name": "Glacial Waltz", "type": "Special Attack", "desc": "A graceful spin attack that creates a freezing vortex, damaging and slowing all nearby enemies." },
+      { "icon": "💥", "name": "Absolute Zero", "type": "Ultimate", "desc": "Ellen summons a massive ice storm, freezing the battlefield and dealing devastating Ice damage." },
+      { "icon": "🛡️", "name": "Frost Shield", "type": "Passive", "desc": "Ellen generates a protective ice barrier when her HP falls below 50%." }
+    ],
+    "gallery": ["❄️", "🎭", "🏫", "💥"],
+    "galleryImages": [
+      "/img/zzz/ellen-gallery-1.jpg",
+      "/img/zzz/ellen-gallery-2.jpg",
+      "/img/zzz/ellen-gallery-3.jpg",
+      "/img/zzz/ellen-gallery-4.jpg"
+    ]
+  },
+  "zhu_yuan": {
+    "name": "Zhu Yuan",
+    "faction": "👮 PubSec",
+    "title": "The Ether-Powered Officer",
+    "description": "A dedicated officer of PubSec, Zhu Yuan fights to protect New Eridu using advanced firearms and electro-tech. Her determination and sense of justice make her a formidable force.",
+    "image": "/img/zhu-yuan.jpg",
+    "bioImage": "/img/characters/zhu-yuan-bio.jpg",
+    "bioSub": "\"Justice will always prevail.\"",
+    "bioContent": [
+      "<strong>Zhu Yuan</strong> is an officer of <strong>PubSec</strong>, New Eridu's public security force.",
+      "She utilizes advanced firearms and electro-tech to combat the threats of the Hollows.",
+      "Her sense of justice and determination make her a formidable protector of the city."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "👮 PubSec" },
+      { "label": "Role", "value": "⚔️ Attack" },
+      { "label": "Element", "value": "✨ Ether" },
+      { "label": "Rarity", "value": "⭐ S-Rank" }
+    ],
+    "features": [
+      { "icon": "⚔️", "title": "Firearms Expert", "desc": "Uses advanced firearms with deadly precision." },
+      { "icon": "✨", "title": "Ether", "desc": "Deals Ether damage." },
+      { "icon": "👮", "title": "PubSec Officer", "desc": "Protects New Eridu with unwavering dedication." }
+    ],
+    "skills": [
+      { "icon": "✨", "name": "Ether Shot", "type": "Basic Attack", "desc": "Deals Ether damage to a single enemy." },
+      { "icon": "⚡", "name": "Electro Burst", "type": "Skill", "desc": "Unleashes an electro-charged blast dealing AoE damage." },
+      { "icon": "👮", "name": "Justice Barrage", "type": "Ultimate", "desc": "Fires a massive barrage of electro-tech rounds dealing devastating damage." },
+      { "icon": "🌀", "name": "Duty Bound", "type": "Passive", "desc": "Increases damage to enemies with lower HP." }
+    ],
+    "gallery": ["✨", "⚡", "👮", "🌀"],
+    "galleryImages": [
+      "/img/zzz/zhu-yuan-gallery-1.jpg",
+      "/img/zzz/zhu-yuan-gallery-2.jpg",
+      "/img/zzz/zhu-yuan-gallery-3.jpg",
+      "/img/zzz/zhu-yuan-gallery-4.jpg"
+    ]
+  },
+  "qingyi": {
+    "name": "Qingyi",
+    "faction": "👮 PubSec",
+    "title": "The Mechanical Specialist",
+    "description": "A mechanical specialist from PubSec, Qingyi uses electro-magnetic gadgets to stun and control enemies on the battlefield.",
+    "image": "/img/Qingyi.jpg",
+    "bioImage": "/img/characters/qingyi-bio.jpg",
+    "bioSub": "\"Every machine has a weakness. I find it.\"",
+    "bioContent": [
+      "<strong>Qingyi</strong> is a mechanical specialist serving <strong>PubSec</strong>.",
+      "She wields advanced electro-magnetic gadgets that can stun and disable her foes.",
+      "Her analytical mind and technical expertise make her an invaluable asset in the fight against the Hollows."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "👮 PubSec" },
+      { "label": "Role", "value": "🛡️ Stun" },
+      { "label": "Element", "value": "⚡ Electric" },
+      { "label": "Rarity", "value": "⭐ S-Rank" }
+    ],
+    "features": [
+      { "icon": "🔧", "title": "Gadget Master", "desc": "Uses electro-magnetic gadgets to stun enemies." },
+      { "icon": "⚡", "title": "Electric", "desc": "Deals Electric damage." },
+      { "icon": "🛡️", "title": "Stun Specialist", "desc": "Excels at disabling and controlling enemies." }
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Electro Shock", "type": "Basic Attack", "desc": "Deals Electric damage with a chance to stun." },
+      { "icon": "🔧", "name": "Magnetic Pulse", "type": "Skill", "desc": "Releases a pulse that stuns all nearby enemies." },
+      { "icon": "🛡️", "name": "Overcharge", "type": "Ultimate", "desc": "Overcharges her gadgets, dealing massive Electric damage and stunning all enemies." },
+      { "icon": "🌀", "name": "Mechanical Insight", "type": "Passive", "desc": "Increases stun duration against enemies with lower HP." }
+    ],
+    "gallery": ["⚡", "🔧", "🛡️", "🌀"],
+    "galleryImages": [
+      "/img/zzz/qingyi-gallery-1.jpg",
+      "/img/zzz/qingyi-gallery-2.jpg",
+      "/img/zzz/qingyi-gallery-3.jpg",
+      "/img/zzz/qingyi-gallery-4.jpg"
+    ]
+  },
+  "grace": {
+    "name": "Grace Howard",
+    "faction": "🏭 Belobog Industries",
+    "title": "The Lead Engineer",
+    "description": "The lead engineer of Belobog Industries, Grace Howard is a genius inventor who fights with custom mechs and powerful electro-tech.",
+    "image": "/img/characters/Grace.jpg",
+    "bioImage": "/img/characters/grace-bio.jpg",
+    "bioSub": "\"Innovation is the key to survival.\"",
+    "bioContent": [
+      "<strong>Grace Howard</strong> is the lead engineer at <strong>Belobog Industries</strong>.",
+      "She builds and pilots custom mechs that pack a devastating punch on the battlefield.",
+      "Her passion for engineering and her fierce determination make her a force to be reckoned with."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏭 Belobog Industries" },
+      { "label": "Role", "value": "⚡ Anomaly" },
+      { "label": "Element", "value": "⚡ Electric" },
+      { "label": "Rarity", "value": "⭐ S-Rank" }
+    ],
+    "features": [
+      { "icon": "🤖", "title": "Custom Mechs", "desc": "Pilots powerful mechs built from her own designs." },
+      { "icon": "⚡", "title": "Electric", "desc": "Deals Electric damage." },
+      { "icon": "🏭", "title": "Belobog Industries", "desc": "A proud member of Belobog's engineering division." }
+    ],
+    "skills": [
+      { "icon": "🤖", "name": "Mech Strike", "type": "Basic Attack", "desc": "Strikes with her mech's arm, dealing Electric damage." },
+      { "icon": "⚡", "name": "Overcharge Drive", "type": "Skill", "desc": "Unleashes a powerful electric charge, dealing AoE damage." },
+      { "icon": "🏭", "name": "Belobog Special", "type": "Ultimate", "desc": "Calls in a massive mech bombardment, dealing heavy Electric damage to all enemies." },
+      { "icon": "🌀", "name": "Engineering Genius", "type": "Passive", "desc": "Increases the damage of her mech attacks." }
+    ],
+    "gallery": ["🤖", "⚡", "🏭", "🌀"],
+    "galleryImages": [
+      "/img/zzz/grace-gallery-1.jpg",
+      "/img/zzz/grace-gallery-2.jpg",
+      "/img/zzz/grace-gallery-3.jpg",
+      "/img/zzz/grace-gallery-4.jpg"
+    ]
+  },
+  "lycaon": {
+    "name": "Von Lycaon",
+    "faction": "🏫 Victoria Housekeeping",
+    "title": "The Wolf-like Chief",
+    "description": "The wolf-like Thiren and chief of Victoria Housekeeping. Von Lycaon is a master of stun and ice, using his predatory instincts to dominate the battlefield.",
+    "image": "/img/characters/lycaon.jpg",
+    "bioImage": "/img/characters/lycaon-bio.jpg",
+    "bioSub": "\"The hunt is on.\"",
+    "bioContent": [
+      "<strong>Von Lycaon</strong> is the chief of <strong>Victoria Housekeeping</strong>.",
+      "He is a wolf-like Thiren who combines his predatory instincts with precise ice-based attacks.",
+      "His presence is both regal and fearsome, and he commands respect from allies and enemies alike."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏫 Victoria Housekeeping" },
+      { "label": "Role", "value": "🛡️ Stun" },
+      { "label": "Element", "value": "❄️ Ice" },
+      { "label": "Rarity", "value": "⭐ S-Rank" }
+    ],
+    "features": [
+      { "icon": "🐺", "title": "Wolf-like Thiren", "desc": "Combines predatory instincts with ice combat." },
+      { "icon": "❄️", "title": "Ice", "desc": "Deals Ice damage." },
+      { "icon": "🏫", "title": "Victoria Housekeeping", "desc": "Serves as the chief of the household." }
+    ],
+    "skills": [
+      { "icon": "❄️", "name": "Frost Claw", "type": "Basic Attack", "desc": "Slash with icy claws, dealing Ice damage." },
+      { "icon": "🐺", "name": "Predator's Pounce", "type": "Skill", "desc": "Leaps forward, stunning enemies in the area." },
+      { "icon": "❄️", "name": "Blizzard's Howl", "type": "Ultimate", "desc": "Unleashes a powerful ice storm, stunning and damaging all enemies." },
+      { "icon": "🌀", "name": "Hunting Instinct", "type": "Passive", "desc": "Increases stun damage against lower HP enemies." }
+    ],
+    "gallery": ["🐺", "❄️", "🏫", "🌀"],
+    "galleryImages": [
+      "/img/zzz/lycaon-gallery-1.jpg",
+      "/img/zzz/lycaon-gallery-2.jpg",
+      "/img/zzz/lycaon-gallery-3.jpg",
+      "/img/zzz/lycaon-gallery-4.jpg"
+    ]
+  },
+  "rina": {
+    "name": "Rina",
+    "faction": "🏫 Victoria Housekeeping",
+    "title": "The Graceful Senior Maid",
+    "description": "A graceful senior maid of Victoria Housekeeping, Rina uses electro-charged ribbons to support her allies and control the flow of battle.",
+    "image": "/img/characters/Rina.webp",
+    "bioImage": "/img/characters/rina-bio.jpg",
+    "bioSub": "\"Elegance is the highest form of power.\"",
+    "bioContent": [
+      "<strong>Rina</strong> is a senior maid of <strong>Victoria Housekeeping</strong>.",
+      "She wields electro-charged ribbons that can heal allies, apply shields, and control enemy movements.",
+      "Her calm and refined demeanor hides a fierce determination to protect those under her care."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏫 Victoria Housekeeping" },
+      { "label": "Role", "value": "💎 Support" },
+      { "label": "Element", "value": "⚡ Electric" },
+      { "label": "Rarity", "value": "⭐ S-Rank" }
+    ],
+    "features": [
+      { "icon": "🎀", "title": "Electro Ribbons", "desc": "Uses ribbons charged with electricity to support and control." },
+      { "icon": "💎", "title": "Support", "desc": "Heals, shields, and buffs allies." },
+      { "icon": "🏫", "title": "Victoria Housekeeping", "desc": "A proud member of the household." }
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Ribbon Zap", "type": "Basic Attack", "desc": "Strikes an enemy with an electro-charged ribbon." },
+      { "icon": "🎀", "name": "Graceful Touch", "type": "Skill", "desc": "Heals an ally and grants a shield." },
+      { "icon": "💎", "name": "Silken Barrier", "type": "Ultimate", "desc": "Creates a large barrier that heals all allies and damages enemies." },
+      { "icon": "🌀", "name": "Maid's Dedication", "type": "Passive", "desc": "Increases healing and shielding effectiveness." }
+    ],
+    "gallery": ["🎀", "💎", "⚡", "🌀"],
+    "galleryImages": [
+      "/img/zzz/rina-gallery-1.jpg",
+      "/img/zzz/rina-gallery-2.jpg",
+      "/img/zzz/rina-gallery-3.jpg",
+      "/img/zzz/rina-gallery-4.jpg"
+    ]
+  },
+  "koleda": {
+    "name": "Koleda Belobog",
+    "faction": "🏭 Belobog Industries",
+    "title": "The Fiery CEO",
+    "description": "The fiery CEO of Belobog Industries, Koleda smashes her enemies with a massive hammer and uses Fire to dominate the battlefield.",
+    "image": "/img/characters/koleda.jpg",
+    "bioImage": "/img/characters/koleda-bio.jpg",
+    "bioSub": "\"Fire is the solution to every problem.\"",
+    "bioContent": [
+      "<strong>Koleda Belobog</strong> is the CEO of <strong>Belobog Industries</strong>.",
+      "She fights with a massive hammer that she swings with brutal force, setting her enemies ablaze.",
+      "Her fiery personality matches her fighting style — loud, powerful, and unforgettable."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏭 Belobog Industries" },
+      { "label": "Role", "value": "🛡️ Stun" },
+      { "label": "Element", "value": "🔥 Fire" },
+      { "label": "Rarity", "value": "⭐ S-Rank" }
+    ],
+    "features": [
+      { "icon": "🔨", "title": "Massive Hammer", "desc": "Smashes enemies with a giant hammer." },
+      { "icon": "🔥", "title": "Fire", "desc": "Deals Fire damage." },
+      { "icon": "🏭", "title": "Belobog Industries", "desc": "Leads the company with passion." }
+    ],
+    "skills": [
+      { "icon": "🔨", "name": "Hammer Swing", "type": "Basic Attack", "desc": "Swings her hammer, dealing Fire damage." },
+      { "icon": "🔥", "name": "Inferno Strike", "type": "Skill", "desc": "Slams the ground, creating a fiery explosion." },
+      { "icon": "🔥", "name": "Apocalyptic Blow", "type": "Ultimate", "desc": "Unleashes a massive fire blast, dealing AoE damage and stunning enemies." },
+      { "icon": "🌀", "name": "CEO's Resolve", "type": "Passive", "desc": "Increases damage and stun when HP is low." }
+    ],
+    "gallery": ["🔨", "🔥", "🏭", "🌀"],
+    "galleryImages": [
+      "/img/zzz/koleda-gallery-1.jpg",
+      "/img/zzz/koleda-gallery-2.jpg",
+      "/img/zzz/koleda-gallery-3.jpg",
+      "/img/zzz/koleda-gallery-4.jpg"
+    ]
+  },
+  "anby": {
+    "name": "Anby Demara",
+    "faction": "🛵 Cunning Hares",
+    "title": "The Quiet Soldier",
+    "description": "A quiet but deadly soldier from the Cunning Hares. Anby uses electric attacks with precision and speed, making her a reliable DPS.",
+    "image": "/img/characters/anby.jpg",
+    "bioImage": "/img/characters/anby-bio.jpg",
+    "bioSub": "\"I fight in silence.\"",
+    "bioContent": [
+      "<strong>Anby Demara</strong> is a member of the <strong>Cunning Hares</strong>.",
+      "She is calm, focused, and deadly in combat, wielding electric weapons with extreme precision.",
+      "Though she speaks little, her actions speak volumes on the battlefield."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🛵 Cunning Hares" },
+      { "label": "Role", "value": "⚔️ Attack" },
+      { "label": "Element", "value": "⚡ Electric" },
+      { "label": "Rarity", "value": "⭐ A-Rank" }
+    ],
+    "features": [
+      { "icon": "⚡", "title": "Electric Precision", "desc": "Deals Electric damage with precision." },
+      { "icon": "🛵", "title": "Cunning Hares", "desc": "A loyal member of the Cunning Hares." },
+      { "icon": "🗡️", "title": "Silent Soldier", "desc": "Fights quietly but effectively." }
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Electric Blade", "type": "Basic Attack", "desc": "Strikes with an electric blade." },
+      { "icon": "🗡️", "name": "Silent Strike", "type": "Skill", "desc": "Deals heavy Electric damage to a single target." },
+      { "icon": "⚡", "name": "Thunderous End", "type": "Ultimate", "desc": "Unleashes a chain of electric attacks dealing AoE damage." },
+      { "icon": "🌀", "name": "Battle Focus", "type": "Passive", "desc": "Increases critical rate after each kill." }
+    ],
+    "gallery": ["⚡", "🗡️", "🛵", "🌀"],
+    "galleryImages": [
+      "/img/zzz/anby-gallery-1.jpg",
+      "/img/zzz/anby-gallery-2.jpg",
+      "/img/zzz/anby-gallery-3.jpg",
+      "/img/zzz/anby-gallery-4.jpg"
+    ]
+  },
+  "nicole": {
+    "name": "Nicole Demara",
+    "faction": "🛵 Cunning Hares",
+    "title": "The Charismatic Leader",
+    "description": "The charismatic leader of the Cunning Hares, Nicole supports her team with Ether abilities and her sharp negotiation skills.",
+    "image": "/img/characters/nicole.jpg",
+    "bioImage": "/img/characters/nicole-bio.jpg",
+    "bioSub": "\"A deal is a deal.\"",
+    "bioContent": [
+      "<strong>Nicole Demara</strong> is the leader of the <strong>Cunning Hares</strong>.",
+      "She uses her Ether abilities to support her team, healing and providing buffs.",
+      "Her quick wit and charm make her an effective negotiator and a formidable leader."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🛵 Cunning Hares" },
+      { "label": "Role", "value": "💎 Support" },
+      { "label": "Element", "value": "✨ Ether" },
+      { "label": "Rarity", "value": "⭐ A-Rank" }
+    ],
+    "features": [
+      { "icon": "✨", "title": "Ether", "desc": "Deals Ether damage and supports." },
+      { "icon": "🛵", "title": "Cunning Hares", "desc": "Leader of the Cunning Hares." },
+      { "icon": "💎", "title": "Support", "desc": "Heals and buffs allies." }
+    ],
+    "skills": [
+      { "icon": "✨", "name": "Ether Shot", "type": "Basic Attack", "desc": "Deals Ether damage." },
+      { "icon": "💎", "name": "Healing Aura", "type": "Skill", "desc": "Heals all allies." },
+      { "icon": "🛵", "name": "Cunning Gambit", "type": "Ultimate", "desc": "Boosts team damage and heals all allies." },
+      { "icon": "🌀", "name": "Negotiator", "type": "Passive", "desc": "Increases healing when allies are low." }
+    ],
+    "gallery": ["✨", "💎", "🛵", "🌀"],
+    "galleryImages": [
+      "/img/zzz/nicole-gallery-1.jpg",
+      "/img/zzz/nicole-gallery-2.jpg",
+      "/img/zzz/nicole-gallery-3.jpg",
+      "/img/zzz/nicole-gallery-4.jpg"
+    ]
+  },
+  "billy": {
+    "name": "Billy Kid",
+    "faction": "🛵 Cunning Hares",
+    "title": "The Cyborg Gunslinger",
+    "description": "A cheerful cyborg gunslinger with a flashy style, Billy Kid uses Fire attacks to burn through his enemies and is always ready for action.",
+    "image": "/img/characters/billy-kid.jpg",
+    "bioImage": "/img/characters/billy-bio.jpg",
+    "bioSub": "\"Time for a show!\"",
+    "bioContent": [
+      "<strong>Billy Kid</strong> is a member of the <strong>Cunning Hares</strong>.",
+      "He is a cheerful cyborg gunslinger with a flair for the dramatic, using dual firearms that deal Fire damage.",
+      "His energetic personality and love for action make him a fan favorite."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🛵 Cunning Hares" },
+      { "label": "Role", "value": "⚔️ Attack" },
+      { "label": "Element", "value": "🔥 Fire" },
+      { "label": "Rarity", "value": "⭐ A-Rank" }
+    ],
+    "features": [
+      { "icon": "🔫", "title": "Gunslinger", "desc": "Dual-wields firearms with flair." },
+      { "icon": "🔥", "title": "Fire", "desc": "Deals Fire damage." },
+      { "icon": "🛵", "title": "Cunning Hares", "desc": "A loyal member of the Cunning Hares." }
+    ],
+    "skills": [
+      { "icon": "🔫", "name": "Quick Draw", "type": "Basic Attack", "desc": "Fires a quick shot dealing Fire damage." },
+      { "icon": "🔥", "name": "Flame Burst", "type": "Skill", "desc": "Unleashes a fiery blast dealing AoE Fire damage." },
+      { "icon": "🎯", "name": "Showstopper", "type": "Ultimate", "desc": "Fires a barrage of flaming bullets dealing massive Fire damage." },
+      { "icon": "🌀", "name": "Showman", "type": "Passive", "desc": "Increases damage after each kill." }
+    ],
+    "gallery": ["🔫", "🔥", "🎯", "🌀"],
+    "galleryImages": [
+      "/img/zzz/billy-gallery-1.jpg",
+      "/img/zzz/billy-gallery-2.jpg",
+      "/img/zzz/billy-gallery-3.jpg",
+      "/img/zzz/billy-gallery-4.jpg"
+    ]
+  },
+  "soukaku": {
+    "name": "Soukaku",
+    "faction": "🏮 Section 6",
+    "title": "The Mysterious Support",
+    "description": "A mysterious support agent from Section 6, Soukaku uses Ice to protect her allies and control the battlefield.",
+    "image": "/img/characters/Soukaku.jpg",
+    "bioImage": "/img/characters/soukaku-bio.jpg",
+    "bioSub": "\"I watch over you.\"",
+    "bioContent": [
+      "<strong>Soukaku</strong> is a support agent from <strong>Section 6</strong>.",
+      "She uses Ice abilities to shield allies and slow enemies.",
+      "Her gentle heart and mysterious nature make her a valuable asset to any team."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏮 Section 6" },
+      { "label": "Role", "value": "💎 Support" },
+      { "label": "Element", "value": "❄️ Ice" },
+      { "label": "Rarity", "value": "⭐ A-Rank" }
+    ],
+    "features": [
+      { "icon": "❄️", "title": "Ice", "desc": "Deals Ice damage and provides shields." },
+      { "icon": "💎", "title": "Support", "desc": "Protects and heals allies." },
+      { "icon": "🏮", "title": "Section 6", "desc": "A member of Section 6." }
+    ],
+    "skills": [
+      { "icon": "❄️", "name": "Frost Bolt", "type": "Basic Attack", "desc": "Deals Ice damage." },
+      { "icon": "💎", "name": "Icy Shield", "type": "Skill", "desc": "Grants a shield to an ally." },
+      { "icon": "❄️", "name": "Blizzard's Blessing", "type": "Ultimate", "desc": "Heals all allies and provides a shield." },
+      { "icon": "🌀", "name": "Guardian Spirit", "type": "Passive", "desc": "Increases shield effectiveness." }
+    ],
+    "gallery": ["❄️", "💎", "🏮", "🌀"],
+    "galleryImages": [
+      "/img/zzz/soukaku-gallery-1.jpg",
+      "/img/zzz/soukaku-gallery-2.jpg",
+      "/img/zzz/soukaku-gallery-3.jpg",
+      "/img/zzz/soukaku-gallery-4.jpg"
+    ]
+  },
+  "corin": {
+    "name": "Corin Wickes",
+    "faction": "🏫 Victoria Housekeeping",
+    "title": "The Shy Maid",
+    "description": "A shy maid from Victoria Housekeeping who wields a giant electric saw. Despite her timid nature, she is a formidable stun specialist.",
+    "image": "/img/characters/corin.webp",
+    "bioImage": "/img/characters/corin-bio.jpg",
+    "bioSub": "\"I'm... I'm sorry!\" (as she swings her saw)",
+    "bioContent": [
+      "<strong>Corin Wickes</strong> is a maid of <strong>Victoria Housekeeping</strong>.",
+      "Despite her shy and apologetic demeanor, she is a fearsome stun specialist who wields a giant electric saw.",
+      "She is always eager to help, even if she feels nervous about it."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏫 Victoria Housekeeping" },
+      { "label": "Role", "value": "🛡️ Stun" },
+      { "label": "Element", "value": "⚡ Electric" },
+      { "label": "Rarity", "value": "⭐ A-Rank" }
+    ],
+    "features": [
+      { "icon": "🪚", "title": "Electric Saw", "desc": "Wields a giant saw that deals stun damage." },
+      { "icon": "⚡", "title": "Electric", "desc": "Deals Electric damage." },
+      { "icon": "🏫", "title": "Victoria Housekeeping", "desc": "A maid of the household." }
+    ],
+    "skills": [
+      { "icon": "🪚", "name": "Saw Slash", "type": "Basic Attack", "desc": "Slash with the saw, dealing Electric damage." },
+      { "icon": "⚡", "name": "Electric Spin", "type": "Skill", "desc": "Spins the saw, stunning all nearby enemies." },
+      { "icon": "🪚", "name": "Overdrive", "type": "Ultimate", "desc": "Overcharges the saw, dealing massive Electric damage and stunning all enemies." },
+      { "icon": "🌀", "name": "Shy Strength", "type": "Passive", "desc": "Increases stun damage when health is low." }
+    ],
+    "gallery": ["🪚", "⚡", "🏫", "🌀"],
+    "galleryImages": [
+      "/img/zzz/corin-gallery-1.jpg",
+      "/img/zzz/corin-gallery-2.jpg",
+      "/img/zzz/corin-gallery-3.jpg",
+      "/img/zzz/corin-gallery-4.jpg"
+    ]
+  },
+  "anton": {
+    "name": "Anton Ivanov",
+    "faction": "🏭 Belobog Industries",
+    "title": "The Passionate Worker",
+    "description": "A passionate construction worker from Belobog Industries, Anton fights with a powerful drill that delivers Electric damage and stuns enemies.",
+    "image": "/img/characters/anton.jpg",
+    "bioImage": "/img/characters/anton-bio.jpg",
+    "bioSub": "\"This job is all about power!\"",
+    "bioContent": [
+      "<strong>Anton Ivanov</strong> is a construction worker at <strong>Belobog Industries</strong>.",
+      "He fights using a powerful drill that can penetrate enemy defenses and deliver stunning Electric shocks.",
+      "His enthusiasm for his work is unmatched, and he brings that same energy to combat."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏭 Belobog Industries" },
+      { "label": "Role", "value": "⚔️ Attack" },
+      { "label": "Element", "value": "⚡ Electric" },
+      { "label": "Rarity", "value": "⭐ A-Rank" }
+    ],
+    "features": [
+      { "icon": "⛏️", "title": "Drill", "desc": "Uses a powerful drill to attack and stun." },
+      { "icon": "⚡", "title": "Electric", "desc": "Deals Electric damage." },
+      { "icon": "🏭", "title": "Belobog Industries", "desc": "Proud employee of Belobog." }
+    ],
+    "skills": [
+      { "icon": "⛏️", "name": "Drill Punch", "type": "Basic Attack", "desc": "Strikes with the drill, dealing Electric damage." },
+      { "icon": "⚡", "name": "Overcharge Spin", "type": "Skill", "desc": "Spins the drill, dealing AoE Electric damage." },
+      { "icon": "⛏️", "name": "Drill Piercer", "type": "Ultimate", "desc": "Unleashes a devastating drill charge that pierces enemy defenses." },
+      { "icon": "🌀", "name": "Worker's Grit", "type": "Passive", "desc": "Increases attack speed after each kill." }
+    ],
+    "gallery": ["⛏️", "⚡", "🏭", "🌀"],
+    "galleryImages": [
+      "/img/zzz/anton-gallery-1.jpg",
+      "/img/zzz/anton-gallery-2.jpg",
+      "/img/zzz/anton-gallery-3.jpg",
+      "/img/zzz/anton-gallery-4.jpg"
+    ]
+  },
+  "ben": {
+    "name": "Ben Bigger",
+    "faction": "🏭 Belobog Industries",
+    "title": "The Gentle Giant",
+    "description": "A gentle giant and the accountant of Belobog Industries, Ben uses Fire and defensive abilities to protect his allies.",
+    "image": "/img/characters/ben-bigger.jpg",
+    "bioImage": "/img/characters/ben-bio.jpg",
+    "bioSub": "\"Let me protect you.\"",
+    "bioContent": [
+      "<strong>Ben Bigger</strong> is the accountant at <strong>Belobog Industries</strong>.",
+      "Though he is a gentle giant, he is a formidable defender who uses Fire and shields to protect his allies.",
+      "His kind heart and protective nature make him a beloved member of the team."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏭 Belobog Industries" },
+      { "label": "Role", "value": "🛡️ Defense" },
+      { "label": "Element", "value": "🔥 Fire" },
+      { "label": "Rarity", "value": "⭐ A-Rank" }
+    ],
+    "features": [
+      { "icon": "🐻", "title": "Gentle Giant", "desc": "Protective and powerful." },
+      { "icon": "🔥", "title": "Fire", "desc": "Deals Fire damage." },
+      { "icon": "🛡️", "title": "Defense", "desc": "Provides shields and damage reduction." }
+    ],
+    "skills": [
+      { "icon": "🔥", "name": "Fiery Slam", "type": "Basic Attack", "desc": "Slams the ground, dealing Fire damage." },
+      { "icon": "🛡️", "name": "Protective Wall", "type": "Skill", "desc": "Grants a shield to all allies." },
+      { "icon": "🐻", "name": "Bear's Embrace", "type": "Ultimate", "desc": "Provides a massive shield and deals Fire damage to enemies." },
+      { "icon": "🌀", "name": "Accountant's Wisdom", "type": "Passive", "desc": "Increases shield strength when allies are low." }
+    ],
+    "gallery": ["🐻", "🔥", "🛡️", "🌀"],
+    "galleryImages": [
+      "/img/zzz/ben-gallery-1.jpg",
+      "/img/zzz/ben-gallery-2.jpg",
+      "/img/zzz/ben-gallery-3.jpg",
+      "/img/zzz/ben-gallery-4.jpg"
+    ]
+  }
+}

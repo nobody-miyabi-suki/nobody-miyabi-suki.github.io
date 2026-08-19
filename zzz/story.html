@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZZZ · Story</title>
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE
+    ========================================================== -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label" id="themeLabel">🔴 Red</span>
+        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Hoyoverse</span> ✦</h1>
+            <p>Fan Page · All Games</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
+        </div>
+
+        <!-- ==========================================================
+        MENU — با آیکون‌های درست
+        ========================================================== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html">🗺️ Map</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>📖 <span>Story</span> of New Eridu</h2>
+        <p>The tale of the last city and the Proxies who shape its fate</p>
+    </section>
+
+    <!-- ==========================================================
+    STORY CONTENT (همون محتوای قبلی)
+    ========================================================== -->
+    <section class="content-section">
+
+        <div class="story-intro">
+            <p>
+                <strong>✦ The World of Zenless Zone Zero ✦</strong><br><br>
+                In a world ravaged by supernatural disasters known as <strong>Hollows</strong>, humanity teeters on the brink of extinction. These mysterious spheres appear without warning, swallowing everything they touch and creating disoriented dimensions where space and time lose meaning. Inside these Hollows roam the <strong>Ethereals</strong> — mutated creatures born from the corruption of the Hollows themselves.
+                <br><br>
+                Yet, one city stands defiant against the chaos: <strong>New Eridu</strong>. This last bastion of civilization has not only survived but thrived, mastering the technology to control the Hollow disaster and extract valuable resources from within. Now, Hollows have been industrialized and monetized, creating a fragile peace built on a foundation of ambition, greed, and secrets.
+                <br><br>
+                You are a <strong>Proxy</strong> — a specialized guide who leads teams of Agents into the Hollows. Known by the legendary alias <strong>Phaethon</strong>, you and your sibling work from the safety of your video store, Random Play, remotely guiding your clients through the deadly Hollows using advanced technology. Your choices will shape the fate of New Eridu.
+            </p>
+        </div>
+
+        <div class="chapter">
+            <span class="chapter-number">📜 Prologue</span>
+            <h3>The Cunning Hares</h3>
+            <div class="sub-title">New Eridu · The Beginning</div>
+            <p>
+                The story begins with the <strong>Cunning Hares</strong> — a scrappy group of Agents led by the charismatic <strong>Nicole</strong>, alongside the stoic <strong>Anby</strong> and the wisecracking cyborg <strong>Billy Kid</strong>. After a routine job goes sideways, the Hares find themselves trapped inside a Hollow without a Proxy to guide them out.
+                <br><br>
+                Enter <strong>Phaethon</strong>. You and your sibling are called in to rescue the Hares, marking your first step into the dangerous world of Proxy work. As you guide the team to safety, you uncover a conspiracy that threatens to shake the foundations of New Eridu. Your reputation as the legendary "Proxy who doesn't enter the Hollows themselves" begins to grow.
+            </p>
+            <span class="region-tag">🎯 New Eridu · Sixth Street</span>
+        </div>
+
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter I</span>
+            <h3>The Hollow Zero Incident</h3>
+            <div class="sub-title">The Old Capital · Ground Zero</div>
+            <p>
+                Your next commission pulls you into a far more dangerous situation. The <strong>Vision Corporation</strong> plans to demolish an abandoned area within a Hollow — ignoring the fact that people still live there. The <strong>Red Fang Gang</strong>, a group of survivors led by the defector <strong>Nekomata</strong>, are caught in the crossfire.
+                <br><br>
+                Working alongside the Cunning Hares, you must guide the team through a treacherous race against time, rerouting an explosive train while protecting the innocent people trapped in the Hollow. The mission ends in a dramatic confrontation that exposes the Vision Corporation's corruption, setting the stage for a high-stakes trial.
+            </p>
+            <span class="region-tag">💥 Hollow Zero · Old Capital</span>
+        </div>
+
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter II</span>
+            <h3>The Trial of Pearlman</h3>
+            <div class="sub-title">New Eridu · The Court of Public Opinion</div>
+            <p>
+                The consequences of your actions ripple through New Eridu. <strong>Pearlman</strong>, the head of the Vision Corporation, is put on trial for his crimes. The Cunning Hares find themselves in the spotlight, their names cleared but their future uncertain.
+                <br><br>
+                Meanwhile, a new threat emerges. A mysterious hacker compromises your Inter-Knot account, forcing you to start from scratch. An enigmatic AI named <strong>Fairy</strong> appears, offering assistance in exchange for a contract. As you rebuild your reputation, you begin to uncover the deeper secrets of the Hollows — and the truth about the disaster that created them.
+            </p>
+            <span class="region-tag">⚖️ New Eridu · Lumina Square</span>
+        </div>
+
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter III · Coming Soon</span>
+            <h3>The Hollows Unveiled</h3>
+            <div class="sub-title">The Six Great Hollows · The Truth</div>
+            <p>
+                Beyond Hollow Zero, New Eridu monitors six other major Hollows: <strong>Cretan, Lemnian, Pursenas, Hawara, Solove, and Papago</strong>. Each Hollow holds secrets of the old world, resources worth fighting for, and dangers that could unravel everything.
+                <br><br>
+                <em>(Additional chapters will be added as the story unfolds.)</em>
+            </p>
+            <span class="region-tag">🌆 The Hollows</span>
+        </div>
+
+        <div class="factions-section">
+            <h3>⚔️ Key Factions</h3>
+            <div class="factions-grid">
+                <div class="faction-card">
+                    <span class="icon">🛵</span>
+                    <h4>Cunning Hares</h4>
+                    <div class="faction-desc">Scrappy Agents · Nicole, Anby, Billy</div>
+                </div>
+                <div class="faction-card">
+                    <span class="icon">🏛️</span>
+                    <h4>Phaethon</h4>
+                    <div class="faction-desc">Legendary Proxies · Wise &amp; Belle</div>
+                </div>
+                <div class="faction-card">
+                    <span class="icon">👮</span>
+                    <h4>PubSec</h4>
+                    <div class="faction-desc">New Eridu's Public Security</div>
+                </div>
+                <div class="faction-card">
+                    <span class="icon">🏭</span>
+                    <h4>Vision Corporation</h4>
+                    <div class="faction-desc">Corporate Power · Pearlman</div>
+                </div>
+                <div class="faction-card">
+                    <span class="icon">🔴</span>
+                    <h4>Red Fang Gang</h4>
+                    <div class="faction-desc">Survivors · Nekomata</div>
+                </div>
+                <div class="faction-card">
+                    <span class="icon">🤖</span>
+                    <h4>Fairy</h4>
+                    <div class="faction-desc">Mysterious AI · Contracted Proxy</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Hoyoverse Fans · All Games ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT — shared script.js
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

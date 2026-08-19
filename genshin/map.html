@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin · Map</title>
+    <!-- استایل‌های عمومی (هدر، منو، فوتر، دکمه‌ی تغییر تم) -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- استایل‌های صفحات داخلی -->
+    <link rel="stylesheet" href="/css/pages.css">
+    <!-- استایل‌های اختصاصی این صفحه (نقشه) -->
+    <style>
+        /* ============================================================
+           استایل‌های اختصاصی MAP
+           ============================================================ */
+        :root {
+            --region-border: rgba(180, 60, 60, 0.15);
+            --region-bg: rgba(60, 20, 20, 0.35);
+            --region-sub-color: #c0a8a8;
+            --region-p-color: #b09898;
+            --element-tag-bg: rgba(200, 50, 50, 0.15);
+            --element-tag-border: rgba(180, 60, 60, 0.2);
+            --element-tag-color: #dbb8b8;
+            --list-bg: rgba(0, 0, 0, 0.2);
+        }
+
+        [data-theme="blue"] {
+            --region-border: rgba(60, 120, 255, 0.15);
+            --region-bg: rgba(60, 120, 255, 0.08);
+            --region-sub-color: #8a9ac0;
+            --region-p-color: #8a9ab0;
+            --element-tag-bg: rgba(60, 120, 255, 0.12);
+            --element-tag-border: rgba(60, 120, 255, 0.2);
+            --element-tag-color: #8a9ac0;
+            --list-bg: rgba(0, 0, 0, 0.2);
+        }
+
+        .region-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .region-card {
+            background: var(--region-bg);
+            backdrop-filter: blur(8px);
+            padding: 30px 25px 25px 25px;
+            border-radius: 18px;
+            border: 1px solid var(--region-border);
+            transition: all 0.4s;
+        }
+
+        .region-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-color);
+            box-shadow: 0 12px 40px var(--card-shadow);
+        }
+
+        .region-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .region-header .icon {
+            font-size: 48px;
+            line-height: 1;
+        }
+
+        .region-header .region-title {
+            flex: 1;
+        }
+
+        .region-header .region-title h4 {
+            color: var(--text-heading);
+            font-size: 28px;
+            transition: color 0.3s ease;
+        }
+
+        .region-header .region-title .sub {
+            color: var(--region-sub-color);
+            font-size: 16px;
+            font-style: italic;
+            transition: color 0.3s ease;
+        }
+
+        .region-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .region-body .description {
+            color: var(--region-p-color);
+            font-size: 15px;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .region-body .description strong {
+            color: var(--text-heading-span);
+            transition: color 0.3s ease;
+        }
+
+        .region-body .sub-regions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            margin-top: 4px;
+        }
+
+        .region-body .sub-regions .sub-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            background: var(--list-bg);
+            border: 1px solid var(--border-light);
+            font-size: 13px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .region-body .element-tag {
+            display: inline-block;
+            margin-top: 4px;
+            padding: 4px 18px;
+            border-radius: 20px;
+            background: var(--element-tag-bg);
+            border: 1px solid var(--element-tag-border);
+            font-size: 13px;
+            color: var(--element-tag-color);
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        @media (max-width: 768px) {
+            .region-header .region-title h4 {
+                font-size: 22px;
+            }
+            .region-header .icon {
+                font-size: 38px;
+            }
+            .region-card {
+                padding: 20px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .region-header {
+                gap: 12px;
+            }
+            .region-header .icon {
+                font-size: 32px;
+            }
+            .region-header .region-title h4 {
+                font-size: 19px;
+            }
+            .region-header .region-title .sub {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE
+    ========================================================== -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label" id="themeLabel">🔴 Red</span>
+        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Genshin</span> Impact ✦</h1>
+            <p>Map of Teyvat</p>
+            <a href="/index.html" class="back-link">← Back to Home</a>
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/s-rank.html">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>🗺️ <span>Map</span> of Teyvat</h2>
+        <p>Explore the seven nations and their unique landscapes</p>
+    </section>
+
+    <!-- ==========================================================
+    REGIONS
+    ========================================================== -->
+    <section class="content-section">
+        <div class="region-grid">
+
+            <!-- Mondstadt -->
+            <div class="region-card" id="mondstadt">
+                <span class="icon">🏔️</span>
+                <h4>Mondstadt</h4>
+                <div class="sub">The City of Freedom</div>
+                <p>Nestled among the mountains and vast plains, Mondstadt is the home of the Anemo Archon Barbatos. Known for its windmills, wine, and the legendary Knights of Favonius.</p>
+                <span class="element-tag">🌪️ Anemo · Freedom</span>
+            </div>
+
+            <!-- Liyue -->
+            <div class="region-card" id="liyue">
+                <span class="icon">🌸</span>
+                <h4>Liyue</h4>
+                <div class="sub">The City of Contracts</div>
+                <p>A prosperous harbor city built upon the remains of an ancient god. Ruled by the Geo Archon Rex Lapis, it is the heart of commerce and tradition in Teyvat.</p>
+                <span class="element-tag">⛰️ Geo · Contracts</span>
+            </div>
+
+            <!-- Inazuma -->
+            <div class="region-card" id="inazuma">
+                <span class="icon">⚡</span>
+                <h4>Inazuma</h4>
+                <div class="sub">The City of Eternity</div>
+                <p>An archipelago of thunderous storms and cherry blossoms. Governed by the Raiden Shogun and the Electro Archon, it is a land of duality — beauty and peril.</p>
+                <span class="element-tag">⚡ Electro · Eternity</span>
+            </div>
+
+            <!-- Sumeru -->
+            <div class="region-card" id="sumeru">
+                <span class="icon">🌳</span>
+                <h4>Sumeru</h4>
+                <div class="sub">The City of Wisdom</div>
+                <p>Home to the Akademiya, Sumeru is a lush rainforest and vast desert. Guided by the Dendro Archon, it is the center of knowledge and scholarship in Teyvat.</p>
+                <span class="element-tag">🌿 Dendro · Wisdom</span>
+            </div>
+
+            <!-- Fontaine -->
+            <div class="region-card" id="fontaine">
+                <span class="icon">💧</span>
+                <h4>Fontaine</h4>
+                <div class="sub">The City of Justice</div>
+                <p>A nation of water, art, and technology. Ruled by the Hydro Archon, Fontaine is known for its opera, advanced machinery, and the pursuit of justice above all.</p>
+                <span class="element-tag">💧 Hydro · Justice</span>
+            </div>
+
+            <!-- Natlan -->
+            <div class="region-card" id="natlan">
+                <span class="icon">🔥</span>
+                <h4>Natlan</h4>
+                <div class="sub">The City of War</div>
+                <p>The land of fire and dragons. Natlan is a warrior nation where the Pyro Archon commands the strongest fighters. Its culture is built on strength and honor.</p>
+                <span class="element-tag">🔥 Pyro · War</span>
+            </div>
+
+            <!-- Snezhnaya -->
+            <div class="region-card" id="snezhnaya">
+                <span class="icon">❄️</span>
+                <h4>Snezhnaya</h4>
+                <div class="sub">The City of Love</div>
+                <p>A frozen tundra ruled by the Cryo Archon and the Fatui. Snezhnaya is the most formidable nation in Teyvat, known for its military might and deep secrets.</p>
+                <span class="element-tag">❄️ Cryo · Love</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Genshin Impact Fans ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT — THEME TOGGLE + ARROW TOGGLE
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

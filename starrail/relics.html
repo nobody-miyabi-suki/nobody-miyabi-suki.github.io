@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rail · Relics</title>
+    <!-- استایل‌های عمومی -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- استایل‌های صفحات داخلی (رلیک‌ها، و ...) -->
+    <link rel="stylesheet" href="/css/pages.css">
+    <!-- استایل‌های اختصاصی این صفحه -->
+    <style>
+        .relic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .relic-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(6px);
+            border-radius: 18px;
+            padding: 20px 18px 18px 18px;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .relic-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-color);
+            box-shadow: 0 12px 40px var(--card-shadow);
+        }
+
+        .relic-card .relic-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 10px;
+        }
+
+        .relic-card .relic-header .icon {
+            font-size: 38px;
+            line-height: 1;
+        }
+
+        .relic-card .relic-header .title-group {
+            flex: 1;
+        }
+
+        .relic-card .relic-header .title-group h4 {
+            color: var(--text-heading);
+            font-size: 19px;
+            transition: color 0.3s ease;
+        }
+
+        .relic-card .relic-header .title-group .rarity {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            color: #ffd700;
+        }
+
+        .relic-card .relic-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .relic-card .relic-body .bonus {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            transition: color 0.3s ease;
+        }
+
+        .relic-card .relic-body .bonus strong {
+            color: var(--bonus-strong);
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .relic-card .relic-body .bonus .highlight {
+            color: var(--text-heading-span);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .relic-card .relic-footer {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .relic-card .relic-footer .source {
+            font-size: 12px;
+            color: var(--source-color);
+            background: var(--source-bg);
+            padding: 3px 12px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .relic-card .relic-footer .char-tag {
+            font-size: 11px;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .planar-section {
+            margin-top: 20px;
+        }
+
+        .section-header:first-of-type {
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .relic-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .relic-card .relic-header .title-group h4 {
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .relic-card {
+                padding: 16px 14px;
+            }
+            .relic-card .relic-header .icon {
+                font-size: 30px;
+            }
+            .relic-card .relic-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE (توسط base.css مدیریت میشه)
+    ========================================================== -->
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Honkai</span> Star Rail ✦</h1>
+            <p>Relics &amp; Planar Ornaments</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
+        </div>
+
+        <!-- ==========================================================
+        MENU — استاندارد (آیکون تصویری برای بازی‌ها، ایموجی برای بقیه)
+        ========================================================== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/s-rank.html">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>🧩 <span>Relics</span> &amp; Planar Ornaments</h2>
+        <p>All relic sets and planar ornaments to optimize your characters</p>
+    </section>
+
+    <!-- ==========================================================
+    CAVERN OF CORROSION (RELIC SETS)
+    ========================================================== -->
+    <section class="content-section">
+        <h3 class="section-header">🗡️ Cavern of Corrosion · Relic Sets</h3>
+        <p class="section-desc">
+            Relic sets provide powerful stat bonuses and unique effects. Each set comes in a <strong>2-piece</strong> and <strong>4-piece</strong> variant. Below are all the key sets available in Honkai Star Rail.
+        </p>
+
+        <div class="relic-grid">
+
+            <!-- 1. Musketeer of Wild Wheat -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">🌾</span>
+                    <div class="title-group">
+                        <h4>Musketeer of Wild Wheat</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> ATK +12%
+                    </div>
+                    <div class="bonus">
+                        <strong>4-Piece</strong> Increases Basic Attack DMG by <span class="highlight">20%</span>. When using Basic Attack, SPD +8% for 1 turn.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">📌 Cavern of Corrosion</span>
+                    <span class="char-tag">👤 Basic Attack DPS</span>
+                </div>
+            </div>
+
+            <!-- 2. Knight of Purity Palace -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">🛡️</span>
+                    <div class="title-group">
+                        <h4>Knight of Purity Palace</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> DEF +15%
+                    </div>
+                    <div class="bonus">
+                        <strong>4-Piece</strong> Increases the DMG absorbed by the Shield created by the wearer by <span class="highlight">20%</span>.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">📌 Cavern of Corrosion</span>
+                    <span class="char-tag">🛡️ Shielders</span>
+                </div>
+            </div>
+
+            <!-- 3. Hunter of Glacial Forest -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">❄️</span>
+                    <div class="title-group">
+                        <h4>Hunter of Glacial Forest</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Ice DMG +10%
+                    </div>
+                    <div class="bonus">
+                        <strong>4-Piece</strong> After using Ultimate, increases the wearer's CRIT DMG by <span class="highlight">25%</span> for 2 turns.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">📌 Cavern of Corrosion</span>
+                    <span class="char-tag">❄️ Ice DPS</span>
+                </div>
+            </div>
+
+            <!-- 4. Thief of Shooting Meteor -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">💫</span>
+                    <div class="title-group">
+                        <h4>Thief of Shooting Meteor</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Break Effect +16%
+                    </div>
+                    <div class="bonus">
+                        <strong>4-Piece</strong> Increases the wearer's Break Effect by <span class="highlight">16%</span>. When the wearer breaks an enemy, restores 3 Energy.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">📌 Cavern of Corrosion</span>
+                    <span class="char-tag">💥 Break Specialists</span>
+                </div>
+            </div>
+
+            <!-- 5. Champion of Streetwise Boxing -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">🥊</span>
+                    <div class="title-group">
+                        <h4>Champion of Streetwise Boxing</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Physical DMG +10%
+                    </div>
+                    <div class="bonus">
+                        <strong>4-Piece</strong> After entering battle or using attack, increases ATK by <span class="highlight">5%</span> and can stack up to 5 times.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">📌 Cavern of Corrosion</span>
+                    <span class="char-tag">💪 Physical DPS</span>
+                </div>
+            </div>
+
+            <!-- 6. Firesmith of Lava-Forging -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">🔥</span>
+                    <div class="title-group">
+                        <h4>Firesmith of Lava-Forging</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Fire DMG +10%
+                    </div>
+                    <div class="bonus">
+                        <strong>4-Piece</strong> Increases the wearer's Skill DMG by <span class="highlight">12%</span>. After using Ultimate, increases Fire DMG by 20% for 1 turn.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">📌 Cavern of Corrosion</span>
+                    <span class="char-tag">🔥 Fire DPS</span>
+                </div>
+            </div>
+
+            <!-- 7. Genius of Brilliant Stars -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">✨</span>
+                    <div class="title-group">
+                        <h4>Genius of Brilliant Stars</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Quantum DMG +10%
+                    </div>
+                    <div class="bonus">
+                        <strong>4-Piece</strong> Increases DEF penetration by <span class="highlight">10%</span> and max stack 3.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">📌 Cavern of Corrosion</span>
+                    <span class="char-tag">🌌 Quantum DPS</span>
+                </div>
+            </div>
+
+            <!-- 8. Eagle of Twilight Line -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">🦅</span>
+                    <div class="title-group">
+                        <h4>Eagle of Twilight Line</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Wind DMG +10%
+                    </div>
+                    <div class="bonus">
+                        <strong>4-Piece</strong> After the wearer uses Ultimate, their turn is <span class="highlight">advanced forward</span> by 25%.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">📌 Cavern of Corrosion</span>
+                    <span class="char-tag">🌪️ Wind DPS</span>
+                </div>
+            </div>
+
+            <!-- 9. Guard of Wuthering Snow -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">❄️</span>
+                    <div class="title-group">
+                        <h4>Guard of Wuthering Snow</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Reduces DMG taken by 8%.
+                    </div>
+                    <div class="bonus">
+                        <strong>4-Piece</strong> At the beginning of each turn, if the wearer's HP is below 50%, heals <span class="highlight">20%</span> of their max HP.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">📌 Cavern of Corrosion</span>
+                    <span class="char-tag">🛡️ Tank/Sustain</span>
+                </div>
+            </div>
+
+            <!-- 10. Band of Sizzling Thunder -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">⚡</span>
+                    <div class="title-group">
+                        <h4>Band of Sizzling Thunder</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Lightning DMG +10%
+                    </div>
+                    <div class="bonus">
+                        <strong>4-Piece</strong> Increases the wearer's ATK by <span class="highlight">20%</span> for 1 turn after using Skill.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">📌 Cavern of Corrosion</span>
+                    <span class="char-tag">⚡ Lightning DPS</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    PLANAR ORNAMENTS
+    ========================================================== -->
+    <section class="content-section planar-section">
+        <h3 class="section-header">🌀 Planar Ornaments</h3>
+        <p class="section-desc">
+            Planar Ornaments are special 2-piece sets obtained from the <strong>Simulated Universe</strong>. They provide unique effects and are essential for end-game builds.
+        </p>
+
+        <div class="relic-grid">
+
+            <!-- 1. Inert Salsotto -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">🌌</span>
+                    <div class="title-group">
+                        <h4>Inert Salsotto</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Increases CRIT Rate by <span class="highlight">8%</span>. When current CRIT Rate is 50% or higher, increases Ultimate and Follow-up attack DMG by 15%.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">🎮 Simulated Universe · World 3</span>
+                    <span class="char-tag">🎯 Crit DPS</span>
+                </div>
+            </div>
+
+            <!-- 2. Space Sealing Station -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">🛸</span>
+                    <div class="title-group">
+                        <h4>Space Sealing Station</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Increases ATK by <span class="highlight">12%</span>. When SPD reaches 120 or higher, ATK increased by an additional 12%.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">🎮 Simulated Universe · World 1</span>
+                    <span class="char-tag">📈 ATK Scaler</span>
+                </div>
+            </div>
+
+            <!-- 3. Fleet of the Ageless -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">⏳</span>
+                    <div class="title-group">
+                        <h4>Fleet of the Ageless</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Increases Max HP by <span class="highlight">12%</span>. When SPD reaches 120 or higher, increases all allies' ATK by 8%.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">🎮 Simulated Universe · World 2</span>
+                    <span class="char-tag">🩸 HP Scaler</span>
+                </div>
+            </div>
+
+            <!-- 4. Talia: Kingdom of Banditry -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">🏴‍☠️</span>
+                    <div class="title-group">
+                        <h4>Talia: Kingdom of Banditry</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Increases Break Effect by <span class="highlight">16%</span>. When SPD reaches 145 or higher, additionally increases Break Effect by 20%.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">🎮 Simulated Universe · World 5</span>
+                    <span class="char-tag">💥 Break Effect</span>
+                </div>
+            </div>
+
+            <!-- 5. Pan-Cosmic Commercial Enterprise -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">💼</span>
+                    <div class="title-group">
+                        <h4>Pan-Cosmic Commercial Enterprise</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Increases the wearer's Effect Hit Rate by <span class="highlight">10%</span>. ATK is increased by 25% of Effect Hit Rate.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">🎮 Simulated Universe · World 6</span>
+                    <span class="char-tag">🎯 Debuffer</span>
+                </div>
+            </div>
+
+            <!-- 6. Belobog of the Architects -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">🏛️</span>
+                    <div class="title-group">
+                        <h4>Belobog of the Architects</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Increases DEF by <span class="highlight">15%</span>. When Effect Hit Rate reaches 50% or higher, additionally increases DEF by 15%.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">🎮 Simulated Universe · World 4</span>
+                    <span class="char-tag">🛡️ Defense Shielder</span>
+                </div>
+            </div>
+
+            <!-- 7. Sprightly Vonwacq -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">💨</span>
+                    <div class="title-group">
+                        <h4>Sprightly Vonwacq</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Increases Energy Regeneration Rate by <span class="highlight">5%</span>. When SPD reaches 120 or higher, the wearer's turn is advanced forward by 40% at the start of battle.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">🎮 Simulated Universe · World 7</span>
+                    <span class="char-tag">⚡ Energy Support</span>
+                </div>
+            </div>
+
+            <!-- 8. Duran, Dynasty of Running Wolves -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">🐺</span>
+                    <div class="title-group">
+                        <h4>Duran, Dynasty of Running Wolves</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> Increases Follow-Up Attack DMG by <span class="highlight">25%</span>. When allies use Follow-Up attacks, gains a stack of "Merit" (max 5) increasing ATK by 5%.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">🎮 Simulated Universe · World 8</span>
+                    <span class="char-tag">⚔️ Follow-Up Attack</span>
+                </div>
+            </div>
+
+            <!-- 9. Izumo Gensei & Takama Divine Realm -->
+            <div class="relic-card">
+                <div class="relic-header">
+                    <span class="icon">⛩️</span>
+                    <div class="title-group">
+                        <h4>Izumo Gensei &amp; Takama Divine Realm</h4>
+                        <span class="rarity">★★★★★</span>
+                    </div>
+                </div>
+                <div class="relic-body">
+                    <div class="bonus">
+                        <strong>2-Piece</strong> When an ally in the team is of the same element, ATK increased by <span class="highlight">12%</span>. If two or more allies are of the same element, additionally increases CRIT Rate by 8%.
+                    </div>
+                </div>
+                <div class="relic-footer">
+                    <span class="source">🎮 Simulated Universe · World 9</span>
+                    <span class="char-tag">⚔️ Mono-Element</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Honkai Star Rail Fans ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

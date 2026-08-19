@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rail · Story</title>
+    <!-- استایل‌های عمومی -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- استایل‌های صفحات داخلی (داستان، کاراکترها، و ...) -->
+    <link rel="stylesheet" href="/css/pages.css">
+    <!-- استایل‌های اختصاصی این صفحه -->
+    <style>
+        /* ============================================================
+           استایل‌های اختصاصی Star Rail Story
+           ============================================================ */
+        .starrail-story-page .content-section {
+            padding: 50px 30px;
+            background: var(--content-bg);
+            max-width: 1100px;
+            margin: 0 auto;
+            transition: all 0.4s ease;
+        }
+
+        .starrail-story-page .story-intro {
+            background: var(--intro-bg);
+            padding: 30px;
+            border-radius: 18px;
+            border-left: 6px solid var(--intro-border);
+            margin-bottom: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .starrail-story-page .story-intro p {
+            font-size: 18px;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .starrail-story-page .story-intro strong {
+            color: var(--intro-strong);
+            transition: color 0.3s ease;
+        }
+
+        .starrail-story-page .chapter {
+            background: var(--chapter-bg);
+            backdrop-filter: blur(4px);
+            padding: 25px 30px;
+            border-radius: 16px;
+            border: 1px solid var(--chapter-border);
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .starrail-story-page .chapter:hover {
+            border-color: var(--chapter-hover-border);
+            transform: translateX(6px);
+        }
+
+        .starrail-story-page .chapter .chapter-number {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--chapter-number-color);
+            background: var(--chapter-number-bg);
+            padding: 2px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--chapter-number-border);
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .starrail-story-page .chapter h3 {
+            font-size: 28px;
+            color: var(--text-heading);
+            margin-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .starrail-story-page .chapter .sub-title {
+            font-size: 16px;
+            color: var(--sub-title-color);
+            font-style: italic;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .starrail-story-page .chapter p {
+            color: var(--chapter-p-color);
+            line-height: 1.8;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .starrail-story-page .chapter .region-tag {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 4px 18px;
+            background: var(--region-tag-bg);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--region-tag-color);
+            border: 1px solid var(--region-tag-border);
+            transition: all 0.3s ease;
+        }
+
+        .starrail-story-page .characters-section {
+            margin-top: 50px;
+            background: var(--archon-section-bg);
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid var(--archon-section-border);
+            transition: all 0.3s ease;
+        }
+
+        .starrail-story-page .characters-section h3 {
+            font-size: 30px;
+            color: var(--text-heading);
+            text-align: center;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .starrail-story-page .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .starrail-story-page .character-card {
+            background: var(--archon-card-bg);
+            padding: 18px 12px;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid var(--archon-card-border);
+            transition: all 0.3s;
+        }
+
+        .starrail-story-page .character-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--archon-card-hover-border);
+        }
+
+        .starrail-story-page .character-card .icon {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .starrail-story-page .character-card h4 {
+            color: var(--text-heading);
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .starrail-story-page .character-card .char-title {
+            font-size: 13px;
+            color: var(--archon-title-color);
+            transition: color 0.3s ease;
+        }
+
+        .starrail-story-page .character-card .char-desc {
+            font-size: 12px;
+            color: var(--archon-name-color);
+            margin-top: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .starrail-story-page .chapter em {
+            color: var(--em-color);
+            transition: color 0.3s ease;
+        }
+
+        /* ============================================================
+           ریسپانسیو اختصاصی
+           ============================================================ */
+        @media (max-width: 768px) {
+            .starrail-story-page .page-title h2 {
+                font-size: 30px;
+            }
+            .starrail-story-page .chapter {
+                padding: 18px 16px;
+            }
+            .starrail-story-page .chapter h3 {
+                font-size: 22px;
+            }
+            .starrail-story-page .characters-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+            .starrail-story-page .story-intro {
+                padding: 18px;
+            }
+            .starrail-story-page .story-intro p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .starrail-story-page .page-title h2 {
+                font-size: 24px;
+            }
+            .starrail-story-page .characters-section {
+                padding: 18px;
+            }
+            .starrail-story-page .characters-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body class="starrail-story-page">
+
+    <!-- ==========================================================
+    THEME TOGGLE (توسط base.css مدیریت میشه)
+    ========================================================== -->
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Honkai</span> Star Rail ✦</h1>
+            <p>Story of the Cosmos</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
+        </div>
+
+        <!-- ==========================================================
+        MENU — فقط اسم بازی‌ها آیکون تصویری دارن، بقیه ایموجی
+        ========================================================== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/s-rank.html">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>📖 <span>Story</span> of the Cosmos</h2>
+        <p>The epic journey of the Trailblazer across the stars</p>
+    </section>
+
+    <!-- ==========================================================
+    STORY CONTENT
+    ========================================================== -->
+    <section class="content-section">
+
+        <!-- INTRO -->
+        <div class="story-intro">
+            <p>
+                <strong>✦ The Trailblazer's Journey ✦</strong><br><br>
+                In a universe where gods known as <strong>Aeons</strong> govern the paths of existence, a mysterious being known as the <strong>Stellaron</strong> — a "Cancer of All Worlds" — threatens to consume entire planets. You are the <strong>Trailblazer</strong>, a unique individual who can host a Stellaron without being destroyed.
+                <br><br>
+                After awakening on the <strong>Herta Space Station</strong>, you join the <strong>Astral Express</strong> — a star-sailing train that travels through the cosmos following the path of the Aeon <strong>Akivili</strong>. Alongside your companions — <strong>Dan Heng, March 7th, Welt, and Himeko</strong> — you embark on a journey to <strong>stabilize Stellarons</strong> across different worlds, uncovering the secrets of the Aeons, the Stellaron Hunters, and the fate of the universe.
+                <br><br>
+                This is the story of the Trailblazer's search for the truth — and the path they choose to walk.
+            </p>
+        </div>
+
+        <!-- CHAPTER 1 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Prologue</span>
+            <h3>The Awakening</h3>
+            <div class="sub-title">Herta Space Station · The Beginning</div>
+            <p>
+                The Trailblazer awakens on the <strong>Herta Space Station</strong> with no memories of their past. They are immediately thrust into chaos as the space station is attacked by the <strong>Anti-Matter Legion</strong>, led by <strong>Doomsday Beast</strong>. Guided by <strong>March 7th</strong> and <strong>Dan Heng</strong>, they discover they can control a Stellaron within them.
+                <br><br>
+                After a fierce battle, they meet <strong>Herta</strong>, the station's owner, and <strong>Welt</strong>, a seasoned traveler. They are invited to join the <strong>Astral Express</strong>, setting the stage for their interstellar journey. However, a mysterious figure — <strong>Kafka</strong> of the Stellaron Hunters — seems to know about the Trailblazer's past and purpose.
+            </p>
+            <span class="region-tag">🛸 Herta Space Station</span>
+        </div>
+
+        <!-- CHAPTER 2 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter I</span>
+            <h3>The Eternal Freeze</h3>
+            <div class="sub-title">Jarilo-VI · The Planet Under Ice</div>
+            <p>
+                The Astral Express arrives at <strong>Jarilo-VI</strong>, a frozen planet covered in "Eternal Freeze." The only city is <strong>Belobog</strong>, divided between the Overworld and Underworld. The Trailblazer discovers that a <strong>Stellaron</strong> is the source of the eternal winter, buried deep in the planet's core.
+                <br><br>
+                With the help of the <strong>Silvermane Guards</strong> and the resistance fighters of the Underworld, the Trailblazer ventures into the <strong>Everwinter Hill</strong> and confronts the <strong>Stellaron</strong>. In a climactic battle, they purify the Stellaron, saving Belobog from total destruction. The city begins to thaw, and the Trailblazer earns the gratitude of its people.
+            </p>
+            <span class="region-tag">❄️ Jarilo-VI · Belobog</span>
+        </div>
+
+        <!-- CHAPTER 3 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter II</span>
+            <h3>The Xianzhou Luofu</h3>
+            <div class="sub-title">The Flagship of the Alliance</div>
+            <p>
+                The Express receives a distress call from the <strong>Xianzhou Luofu</strong>, one of the six flagships of the Xianzhou Alliance. The Luofu is under attack by the <strong>Abundance</strong> — an ancient enemy of the Alliance. The Trailblazer learns about the conflict between <strong>The Hunt</strong> (Aeon Lan) and <strong>Abundance</strong> (Aeon Yaoshi).
+                <br><br>
+                The Trailblazer uncovers a conspiracy involving the <strong>Stellaron Hunters</strong> and the secret of the <strong>Ambrosial Arbor</strong>. They join forces with <strong>Jing Yuan</strong>, the general of the Luofu's Cloud Knights, and <strong>Fu Xuan</strong>, the master diviner, to prevent the resurrection of a powerful Abundance entity. The story concludes with a tense standoff, and the Trailblazer earns the respect of the Alliance.
+            </p>
+            <span class="region-tag">🌿 Xianzhou Luofu</span>
+        </div>
+
+        <!-- CHAPTER 4 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter III</span>
+            <h3>The Sweetdream Paradise</h3>
+            <div class="sub-title">Penacony · The Planet of Festivities</div>
+            <p>
+                The Astral Express arrives at <strong>Penacony</strong>, a luxurious dreamscape hotel planet. Once a prison, it is now a grand resort where guests can experience the <strong>Sweetdream Paradise</strong> — a realm where dreams become reality. However, beneath the festivities lies a dark secret.
+                <br><br>
+                The Trailblazer uncovers the truth about <strong>The Family</strong>, the rulers of Penacony, and their manipulation of <strong>Memoria</strong> (the fabric of dreams). They meet <strong>Firefly</strong>, a mysterious companion with ties to the Stellaron Hunters, and confront the <strong>Death</strong> meme. In the end, the Trailblazer must choose between the dream and reality, facing the <strong>Aeon of Remembrance</strong> (Fuli).
+            </p>
+            <span class="region-tag">🌙 Penacony · The Dreamscape</span>
+        </div>
+
+        <!-- CHAPTER 5 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter IV</span>
+            <h3>The Eternal Land</h3>
+            <div class="sub-title">Amphoreus · The Sandbox World</div>
+            <p>
+                The Express journeys to <strong>Amphoreus</strong>, also known as the Eternal Land. This world is isolated from the rest of the universe, a "sandbox" created by an ancient Scepter. The Trailblazer discovers the secrets of the <strong>Giants</strong> and the <strong>Scepter δ-me13</strong>.
+                <br><br>
+                The story delves into the origins of the Aeons and the cycle of destruction and creation. The Trailblazer must navigate ancient ruins, face challenges from the <strong>Darkness</strong>, and uncover the truth about the world's isolation. The chapter reveals crucial lore about the universe's history.
+            </p>
+            <span class="region-tag">🏛️ Amphoreus · The Sandbox</span>
+        </div>
+
+        <!-- CHAPTER 6 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter V · Coming Soon</span>
+            <h3>The World of Elation</h3>
+            <div class="sub-title">Planarcadia · Himeko's Homeland</div>
+            <p>
+                The Express arrives at <strong>Planarcadia</strong>, a world covered in the Elation of <strong>Aha</strong>. This is the homeland of <strong>Himeko</strong>, the navigator of the Astral Express. The Trailblazer learns about the crash of the Astral Express on this planet and the events that shaped Himeko's past.
+                <br><br>
+                <em>(Story content will be updated upon release of the Planarcadia chapter.)</em>
+            </p>
+            <span class="region-tag">🎉 Planarcadia · Elation</span>
+        </div>
+
+        <!-- CHAPTER 7 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter VI · TBA</span>
+            <h3>The Finale</h3>
+            <div class="sub-title">The Celestial War</div>
+            <p>
+                The final confrontation with the <strong>Stellaron Hunters</strong> and the <strong>Truth of the Aeons</strong>. The Trailblazer will face the destiny that has been laid out for them since the beginning.
+                <br><br>
+                <em>(Story content will be updated upon release of the final chapter.)</em>
+            </p>
+            <span class="region-tag">🌌 The Aeons</span>
+        </div>
+
+        <!-- ==========================================================
+        KEY CHARACTERS
+        ========================================================== -->
+        <div class="characters-section">
+            <h3>✦ Key Characters</h3>
+            <div class="characters-grid">
+
+                <div class="character-card">
+                    <span class="icon">🚂</span>
+                    <h4>Trailblazer</h4>
+                    <div class="char-title">The Protagonist</div>
+                    <div class="char-desc">Stellaron host · Astral Express</div>
+                </div>
+
+                <div class="character-card">
+                    <span class="icon">🧊</span>
+                    <h4>March 7th</h4>
+                    <div class="char-title">The Cheerful Girl</div>
+                    <div class="char-desc">Ice · Preservation</div>
+                </div>
+
+                <div class="character-card">
+                    <span class="icon">🐉</span>
+                    <h4>Dan Heng</h4>
+                    <div class="char-title">The Guardian</div>
+                    <div class="char-desc">Wind · Hunt</div>
+                </div>
+
+                <div class="character-card">
+                    <span class="icon">🌌</span>
+                    <h4>Himeko</h4>
+                    <div class="char-title">The Navigator</div>
+                    <div class="char-desc">Fire · Erudition</div>
+                </div>
+
+                <div class="character-card">
+                    <span class="icon">🕶️</span>
+                    <h4>Welt</h4>
+                    <div class="char-title">The Veteran</div>
+                    <div class="char-desc">Imaginary · Nihility</div>
+                </div>
+
+                <div class="character-card">
+                    <span class="icon">🕸️</span>
+                    <h4>Kafka</h4>
+                    <div class="char-title">Stellaron Hunter</div>
+                    <div class="char-desc">Lightning · Nihility</div>
+                </div>
+
+                <div class="character-card">
+                    <span class="icon">🎯</span>
+                    <h4>Jing Yuan</h4>
+                    <div class="char-title">Cloud Knight General</div>
+                    <div class="char-desc">Lightning · Erudition</div>
+                </div>
+
+                <div class="character-card">
+                    <span class="icon">🌙</span>
+                    <h4>Firefly</h4>
+                    <div class="char-title">Dreamwalker</div>
+                    <div class="char-desc">Fire · Destruction</div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Honkai Star Rail Fans ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZZZ · Map</title>
+    <!-- استایل‌های عمومی -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- استایل‌های صفحات داخلی (نقشه، کاراکترها، و ...) -->
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE (توسط base.css مدیریت میشه)
+    ========================================================== -->
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Hoyoverse</span> ✦</h1>
+            <p>Fan Page · All Games</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
+        </div>
+
+        <!-- ==========================================================
+        MENU — فقط اسم بازی‌ها آیکون تصویری دارن، بقیه ایموجی
+        ========================================================== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/s-rank.html">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>🗺️ <span>New Eridu</span> &amp; The Hollows</h2>
+        <p>Explore the last bastion of civilization and the dangerous zones that surround it</p>
+    </section>
+
+    <!-- ==========================================================
+    SECTION 1: NEW ERIDU
+    ========================================================== -->
+    <section class="content-section" id="new-eridu">
+        <h3 class="section-header">🏙️ Districts of New Eridu</h3>
+        <p class="section-desc">The beating heart of humanity's last city — where proxies, agents, and civilians live, work, and fight to survive.</p>
+
+        <div class="map-grid">
+
+            <!-- Sixth Street -->
+            <div class="map-card">
+                <div class="card-header">
+                    <span class="icon">🏘️</span>
+                    <div class="title-group">
+                        <h4>Sixth Street</h4>
+                        <div class="sub">The Proxies' Hub</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>A bustling commercial district filled with arcades, shops, and the iconic <strong>Random Play</strong> video store. This is where the story begins and where proxies take on their most dangerous commissions.</p>
+                    <div class="tag-list">
+                        <span class="tag">🛍️ Shops</span>
+                        <span class="tag">🎮 Arcade</span>
+                        <span class="tag">📼 Random Play</span>
+                        <span class="tag">☕ Coffee Shop</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lumina Square -->
+            <div class="map-card">
+                <div class="card-header">
+                    <span class="icon">🏛️</span>
+                    <div class="title-group">
+                        <h4>Lumina Square</h4>
+                        <div class="sub">The Heart of the City</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>The central plaza of New Eridu, surrounded by towering skyscrapers and government buildings. It's a place of grand speeches, public events, and the constant presence of the <strong>PubSec</strong> and <strong>Hollow Observation Data</strong> headquarters.</p>
+                    <div class="tag-list">
+                        <span class="tag">🏛️ Government</span>
+                        <span class="tag">👮 PubSec</span>
+                        <span class="tag">📊 H.O.D.</span>
+                        <span class="tag">🗳️ Events</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Port Elpis -->
+            <div class="map-card">
+                <div class="card-header">
+                    <span class="icon">⛵</span>
+                    <div class="title-group">
+                        <h4>Port Elpis</h4>
+                        <div class="sub">Gateway to the Outer Ring</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>A sprawling industrial port connecting New Eridu to the lawless <strong>Outer Ring</strong>. Smuggling, trade, and mercenary work thrive here, making it a hotspot for those looking to make a name (or a fortune) outside the city's strict rules.</p>
+                    <div class="tag-list">
+                        <span class="tag">🚢 Harbor</span>
+                        <span class="tag">🔧 Industry</span>
+                        <span class="tag">🌆 Outer Ring</span>
+                        <span class="tag">💼 Black Market</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hollow Observation Data -->
+            <div class="map-card">
+                <div class="card-header">
+                    <span class="icon">📡</span>
+                    <div class="title-group">
+                        <h4>Hollow Observation Data</h4>
+                        <div class="sub">The Eye of the Storm</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>The central research and monitoring facility for all Hollow activity. Scientists and analysts work around the clock to predict Hollow expansions, study Ethereals, and provide critical intel to the agents on the ground.</p>
+                    <div class="tag-list">
+                        <span class="tag">🔬 Research</span>
+                        <span class="tag">🖥️ Monitoring</span>
+                        <span class="tag">📈 Data Analysis</span>
+                        <span class="tag">⚠️ Early Warning</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    SECTION 2: THE HOLLOWS
+    ========================================================== -->
+    <section class="content-section" id="hollows">
+        <h3 class="section-header">🌆 The Hollows</h3>
+        <p class="section-desc">These are the corrupted zones where reality twists, Ethereals roam, and the most valuable resources lie. Only the bravest (or most desperate) proxies dare to enter.</p>
+
+        <div class="map-grid">
+
+            <!-- Hollow Zero -->
+            <div class="map-card">
+                <div class="card-header">
+                    <span class="icon">☣️</span>
+                    <div class="title-group">
+                        <h4>Hollow Zero</h4>
+                        <div class="sub">Ground Zero of the Cataclysm</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>The birthplace of the Hollows. This is the most dangerous and unpredictable zone, where the Ethereals are at their strongest. Only the most elite squads (like the Void Hunters) are permitted to enter.</p>
+                    <div class="tag-list">
+                        <span class="tag">☣️ Extreme Danger</span>
+                        <span class="tag">👾 Elite Ethereals</span>
+                        <span class="tag">🔮 Mystery</span>
+                        <span class="tag">💀 High Risk</span>
+                    </div>
+                    <span class="danger-tag">⚠️ S-Rank Only · Extreme Hazard</span>
+                </div>
+            </div>
+
+            <!-- The Chasm -->
+            <div class="map-card">
+                <div class="card-header">
+                    <span class="icon">🏚️</span>
+                    <div class="title-group">
+                        <h4>The Chasm</h4>
+                        <div class="sub">The Ruined Underground</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>A vast underground Hollow that collapsed into a massive sinkhole. It's a labyrinth of ruined buildings, abandoned metro lines, and terrifying Ethereals that thrive in the darkness. Perfect for resource extraction — if you survive.</p>
+                    <div class="tag-list">
+                        <span class="tag">🏚️ Ruins</span>
+                        <span class="tag">🚇 Metro</span>
+                        <span class="tag">💎 Resources</span>
+                        <span class="tag">🌑 Dark Zone</span>
+                    </div>
+                    <span class="danger-tag">⚠️ High Risk · A-Rank+</span>
+                </div>
+            </div>
+
+            <!-- Ballet Twins Road -->
+            <div class="map-card">
+                <div class="card-header">
+                    <span class="icon">🎭</span>
+                    <div class="title-group">
+                        <h4>Ballet Twins Road</h4>
+                        <div class="sub">The Haunted Theater District</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Once a glamorous entertainment hub, this Hollow is now frozen in a perpetual performance. Ethereals here mimic dancers and actors, making it both beautiful and deadly. A favorite hunting ground for agents who appreciate the macabre.</p>
+                    <div class="tag-list">
+                        <span class="tag">🎭 Theater</span>
+                        <span class="tag">💃 Mimicry</span>
+                        <span class="tag">🎵 Ambient Music</span>
+                        <span class="tag">🌙 Twisted Reality</span>
+                    </div>
+                    <span class="danger-tag">⚠️ Mid Risk · A-Rank+</span>
+                </div>
+            </div>
+
+            <!-- Rusted Blade -->
+            <div class="map-card">
+                <div class="card-header">
+                    <span class="icon">⚔️</span>
+                    <div class="title-group">
+                        <h4>Rusted Blade</h4>
+                        <div class="sub">The Mercenary Training Ground</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>An industrial Hollow filled with abandoned factories and military equipment. Ethereals here are aggressive and combat-oriented, making it the perfect proving ground for new agents. The atmosphere is charged with the echoes of old battles.</p>
+                    <div class="tag-list">
+                        <span class="tag">🏭 Factories</span>
+                        <span class="tag">🤖 Combat Ethereals</span>
+                        <span class="tag">⚡ Electric Hazards</span>
+                        <span class="tag">💥 Training Ground</span>
+                    </div>
+                    <span class="danger-tag">⚠️ Mid Risk · A-Rank+</span>
+                </div>
+            </div>
+
+            <!-- Khors' Nest -->
+            <div class="map-card">
+                <div class="card-header">
+                    <span class="icon">🪹</span>
+                    <div class="title-group">
+                        <h4>Khors' Nest</h4>
+                        <div class="sub">The Outer Ring Frontier</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Located on the outskirts of the Outer Ring, this Hollow is a tangled web of vegetation and ruined structures. It's home to unique, nature-based Ethereals and is a key location for proxy commissions involving exploration and wildlife study.</p>
+                    <div class="tag-list">
+                        <span class="tag">🌳 Overgrown</span>
+                        <span class="tag">🐾 Nature Ethereals</span>
+                        <span class="tag">🌆 Outer Ring</span>
+                        <span class="tag">🧪 Exploration</span>
+                    </div>
+                    <span class="danger-tag">⚠️ Mid Risk · A-Rank+</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Hoyoverse Fans · All Games ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

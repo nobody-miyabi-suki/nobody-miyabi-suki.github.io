@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoyoverse Fan Page</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <style>
+        /* ============================================================
+           استایل‌های اضافی برای کاروسل کاراکترها
+           ============================================================ */
+        
+        /* ===== CAROUSEL SPOTLIGHT ===== */
+        .spotlight-carousel {
+            position: relative;
+            /* overflow: hidden;  ← حذف شد */
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            border-top: 2px solid var(--border-light);
+            border-bottom: 2px solid var(--border-light);
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .spotlight-carousel .carousel-title {
+            text-align: center;
+            font-size: 30px;
+            color: var(--text-heading);
+            margin-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .spotlight-carousel .carousel-sub {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 30px;
+            transition: color 0.3s ease;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .carousel-track-container {
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            gap: 20px;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            padding: 30px 20px;
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+            cursor: pointer;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            min-height: 320px;
+        }
+
+        .carousel-slide:hover {
+            border-color: var(--border-color);
+            box-shadow: 0 10px 40px var(--shadow-color);
+            transform: scale(1.01);
+        }
+
+        .carousel-slide .slide-text {
+            flex: 1 1 300px;
+            min-width: 250px;
+            max-width: 550px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            height: auto;
+        }
+
+        .carousel-slide .slide-text .badge {
+            display: inline-block;
+            background: var(--badge-bg);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            border: 1px solid var(--badge-border);
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-slide .slide-text h3 {
+            font-size: 34px;
+            color: var(--text-heading);
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .carousel-slide .slide-text h3 span {
+            color: var(--text-heading-span);
+            transition: color 0.3s ease;
+        }
+
+        .carousel-slide .slide-text .slide-sub {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .carousel-slide .slide-text p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: 16px;
+            transition: color 0.3s ease;
+            max-height: none;
+            overflow: visible;
+        }
+
+        .carousel-slide .slide-text .btn-slide {
+            display: inline-block;
+            padding: 10px 30px;
+            background: var(--btn-primary-bg);
+            color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: 1px solid var(--badge-border);
+        }
+
+        .carousel-slide .slide-text .btn-slide:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px var(--shadow-color);
+            background: var(--btn-primary-hover);
+        }
+
+        .carousel-slide .slide-image {
+            flex: 0 1 300px;
+            min-width: 180px;
+            max-width: 320px;
+            text-align: center;
+        }
+
+        .carousel-slide .slide-image img {
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: contain;
+            border-radius: 18px;
+            box-shadow: 0 15px 50px var(--shadow-color);
+            border: 2px solid var(--border-light);
+            transition: all 0.4s;
+        }
+
+        .carousel-slide .slide-image img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 25px 70px var(--shadow-color);
+        }
+
+        /* ===== CAROUSEL NAVIGATION ===== */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: var(--badge-bg);
+            border-color: var(--border-color);
+            color: var(--text-heading);
+            box-shadow: 0 4px 20px var(--shadow-color);
+        }
+
+        .carousel-btn.prev {
+            left: 0;
+        }
+
+        .carousel-btn.next {
+            right: 0;
+        }
+
+        /* ===== DOTS ===== */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .carousel-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            border: 2px solid var(--border-light);
+            cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0.4;
+        }
+
+        .carousel-dots .dot.active {
+            background: var(--text-heading-span);
+            border-color: var(--border-color);
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .carousel-dots .dot:hover {
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+
+        /* ============================================================
+           RESPONSIVE — مخصوص کاروسل
+           ============================================================ */
+
+        /* تبلت و موبایل بزرگ */
+        @media (max-width: 900px) {
+            .carousel-wrapper {
+                padding: 0 30px;
+            }
+
+            .carousel-slide {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+                padding: 25px 16px;
+                min-height: auto;
+            }
+
+            .carousel-slide .slide-text {
+                flex: 1 1 auto;
+                min-width: unset;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .carousel-slide .slide-text h3 {
+                font-size: 28px;
+            }
+
+            .carousel-slide .slide-text .slide-sub {
+                font-size: 15px;
+            }
+
+            .carousel-slide .slide-text p {
+                font-size: 14px;
+            }
+
+            .carousel-slide .slide-image {
+                flex: 0 1 auto;
+                max-width: 280px;
+                min-width: unset;
+            }
+
+            .carousel-slide .slide-image img {
+                max-height: 280px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+
+        /* موبایل */
+        @media (max-width: 600px) {
+            .spotlight-carousel {
+                padding: 30px 10px;
+            }
+
+            .spotlight-carousel .carousel-title {
+                font-size: 24px;
+            }
+
+            .spotlight-carousel .carousel-sub {
+                font-size: 13px;
+                margin-bottom: 20px;
+            }
+
+            .carousel-wrapper {
+                padding: 0 20px;
+            }
+
+            .carousel-track {
+                gap: 12px;
+            }
+
+            .carousel-slide {
+                padding: 18px 12px;
+                gap: 15px;
+                border-radius: 14px;
+                min-height: auto;
+                flex-direction: column;
+            }
+
+            .carousel-slide .slide-text {
+                flex: 1 1 auto;
+                min-width: unset;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .carousel-slide .slide-text h3 {
+                font-size: 22px;
+                margin-bottom: 4px;
+            }
+
+            .carousel-slide .slide-text .slide-sub {
+                font-size: 13px;
+                margin-bottom: 6px;
+            }
+
+            .carousel-slide .slide-text p {
+                font-size: 13px;
+                line-height: 1.6;
+                margin-bottom: 10px;
+                max-height: none !important;
+                overflow: visible !important;
+            }
+
+            .carousel-slide .slide-text .badge {
+                font-size: 11px;
+                padding: 3px 12px;
+                margin-bottom: 6px;
+            }
+
+            .carousel-slide .slide-text .btn-slide {
+                padding: 8px 22px;
+                font-size: 12px;
+                display: inline-block;
+            }
+
+            .carousel-slide .slide-image {
+                max-width: 200px;
+                flex: 0 1 auto;
+            }
+
+            .carousel-slide .slide-image img {
+                max-height: 200px;
+                border-radius: 14px;
+            }
+
+            .carousel-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+
+            .carousel-btn.prev {
+                left: -2px;
+            }
+
+            .carousel-btn.next {
+                right: -2px;
+            }
+
+            .carousel-dots .dot {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        /* موبایل خیلی کوچک */
+        @media (max-width: 400px) {
+            .carousel-wrapper {
+                padding: 0 14px;
+            }
+
+            .carousel-slide {
+                padding: 14px 10px;
+                gap: 12px;
+            }
+
+            .carousel-slide .slide-text h3 {
+                font-size: 19px;
+            }
+
+            .carousel-slide .slide-text p {
+                font-size: 12px;
+                line-height: 1.5;
+            }
+
+            .carousel-slide .slide-image {
+                max-width: 160px;
+            }
+
+            .carousel-slide .slide-image img {
+                max-height: 160px;
+            }
+
+            .carousel-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
+
+            .carousel-btn.prev {
+                left: -4px;
+            }
+
+            .carousel-btn.next {
+                right: -4px;
+            }
+        }
+        /* ===== رفع مشکل عدم شکستن متن ===== */
+.carousel-slide .slide-text p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 15px;
+    margin-bottom: 16px;
+    transition: color 0.3s ease;
+    max-height: none !important;
+    overflow: visible !important;
+    height: auto !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    display: block !important;
+}
+
+/* برای موبایل */
+@media (max-width: 600px) {
+    .carousel-slide .slide-text p {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================
+    SLIDESHOW BACKGROUND
+    ========================================================== -->
+    <div class="slideshow-container" id="slideshow"></div>
+
+    <!-- ==========================================================
+    THEME TOGGLE
+    ========================================================== -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label" id="themeLabel">🔴 Red</span>
+        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Hoyoverse</span> ✦</h1>
+            <p>Fan Page · All Games</p>
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="ZZZ" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Home (حذف شد چون خودمون توی صفحه اصلی هستیم) -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    HERO
+    ========================================================== -->
+    <section class="hero">
+        <h2>Welcome to <span>Hoyoverse</span> Fan Page</h2>
+        <p>Explore the world of Genshin Impact, Honkai Star Rail, Zenless Zone Zero, and Honkai Impact 3rd.</p>
+        <p class="subtitle">✦ A fan-made project for all Hoyoverse games ✦</p>
+    </section>
+
+    <!-- ==========================================================
+    GAME CARDS
+    ========================================================== -->
+    <section class="games-section">
+        <h3>🎮 Games</h3>
+        <p class="section-desc">Choose your adventure and dive into the details</p>
+
+        <div class="games-grid">
+            <div class="game-card">
+                <img class="game-img" src="/img/genshin-banner.jpg" alt="Genshin Impact">
+                <h4>Genshin Impact</h4>
+                <p>Explore the world of Teyvat, collect characters, and uncover ancient mysteries.</p>
+                <a href="/genshin/index.html" class="btn-card">Explore →</a>
+            </div>
+            <div class="game-card">
+                <img class="game-img" src="/img/honkai-banner.png" alt="Honkai Star Rail">
+                <h4>Honkai Star Rail</h4>
+                <p>Embark on an intergalactic journey with the Astral Express across the stars.</p>
+                <a href="/starrail/index.html" class="btn-card">Explore →</a>
+            </div>
+            <div class="game-card">
+                <img class="game-img" src="/img/zzz-banner.jpg" alt="Zenless Zone Zero">
+                <h4>Zenless Zone Zero</h4>
+                <p>Fight through the Hollows with elite agents and uncover the truth of New Eridu.</p>
+                <a href="/zzz/index.html" class="btn-card">Explore →</a>
+            </div>
+            <div class="game-card">
+                <img class="game-img" src="/img/honkai3rd-banner.jpg" alt="Honkai Impact 3rd">
+                <h4>Honkai Impact 3rd</h4>
+                <p>Join the battle against the Honkai with Valkyries and save humanity.</p>
+                <a href="/honkai3rd/index.html" class="btn-card">Explore →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    CHARACTER SPOTLIGHT — CAROUSEL
+    ========================================================== -->
+    <section class="spotlight-carousel">
+        <h3 class="carousel-title">⭐ Featured Characters</h3>
+        <p class="carousel-sub">Discover the most powerful agents of New Eridu</p>
+
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev" id="carouselPrev" aria-label="Previous">‹</button>
+
+            <div class="carousel-track-container">
+                <div class="carousel-track" id="carouselTrack">
+
+                    <!-- ===== SLIDE 1: MIYABI ===== -->
+                    <div class="carousel-slide" data-link="/zzz/agent.html?id=miyabi">
+                        <div class="slide-text">
+                            <span class="badge">✦ Void Hunters</span>
+                            <h3>Miyabi</h3>
+                            <div class="slide-sub">The Crimson Void Hunter</div>
+                            <p>
+                                A legendary warrior from the <strong>Void Hunters</strong>, Miyabi is a force of nature
+                                with her blazing red eyes and unmatched sword skills. She cuts through the Hollows
+                                with grace and fury, leaving nothing but frozen silence in her wake.
+                            </p>
+                            <span class="btn-slide">⚔️ Learn More →</span>
+                        </div>
+                        <div class="slide-image">
+                            <img src="/img/miyabi.png" alt="Miyabi" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22320%22%3E%3Crect fill=%22%231a0a0a%22 width=%22320%22 height=%22320%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ff5e5e%22%3E⚔️%3C/text%3E%3C/svg%3E'">
+                        </div>
+                    </div>
+
+                    <!-- ===== SLIDE 2: ELLEN JOE ===== -->
+                    <div class="carousel-slide" data-link="/zzz/agent.html?id=ellen">
+                        <div class="slide-text">
+                            <span class="badge">✦ Victoria Housekeeping</span>
+                            <h3>Ellen <span>Joe</span></h3>
+                            <div class="slide-sub">The Elegant Ice-Bladed Maid</div>
+                            <p>
+                                A graceful and deadly maid from <strong>Victoria Housekeeping</strong>.
+                                Ellen wields ice-bladed weapons with unmatched precision, delivering
+                                swift justice to the enemies of New Eridu. Elegance is her weapon —
+                                and she wields it perfectly.
+                            </p>
+                            <span class="btn-slide">❄️ Learn More →</span>
+                        </div>
+                        <div class="slide-image">
+                            <img src="/img/ellen.jpg" alt="Ellen Joe" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22320%22%3E%3Crect fill=%22%231a0a0a%22 width=%22320%22 height=%22320%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2388ddff%22%3E🧊%3C/text%3E%3C/svg%3E'">
+                        </div>
+                    </div>
+
+                    <!-- ===== SLIDE 4: Kafka ===== -->
+                    <div class="carousel-slide" data-link="/starrail/character.html?id=kafka">
+                        <div class="slide-text">
+                            <span class="badge">✦ Stellaron Hunters</span>
+                            <h3>Kafka</h3>
+                            <div class="slide-sub">The Elegant Stellaron Hunter</div>
+                            <p>
+                                A member of the mysterious <strong>Stellaron Hunters</strong>, Kafka wields lightning with deadly precision. She specializes in applying Shock and triggering devastating follow-up attacks.
+                            </p>
+                            <span class="btn-slide">👮 Learn More</span>
+                        </div>
+                        <div class="slide-image">
+                            <img src="/img/characters/kafka-1.jpg" alt="Kafka" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22320%22%3E%3Crect fill=%22%231a0a0a%22 width=%22320%22 height=%22320%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ffd700%22%3E✨%3C/text%3E%3C/svg%3E'">
+                        </div>
+                    </div>
+
+                    <!-- ===== SLIDE 3: ZHU YUAN ===== -->
+                    <div class="carousel-slide" data-link="/zzz/agent.html?id=zhu_yuan">
+                        <div class="slide-text">
+                            <span class="badge">✦ PubSec</span>
+                            <h3>Zhu <span>Yuan</span></h3>
+                            <div class="slide-sub">The Ether-Powered Officer</div>
+                            <p>
+                                A dedicated officer of <strong>PubSec</strong>, Zhu Yuan fights to protect
+                                New Eridu using advanced firearms and electro-tech. Her determination
+                                and sense of justice make her a formidable force against the Hollows.
+                                <em>(Coming Soon)</em>
+                            </p>
+                            <span class="btn-slide">👮 Learn More</span>
+                        </div>
+                        <div class="slide-image">
+                            <img src="/img/zhu-yuan.jpg" alt="Zhu Yuan" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22320%22%3E%3Crect fill=%22%231a0a0a%22 width=%22320%22 height=%22320%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ffd700%22%3E✨%3C/text%3E%3C/svg%3E'">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <button class="carousel-btn next" id="carouselNext" aria-label="Next">›</button>
+        </div>
+
+        <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Hoyoverse Fans · All Games ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse2</p>
+        <span>Made For My <strong>Miyabi</strong>❤️</span>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT — SLIDESHOW + THEME + CAROUSEL
+    ========================================================== -->
+    <script>
+        // ============================================================
+        // SLIDESHOW
+        // ============================================================
+        const slides = [
+            '/img/genshin-banner.jpg',
+            '/img/honkai-banner.png',
+            '/img/zzz-banner.jpg',
+            '/img/honkai3rd-banner.jpg'
+        ];
+
+        let currentSlide = 0;
+        const container = document.getElementById('slideshow');
+
+        slides.forEach((src, index) => {
+            const div = document.createElement('div');
+            div.className = 'slide' + (index === 0 ? ' active' : '');
+            div.style.backgroundImage = `url(${src})`;
+            div.innerHTML = '<div class="slide-overlay"></div>';
+            container.appendChild(div);
+        });
+
+        function nextSlide() {
+            const allSlides = container.querySelectorAll('.slide');
+            allSlides.forEach(s => s.classList.remove('active'));
+            currentSlide = (currentSlide + 1) % allSlides.length;
+            allSlides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 5000);
+
+        // ============================================================
+        // THEME TOGGLE
+        // ============================================================
+        function toggleTheme() {
+            const html = document.documentElement;
+            const label = document.getElementById('themeLabel');
+
+            if (html.getAttribute('data-theme') === 'blue') {
+                html.removeAttribute('data-theme');
+                label.textContent = '🔴 Red';
+            } else {
+                html.setAttribute('data-theme', 'blue');
+                label.textContent = '🔵 Blue';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('hoyoverse-theme');
+            const label = document.getElementById('themeLabel');
+            if (savedTheme === 'blue') {
+                document.documentElement.setAttribute('data-theme', 'blue');
+                label.textContent = '🔵 Blue';
+            }
+        });
+
+        const originalToggle = toggleTheme;
+        toggleTheme = function() {
+            originalToggle();
+            const theme = document.documentElement.getAttribute('data-theme') || 'red';
+            localStorage.setItem('hoyoverse-theme', theme);
+        };
+
+        // ============================================================
+        // CAROUSEL
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.getElementById('carouselTrack');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const prevBtn = document.getElementById('carouselPrev');
+            const nextBtn = document.getElementById('carouselNext');
+            const dotsContainer = document.getElementById('carouselDots');
+
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            // ایجاد دات‌ها
+            slides.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.className = 'dot' + (index === 0 ? ' active' : '');
+                dot.dataset.index = index;
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = dotsContainer.querySelectorAll('.dot');
+
+            function goToSlide(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                currentIndex = index;
+
+                // حرکت ترک
+                const slideWidth = slides[0].offsetWidth + 20; // عرض + gap
+                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+                // به‌روزرسانی دات‌ها
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+
+            // رویدادها
+            prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+            nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+            // کلیک روی اسلاید برای رفتن به صفحه
+            slides.forEach((slide) => {
+                slide.addEventListener('click', function() {
+                    const link = this.dataset.link;
+                    if (link && link !== '#') {
+                        window.location.href = link;
+                    }
+                });
+            });
+
+            // ریسپانسیو: به‌روزرسانی در تغییر اندازه
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    const slideWidth = slides[0].offsetWidth + 20;
+                    track.style.transition = 'none';
+                    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                    setTimeout(() => {
+                        track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    }, 20);
+                }, 200);
+            });
+
+            // مقداردهی اولیه
+            setTimeout(() => {
+                const slideWidth = slides[0].offsetWidth + 20;
+                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            }, 100);
+        });
+
+        // ============================================================
+        // MOBILE MENU
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const allArrows = document.querySelectorAll('.arrow');
+
+            allArrows.forEach(function(arrow) {
+                arrow.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    const isOpen = this.classList.contains('open');
+                    const parentLi = this.closest('li');
+                    if (!parentLi) return;
+                    const dropdown = parentLi.querySelector('.dropdown, .sub-dropdown');
+                    if (!dropdown) return;
+
+                    if (isOpen) {
+                        this.classList.remove('open');
+                        dropdown.classList.remove('open');
+                    } else {
+                        const siblings = parentLi.parentElement.querySelectorAll('.dropdown.open, .sub-dropdown.open');
+                        siblings.forEach(function(sib) {
+                            if (sib !== dropdown) {
+                                sib.classList.remove('open');
+                                const arrowBtn = sib.closest('li').querySelector('.arrow');
+                                if (arrowBtn) arrowBtn.classList.remove('open');
+                            }
+                        });
+                        this.classList.add('open');
+                        dropdown.classList.add('open');
+                    }
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.menu')) {
+                    document.querySelectorAll('.arrow.open').forEach(function(arrow) {
+                        arrow.classList.remove('open');
+                        const parentLi = arrow.closest('li');
+                        if (parentLi) {
+                            const dropdown = parentLi.querySelector('.dropdown, .sub-dropdown');
+                            if (dropdown) dropdown.classList.remove('open');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

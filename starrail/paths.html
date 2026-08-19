@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rail · Paths</title>
+    <!-- استایل‌های عمومی (هدر، منو، فوتر، دکمه‌ی تغییر تم) -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- استایل‌های صفحات داخلی (کاراکترها، نقشه، داستان، و ...) -->
+    <link rel="stylesheet" href="/css/pages.css">
+    <!-- استایل‌های اختصاصی این صفحه (مسیرها) -->
+    <style>
+        /* ============================================================
+           استایل‌های اختصاصی PATH
+           ============================================================ */
+        .section-desc {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 17px;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .path-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(6px);
+            border-radius: 20px;
+            padding: 25px 20px 20px 20px;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .path-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-color);
+            box-shadow: 0 12px 40px var(--card-shadow);
+        }
+
+        .path-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 12px;
+        }
+
+        .path-header .icon {
+            font-size: 44px;
+            line-height: 1;
+        }
+
+        .path-header .title-group {
+            flex: 1;
+        }
+
+        .path-header .title-group h4 {
+            color: var(--text-heading);
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .path-header .title-group .aeon {
+            font-size: 13px;
+            color: var(--aeon-color);
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+
+        .path-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .path-body .description {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+            transition: color 0.3s ease;
+        }
+
+        .path-body .description strong {
+            color: var(--text-heading-span);
+            transition: color 0.3s ease;
+        }
+
+        .path-body .playstyle {
+            background: var(--list-bg);
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: var(--text-muted);
+            border-left: 3px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .path-body .char-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 10px;
+            margin-top: 4px;
+        }
+
+        .path-body .char-list .tag {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 14px;
+            background: var(--path-tag-bg);
+            border: 1px solid var(--path-tag-border);
+            font-size: 12px;
+            color: var(--path-tag-color);
+            transition: all 0.3s ease;
+        }
+
+        .path-footer {
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .path-footer .path-tag {
+            display: inline-block;
+            padding: 3px 16px;
+            border-radius: 20px;
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--text-heading-span);
+            transition: all 0.3s ease;
+        }
+
+        .path-footer .role-tag {
+            font-size: 12px;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .path-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .path-header .title-group h4 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .path-header .icon {
+                font-size: 34px;
+            }
+            .path-card {
+                padding: 18px 14px;
+            }
+            .path-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE (توسط base.css مدیریت میشه)
+    ========================================================== -->
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Honkai</span> Star Rail ✦</h1>
+            <p>Paths of the Aeons</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
+        </div>
+
+        <!-- ==========================================================
+        MENU — استاندارد (آیکون تصویری برای بازی‌ها، ایموجی برای بقیه)
+        ========================================================== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/s-rank.html">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>🌀 <span>Paths</span> of the Aeons</h2>
+        <p>The seven (and more) paths that define the destiny of every character</p>
+    </section>
+
+    <!-- ==========================================================
+    PATHS GRID
+    ========================================================== -->
+    <section class="content-section">
+        <p class="section-desc">
+            In Honkai Star Rail, each character follows a <strong>Path</strong> that determines their combat role and synergy with the <strong>Aeons</strong>. These paths dictate the core mechanics of the character, from dealing massive damage to protecting allies or healing the team.
+        </p>
+
+        <div class="path-grid">
+
+            <!-- 1. The Destruction -->
+            <div class="path-card">
+                <div class="path-header">
+                    <span class="icon">🌀</span>
+                    <div class="title-group">
+                        <h4>Destruction</h4>
+                        <div class="aeon">Aeon of Destruction · Nanook</div>
+                    </div>
+                </div>
+                <div class="path-body">
+                    <div class="description">
+                        <strong>High damage dealers</strong> with a balance between single-target and area attacks. Often have abilities that consume or manipulate HP for devastating effects. They are resilient front-liners.
+                    </div>
+                    <div class="playstyle">⚔️ Playstyle: Blast &amp; HP Manipulation</div>
+                    <div class="char-list">
+                        <span class="tag">Blade</span>
+                        <span class="tag">Dan Heng IL</span>
+                        <span class="tag">Firefly</span>
+                        <span class="tag">Yunli</span>
+                        <span class="tag">Clara</span>
+                        <span class="tag">Hook</span>
+                        <span class="tag">Arlan</span>
+                    </div>
+                </div>
+                <div class="path-footer">
+                    <span class="path-tag">⚔️ Blast DPS</span>
+                    <span class="role-tag">Berserker Style</span>
+                </div>
+            </div>
+
+            <!-- 2. The Hunt -->
+            <div class="path-card">
+                <div class="path-header">
+                    <span class="icon">🎯</span>
+                    <div class="title-group">
+                        <h4>The Hunt</h4>
+                        <div class="aeon">Aeon of The Hunt · Lan</div>
+                    </div>
+                </div>
+                <div class="path-body">
+                    <div class="description">
+                        <strong>Single-target specialists</strong> who excel at dealing massive damage to a single enemy. They are fast, critical-hit oriented, and often manipulate turn order to take down high-priority threats.
+                    </div>
+                    <div class="playstyle">🎯 Playstyle: Single-Target &amp; Speed</div>
+                    <div class="char-list">
+                        <span class="tag">Seele</span>
+                        <span class="tag">Topaz</span>
+                        <span class="tag">Dr. Ratio</span>
+                        <span class="tag">Yanqing</span>
+                        <span class="tag">Sushang</span>
+                        <span class="tag">Dan Heng</span>
+                    </div>
+                </div>
+                <div class="path-footer">
+                    <span class="path-tag">🎯 Single-Target DPS</span>
+                    <span class="role-tag">Crit &amp; Speed</span>
+                </div>
+            </div>
+
+            <!-- 3. The Erudition -->
+            <div class="path-card">
+                <div class="path-header">
+                    <span class="icon">📚</span>
+                    <div class="title-group">
+                        <h4>Erudition</h4>
+                        <div class="aeon">Aeon of Erudition · Nous</div>
+                    </div>
+                </div>
+                <div class="path-body">
+                    <div class="description">
+                        <strong>Masters of Area of Effect (AoE) damage</strong>. Erudition characters are the best at clearing waves of enemies and dealing with multiple targets simultaneously. They are often strategic and intelligence-based.
+                    </div>
+                    <div class="playstyle">📚 Playstyle: AoE &amp; Cleave</div>
+                    <div class="char-list">
+                        <span class="tag">Jing Yuan</span>
+                        <span class="tag">Argenti</span>
+                        <span class="tag">Herta</span>
+                        <span class="tag">Qingque</span>
+                        <span class="tag">Serval</span>
+                        <span class="tag">Rappa</span>
+                    </div>
+                </div>
+                <div class="path-footer">
+                    <span class="path-tag">📚 AoE DPS</span>
+                    <span class="role-tag">Wave Clearer</span>
+                </div>
+            </div>
+
+            <!-- 4. The Harmony -->
+            <div class="path-card">
+                <div class="path-header">
+                    <span class="icon">🎵</span>
+                    <div class="title-group">
+                        <h4>Harmony</h4>
+                        <div class="aeon">Aeon of Harmony · Xipe</div>
+                    </div>
+                </div>
+                <div class="path-body">
+                    <div class="description">
+                        <strong>Supreme supports</strong> that boost the entire team's combat effectiveness. They provide offensive buffs (ATK, DMG, Crit), action advance, and energy regeneration to enable their allies.
+                    </div>
+                    <div class="playstyle">🎵 Playstyle: Buffs &amp; Action Advance</div>
+                    <div class="char-list">
+                        <span class="tag">Bronya</span>
+                        <span class="tag">Sparkle</span>
+                        <span class="tag">Ruan Mei</span>
+                        <span class="tag">Robin</span>
+                        <span class="tag">Tingyun</span>
+                        <span class="tag">Asta</span>
+                        <span class="tag">Yukong</span>
+                    </div>
+                </div>
+                <div class="path-footer">
+                    <span class="path-tag">🎵 Amplifier</span>
+                    <span class="role-tag">Team Booster</span>
+                </div>
+            </div>
+
+            <!-- 5. The Nihility -->
+            <div class="path-card">
+                <div class="path-header">
+                    <span class="icon">🌌</span>
+                    <div class="title-group">
+                        <h4>Nihility</h4>
+                        <div class="aeon">Aeon of Nihility · IX</div>
+                    </div>
+                </div>
+                <div class="path-body">
+                    <div class="description">
+                        <strong>Debuffers and DoT (Damage over Time) specialists</strong>. Nihility characters weaken enemies by reducing their DEF, ATK, or applying elemental DoTs like Burn, Shock, or Wind Shear that deal damage over multiple turns.
+                    </div>
+                    <div class="playstyle">🌌 Playstyle: Debuffs &amp; DoT</div>
+                    <div class="char-list">
+                        <span class="tag">Kafka</span>
+                        <span class="tag">Acheron</span>
+                        <span class="tag">Black Swan</span>
+                        <span class="tag">Welt</span>
+                        <span class="tag">Pela</span>
+                        <span class="tag">Sampo</span>
+                        <span class="tag">Guinaifen</span>
+                    </div>
+                </div>
+                <div class="path-footer">
+                    <span class="path-tag">🌌 Debuffer/DoT</span>
+                    <span class="role-tag">Enemy Weakening</span>
+                </div>
+            </div>
+
+            <!-- 6. The Preservation -->
+            <div class="path-card">
+                <div class="path-header">
+                    <span class="icon">🛡️</span>
+                    <div class="title-group">
+                        <h4>Preservation</h4>
+                        <div class="aeon">Aeon of Preservation · Qlipoth</div>
+                    </div>
+                </div>
+                <div class="path-body">
+                    <div class="description">
+                        <strong>Defensive tanks and shielders</strong>. Preservation characters protect the team by providing powerful shields, increasing DEF, taunting enemies, and absorbing damage to keep the team alive.
+                    </div>
+                    <div class="playstyle">🛡️ Playstyle: Shields &amp; Taunt</div>
+                    <div class="char-list">
+                        <span class="tag">Aventurine</span>
+                        <span class="tag">Fu Xuan</span>
+                        <span class="tag">Gepard</span>
+                        <span class="tag">March 7th</span>
+                        <span class="tag">Trailblazer (Fire)</span>
+                    </div>
+                </div>
+                <div class="path-footer">
+                    <span class="path-tag">🛡️ Shielder/Tank</span>
+                    <span class="role-tag">Protector</span>
+                </div>
+            </div>
+
+            <!-- 7. The Abundance -->
+            <div class="path-card">
+                <div class="path-header">
+                    <span class="icon">🌿</span>
+                    <div class="title-group">
+                        <h4>Abundance</h4>
+                        <div class="aeon">Aeon of Abundance · Yaoshi</div>
+                    </div>
+                </div>
+                <div class="path-body">
+                    <div class="description">
+                        <strong>Dedicated healers and cleansers</strong>. Abundance characters restore HP to allies, remove debuffs, and sometimes provide minor offensive buffs or damage. They are the backbone of any high-difficulty team.
+                    </div>
+                    <div class="playstyle">🌿 Playstyle: Healing &amp; Cleansing</div>
+                    <div class="char-list">
+                        <span class="tag">Luocha</span>
+                        <span class="tag">Huohuo</span>
+                        <span class="tag">Bailu</span>
+                        <span class="tag">Natasha</span>
+                        <span class="tag">Lynx</span>
+                        <span class="tag">Gallagher</span>
+                    </div>
+                </div>
+                <div class="path-footer">
+                    <span class="path-tag">🌿 Healer</span>
+                    <span class="role-tag">Sustain</span>
+                </div>
+            </div>
+
+            <!-- 8. The Remembrance (Bonus/Upcoming) -->
+            <div class="path-card">
+                <div class="path-header">
+                    <span class="icon">❄️</span>
+                    <div class="title-group">
+                        <h4>Remembrance</h4>
+                        <div class="aeon">Aeon of Remembrance · Fuli</div>
+                    </div>
+                </div>
+                <div class="path-body">
+                    <div class="description">
+                        <strong>New Path introduced in Version 3.0</strong>. Focuses on <strong>Freezing</strong> enemies and <strong>summoning</strong> creatures. Characters of this path excel at controlling the battlefield through memory and ice.
+                    </div>
+                    <div class="playstyle">❄️ Playstyle: Freeze &amp; Summon</div>
+                    <div class="char-list">
+                        <span class="tag">The Herta</span>
+                        <span class="tag">Aglaea</span>
+                        <span class="tag">(More coming soon)</span>
+                    </div>
+                </div>
+                <div class="path-footer">
+                    <span class="path-tag">🌟 Upcoming Path</span>
+                    <span class="role-tag">Control &amp; Summon</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Honkai Star Rail Fans ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

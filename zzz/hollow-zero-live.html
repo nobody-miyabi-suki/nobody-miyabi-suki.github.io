@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZZZ · Hollow Zero Live</title>
+    <!-- استایل‌های عمومی -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- استایل‌های اختصاصی Hollow Zero Live -->
+    <link rel="stylesheet" href="/css/zzz/hollow-live.css">
+</head>
+<body class="hollow-live-page">
+
+    <!-- ==========================================================
+    HEADER با دکمه‌ی تغییر تم درون آن
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Hoyoverse</span> ✦</h1>
+            <p>Fan Page · All Games</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
+        </div>
+
+        <!-- دکمه‌ی تغییر تم جدید (داخل هدر) -->
+        <div class="custom-theme-toggle" onclick="toggleTheme()">
+            <span class="theme-label" id="themeLabel">🔴 Red</span>
+            <div class="theme-toggle">
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <!-- ==========================================================
+        MENU — استاندارد (آیکون تصویری برای بازی‌ها، ایموجی برای زیرمنوها)
+        ========================================================== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/s-rank.html">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>☣️ <span>Hollow Zero</span> Live Monitor <span class="live-badge">● LIVE</span></h2>
+        <p>Real-time status · Banner countdown · Ethereal activity feed</p>
+    </section>
+
+    <!-- ==========================================================
+    LIVE CONTENT
+    ========================================================== -->
+    <section class="content-section">
+
+        <div class="live-grid">
+
+            <!-- ===== LEFT COLUMN ===== -->
+            <div class="left-col">
+
+                <!-- COUNTDOWN PANEL -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>⏳ Next Banner — Ye Shunguang Rerun</h3>
+                        <span class="status-dot green"></span>
+                    </div>
+                    <div class="countdown-grid" id="countdown">
+                        <div class="countdown-item">
+                            <span class="number" id="days">--</span>
+                            <span class="label">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="number" id="hours">--</span>
+                            <span class="label">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="number" id="minutes">--</span>
+                            <span class="label">Minutes</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="number" id="seconds">--</span>
+                            <span class="label">Seconds</span>
+                        </div>
+                    </div>
+                    <div style="text-align:center; font-size:12px; color:var(--text-muted); margin-top:4px;">
+                        🗓️ Target: <strong style="color:var(--text-heading-span);">July 8, 2026</strong>
+                    </div>
+                </div>
+
+                <!-- LIVE FEED -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>📡 Ethereal Activity Feed</h3>
+                        <span style="font-size:11px; color:var(--text-muted);">Live</span>
+                    </div>
+                    <div class="feed-container" id="feedContainer">
+                        <!-- Items injected by JavaScript -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ===== RIGHT COLUMN ===== -->
+            <div class="right-col">
+
+                <!-- SERVER STATUS -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>🖥️ Server Status</h3>
+                        <span class="status-dot green"></span>
+                    </div>
+                    <div class="status-grid">
+                        <div class="status-item">
+                            <span class="status-label">🌐 Global</span>
+                            <span class="status-value online">● Online</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">🇺🇸 Americas</span>
+                            <span class="status-value online">● Online</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">🇪🇺 Europe</span>
+                            <span class="status-value online">● Online</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">🇯🇵 Asia</span>
+                            <span class="status-value online">● Online</span>
+                        </div>
+                        <div class="status-item" style="grid-column: 1 / -1;">
+                            <span class="status-label">📊 Active Proxies</span>
+                            <span style="color:var(--text-heading-span); font-weight:bold;" id="activeProxies">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUICK LINKS -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>🔗 Terminal Links</h3>
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:6px;">
+                        <a href="/zzz/map.html" style="display:flex; justify-content:space-between; padding:6px 10px; background:var(--bg-primary); border-radius:6px; border:1px solid var(--border-light); transition:.3s; font-size:13px;">
+                            <span>🗺️ New Eridu Map</span>
+                            <span style="color:var(--text-muted);">→</span>
+                        </a>
+                        <a href="/zzz/characters.html" style="display:flex; justify-content:space-between; padding:6px 10px; background:var(--bg-primary); border-radius:6px; border:1px solid var(--border-light); transition:.3s; font-size:13px;">
+                            <span>👤 Agent Database</span>
+                            <span style="color:var(--text-muted);">→</span>
+                        </a>
+                        <a href="/zzz/bangboo.html" style="display:flex; justify-content:space-between; padding:6px 10px; background:var(--bg-primary); border-radius:6px; border:1px solid var(--border-light); transition:.3s; font-size:13px;">
+                            <span>🤖 Bangboo Support</span>
+                            <span style="color:var(--text-muted);">→</span>
+                        </a>
+                        <a href="/zzz/story.html" style="display:flex; justify-content:space-between; padding:6px 10px; background:var(--bg-primary); border-radius:6px; border:1px solid var(--border-light); transition:.3s; font-size:13px;">
+                            <span>📖 Incident Reports</span>
+                            <span style="color:var(--text-muted);">→</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Hoyoverse Fans · All Games ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+    <script>
+        // ============================================================
+        // COUNTDOWN — Next Banner (July 8, 2026)
+        // ============================================================
+        const targetDate = new Date('2026-07-08T23:59:59').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // ============================================================
+        // LIVE FEED — Rotating messages
+        // ============================================================
+        const feedMessages = [
+            { time: 'Just now', msg: '<strong>CRITICAL</strong> — Class-5 Ethereal detected near Hollow Zero Core' },
+            { time: '12:47:03', msg: '<strong>WARNING</strong> — Ethereal swarm migrating toward Mid-Layer' },
+            { time: '12:42:18', msg: '<strong>INFO</strong> — Agent squad Miyabi & Ellen deployed to containment zone' },
+            { time: '12:38:55', msg: '<strong>CRITICAL</strong> — Hollow expansion rate increased to 0.9m/s' },
+            { time: '12:31:22', msg: '<strong>WARNING</strong> — Anomaly signature detected in Sector 9' },
+            { time: '12:25:10', msg: '<strong>INFO</strong> — Surface sweep complete — all clear' },
+            { time: '12:18:44', msg: '<strong>INFO</strong> — Bangboo support unit deployed to assist agents' },
+            { time: '12:12:03', msg: '<strong>WARNING</strong> — Ethereal activity spike — level 3 alert' },
+            { time: '12:05:30', msg: '<strong>INFO</strong> — Communication relay restored' },
+            { time: '11:58:12', msg: '<strong>CRITICAL</strong> — Class-4 Ethereal engaged by Void Hunter squad' },
+            { time: '11:49:45', msg: '<strong>INFO</strong> — Hollow Zero perimeter secure' },
+            { time: '11:42:20', msg: '<strong>WARNING</strong> — Unidentified signal detected — investigating' },
+            { time: '11:35:10', msg: '<strong>INFO</strong> — Agent Grace Howard reporting: all systems nominal' },
+            { time: '11:28:05', msg: '<strong>INFO</strong> — Bangboo Amillion deployed for resource extraction' },
+            { time: '11:20:30', msg: '<strong>CRITICAL</strong> — High-density Ethereal cluster forming near the Chasm' },
+        ];
+
+        let feedIndex = 0;
+        const feedContainer = document.getElementById('feedContainer');
+
+        function addFeedItem() {
+            const item = feedMessages[feedIndex % feedMessages.length];
+            feedIndex++;
+
+            const div = document.createElement('div');
+            div.className = 'feed-item';
+            div.innerHTML = `
+                <span class="feed-time">${item.time}</span>
+                <span class="feed-msg">${item.msg}</span>
+            `;
+            feedContainer.prepend(div);
+
+            while (feedContainer.children.length > 8) {
+                feedContainer.removeChild(feedContainer.lastChild);
+            }
+        }
+
+        for (let i = 0; i < 6; i++) {
+            const item = feedMessages[i % feedMessages.length];
+            const div = document.createElement('div');
+            div.className = 'feed-item';
+            div.innerHTML = `
+                <span class="feed-time">${item.time}</span>
+                <span class="feed-msg">${item.msg}</span>
+            `;
+            feedContainer.appendChild(div);
+        }
+        feedIndex = 6;
+
+        setInterval(addFeedItem, Math.random() * 4000 + 6000);
+
+        // ============================================================
+        // ACTIVE PROXIES — Random counter
+        // ============================================================
+        function updateProxies() {
+            const base = 1847;
+            const variation = Math.floor(Math.random() * 60) - 30;
+            const num = base + variation;
+            document.getElementById('activeProxies').textContent = num.toLocaleString();
+        }
+
+        setInterval(updateProxies, 5000);
+        updateProxies();
+    </script>
+
+</body>
+</html>

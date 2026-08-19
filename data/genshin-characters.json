@@ -1,0 +1,572 @@
+{
+  "diluc": {
+    "name": "Diluc",
+    "title": "The Dark Side of Dawn",
+    "faction": "🏛️ Mondstadt",
+    "description": "The owner of Dawn Winery and a hidden protector of Mondstadt. Diluc fights with a burning passion, using his Pyro abilities to cleanse the darkness from Teyvat.",
+    "image": "/img/genshin/characters/diluc.jpg",
+    "bioImage": "/img/genshin/characters/diluc-bio.jpg",
+    "bioSub": "\"Justice is not a privilege. It is a right.\"",
+    "bioContent": [
+      "<strong>Diluc</strong> is the enigmatic owner of the <strong>Dawn Winery</strong> in Mondstadt.",
+      "By day, he is a wealthy businessman. By night, he is a vigilante who uses his <strong>Pyro</strong> abilities to fight the Abyss Order and protect the innocent.",
+      "His past is marked by tragedy, including the loss of his father and his disillusionment with the Knights of Favonius."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏛️ Mondstadt" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "🔥 Pyro" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "🔥", "title": "Pyro", "desc": "Wields the power of fire to incinerate his enemies." },
+      { "icon": "⚔️", "title": "Claymore", "desc": "Fights with a massive claymore, dealing heavy damage." },
+      { "icon": "🦇", "title": "Vigilante", "desc": "Protects Mondstadt from the shadows." }
+    ],
+    "skills": [
+      { "icon": "🔥", "name": "Searing Onslaught", "type": "Elemental Skill", "desc": "Diluc slashes forward, dealing Pyro damage with a burning trail." },
+      { "icon": "🌋", "name": "Dawn", "type": "Elemental Burst", "desc": "Diluc summons a phoenix that deals massive AoE Pyro damage, pushing enemies back." },
+      { "icon": "⚔️", "name": "Relentless", "type": "Passive", "desc": "Increases damage when Diluc's HP is below 50%." },
+      { "icon": "🛡️", "name": "Blessing of Phoenix", "type": "Passive", "desc": "Grants a small Pyro shield after using Elemental Burst." }
+    ],
+    "gallery": ["🔥", "⚔️", "🦇", "🌋"],
+    "galleryImages": [
+      "/img/genshin/characters/diluc-gallery-1.jpg",
+      "/img/genshin/characters/diluc-gallery-2.jpg",
+      "/img/genshin/characters/diluc-gallery-3.jpg",
+      "/img/genshin/characters/diluc-gallery-4.jpg"
+    ]
+  },
+  "keqing": {
+    "name": "Keqing",
+    "title": "The Driving Thunder",
+    "faction": "🏛️ Liyue",
+    "description": "The Yuheng of the Liyue Qixing, Keqing is a decisive and independent leader who believes in the power of humanity. Her Electro abilities are as swift as lightning.",
+    "image": "/img/genshin/characters/keqing.jpg",
+    "bioImage": "/img/genshin/characters/keqing-bio.jpg",
+    "bioSub": "\"The future is ours to build.\"",
+    "bioContent": [
+      "<strong>Keqing</strong> is the <strong>Yuheng</strong> of the <strong>Liyue Qixing</strong>, one of the most influential figures in Liyue.",
+      "She is known for her pragmatic approach and her belief that humanity should forge its own destiny, without relying on the gods.",
+      "Her <strong>Electro</strong> abilities allow her to move with blinding speed, striking enemies before they can react."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏛️ Liyue" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "⚡ Electro" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "⚡", "title": "Electro", "desc": "Strikes with the speed and power of lightning." },
+      { "icon": "🗡️", "title": "Sword", "desc": "Wields a sword with unmatched agility." },
+      { "icon": "🏛️", "title": "Liyue Qixing", "desc": "A leader of Liyue's ruling council." }
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Stellar Restoration", "type": "Elemental Skill", "desc": "Keqing throws a lightning stiletto, dealing Electro damage and teleporting to its location." },
+      { "icon": "🌩️", "name": "Starward Sword", "type": "Elemental Burst", "desc": "Keqing unleashes a flurry of lightning slashes, dealing massive AoE Electro damage." },
+      { "icon": "⚡", "name": "Thundering Penance", "type": "Passive", "desc": "Electro-infused attacks deal bonus damage." },
+      { "icon": "🌀", "name": "Aristocratic Dignity", "type": "Passive", "desc": "Increases damage when Keqing uses her Elemental Skill." }
+    ],
+    "gallery": ["⚡", "🗡️", "🏛️", "🌩️"],
+    "galleryImages": [
+      "/img/genshin/characters/keqing-gallery-1.jpg",
+      "/img/genshin/characters/keqing-gallery-2.jpg",
+      "/img/genshin/characters/keqing-gallery-3.jpg",
+      "/img/genshin/characters/keqing-gallery-4.jpg"
+    ]
+  },
+  "klee": {
+    "name": "Klee",
+    "title": "The Spark Knight",
+    "faction": "🏛️ Knights of Favonius",
+    "description": "The Spark Knight of the Knights of Favonius, Klee is a young and explosive girl who loves bombs, adventure, and causing chaos wherever she goes.",
+    "image": "/img/genshin/characters/klee.jpg",
+    "bioImage": "/img/genshin/characters/klee-bio.jpg",
+    "bioSub": "\"BOOM! Haha!\"",
+    "bioContent": [
+      "<strong>Klee</strong> is the <strong>Spark Knight</strong> of the <strong>Knights of Favonius</strong>.",
+      "She is a young girl with an endless fascination with explosions, constantly inventing new bombs and causing 'minor accidents' across Mondstadt.",
+      "Despite her destructive tendencies, she has a pure heart and always fights to protect her friends."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏛️ Knights of Favonius" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "🔥 Pyro" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "🧨", "title": "Explosives Expert", "desc": "Uses bombs and explosives to deal devastating Pyro damage." },
+      { "icon": "📖", "title": "Catalyst", "desc": "Fights with a catalyst, hurling bombs at her enemies." },
+      { "icon": "🏛️", "title": "Knights of Favonius", "desc": "A young but enthusiastic member of the Knights." }
+    ],
+    "skills": [
+      { "icon": "🧨", "name": "Jumpy Dumpty", "type": "Elemental Skill", "desc": "Klee throws a bouncing bomb that explodes three times, dealing Pyro damage." },
+      { "icon": "💥", "name": "Sparks 'n' Splash", "type": "Elemental Burst", "desc": "Klee unleashes a devastating explosion, dealing massive AoE Pyro damage." },
+      { "icon": "🔥", "name": "Explosive Spark", "type": "Passive", "desc": "Increases Pyro damage after using her Skill." },
+      { "icon": "🌀", "name": "Pounding Surprise", "type": "Passive", "desc": "Increases damage based on her ATK." }
+    ],
+    "gallery": ["🧨", "💥", "🔥", "🌀"],
+    "galleryImages": [
+      "/img/genshin/characters/klee-gallery-1.jpg",
+      "/img/genshin/characters/klee-gallery-2.jpg",
+      "/img/genshin/characters/klee-gallery-3.jpg",
+      "/img/genshin/characters/klee-gallery-4.jpg"
+    ]
+  },
+  "ganyu": {
+    "name": "Ganyu",
+    "title": "The Plenilune Gaze",
+    "faction": "🏛️ Liyue Qixing",
+    "description": "A half-qilin secretary of the Liyue Qixing. Ganyu is a gentle and hardworking soul who uses her Cryo abilities to protect Liyue.",
+    "image": "/img/genshin/characters/ganyu.jpg",
+    "bioImage": "/img/genshin/characters/ganyu-bio.jpg",
+    "bioSub": "\"For Liyue, I will give my all.\"",
+    "bioContent": [
+      "<strong>Ganyu</strong> is a half-<strong>qilin</strong> and the secretary of the <strong>Liyue Qixing</strong>.",
+      "She has served Liyue for over 3000 years, working tirelessly to ensure the prosperity of the city.",
+      "Her <strong>Cryo</strong> abilities make her a formidable archer, capable of freezing her enemies from a distance."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏛️ Liyue Qixing" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "❄️ Cryo" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "❄️", "title": "Cryo", "desc": "Freezes enemies with the power of ice." },
+      { "icon": "🏹", "title": "Bow", "desc": "A master archer with unmatched precision." },
+      { "icon": "🏛️", "title": "Liyue Qixing", "desc": "Dedicated secretary to the ruling council." }
+    ],
+    "skills": [
+      { "icon": "❄️", "name": "Frostflake Arrow", "type": "Charged Attack", "desc": "Ganyu fires a frostflake arrow that deals AoE Cryo damage on impact." },
+      { "icon": "🏹", "name": "Trail of the Qilin", "type": "Elemental Skill", "desc": "Ganyu leaves an ice lotus that taunts enemies and deals Cryo damage." },
+      { "icon": "🌨️", "name": "Celestial Shower", "type": "Elemental Burst", "desc": "Ganyu rains down icicles, dealing AoE Cryo damage over time." },
+      { "icon": "🌀", "name": "Undivided Heart", "type": "Passive", "desc": "Increases critical rate of frostflake arrows." }
+    ],
+    "gallery": ["❄️", "🏹", "🌨️", "🌀"],
+    "galleryImages": [
+      "/img/genshin/characters/ganyu-gallery-1.jpg",
+      "/img/genshin/characters/ganyu-gallery-2.jpg",
+      "/img/genshin/characters/ganyu-gallery-3.jpg",
+      "/img/genshin/characters/ganyu-gallery-4.jpg"
+    ]
+  },
+  "raiden": {
+    "name": "Raiden Shogun",
+    "title": "The Eternal Sovereign",
+    "faction": "⚡ Inazuma Shogunate",
+    "description": "The Electro Archon of Inazuma, the Raiden Shogun rules with an iron fist, pursuing the ideal of 'eternity' for her nation.",
+    "image": "/img/genshin/characters/raiden.jpg",
+    "bioImage": "/img/genshin/characters/raiden-bio.jpg",
+    "bioSub": "\"Inazuma shines eternal.\"",
+    "bioContent": [
+      "<strong>Raiden Shogun</strong> is the <strong>Electro Archon</strong> of Inazuma.",
+      "She seeks to create an eternal paradise for her people, freezing Inazuma in time to protect it from the erosion of change.",
+      "She wields a polearm that can summon the power of lightning itself, striking down her enemies with divine fury."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "⚡ Inazuma Shogunate" },
+      { "label": "Role", "value": "⚔️ DPS / Support" },
+      { "label": "Element", "value": "⚡ Electro" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "⚡", "title": "Electro Archon", "desc": "The ruler of Inazuma, wielding the power of lightning." },
+      { "icon": "🔱", "title": "Polearm", "desc": "Fights with a polearm that channels divine energy." },
+      { "icon": "⚡", "title": "Eternity", "desc": "Pursues the ideal of eternal peace for Inazuma." }
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Transcendence: Baleful Omen", "type": "Elemental Skill", "desc": "Raiden summons a lightning eye that deals Electro damage to enemies." },
+      { "icon": "🌩️", "name": "Secret Art: Musou Shinsetsu", "type": "Elemental Burst", "desc": "Raiden unleashes a devastating lightning slash, dealing massive AoE Electro damage." },
+      { "icon": "⚡", "name": "Wishes Unnumbered", "type": "Passive", "desc": "Increases party damage based on energy consumed." },
+      { "icon": "🌀", "name": "Enlightened One", "type": "Passive", "desc": "Increases Electro damage for the party." }
+    ],
+    "gallery": ["⚡", "🔱", "🌩️", "🌀"],
+    "galleryImages": [
+      "/img/genshin/characters/raiden-gallery-1.jpg",
+      "/img/genshin/characters/raiden-gallery-2.jpg",
+      "/img/genshin/characters/raiden-gallery-3.jpg",
+      "/img/genshin/characters/raiden-gallery-4.jpg"
+    ]
+  },
+  "venti": {
+    "name": "Venti",
+    "title": "The Bard of Mondstadt",
+    "faction": "🌪️ Mondstadt",
+    "description": "A free-spirited bard who travels the world with his lyre. He is also the Anemo Archon, Barbatos, watching over Mondstadt from the shadows.",
+    "image": "/img/genshin/characters/venti.jpg",
+    "bioImage": "/img/genshin/characters/venti-bio.jpg",
+    "bioSub": "\"The wind carries the songs of freedom.\"",
+    "bioContent": [
+      "<strong>Venti</strong> is a wandering bard of <strong>Mondstadt</strong>, known for his love of wine and song.",
+      "He is also the <strong>Anemo Archon</strong>, Barbatos, one of the Seven who rules the wind.",
+      "He uses his <strong>Anemo</strong> abilities to protect Mondstadt and spread the ideals of freedom and song."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🌪️ Mondstadt" },
+      { "label": "Role", "value": "💎 Support" },
+      { "label": "Element", "value": "🌪️ Anemo" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "🌪️", "title": "Anemo Archon", "desc": "The god of wind and freedom." },
+      { "icon": "🏹", "title": "Bow", "desc": "Fights with a bow, shooting arrows infused with wind." },
+      { "icon": "🎵", "title": "Bard", "desc": "Spreads the joy of song and poetry." }
+    ],
+    "skills": [
+      { "icon": "🌪️", "name": "Skyward Sonnet", "type": "Elemental Skill", "desc": "Venti summons a wind current that lifts enemies into the air." },
+      { "icon": "🌀", "name": "Wind's Grand Ode", "type": "Elemental Burst", "desc": "Venti creates a massive vortex that pulls in enemies and deals Anemo damage." },
+      { "icon": "🌪️", "name": "Windrider", "type": "Passive", "desc": "Reduces stamina consumption while gliding." },
+      { "icon": "🎵", "name": "Poetic Verses", "type": "Passive", "desc": "Increases energy regeneration for the party." }
+    ],
+    "gallery": ["🌪️", "🏹", "🎵", "🌀"],
+    "galleryImages": [
+      "/img/genshin/characters/venti-gallery-1.jpg",
+      "/img/genshin/characters/venti-gallery-2.jpg",
+      "/img/genshin/characters/venti-gallery-3.jpg",
+      "/img/genshin/characters/venti-gallery-4.jpg"
+    ]
+  },
+  "hutao": {
+    "name": "Hu Tao",
+    "title": "The Director of the Wangsheng Funeral Parlor",
+    "faction": "🏛️ Liyue",
+    "description": "The 77th Director of the Wangsheng Funeral Parlor, Hu Tao is a mischievous and eccentric girl who handles the affairs of the dead.",
+    "image": "/img/genshin/characters/hutao.jpg",
+    "bioImage": "/img/genshin/characters/hutao-bio.jpg",
+    "bioSub": "\"Life is a celebration, and death is just part of the party!\"",
+    "bioContent": [
+      "<strong>Hu Tao</strong> is the <strong>77th Director</strong> of the <strong>Wangsheng Funeral Parlor</strong> in Liyue.",
+      "She treats death as a natural part of life, and her quirky personality hides a deep wisdom about the world.",
+      "Her <strong>Pyro</strong> abilities allow her to dance between life and death, burning her enemies with ghostly flames."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏛️ Liyue" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "🔥 Pyro" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "🔥", "title": "Pyro", "desc": "Wields flames that dance between life and death." },
+      { "icon": "🔱", "title": "Polearm", "desc": "Fights with a polearm that burns with ghostly fire." },
+      { "icon": "🏛️", "title": "Wangsheng Funeral Parlor", "desc": "Handles the affairs of the dead." }
+    ],
+    "skills": [
+      { "icon": "🔥", "name": "Guide to Afterlife", "type": "Elemental Skill", "desc": "Hu Tao consumes HP to deal Pyro damage and enter a boosted state." },
+      { "icon": "💀", "name": "Spirit Soother", "type": "Elemental Burst", "desc": "Hu Tao unleashes a wave of ghostly flames, dealing AoE Pyro damage and healing herself." },
+      { "icon": "🔥", "name": "Flame of Life", "type": "Passive", "desc": "Increases damage when HP is below 50%." },
+      { "icon": "🌀", "name": "The More the Merrier", "type": "Passive", "desc": "Increases party critical rate after using her Skill." }
+    ],
+    "gallery": ["🔥", "💀", "🏛️", "🌀"],
+    "galleryImages": [
+      "/img/genshin/characters/hutao-gallery-1.jpg",
+      "/img/genshin/characters/hutao-gallery-2.jpg",
+      "/img/genshin/characters/hutao-gallery-3.jpg",
+      "/img/genshin/characters/hutao-gallery-4.jpg"
+    ]
+  },
+  "zhongli": {
+    "name": "Zhongli",
+    "title": "The Consultant of the Wangsheng Funeral Parlor",
+    "faction": "🏛️ Liyue",
+    "description": "A mysterious consultant who works with the Wangsheng Funeral Parlor. He is also the Geo Archon, Morax, who has lived for over 6000 years.",
+    "image": "/img/genshin/characters/zhongli.jpg",
+    "bioImage": "/img/genshin/characters/zhongli-bio.jpg",
+    "bioSub": "\"I will remember you, for all eternity.\"",
+    "bioContent": [
+      "<strong>Zhongli</strong> is a consultant at the <strong>Wangsheng Funeral Parlor</strong> in Liyue.",
+      "He is actually the <strong>Geo Archon</strong>, Morax, who has guided Liyue for over 6000 years.",
+      "His <strong>Geo</strong> abilities allow him to summon stone pillars and create impenetrable shields to protect his allies."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏛️ Liyue" },
+      { "label": "Role", "value": "🛡️ Support" },
+      { "label": "Element", "value": "⛰️ Geo" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "⛰️", "title": "Geo Archon", "desc": "The god of contracts and stone." },
+      { "icon": "🔱", "title": "Polearm", "desc": "Fights with a polearm that commands the earth." },
+      { "icon": "🛡️", "title": "Shield", "desc": "Creates the strongest shields in Teyvat." }
+    ],
+    "skills": [
+      { "icon": "⛰️", "name": "Dominus Lapidis", "type": "Elemental Skill", "desc": "Zhongli summons a stone pillar that deals Geo damage and can resonate with other Geo constructs." },
+      { "icon": "🛡️", "name": "Jade Shield", "type": "Elemental Skill (Hold)", "desc": "Zhongli creates a powerful shield that absorbs damage based on his HP." },
+      { "icon": "🌠", "name": "Planet Befall", "type": "Elemental Burst", "desc": "Zhongli summons a meteor that deals massive Geo damage and petrifies enemies." },
+      { "icon": "🌀", "name": "Dominance of Earth", "type": "Passive", "desc": "Increases shield strength and damage for the party." }
+    ],
+    "gallery": ["⛰️", "🛡️", "🌠", "🌀"],
+    "galleryImages": [
+      "/img/genshin/characters/zhongli-gallery-1.jpg",
+      "/img/genshin/characters/zhongli-gallery-2.jpg",
+      "/img/genshin/characters/zhongli-gallery-3.jpg",
+      "/img/genshin/characters/zhongli-gallery-4.jpg"
+    ]
+  },
+  "ayaka": {
+    "name": "Ayaka",
+    "title": "The Shirasagi Himegimi",
+    "faction": "❄️ Inazuma",
+    "description": "The eldest daughter of the Kamisato Clan and the Yashiro Commissioner's sister. Ayaka is a graceful and refined warrior who fights with the power of Cryo.",
+    "image": "/img/genshin/characters/ayaka.jpg",
+    "bioImage": "/img/genshin/characters/ayaka-bio.jpg",
+    "bioSub": "\"The frost within my heart... will never melt.\"",
+    "bioContent": [
+      "<strong>Ayaka</strong> is the eldest daughter of the <strong>Kamisato Clan</strong> in Inazuma.",
+      "She is known as the <strong>Shirasagi Himegimi</strong> for her grace and elegance.",
+      "Her <strong>Cryo</strong> abilities allow her to move with blinding speed, freezing her enemies before they can react."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "❄️ Inazuma" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "❄️ Cryo" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "❄️", "title": "Cryo", "desc": "Wields the power of ice with grace and precision." },
+      { "icon": "🗡️", "title": "Sword", "desc": "Fights with a sword that channels frost." },
+      { "icon": "🏯", "title": "Kamisato Clan", "desc": "A noble family of Inazuma." }
+    ],
+    "skills": [
+      { "icon": "❄️", "name": "Kamisato Art: Hyouka", "type": "Elemental Skill", "desc": "Ayaka summons a frost bloom that deals Cryo damage and launches enemies." },
+      { "icon": "💨", "name": "Kamisato Art: Soumetsu", "type": "Elemental Burst", "desc": "Ayaka unleashes a storm of frost, dealing massive Cryo damage and forming an ice vortex." },
+      { "icon": "❄️", "name": "Frostsake", "type": "Passive", "desc": "Increases damage when Ayaka is affected by Cryo." },
+      { "icon": "🌀", "name": "Kamisato Art: Dance of the Shirasagi", "type": "Passive", "desc": "Increases Cryo damage after using her Skill." }
+    ],
+    "gallery": ["❄️", "🗡️", "💨", "🌀"],
+    "galleryImages": [
+      "/img/genshin/characters/ayaka-gallery-1.jpg",
+      "/img/genshin/characters/ayaka-gallery-2.jpg",
+      "/img/genshin/characters/ayaka-gallery-3.jpg",
+      "/img/genshin/characters/ayaka-gallery-4.jpg"
+    ]
+  },
+  "nahida": {
+    "name": "Nahida",
+    "title": "The God of Wisdom",
+    "faction": "🌿 Sumeru",
+    "description": "The Dendro Archon and the God of Wisdom, Nahida is the youngest of the Seven and the ruler of Sumeru. She uses her abilities to guide the people toward knowledge.",
+    "image": "/img/genshin/characters/nahida.jpg",
+    "bioImage": "/img/genshin/characters/nahida-bio.jpg",
+    "bioSub": "\"Wisdom is the light that shines through the darkness of ignorance.\"",
+    "bioContent": [
+      "<strong>Nahida</strong> is the <strong>Dendro Archon</strong> and the <strong>God of Wisdom</strong>, ruling over Sumeru.",
+      "She is known as the youngest of the Seven, but her wisdom is vast and ancient.",
+      "Her <strong>Dendro</strong> abilities allow her to manipulate the power of life and nature, guiding her people toward enlightenment."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🌿 Sumeru" },
+      { "label": "Role", "value": "💎 Support" },
+      { "label": "Element", "value": "🌿 Dendro" },
+      { "label": "Rarity", "value": "⭐ 5-Star" }
+    ],
+    "features": [
+      { "icon": "🌿", "title": "Dendro Archon", "desc": "The god of wisdom and nature." },
+      { "icon": "📖", "title": "Catalyst", "desc": "Fights with a catalyst that channels the power of life." },
+      { "icon": "🌱", "title": "Wisdom", "desc": "Guides the people of Sumeru toward knowledge." }
+    ],
+    "skills": [
+      { "icon": "🌿", "name": "All Schemes to Know", "type": "Elemental Skill", "desc": "Nahida marks enemies, dealing Dendro damage and linking them together." },
+      { "icon": "🌱", "name": "Illusory Heart", "type": "Elemental Burst", "desc": "Nahida creates a massive domain of wisdom, dealing Dendro damage and empowering her abilities." },
+      { "icon": "🌿", "name": "Compassion for the Lost", "type": "Passive", "desc": "Increases damage based on the party's elemental mastery." },
+      { "icon": "🌀", "name": "Seed of Knowledge", "type": "Passive", "desc": "Reduces enemy defenses after triggering reactions." }
+    ],
+    "gallery": ["🌿", "📖", "🌱", "🌀"],
+    "galleryImages": [
+      "/img/genshin/characters/nahida-gallery-1.jpg",
+      "/img/genshin/characters/nahida-gallery-2.jpg",
+      "/img/genshin/characters/nahida-gallery-3.jpg",
+      "/img/genshin/characters/nahida-gallery-4.jpg"
+    ]
+  },
+  "xiangling": {
+    "name": "Xiangling",
+    "title": "The Chef of Liyue",
+    "faction": "🏛️ Liyue",
+    "description": "The head chef of the Wanmin Restaurant in Liyue, Xiangling is a passionate cook who wields Pyro abilities and fights with a polearm.",
+    "image": "/img/genshin/characters/xiangling.jpg",
+    "bioImage": "/img/genshin/characters/xiangling-bio.jpg",
+    "bioSub": "\"Cooking and fighting are both about passion and precision.\"",
+    "bioContent": [
+      "<strong>Xiangling</strong> is the head chef of the <strong>Wanmin Restaurant</strong> in Liyue.",
+      "She is passionate about cooking and loves to experiment with new ingredients and flavors.",
+      "Her <strong>Pyro</strong> abilities allow her to cook her enemies as well as her meals, fighting with a fiery polearm."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏛️ Liyue" },
+      { "label": "Role", "value": "⚔️ DPS / Support" },
+      { "label": "Element", "value": "🔥 Pyro" },
+      { "label": "Rarity", "value": "⭐ 4-Star" }
+    ],
+    "features": [
+      { "icon": "🔥", "title": "Pyro", "desc": "Cooks her enemies with fiery attacks." },
+      { "icon": "🔱", "title": "Polearm", "desc": "Fights with a polearm that burns with passion." },
+      { "icon": "🍳", "title": "Chef", "desc": "The head chef of the Wanmin Restaurant." }
+    ],
+    "skills": [
+      { "icon": "🔥", "name": "Guoba Attack", "type": "Elemental Skill", "desc": "Xiangling summons Guoba, who deals Pyro damage to enemies." },
+      { "icon": "🌀", "name": "Pyronado", "type": "Elemental Burst", "desc": "Xiangling creates a spinning fire vortex, dealing AoE Pyro damage." },
+      { "icon": "🔥", "name": "Hot and Sour", "type": "Passive", "desc": "Increases damage of Guoba's attacks." },
+      { "icon": "🍳", "name": "Chef's Expertise", "type": "Passive", "desc": "Increases party attack when using a dish." }
+    ],
+    "gallery": ["🔥", "🔱", "🍳", "🌀"],
+    "galleryImages": [
+      "/img/genshin/characters/xiangling-gallery-1.jpg",
+      "/img/genshin/characters/xiangling-gallery-2.jpg",
+      "/img/genshin/characters/xiangling-gallery-3.jpg",
+      "/img/genshin/characters/xiangling-gallery-4.jpg"
+    ]
+  },
+  "barbara": {
+    "name": "Barbara",
+    "title": "The Deaconess of Mondstadt",
+    "faction": "🏛️ Knights of Favonius",
+    "description": "The beloved deaconess of the Church of Favonius, Barbara is a kind and caring healer who uses her Hydro abilities to protect and heal her allies.",
+    "image": "/img/genshin/characters/barbara.jpg",
+    "bioImage": "/img/genshin/characters/barbara-bio.jpg",
+    "bioSub": "\"May the wind guide you.\"",
+    "bioContent": [
+      "<strong>Barbara</strong> is the deaconess of the <strong>Church of Favonius</strong> in Mondstadt.",
+      "She is known for her kind heart and her beautiful voice, which she uses to comfort the people of the city.",
+      "Her <strong>Hydro</strong> abilities allow her to heal her allies and cleanse them of debuffs."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏛️ Knights of Favonius" },
+      { "label": "Role", "value": "💎 Healer" },
+      { "label": "Element", "value": "💧 Hydro" },
+      { "label": "Rarity", "value": "⭐ 4-Star" }
+    ],
+    "features": [
+      { "icon": "💧", "title": "Hydro", "desc": "Uses the power of water to heal and protect." },
+      { "icon": "📖", "title": "Catalyst", "desc": "Fights with a catalyst that channels healing energy." },
+      { "icon": "🎵", "title": "Deaconess", "desc": "A beloved figure of faith in Mondstadt." }
+    ],
+    "skills": [
+      { "icon": "💧", "name": "Whisper of Water", "type": "Elemental Skill", "desc": "Barbara heals her allies with a soothing melody of water." },
+      { "icon": "🎵", "name": "Shining Miracle", "type": "Elemental Burst", "desc": "Barbara creates a healing aura that restores health over time." },
+      { "icon": "💧", "name": "Healing Spirit", "type": "Passive", "desc": "Increases healing done to allies." },
+      { "icon": "🌀", "name": "Pure Water", "type": "Passive", "desc": "Cleanses debuffs from allies." }
+    ],
+    "gallery": ["💧", "🎵", "🌀", "📖"],
+    "galleryImages": [
+      "/img/genshin/characters/barbara-gallery-1.jpg",
+      "/img/genshin/characters/barbara-gallery-2.jpg",
+      "/img/genshin/characters/barbara-gallery-3.jpg",
+      "/img/genshin/characters/barbara-gallery-4.jpg"
+    ]
+  },
+  "fischl": {
+    "name": "Fischl",
+    "title": "The Prinzessin der Verurteilung",
+    "faction": "⚡ Mondstadt",
+    "description": "The Prinzessin der Verurteilung, Fischl is an eccentric girl who claims to come from another world. She fights alongside her raven companion, Oz, with Electro abilities.",
+    "image": "/img/genshin/characters/fischl.jpg",
+    "bioImage": "/img/genshin/characters/fischl-bio.jpg",
+    "bioSub": "\"I, Fischl, shall judge you!\"",
+    "bioContent": [
+      "<strong>Fischl</strong> is the <strong>Prinzessin der Verurteilung</strong>, an eccentric girl who claims to be from another world.",
+      "She fights alongside her raven companion, <strong>Oz</strong>, who channels her <strong>Electro</strong> abilities.",
+      "Despite her dramatic personality, she is a skilled fighter and a loyal friend."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "⚡ Mondstadt" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "⚡ Electro" },
+      { "label": "Rarity", "value": "⭐ 4-Star" }
+    ],
+    "features": [
+      { "icon": "⚡", "title": "Electro", "desc": "Channels lightning through her companion Oz." },
+      { "icon": "🏹", "title": "Bow", "desc": "Fights with a bow from a distance." },
+      { "icon": "🐦", "title": "Oz", "desc": "Her loyal raven companion." }
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Nightrider", "type": "Elemental Skill", "desc": "Fischl summons Oz, who attacks enemies with Electro." },
+      { "icon": "🐦", "name": "Midnight Phantasmagoria", "type": "Elemental Burst", "desc": "Fischl and Oz unleash a storm of lightning, dealing AoE Electro damage." },
+      { "icon": "⚡", "name": "Stellar Predator", "type": "Passive", "desc": "Increases damage of Oz's attacks." },
+      { "icon": "🌀", "name": "Thunderbolt", "type": "Passive", "desc": "Increases Electro damage for the party." }
+    ],
+    "gallery": ["⚡", "🐦", "🌀", "🏹"],
+    "galleryImages": [
+      "/img/genshin/characters/fischl-gallery-1.jpg",
+      "/img/genshin/characters/fischl-gallery-2.jpg",
+      "/img/genshin/characters/fischl-gallery-3.jpg",
+      "/img/genshin/characters/fischl-gallery-4.jpg"
+    ]
+  },
+  "bennett": {
+    "name": "Bennett",
+    "title": "The Unlucky Adventurer",
+    "faction": "🏛️ Mondstadt",
+    "description": "A young adventurer cursed with incredible bad luck, Bennett is a kind and optimistic person who fights with a burning passion using Pyro abilities.",
+    "image": "/img/genshin/characters/bennett.jpg",
+    "bioImage": "/img/genshin/characters/bennett-bio.jpg",
+    "bioSub": "\"Even if I'm unlucky, I'll never give up!\"",
+    "bioContent": [
+      "<strong>Bennett</strong> is a young adventurer from <strong>Mondstadt</strong>, cursed with terrible luck.",
+      "Despite his misfortunes, he remains optimistic and kind, always looking for the silver lining.",
+      "His <strong>Pyro</strong> abilities allow him to fight with fiery determination, supporting his allies with incredible power."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏛️ Mondstadt" },
+      { "label": "Role", "value": "💎 Support / Healer" },
+      { "label": "Element", "value": "🔥 Pyro" },
+      { "label": "Rarity", "value": "⭐ 4-Star" }
+    ],
+    "features": [
+      { "icon": "🔥", "title": "Pyro", "desc": "Fights with burning determination." },
+      { "icon": "🗡️", "title": "Sword", "desc": "Wields a sword with fiery passion." },
+      { "icon": "🍀", "title": "Unlucky", "desc": "Cursed with terrible luck, but never gives up." }
+    ],
+    "skills": [
+      { "icon": "🔥", "name": "Passion Overload", "type": "Elemental Skill", "desc": "Bennett unleashes a burning strike that deals Pyro damage." },
+      { "icon": "💥", "name": "Fantastic Voyage", "type": "Elemental Burst", "desc": "Bennett creates a field that heals allies and increases their attack." },
+      { "icon": "🔥", "name": "Fervor", "type": "Passive", "desc": "Reduces cooldown of his Elemental Skill." },
+      { "icon": "🌀", "name": "Reckless Adventure", "type": "Passive", "desc": "Increases damage when using his Skill." }
+    ],
+    "gallery": ["🔥", "🗡️", "💥", "🌀"],
+    "galleryImages": [
+      "/img/genshin/characters/bennett-gallery-1.jpg",
+      "/img/genshin/characters/bennett-gallery-2.jpg",
+      "/img/genshin/characters/bennett-gallery-3.jpg",
+      "/img/genshin/characters/bennett-gallery-4.jpg"
+    ]
+  },
+  "sucrose": {
+    "name": "Sucrose",
+    "title": "The Alchemist of Mondstadt",
+    "faction": "🏛️ Knights of Favonius",
+    "description": "An assistant alchemist who is passionate about the study of bio-alchemy. Sucrose uses her Anemo abilities to support her allies and control the battlefield.",
+    "image": "/img/genshin/characters/sucrose.jpg",
+    "bioImage": "/img/genshin/characters/sucrose-bio.jpg",
+    "bioSub": "\"Science is the key to understanding the world.\"",
+    "bioContent": [
+      "<strong>Sucrose</strong> is an assistant alchemist at the <strong>Knights of Favonius</strong>.",
+      "She is deeply passionate about the study of bio-alchemy and the secrets of life.",
+      "Her <strong>Anemo</strong> abilities allow her to control the battlefield, grouping enemies together and boosting her allies' elemental mastery."
+    ],
+    "stats": [
+      { "label": "Faction", "value": "🏛️ Knights of Favonius" },
+      { "label": "Role", "value": "💎 Support" },
+      { "label": "Element", "value": "🌪️ Anemo" },
+      { "label": "Rarity", "value": "⭐ 4-Star" }
+    ],
+    "features": [
+      { "icon": "🌪️", "title": "Anemo", "desc": "Controls the wind to support her allies." },
+      { "icon": "📖", "title": "Catalyst", "desc": "Uses a catalyst to channel her alchemical power." },
+      { "icon": "🧪", "title": "Alchemist", "desc": "Passionate about bio-alchemy." }
+    ],
+    "skills": [
+      { "icon": "🌪️", "name": "Wind Spirit", "type": "Elemental Skill", "desc": "Sucrose summons a wind spirit that deals Anemo damage and pulls enemies." },
+      { "icon": "🌀", "name": "Forbidden Creation", "type": "Elemental Burst", "desc": "Sucrose creates a large vortex that deals Anemo damage and boosts ally elemental mastery." },
+      { "icon": "🌪️", "name": "Catalyst Conversion", "type": "Passive", "desc": "Increases elemental mastery for the party." },
+      { "icon": "🧪", "name": "Alchemical Experiment", "type": "Passive", "desc": "Increases damage when using her Skill." }
+    ],
+    "gallery": ["🌪️", "🧪", "🌀", "📖"],
+    "galleryImages": [
+      "/img/genshin/characters/sucrose-gallery-1.jpg",
+      "/img/genshin/characters/sucrose-gallery-2.jpg",
+      "/img/genshin/characters/sucrose-gallery-3.jpg",
+      "/img/genshin/characters/sucrose-gallery-4.jpg"
+    ]
+  }
+}

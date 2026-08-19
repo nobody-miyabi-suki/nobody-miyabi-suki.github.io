@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honkai Impact 3rd · Main</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+
+    <style>
+        /* ============================================================
+           CSS VARIABLES — THEMES (Red & Blue)
+           ============================================================ */
+        :root {
+            --bg-primary: #1a0a0a;
+            --bg-secondary: #0d0505;
+            --bg-card: rgba(60, 20, 20, 0.35);
+            --bg-header: linear-gradient(135deg, #3d0c0c 0%, #6b1a1a 50%, #4a1010 100%);
+            --border-color: #8b2a2a;
+            --border-light: rgba(180, 60, 60, 0.15);
+            --text-primary: #f0e0e0;
+            --text-secondary: #d4b8b8;
+            --text-muted: #a08080;
+            --text-heading: #ffd0d0;
+            --text-heading-span: #ff5e5e;
+            --badge-bg: rgba(200, 50, 50, 0.2);
+            --badge-border: rgba(200, 60, 60, 0.2);
+            --btn-primary-bg: linear-gradient(135deg, #8b1a1a, #c0392b);
+            --btn-primary-hover: linear-gradient(135deg, #a02020, #d94444);
+            --btn-secondary-bg: rgba(255,255,255,0.05);
+            --btn-secondary-border: rgba(180,60,60,0.3);
+            --shadow-color: rgba(150,30,30,0.2);
+            --shadow-strong: rgba(100,0,0,0.4);
+            --footer-color: #8a6a6a;
+            --footer-border: rgba(180,60,60,0.15);
+            --menu-bg: rgba(0,0,0,0.35);
+            --menu-border: rgba(200,80,80,0.2);
+            --dropdown-bg: #2a0f0f;
+            --dropdown-border: rgba(180,60,60,0.3);
+            --dropdown-hover: rgba(200,60,60,0.25);
+            --hero-bg: radial-gradient(ellipse at 70% 30%, #2a0f0f 0%, #0d0505 100%);
+            --quick-nav-bg: linear-gradient(180deg, #0d0505, #1a0a0a);
+            --regions-bg: radial-gradient(ellipse at center, #1a0a0a, #0d0505);
+            --toggle-bg: #2a0f0f;
+            --toggle-border: rgba(180,60,60,0.3);
+            --toggle-dot: #ff5e5e;
+            --hero-shadow: rgba(200,50,50,0.2);
+            --feature-shadow: rgba(150,30,30,0.15);
+            --img-border: rgba(180,60,60,0.2);
+            --img-shadow: rgba(150,30,30,0.3);
+        }
+
+        [data-theme="blue"] {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #040812;
+            --bg-card: rgba(60,120,255,0.08);
+            --bg-header: linear-gradient(135deg, #0f1a2e 0%, #1a2a4a 50%, #0f1a2e 100%);
+            --border-color: #3a5a8a;
+            --border-light: rgba(60,120,255,0.15);
+            --text-primary: #d0d8f0;
+            --text-secondary: #a0b0d0;
+            --text-muted: #6a7a9a;
+            --text-heading: #e0e8ff;
+            --text-heading-span: #6a9aff;
+            --badge-bg: rgba(60,120,255,0.12);
+            --badge-border: rgba(60,120,255,0.2);
+            --btn-primary-bg: linear-gradient(135deg, #1a3a6a, #2a5a9a);
+            --btn-primary-hover: linear-gradient(135deg, #2a4a7a, #3a6aaa);
+            --btn-secondary-bg: rgba(60,120,255,0.05);
+            --btn-secondary-border: rgba(60,120,255,0.2);
+            --shadow-color: rgba(20,60,180,0.15);
+            --shadow-strong: rgba(20,60,180,0.3);
+            --footer-color: #5a6a8a;
+            --footer-border: rgba(60,120,255,0.08);
+            --menu-bg: rgba(0,0,0,0.3);
+            --menu-border: rgba(60,120,255,0.1);
+            --dropdown-bg: #0f1a30;
+            --dropdown-border: rgba(60,120,255,0.2);
+            --dropdown-hover: rgba(60,120,255,0.15);
+            --hero-bg: radial-gradient(ellipse at 70% 30%, #0a1a2e 0%, #040812 100%);
+            --quick-nav-bg: linear-gradient(180deg, #040812, #0a0e1a);
+            --regions-bg: radial-gradient(ellipse at center, #0a0e1a, #040812);
+            --toggle-bg: #0a1a2e;
+            --toggle-border: rgba(60,120,255,0.2);
+            --toggle-dot: #6a9aff;
+            --hero-shadow: rgba(20,60,180,0.15);
+            --feature-shadow: rgba(20,60,180,0.15);
+            --img-border: rgba(60,120,255,0.2);
+            --img-shadow: rgba(20,60,180,0.25);
+        }
+
+        /* ============================================================
+           MENU
+           ============================================================ */
+        .menu {
+            background: var(--menu-bg);
+            margin-top: 10px;
+            border-top: 1px solid var(--menu-border);
+            transition: all 0.3s ease;
+        }
+        .menu > ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+        }
+        .menu > ul > li {
+            position: relative;
+            display: inline-block;
+        }
+        .menu > ul > li > a {
+            display: block;
+            padding: 12px 25px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+        }
+        .menu > ul > li > a:hover {
+            background: var(--badge-bg);
+            border-bottom-color: var(--border-color);
+            color: var(--text-heading);
+        }
+
+        .arrow {
+            display: inline-block;
+            font-size: 14px;
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+            user-select: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .arrow:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .arrow.open {
+            transform: rotate(180deg);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--dropdown-bg);
+            min-width: 220px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+            z-index: 1000;
+            padding: 0;
+            list-style: none;
+            border: 1px solid var(--dropdown-border);
+            border-top: none;
+            transition: background 0.3s ease;
+        }
+        .dropdown li {
+            display: block;
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+        }
+        .dropdown li:last-child { border-bottom: none; }
+        .dropdown a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .dropdown a:hover {
+            background: var(--dropdown-hover);
+            color: var(--text-heading);
+            padding-right: 25px;
+        }
+        .dropdown a .arrow {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-left: 6px;
+        }
+
+        .sub-dropdown {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background: var(--dropdown-bg);
+            min-width: 180px;
+            border-radius: 0 10px 10px 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            padding: 0;
+            list-style: none;
+            border: 1px solid var(--dropdown-border);
+            transition: background 0.3s ease;
+        }
+        .sub-dropdown a {
+            padding: 10px 18px;
+            font-size: 13px;
+        }
+        .sub-dropdown a:hover {
+            background: var(--dropdown-hover);
+        }
+
+        @media (min-width: 769px) {
+            .menu > ul > li:hover .dropdown {
+                display: block;
+            }
+            .dropdown li:hover .sub-dropdown {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu > ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .menu > ul > li {
+                width: 100%;
+                text-align: left;
+            }
+            .menu > ul > li > a {
+                padding: 10px 16px;
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .menu > ul > li > a .arrow {
+                font-size: 15px;
+                padding: 4px 8px;
+                margin-left: 0;
+            }
+            .dropdown {
+                position: static;
+                width: 100%;
+                border-radius: 0;
+                box-shadow: none;
+                border: 1px solid var(--border-light);
+                border-top: none;
+                display: none;
+            }
+            .sub-dropdown {
+                position: static;
+                width: 100%;
+                border-radius: 0;
+                padding-left: 20px;
+                box-shadow: none;
+                border: 1px solid var(--border-light);
+                border-top: none;
+                display: none;
+            }
+            .dropdown.open { display: block; }
+            .sub-dropdown.open { display: block; }
+            .dropdown a {
+                padding: 10px 16px;
+                font-size: 13px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .dropdown a .arrow {
+                font-size: 13px;
+                padding: 3px 6px;
+            }
+            .sub-dropdown a {
+                padding: 8px 16px 8px 24px;
+                font-size: 12px;
+            }
+        }
+
+        /* ============================================================
+           HERO SECTION
+           ============================================================ */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            padding: 60px 30px;
+            min-height: 70vh;
+            background: var(--hero-bg);
+            border-bottom: 2px solid var(--border-light);
+            flex-wrap: wrap;
+            transition: all 0.4s ease;
+        }
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            max-width: 550px;
+        }
+        .hero-text .badge {
+            display: inline-block;
+            background: var(--badge-bg);
+            padding: 4px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            border: 1px solid var(--badge-border);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        .hero-text h2 {
+            font-size: 52px;
+            color: var(--text-heading);
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px var(--shadow-color);
+            transition: color 0.3s ease;
+        }
+        .hero-text h2 span { color: var(--text-heading-span); transition: color 0.3s ease; }
+        .hero-text .sub-title {
+            font-size: 22px;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 18px;
+            transition: color 0.3s ease;
+        }
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            transition: color 0.3s ease;
+        }
+        .hero-text .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .hero-text .btn-primary {
+            display: inline-block;
+            padding: 14px 40px;
+            background: var(--btn-primary-bg);
+            color: #ffffff;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px var(--shadow-color);
+            border: 1px solid var(--badge-border);
+        }
+        .hero-text .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px var(--shadow-color);
+            background: var(--btn-primary-hover);
+        }
+        .hero-text .btn-secondary {
+            display: inline-block;
+            padding: 14px 40px;
+            background: var(--btn-secondary-bg);
+            color: var(--text-secondary);
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: 1px solid var(--btn-secondary-border);
+        }
+        .hero-text .btn-secondary:hover {
+            background: var(--badge-bg);
+            color: var(--text-heading);
+            border-color: var(--border-color);
+            transform: translateY(-3px);
+        }
+        .hero-image {
+            flex: 1.2;
+            min-width: 300px;
+            max-width: 520px;
+            text-align: center;
+            z-index: 1;
+        }
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px var(--img-shadow);
+            border: 2px solid var(--img-border);
+            transition: all 0.4s;
+        }
+        .hero-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 80px var(--img-shadow);
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+                padding: 40px 20px;
+            }
+            .hero-text h2 { font-size: 32px; }
+            .hero-image { max-width: 400px; flex: 1; }
+            .hero-text .sub-title { font-size: 18px; }
+            .hero-text p { font-size: 16px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 30px 16px;
+                min-height: auto;
+            }
+            .hero-text h2 { font-size: 26px; }
+            .hero-image { max-width: 280px; }
+            .hero-text .btn-primary,
+            .hero-text .btn-secondary {
+                padding: 10px 24px;
+                font-size: 14px;
+            }
+        }
+
+        /* ============================================================
+           QUICK NAV
+           ============================================================ */
+        .quick-nav {
+            padding: 60px 30px;
+            background: var(--quick-nav-bg);
+            transition: all 0.4s ease;
+        }
+        .quick-nav h3 {
+            text-align: center;
+            font-size: 36px;
+            color: var(--text-heading);
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        .quick-nav .desc {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .nav-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(6px);
+            padding: 25px 15px 20px 15px;
+            border-radius: 18px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s;
+            color: var(--text-secondary);
+        }
+        .nav-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--border-color);
+            box-shadow: 0 12px 40px var(--shadow-color);
+            background: var(--bg-card);
+            color: var(--text-heading);
+        }
+        .nav-card .icon { font-size: 44px; display: block; margin-bottom: 10px; }
+        .nav-card h4 {
+            color: var(--text-heading);
+            font-size: 18px;
+            margin-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+        .nav-card p {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .quick-nav {
+                padding: 40px 16px;
+            }
+            .quick-nav h3 {
+                font-size: 28px;
+            }
+            .nav-grid {
+                grid-template-columns: 1fr;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+        }
+
+        /* ============================================================
+           REGIONS
+           ============================================================ */
+        .regions-section {
+            padding: 60px 30px;
+            background: var(--regions-bg);
+            border-top: 2px solid var(--border-light);
+            border-bottom: 2px solid var(--border-light);
+            transition: all 0.4s ease;
+        }
+        .regions-section h3 {
+            text-align: center;
+            font-size: 36px;
+            color: var(--text-heading);
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+        .regions-section .desc {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-bottom: 40px;
+            transition: color 0.3s ease;
+        }
+        .regions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .region-item {
+            background: var(--bg-card);
+            padding: 18px 12px;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+            color: var(--text-secondary);
+        }
+        .region-item:hover {
+            transform: scale(1.04);
+            border-color: var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-heading);
+        }
+        .region-item .emoji { font-size: 40px; display: block; margin-bottom: 6px; }
+        .region-item h5 {
+            color: var(--text-heading);
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        .region-item .element {
+            font-size: 13px;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .regions-section {
+                padding: 40px 16px;
+            }
+            .regions-section h3 {
+                font-size: 28px;
+            }
+            .regions-grid {
+                grid-template-columns: 1fr 1fr;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .regions-grid {
+                grid-template-columns: 1fr;
+                max-width: 260px;
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE
+    ========================================================== -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label" id="themeLabel">🔴 Red</span>
+        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Hoyoverse</span> ✦</h1>
+            <p>Fan Page · All Games</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    HERO SECTION
+    ========================================================== -->
+    <section class="hero">
+        <div class="hero-text">
+            <span class="badge">✦ For All Beautiful Things</span>
+            <h2>Welcome to <span>Honkai Impact 3rd</span></h2>
+            <div class="sub-title">A world of Valkyries, Honkai, and sacrifice</div>
+            <p>
+                Join the battle against the <strong>Honkai</strong> — a mysterious force that threatens humanity's existence.
+                Command a squad of powerful <strong>Valkyries</strong>, each with their own story, abilities, and burdens.
+                Experience a gripping narrative of love, loss, and hope in one of Hoyoverse's most beloved titles.
+            </p>
+            <div class="btn-group">
+                <a href="/honkai3rd/story.html" class="btn-primary">📖 Begin the Saga</a>
+                <a href="/honkai3rd/characters.html" class="btn-secondary">👤 Meet the Valkyries</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="/img/honkai3rd-banner.jpg" alt="Honkai Impact 3rd" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22520%22 height=%22320%22%3E%3Crect fill=%22%231a0a0a%22 width=%22520%22 height=%22320%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2248%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ff5e5e%22%3E⚡%3C/text%3E%3C/svg%3E'">
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    QUICK NAVIGATION
+    ========================================================== -->
+    <section class="quick-nav">
+        <h3>⚡ Explore Honkai Impact 3rd</h3>
+        <p class="desc">Dive deep into the world of Valkyries and Honkai</p>
+        <div class="nav-grid">
+            <a href="/honkai3rd/characters.html" class="nav-card">
+                <span class="icon">👤</span>
+                <h4>Characters</h4>
+                <p>All Valkyries, their battlesuits and abilities</p>
+            </a>
+            <a href="/honkai3rd/map.html" class="nav-card">
+                <span class="icon">🗺️</span>
+                <h4>Map</h4>
+                <p>Explore the world of Honkai Impact</p>
+            </a>
+            <a href="/honkai3rd/story.html" class="nav-card">
+                <span class="icon">📖</span>
+                <h4>Story</h4>
+                <p>The epic narrative of the Valkyries</p>
+            </a>
+            <a href="/honkai3rd/weapons.html" class="nav-card">
+                <span class="icon">⚔️</span>
+                <h4>Weapons</h4>
+                <p>Every weapon and divine key</p>
+            </a>
+            <a href="/honkai3rd/stigmata.html" class="nav-card">
+                <span class="icon">👘</span>
+                <h4>Stigmata</h4>
+                <p>All stigmata sets and their bonuses</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    REGIONS / LORE
+    ========================================================== -->
+    <section class="regions-section">
+        <h3>🌍 Key Locations</h3>
+        <p class="desc">The battle against the Honkai spans the globe</p>
+        <div class="regions-grid">
+            <div class="region-item">
+                <span class="emoji">🏫</span>
+                <h5>St. Freya Academy</h5>
+                <span class="element">⚔️ Valkyrie Training</span>
+            </div>
+            <div class="region-item">
+                <span class="emoji">🏙️</span>
+                <h5>Schicksal HQ</h5>
+                <span class="element">⚜️ Global Organization</span>
+            </div>
+            <div class="region-item">
+                <span class="emoji">🌊</span>
+                <h5>Sea of Quanta</h5>
+                <span class="element">🌀 Quantum Realm</span>
+            </div>
+            <div class="region-item">
+                <span class="emoji">🌌</span>
+                <h5>Imaginary Space</h5>
+                <span class="element">⭐ The Honkai Source</span>
+            </div>
+            <div class="region-item">
+                <span class="emoji">🏛️</span>
+                <h5>Anti-Entropy</h5>
+                <span class="element">🤖 Resistance Faction</span>
+            </div>
+            <div class="region-item">
+                <span class="emoji">🌙</span>
+                <h5>Moon Base</h5>
+                <span class="element">🚀 Final Battlefront</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Hoyoverse Fans · All Games ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT — THEME TOGGLE + MOBILE MENU
+    ========================================================== -->
+    <script>
+        // ============================================================
+        // THEME TOGGLE
+        // ============================================================
+        function toggleTheme() {
+            const html = document.documentElement;
+            const label = document.getElementById('themeLabel');
+
+            if (html.getAttribute('data-theme') === 'blue') {
+                html.removeAttribute('data-theme');
+                label.textContent = '🔴 Red';
+            } else {
+                html.setAttribute('data-theme', 'blue');
+                label.textContent = '🔵 Blue';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('hoyoverse-theme');
+            const label = document.getElementById('themeLabel');
+            if (savedTheme === 'blue') {
+                document.documentElement.setAttribute('data-theme', 'blue');
+                label.textContent = '🔵 Blue';
+            }
+        });
+
+        const originalToggle = toggleTheme;
+        toggleTheme = function() {
+            originalToggle();
+            const theme = document.documentElement.getAttribute('data-theme') || 'red';
+            localStorage.setItem('hoyoverse-theme', theme);
+        };
+
+        // ============================================================
+        // MOBILE MENU — Toggle independently
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const isMobile = window.innerWidth <= 768;
+
+            function toggleDropdown(arrow) {
+                const isOpen = arrow.classList.contains('open');
+                if (isOpen) {
+                    arrow.classList.remove('open');
+                    const parent = arrow.closest('li');
+                    if (parent) {
+                        const dropdown = parent.querySelector('.dropdown, .sub-dropdown');
+                        if (dropdown) dropdown.classList.remove('open');
+                    }
+                } else {
+                    arrow.classList.add('open');
+                    const parent = arrow.closest('li');
+                    if (parent) {
+                        const dropdown = parent.querySelector('.dropdown, .sub-dropdown');
+                        if (dropdown) dropdown.classList.add('open');
+                    }
+                }
+            }
+
+            if (isMobile) {
+                const allArrows = document.querySelectorAll('.arrow');
+
+                allArrows.forEach(function(arrow) {
+                    arrow.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        toggleDropdown(this);
+                    });
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.menu')) {
+                        const allArrows = document.querySelectorAll('.arrow.open');
+                        allArrows.forEach(function(arrow) {
+                            arrow.classList.remove('open');
+                            const parent = arrow.closest('li');
+                            if (parent) {
+                                const dropdown = parent.querySelector('.dropdown, .sub-dropdown');
+                                if (dropdown) dropdown.classList.remove('open');
+                            }
+                        });
+                    }
+                });
+            }
+
+            window.addEventListener('resize', function() {
+                const newIsMobile = window.innerWidth <= 768;
+                if (!newIsMobile) {
+                    const allArrows = document.querySelectorAll('.arrow.open');
+                    allArrows.forEach(function(arrow) {
+                        arrow.classList.remove('open');
+                        const parent = arrow.closest('li');
+                        if (parent) {
+                            const dropdown = parent.querySelector('.dropdown, .sub-dropdown');
+                            if (dropdown) dropdown.classList.remove('open');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

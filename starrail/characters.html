@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rail · Characters</title>
+    <!-- استایل‌های عمومی -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- استایل‌های صفحات داخلی -->
+    <link rel="stylesheet" href="/css/pages.css">
+    <style>
+        /* ============================================================
+           استایل‌های اختصاصی صفحه کاراکترها
+           ============================================================ */
+        .section-header {
+            font-size: 32px;
+            color: var(--text-heading);
+            text-align: center;
+            margin: 50px 0 20px 0;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 12px;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        .section-header:first-of-type {
+            margin-top: 0;
+        }
+
+        .char-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .char-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(6px);
+            border-radius: 18px;
+            padding: 22px 18px 20px 18px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+        .char-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-color);
+            box-shadow: 0 12px 40px var(--shadow-color);
+        }
+
+        .char-card .image-wrapper {
+            width: 100%;
+            height: 200px;
+            background: var(--bg-secondary);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-light);
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+        .char-card .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+            display: block;
+        }
+        .char-card .image-wrapper img:hover {
+            transform: scale(1.06);
+        }
+        .char-card .image-wrapper .no-image {
+            font-size: 56px;
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        .char-card .rarity {
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .rarity-5 { color: #ffd700; }
+        .rarity-4 { color: #b0c4de; }
+
+        .char-card h4 {
+            color: var(--text-heading);
+            font-size: 20px;
+            margin: 6px 0 2px 0;
+            transition: color 0.3s ease;
+        }
+        .char-card .char-details {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin: 4px 0;
+            transition: color 0.3s ease;
+        }
+        .char-card .char-details span {
+            display: inline-block;
+            margin: 0 4px;
+        }
+        .char-card .path-tag {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 3px 14px;
+            border-radius: 20px;
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            font-size: 12px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        .char-card .description {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.5;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-light);
+            transition: color 0.3s ease;
+            flex: 1;
+        }
+
+        /* ===== استایل دکمه View Profile ===== */
+        .char-card .btn-char {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 8px 28px;
+            background: var(--btn-primary-bg);
+            color: white;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 1px solid var(--badge-border);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .char-card .btn-char:hover {
+            background: var(--btn-primary-hover);
+            transform: scale(1.04);
+            box-shadow: 0 4px 20px var(--shadow-color);
+        }
+
+        @media (max-width: 768px) {
+            .char-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 18px;
+            }
+            .char-card .image-wrapper {
+                height: 160px;
+            }
+            .char-card .btn-char {
+                padding: 6px 20px;
+                font-size: 12px;
+            }
+        }
+        @media (max-width: 480px) {
+            .char-grid {
+                grid-template-columns: 1fr;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            .char-card .image-wrapper {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE (توسط base.css مدیریت میشه)
+    ========================================================== -->
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Honkai</span> Star Rail ✦</h1>
+            <p>Characters of the Cosmos</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
+        </div>
+
+        <!-- ==========================================================
+        MENU — استاندارد (آیکون تصویری برای بازی‌ها، ایموجی برای بقیه)
+        ========================================================== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/s-rank.html">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>👤 <span>Characters</span> of the Cosmos</h2>
+        <p>All playable characters in Honkai Star Rail — 5★ &amp; 4★</p>
+    </section>
+
+    <!-- ==========================================================
+    5-STAR CHARACTERS
+    ========================================================== -->
+    <section class="content-section" id="5star">
+        <h3 class="section-header">🌟 5‑Star Characters</h3>
+        <div class="char-grid">
+
+            <!-- Dan Heng IL -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/characters/dan-heng.jpg" alt="Dan Heng IL" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🐉</span>
+                </div>
+                <div class="rarity rarity-5">★★★★★</div>
+                <h4>Dan Heng · Imbibitor Lunae</h4>
+                <div class="char-details">🌊 Imaginary · <span>⚔️ Destruction</span></div>
+                <span class="path-tag">🌀 The Destruction</span>
+                <div class="description">The true form of Dan Heng, wielding the power of the Azure Dragon.</div>
+                <a href="/starrail/character.html?id=danhengil" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- Seele -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/characters/Seele.jpg" alt="Seele" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🌌</span>
+                </div>
+                <div class="rarity rarity-5">★★★★★</div>
+                <h4>Seele</h4>
+                <div class="char-details">🌌 Quantum · <span>⚔️ Hunt</span></div>
+                <span class="path-tag">🎯 The Hunt</span>
+                <div class="description">A member of Wildfire from Belobog. Fast-paced single-target DPS.</div>
+                <a href="/starrail/character.html?id=seele" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- Jing Yuan -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/characters/jingyuan.jpg" alt="Jing Yuan" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">⚡</span>
+                </div>
+                <div class="rarity rarity-5">★★★★★</div>
+                <h4>Jing Yuan</h4>
+                <div class="char-details">⚡ Lightning · <span>⚔️ Erudition</span></div>
+                <span class="path-tag">📚 The Erudition</span>
+                <div class="description">General of the Xianzhou Luofu's Cloud Knights. Master of the Lightning Lord.</div>
+                <a href="/starrail/character.html?id=jingyuan" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- Blade -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/characters/blade.jpg" alt="Blade" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">💀</span>
+                </div>
+                <div class="rarity rarity-5">★★★★★</div>
+                <h4>Blade</h4>
+                <div class="char-details">🌊 Imaginary · <span>⚔️ Destruction</span></div>
+                <span class="path-tag">🌀 The Destruction</span>
+                <div class="description">A mysterious swordsman seeking death. Attacks consume HP for devastating damage.</div>
+                <a href="/starrail/character.html?id=blade" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- Kafka -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/starrail/kafka.jpg" alt="Kafka" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🕸️</span>
+                </div>
+                <div class="rarity rarity-5">★★★★★</div>
+                <h4>Kafka</h4>
+                <div class="char-details">⚡ Lightning · <span>⚔️ Nihility</span></div>
+                <span class="path-tag">🌌 The Nihility</span>
+                <div class="description">Stellaron Hunter. Specializes in shock and follow-up attacks.</div>
+                <a href="/starrail/character.html?id=kafka" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- Bronya -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/starrail/bronya.jpg" alt="Bronya" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🌀</span>
+                </div>
+                <div class="rarity rarity-5">★★★★★</div>
+                <h4>Bronya</h4>
+                <div class="char-details">🌪️ Wind · <span>⚔️ Harmony</span></div>
+                <span class="path-tag">🎵 The Harmony</span>
+                <div class="description">Commander of the Silvermane Guards. Top-tier support that boosts ATK and turn order.</div>
+                <a href="/starrail/character.html?id=bronya" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- Luocha -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/starrail/luocha.jpg" alt="Luocha" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">⚕️</span>
+                </div>
+                <div class="rarity rarity-5">★★★★★</div>
+                <h4>Luocha</h4>
+                <div class="char-details">🌊 Imaginary · <span>⚔️ Abundance</span></div>
+                <span class="path-tag">🌿 The Abundance</span>
+                <div class="description">Mysterious merchant. Excels at healing and cleansing debuffs.</div>
+                <a href="/starrail/character.html?id=luocha" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- Silver Wolf -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/starrail/silverwolf.jpg" alt="Silver Wolf" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🐺</span>
+                </div>
+                <div class="rarity rarity-5">★★★★★</div>
+                <h4>Silver Wolf</h4>
+                <div class="char-details">🌌 Quantum · <span>⚔️ Nihility</span></div>
+                <span class="path-tag">🌌 The Nihility</span>
+                <div class="description">Genius hacker from the Stellaron Hunters. Can implant weaknesses onto enemies.</div>
+                <a href="/starrail/character.html?id=silverwolf" class="btn-char">View Profile →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    4-STAR CHARACTERS
+    ========================================================== -->
+    <section class="content-section" id="4star">
+        <h3 class="section-header">⭐ 4‑Star Characters</h3>
+        <div class="char-grid">
+
+            <!-- Asta -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/starrail/asta.jpg" alt="Asta" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🔥</span>
+                </div>
+                <div class="rarity rarity-4">★★★★</div>
+                <h4>Asta</h4>
+                <div class="char-details">🔥 Fire · <span>⚔️ Harmony</span></div>
+                <span class="path-tag">🎵 The Harmony</span>
+                <div class="description">Researcher at Herta Space Station. Boosts team ATK and speed.</div>
+                <a href="/starrail/character.html?id=asta" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- Natasha -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/starrail/natasha.jpg" alt="Natasha" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">💉</span>
+                </div>
+                <div class="rarity rarity-4">★★★★</div>
+                <h4>Natasha</h4>
+                <div class="char-details">☣️ Physical · <span>⚔️ Abundance</span></div>
+                <span class="path-tag">🌿 The Abundance</span>
+                <div class="description">Doctor from Belobog's underworld. Provides healing and debuff removal.</div>
+                <a href="/starrail/character.html?id=natasha" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- Pela -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/starrail/pela.jpg" alt="Pela" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">❄️</span>
+                </div>
+                <div class="rarity rarity-4">★★★★</div>
+                <h4>Pela</h4>
+                <div class="char-details">❄️ Ice · <span>⚔️ Nihility</span></div>
+                <span class="path-tag">🌌 The Nihility</span>
+                <div class="description">Intelligence officer of the Silvermane Guards. Dispels buffs and applies defense shred.</div>
+                <a href="/starrail/character.html?id=pela" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- Sushang -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/starrail/sushang.jpg" alt="Sushang" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">⚔️</span>
+                </div>
+                <div class="rarity rarity-4">★★★★</div>
+                <h4>Sushang</h4>
+                <div class="char-details">☣️ Physical · <span>⚔️ Hunt</span></div>
+                <span class="path-tag">🎯 The Hunt</span>
+                <div class="description">Young warrior from the Xianzhou Alliance. Single-target DPS with speed.</div>
+                <a href="/starrail/character.html?id=sushang" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- Tingyun -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/starrail/tingyun.jpg" alt="Tingyun" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🦊</span>
+                </div>
+                <div class="rarity rarity-4">★★★★</div>
+                <h4>Tingyun</h4>
+                <div class="char-details">⚡ Lightning · <span>⚔️ Harmony</span></div>
+                <span class="path-tag">🎵 The Harmony</span>
+                <div class="description">Foxian merchant. Buffs ATK and damage, provides energy regeneration.</div>
+                <a href="/starrail/character.html?id=tingyun" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- Qingque -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/starrail/qingque.jpg" alt="Qingque" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🀄</span>
+                </div>
+                <div class="rarity rarity-4">★★★★</div>
+                <h4>Qingque</h4>
+                <div class="char-details">🌌 Quantum · <span>⚔️ Erudition</span></div>
+                <span class="path-tag">📚 The Erudition</span>
+                <div class="description">Lazy but skilled diviner. Kit revolves around drawing tiles for powerful attacks.</div>
+                <a href="/starrail/character.html?id=qingque" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- Herta -->
+            <div class="char-card">
+                <div class="image-wrapper">
+                    <img src="/img/starrail/herta.jpg" alt="Herta" onerror="this.style.display='none'; this.parentElement.querySelector('.no-image').style.display='block';">
+                    <span class="no-image" style="display:none;">🧪</span>
+                </div>
+                <div class="rarity rarity-4">★★★★</div>
+                <h4>Herta</h4>
+                <div class="char-details">❄️ Ice · <span>⚔️ Erudition</span></div>
+                <span class="path-tag">📚 The Erudition</span>
+                <div class="description">Genius owner of Herta Space Station. AoE Ice damage with follow-up attacks.</div>
+                <a href="/starrail/character.html?id=herta" class="btn-char">View Profile →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Honkai Star Rail Fans ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

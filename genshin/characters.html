@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin · Characters</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+    <style>
+        /* ============================================================
+           استایل‌های اختصاصی صفحه کاراکترها (مشابه Star Rail)
+           ============================================================ */
+        .section-header {
+            font-size: 32px;
+            color: var(--text-heading);
+            text-align: center;
+            margin: 50px 0 20px 0;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 12px;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        .section-header:first-of-type {
+            margin-top: 0;
+        }
+
+        .char-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .char-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(6px);
+            border-radius: 18px;
+            padding: 22px 18px 20px 18px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+        .char-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-color);
+            box-shadow: 0 12px 40px var(--shadow-color);
+        }
+
+        .char-card .image-wrapper {
+            width: 100%;
+            height: 200px;
+            background: var(--bg-secondary);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-light);
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+        .char-card .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+            display: block;
+        }
+        .char-card .image-wrapper img:hover {
+            transform: scale(1.06);
+        }
+        .char-card .image-wrapper .no-image {
+            font-size: 56px;
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        .char-card .rarity {
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .rarity-5 { color: #ffd700; }
+        .rarity-4 { color: #b0c4de; }
+
+        .char-card h4 {
+            color: var(--text-heading);
+            font-size: 20px;
+            margin: 6px 0 2px 0;
+            transition: color 0.3s ease;
+        }
+        .char-card .char-details {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin: 4px 0;
+            transition: color 0.3s ease;
+        }
+        .char-card .char-details span {
+            display: inline-block;
+            margin: 0 4px;
+        }
+        .char-card .faction-tag {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 3px 14px;
+            border-radius: 20px;
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            font-size: 12px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .char-card .btn-char {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 8px 28px;
+            background: var(--btn-primary-bg);
+            color: white;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 1px solid var(--badge-border);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .char-card .btn-char:hover {
+            background: var(--btn-primary-hover);
+            transform: scale(1.04);
+            box-shadow: 0 4px 20px var(--shadow-color);
+        }
+
+        .loading-spinner {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+            font-size: 18px;
+        }
+        .loading-spinner::after {
+            content: ' ⏳';
+            animation: dots 1.5s steps(4) infinite;
+        }
+        @keyframes dots {
+            0% { content: ' ⏳'; }
+            25% { content: ' ⏳.'; }
+            50% { content: ' ⏳..'; }
+            75% { content: ' ⏳...'; }
+        }
+
+        @media (max-width: 768px) {
+            .char-grid {
+                grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+                gap: 18px;
+            }
+            .char-card .image-wrapper {
+                height: 160px;
+            }
+            .char-card .btn-char {
+                padding: 6px 20px;
+                font-size: 12px;
+            }
+        }
+        @media (max-width: 480px) {
+            .char-grid {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            .char-card .image-wrapper {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE
+    ========================================================== -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label" id="themeLabel">🔴 Red</span>
+        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Genshin</span> Impact ✦</h1>
+            <p>Characters of Teyvat</p>
+            <a href="/index.html" class="back-link">← Back to Home</a>
+        </div>
+
+        <!-- ==========================================================
+        MENU
+        ========================================================== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/s-rank.html">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>👤 <span>Characters</span> of Teyvat</h2>
+        <p>All playable characters in Genshin Impact — 5★ &amp; 4★</p>
+    </section>
+
+    <!-- ==========================================================
+    CHARACTER GRID
+    ========================================================== -->
+    <section class="content-section" id="charactersContainer">
+        <div id="loadingMessage" class="loading-spinner">Loading characters</div>
+        <div id="charGrid5Star" class="char-grid" style="display:none;"></div>
+        <div id="charGrid4Star" class="char-grid" style="display:none;"></div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Genshin Impact Fans ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+    <script>
+        (function() {
+            const container5 = document.getElementById('charGrid5Star');
+            const container4 = document.getElementById('charGrid4Star');
+            const loading = document.getElementById('loadingMessage');
+
+            const elementIcons = {
+                'Pyro': '🔥',
+                'Hydro': '💧',
+                'Anemo': '🌪️',
+                'Electro': '⚡',
+                'Dendro': '🌿',
+                'Cryo': '❄️',
+                'Geo': '⛰️'
+            };
+
+            function createCharCard(charId, charData) {
+                const card = document.createElement('div');
+                card.className = 'char-card';
+
+                // ===== تصویر با مسیر جدید =====
+                const wrapper = document.createElement('div');
+                wrapper.className = 'image-wrapper';
+
+                const img = document.createElement('img');
+                // ✅ مسیر جدید: /img/genshin/characters/[id].jpg
+                img.src = `/img/genshin/characters/${charId}.jpg`;
+                img.alt = charData.name;
+
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    const span = document.createElement('span');
+                    span.className = 'no-image';
+                    span.textContent = elementIcons[charData.element?.split(' ')[0]] || '❓';
+                    wrapper.appendChild(span);
+                };
+                wrapper.appendChild(img);
+
+                // رتبه
+                let rarityText = '★';
+                let is5Star = false;
+                if (charData.stats && Array.isArray(charData.stats)) {
+                    const rarityStat = charData.stats.find(s => s.label === 'Rarity');
+                    if (rarityStat) {
+                        rarityText = rarityStat.value || '★';
+                        is5Star = rarityText.includes('5');
+                    }
+                }
+                const rarityDiv = document.createElement('div');
+                rarityDiv.className = 'rarity ' + (is5Star ? 'rarity-5' : 'rarity-4');
+                rarityDiv.textContent = rarityText;
+
+                // نام
+                const name = document.createElement('h4');
+                name.textContent = charData.name || 'Unknown';
+
+                // جزئیات
+                const details = document.createElement('div');
+                details.className = 'char-details';
+                const elemIcon = elementIcons[charData.element?.split(' ')[0]] || '';
+                details.innerHTML = `${elemIcon} ${charData.element || ''} · <span>⚔️ ${charData.weapon || ''}</span>`;
+
+                // فرکشن
+                const factionTag = document.createElement('span');
+                factionTag.className = 'faction-tag';
+                factionTag.textContent = charData.faction || '🏛️ Teyvat';
+
+                // دکمه
+                const btn = document.createElement('a');
+                btn.className = 'btn-char';
+                btn.href = `/genshin/character.html?char=${charId}`;
+                btn.textContent = 'View Profile →';
+
+                card.appendChild(wrapper);
+                card.appendChild(rarityDiv);
+                card.appendChild(name);
+                card.appendChild(details);
+                card.appendChild(factionTag);
+                card.appendChild(btn);
+
+                return card;
+            }
+
+            fetch('/data/genshin-characters.json')
+                .then(res => {
+                    if (!res.ok) throw new Error('Network response was not ok');
+                    return res.json();
+                })
+                .then(data => {
+                    loading.style.display = 'none';
+                    const fiveStar = [];
+                    const fourStar = [];
+
+                    for (const [id, char] of Object.entries(data)) {
+                        let is5 = false;
+                        if (char.stats && Array.isArray(char.stats)) {
+                            const rarityStat = char.stats.find(s => s.label === 'Rarity');
+                            if (rarityStat && rarityStat.value.includes('5')) {
+                                is5 = true;
+                            }
+                        }
+                        if (is5) {
+                            fiveStar.push({ id, ...char });
+                        } else {
+                            fourStar.push({ id, ...char });
+                        }
+                    }
+
+                    fiveStar.sort((a, b) => a.name.localeCompare(b.name));
+                    fourStar.sort((a, b) => a.name.localeCompare(b.name));
+
+                    if (fiveStar.length > 0) {
+                        const header5 = document.createElement('h3');
+                        header5.className = 'section-header';
+                        header5.textContent = '🌟 5‑Star Characters';
+                        container5.parentNode.insertBefore(header5, container5);
+                        container5.style.display = 'grid';
+                        fiveStar.forEach(char => {
+                            container5.appendChild(createCharCard(char.id, char));
+                        });
+                    }
+
+                    if (fourStar.length > 0) {
+                        const header4 = document.createElement('h3');
+                        header4.className = 'section-header';
+                        header4.textContent = '⭐ 4‑Star Characters';
+                        container4.parentNode.insertBefore(header4, container4);
+                        container4.style.display = 'grid';
+                        fourStar.forEach(char => {
+                            container4.appendChild(createCharCard(char.id, char));
+                        });
+                    }
+
+                    if (fiveStar.length === 0 && fourStar.length === 0) {
+                        loading.textContent = '❌ No characters found.';
+                    }
+                })
+                .catch(err => {
+                    console.error('Error loading characters:', err);
+                    loading.textContent = '❌ Failed to load characters. Please try again later.';
+                    loading.style.color = 'var(--text-muted)';
+                });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,847 @@
+/* ============================================================
+   استایل‌های مشترک بین صفحات داخلی
+   ============================================================ */
+
+/* ===== CHARACTER GRID (برای صفحات کاراکتر) ===== */
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.character-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px 18px 18px 18px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+    transition: all 0.4s;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+}
+
+.character-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border-color);
+    box-shadow: 0 15px 50px var(--shadow-color);
+    background: var(--bg-card);
+}
+
+.character-card .rank {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 2px 14px;
+    border-radius: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    align-self: center;
+    color: #1a0a0a;
+}
+
+.rank-s {
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+}
+
+.rank-a {
+    background: linear-gradient(135deg, #b0c4de, #8a9ac0);
+}
+
+.character-card .char-img-wrapper {
+    width: 100%;
+    height: 240px;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+    color: var(--text-muted);
+    opacity: 0.9;
+}
+
+.character-card .char-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.character-card .char-img-wrapper img:hover {
+    transform: scale(1.04);
+}
+
+.character-card .char-name {
+    color: var(--text-heading);
+    font-size: 22px;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.character-card .char-info {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 4px 0 8px 0;
+}
+
+.character-card .char-info .tag {
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 2px 12px;
+    border-radius: 14px;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.character-card .char-faction {
+    display: inline-block;
+    background: rgba(200, 50, 50, 0.15);
+    padding: 2px 14px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    border: 1px solid rgba(180, 60, 60, 0.15);
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+[data-theme="blue"] .character-card .char-faction {
+    background: rgba(60, 120, 255, 0.12);
+    border-color: rgba(60, 120, 255, 0.15);
+}
+
+.character-card .char-desc {
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 8px 10px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border-left: 3px solid var(--border-color);
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.character-card .btn-char {
+    display: inline-block;
+    padding: 8px 28px;
+    background: var(--btn-primary-bg);
+    color: white;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: all 0.3s;
+    border: 1px solid var(--badge-border);
+    cursor: pointer;
+}
+
+.character-card .btn-char:hover {
+    background: var(--btn-primary-hover);
+    transform: scale(1.04);
+    box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+/* ===== FILTER BUTTONS (برای صفحات کاراکتر) ===== */
+.filter-section {
+    padding: 16px 20px 10px 20px;
+    background: var(--quick-nav-bg);
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+    transition: all 0.4s ease;
+}
+
+.filter-section .filter-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-right: 12px;
+    display: inline-block;
+}
+
+.filter-btn {
+    display: inline-block;
+    padding: 6px 18px;
+    margin: 4px 6px;
+    background: rgba(200, 50, 50, 0.15);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+[data-theme="blue"] .filter-btn {
+    background: rgba(60, 120, 255, 0.08);
+}
+
+.filter-btn:hover {
+    background: rgba(200, 60, 60, 0.3);
+    color: var(--text-heading);
+    border-color: var(--border-color);
+}
+
+[data-theme="blue"] .filter-btn:hover {
+    background: rgba(60, 120, 255, 0.15);
+}
+
+.filter-btn.active {
+    background: rgba(200, 60, 60, 0.4);
+    color: var(--text-heading);
+    border-color: var(--border-color);
+    box-shadow: 0 0 20px var(--shadow-color);
+}
+
+[data-theme="blue"] .filter-btn.active {
+    background: rgba(60, 120, 255, 0.2);
+}
+
+.no-results {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 18px;
+    padding: 40px 20px;
+    grid-column: 1 / -1;
+    display: none;
+}
+
+.no-results.visible {
+    display: block;
+}
+
+/* ===== MAP GRID (برای صفحات نقشه) ===== */
+.map-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.map-card {
+    background: rgba(60, 20, 20, 0.25);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    padding: 22px 20px 20px 20px;
+    border: 1px solid rgba(180, 60, 60, 0.1);
+    transition: all 0.4s;
+}
+
+[data-theme="blue"] .map-card {
+    background: rgba(60, 120, 255, 0.03);
+    border-color: rgba(60, 120, 255, 0.06);
+}
+
+.map-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border-color);
+    box-shadow: 0 12px 40px var(--shadow-color);
+    background: rgba(60, 20, 20, 0.4);
+}
+
+[data-theme="blue"] .map-card:hover {
+    background: rgba(60, 120, 255, 0.06);
+}
+
+.map-card .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 10px;
+}
+
+.map-card .card-header .icon {
+    font-size: 38px;
+    line-height: 1;
+}
+
+.map-card .card-header .title-group {
+    flex: 1;
+}
+
+.map-card .card-header .title-group h4 {
+    color: var(--text-heading);
+    font-size: 22px;
+    transition: color 0.3s ease;
+}
+
+.map-card .card-header .title-group .sub {
+    color: var(--text-muted);
+    font-size: 13px;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.map-card .card-body p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.map-card .card-body .sub-locations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    margin: 6px 0 8px 0;
+}
+
+.map-card .card-body .sub-locations .loc {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-light);
+    font-size: 11px;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+}
+
+.map-card .card-body .danger-tag {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 3px 16px;
+    border-radius: 20px;
+    background: rgba(200, 50, 50, 0.15);
+    border: 1px solid rgba(200, 60, 60, 0.2);
+    font-size: 12px;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+[data-theme="blue"] .map-card .card-body .danger-tag {
+    background: rgba(60, 120, 255, 0.1);
+    border-color: rgba(60, 120, 255, 0.15);
+}
+
+/* ===== STORY CHAPTERS (برای صفحات داستان) ===== */
+.story-intro {
+    background: rgba(60, 20, 20, 0.3);
+    padding: 30px;
+    border-radius: 18px;
+    border-left: 6px solid #c0392b;
+    margin-bottom: 50px;
+    transition: all 0.3s ease;
+}
+
+[data-theme="blue"] .story-intro {
+    background: rgba(60, 120, 255, 0.08);
+    border-left-color: #3a6aaa;
+}
+
+.story-intro p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.story-intro strong {
+    color: #ffb0b0;
+    transition: color 0.3s ease;
+}
+
+[data-theme="blue"] .story-intro strong {
+    color: #80b0ff;
+}
+
+.chapter {
+    background: rgba(60, 20, 20, 0.25);
+    backdrop-filter: blur(4px);
+    padding: 25px 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(180, 60, 60, 0.15);
+    margin-bottom: 30px;
+    transition: all 0.3s;
+}
+
+[data-theme="blue"] .chapter {
+    background: rgba(60, 120, 255, 0.06);
+    border-color: rgba(60, 120, 255, 0.12);
+}
+
+.chapter:hover {
+    border-color: rgba(200, 70, 70, 0.3);
+    transform: translateX(6px);
+}
+
+[data-theme="blue"] .chapter:hover {
+    border-color: rgba(60, 120, 255, 0.25);
+}
+
+.chapter .chapter-number {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff6b6b;
+    background: rgba(200, 50, 50, 0.15);
+    padding: 2px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(180, 60, 60, 0.2);
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+[data-theme="blue"] .chapter .chapter-number {
+    color: #6a9aff;
+    background: rgba(60, 120, 255, 0.12);
+    border-color: rgba(60, 120, 255, 0.2);
+}
+
+.chapter h3 {
+    font-size: 28px;
+    color: var(--text-heading);
+    margin-bottom: 6px;
+    transition: color 0.3s ease;
+}
+
+.chapter .sub-title {
+    font-size: 16px;
+    color: #c0a8a8;
+    font-style: italic;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+[data-theme="blue"] .chapter .sub-title {
+    color: #8a9ac0;
+}
+
+.chapter p {
+    color: #c8b0b0;
+    line-height: 1.8;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+[data-theme="blue"] .chapter p {
+    color: #a0b0c8;
+}
+
+.chapter .region-tag {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 4px 18px;
+    background: rgba(200, 50, 50, 0.1);
+    border-radius: 20px;
+    font-size: 13px;
+    color: #dbb8b8;
+    border: 1px solid rgba(180, 60, 60, 0.15);
+    transition: all 0.3s ease;
+}
+
+[data-theme="blue"] .chapter .region-tag {
+    background: rgba(60, 120, 255, 0.08);
+    color: #8a9ac0;
+    border-color: rgba(60, 120, 255, 0.15);
+}
+
+/* ===== FACTIONS / KEY CHARACTERS (برای صفحات داستان) ===== */
+.factions-section {
+    margin-top: 50px;
+    background: rgba(60, 20, 20, 0.2);
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid rgba(180, 60, 60, 0.1);
+    transition: all 0.3s ease;
+}
+
+[data-theme="blue"] .factions-section {
+    background: rgba(60, 120, 255, 0.05);
+    border-color: rgba(60, 120, 255, 0.08);
+}
+
+.factions-section h3 {
+    font-size: 30px;
+    color: var(--text-heading);
+    text-align: center;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.factions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.faction-card {
+    background: rgba(60, 20, 20, 0.35);
+    padding: 18px 12px;
+    border-radius: 14px;
+    text-align: center;
+    border: 1px solid rgba(180, 60, 60, 0.12);
+    transition: all 0.3s;
+}
+
+[data-theme="blue"] .faction-card {
+    background: rgba(60, 120, 255, 0.06);
+    border-color: rgba(60, 120, 255, 0.08);
+}
+
+.faction-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(200, 70, 70, 0.3);
+}
+
+[data-theme="blue"] .faction-card:hover {
+    border-color: rgba(60, 120, 255, 0.2);
+}
+
+.faction-card .icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.faction-card h4 {
+    color: var(--text-heading);
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.faction-card .faction-desc {
+    font-size: 13px;
+    color: #c0a8a8;
+    transition: color 0.3s ease;
+}
+
+[data-theme="blue"] .faction-card .faction-desc {
+    color: #8a9ac0;
+}
+
+/* ===== WEAPONS & STIGMATA (برای صفحات سلاح و استیگماتا) ===== */
+.weapon-grid,
+.stigmata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.weapon-card,
+.stigmata-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    padding: 22px 20px 20px 20px;
+    border: 1px solid var(--border-light);
+    transition: all 0.4s;
+    display: flex;
+    flex-direction: column;
+}
+
+.weapon-card:hover,
+.stigmata-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border-color);
+    box-shadow: 0 12px 40px var(--shadow-color);
+    background: var(--bg-card);
+}
+
+.weapon-card .rarity,
+.stigmata-card .rarity {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 2px 14px;
+    border-radius: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+    color: #1a0a0a;
+}
+
+.rarity-5 {
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+}
+
+.rarity-4 {
+    background: linear-gradient(135deg, #b0c4de, #8a9ac0);
+}
+
+.weapon-card .weapon-icon,
+.stigmata-card .stigmata-icon {
+    width: 100%;
+    height: 140px;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    color: var(--text-muted);
+    opacity: 0.9;
+    transition: all 0.3s;
+}
+
+.weapon-card .weapon-icon:hover,
+.stigmata-card .stigmata-icon:hover {
+    transform: scale(1.02);
+}
+
+.weapon-card .weapon-name,
+.stigmata-card .set-name {
+    color: var(--text-heading);
+    font-size: 20px;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.weapon-card .weapon-sub,
+.stigmata-card .set-sub {
+    color: var(--text-muted);
+    font-size: 13px;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.weapon-card .weapon-tags,
+.stigmata-card .pieces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    margin: 6px 0 10px 0;
+}
+
+.weapon-card .weapon-tags .tag,
+.stigmata-card .pieces .piece {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border-light);
+    font-size: 11px;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+}
+
+.weapon-card .weapon-desc,
+.stigmata-card .bonus {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+    padding: 8px 10px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border-left: 3px solid var(--border-color);
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.weapon-card .weapon-desc strong,
+.stigmata-card .bonus strong {
+    color: var(--text-heading-span);
+}
+
+.weapon-card .weapon-stats,
+.stigmata-card .stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 6px 10px;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+}
+
+.weapon-card .weapon-stats .stat,
+.stigmata-card .stats .stat {
+    color: var(--text-secondary);
+}
+
+.weapon-card .weapon-stats .stat strong,
+.stigmata-card .stats .stat strong {
+    color: var(--text-heading-span);
+}
+
+.stigmata-card .used-by {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+}
+
+.stigmata-card .used-by .valk {
+    font-size: 11px;
+    color: var(--text-muted);
+    background: var(--bg-secondary);
+    padding: 2px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+/* ===== TYPE GRID (برای صفحات سلاح) ===== */
+.type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto 40px auto;
+}
+
+.type-item {
+    background: rgba(60, 20, 20, 0.15);
+    padding: 20px 12px;
+    border-radius: 14px;
+    text-align: center;
+    border: 1px solid rgba(180, 60, 60, 0.08);
+    transition: all 0.3s;
+    color: var(--text-secondary);
+}
+
+[data-theme="blue"] .type-item {
+    background: rgba(60, 120, 255, 0.04);
+    border-color: rgba(60, 120, 255, 0.06);
+}
+
+.type-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-heading);
+}
+
+.type-item .type-icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.type-item h5 {
+    color: var(--text-heading);
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.type-item .type-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .characters-grid,
+    .map-grid,
+    .weapon-grid,
+    .stigmata-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .character-card .char-img-wrapper {
+        height: 200px;
+    }
+
+    .chapter {
+        padding: 18px 16px;
+    }
+
+    .chapter h3 {
+        font-size: 22px;
+    }
+
+    .factions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .story-intro {
+        padding: 18px;
+    }
+
+    .story-intro p {
+        font-size: 16px;
+    }
+
+    .type-grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 360px;
+        margin: 0 auto 30px auto;
+    }
+
+    .filter-section {
+        padding: 16px 16px 8px 16px;
+    }
+
+    .filter-btn {
+        padding: 4px 14px;
+        font-size: 12px;
+        margin: 3px 4px;
+    }
+
+    .filter-section .filter-label {
+        display: block;
+        margin-bottom: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .character-card {
+        padding: 15px 12px;
+    }
+    .character-card .char-name {
+        font-size: 19px;
+    }
+    .character-card .char-img-wrapper {
+        height: 170px;
+    }
+    .character-card .char-desc {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .map-card {
+        padding: 16px 14px;
+    }
+    .map-card .card-header .icon {
+        font-size: 30px;
+    }
+    .map-card .card-header .title-group h4 {
+        font-size: 19px;
+    }
+
+    .weapon-card,
+    .stigmata-card {
+        padding: 16px 14px;
+    }
+    .weapon-card .weapon-icon,
+    .stigmata-card .stigmata-icon {
+        height: 120px;
+        font-size: 48px;
+    }
+
+    .type-grid {
+        grid-template-columns: 1fr;
+        max-width: 260px;
+    }
+
+    .factions-section {
+        padding: 18px;
+    }
+    .factions-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+}

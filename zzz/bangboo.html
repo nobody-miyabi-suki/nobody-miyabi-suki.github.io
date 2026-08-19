@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZZZ · Bangboo</title>
+    <!-- استایل‌های عمومی (هدر، منو، فوتر، دکمه‌ی تغییر تم) -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- استایل‌های اختصاصی Bangboo -->
+    <link rel="stylesheet" href="/css/zzz/bangboo.css">
+</head>
+<body class="bangboo-page">
+
+    <!-- ==========================================================
+    THEME TOGGLE (توسط base.css مدیریت میشه)
+    ========================================================== -->
+
+    <!-- ==========================================================
+    HEADER (توسط base.css مدیریت میشه)
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Hoyoverse</span> ✦</h1>
+            <p>Fan Page · All Games</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
+        </div>
+
+        <!-- ==========================================================
+        MENU — با آیکون‌های تصویری (پشتیبانی شده در base.css)
+        ========================================================== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>🤖 <span>Bangboo</span> Companions</h2>
+        <p>Your adorable robotic partners in the Hollows · Manufactured by the Bangboo Manufacturing Association (BMA)</p>
+    </section>
+
+    <!-- ==========================================================
+    BANGBOO GRID
+    ========================================================== -->
+    <section class="content-section">
+        <p class="section-desc">
+            These quirky little machines are more than just cute faces. Bangboo assist Proxies in combat, exploration,
+            and even provide moral support during the darkest Hollow dives.
+        </p>
+
+        <div class="bangboo-grid">
+
+            <!-- 1. Amillion -->
+            <div class="bangboo-card">
+                <span class="rank rank-s">★ S-Rank</span>
+                <div class="img-wrapper">
+                    <img class="boo-icon" src="/img/bangboo/Amilion.jpg">
+                </div>
+                <div class="boo-name">Amillion</div>
+                <div class="boo-info">
+                    <span class="tag">🛡️ Support</span>
+                    <span class="tag">💰 Wealth</span>
+                </div>
+                <div class="boo-desc">A star in the Hollows, Amillion is obsessed with money and carries a giant coin. It boosts team energy and provides economic buffs to its allies.</div>
+                <span class="boo-ability">⚡ Skill: Coin Toss · Energy Regen</span>
+            </div>
+
+            <!-- 2. Butler -->
+            <div class="bangboo-card">
+                <span class="rank rank-s">★ S-Rank</span>
+                <div class="img-wrapper">
+                    <img class="boo-icon" src="/img/bangboo/butler.jpg" alt="">
+                </div>
+                <div class="boo-name">Butler</div>
+                <div class="boo-info">
+                    <span class="tag">💎 Support</span>
+                    <span class="tag">🍵 Heal</span>
+                </div>
+                <div class="boo-desc">Elegant and refined, Butler serves tea and healing to agents in need. Its sophisticated AI allows it to predict when a team member needs a boost.</div>
+                <span class="boo-ability">⚡ Skill: Royal Service · Party Heal</span>
+            </div>
+
+            <!-- 4. Sharkboo -->
+            <div class="bangboo-card">
+                <span class="rank rank-s">★ S-Rank</span>
+                <div class="img-wrapper">
+                    <img src="/img/bangboo/sharkboo.jpg" class="boo-icon" alt="">
+                </div>
+                <div class="boo-name">Sharkboo</div>
+                <div class="boo-info">
+                    <span class="tag">⚔️ Attack</span>
+                    <span class="tag">💧 Water</span>
+                </div>
+                <div class="boo-desc">Aggressive and territorial, Sharkboo chomps through Ethereals with its razor-sharp teeth. It's the perfect front-line combat buddy.</div>
+                <span class="boo-ability">⚡ Skill: Jaws of the Hollow · Melee Burst</span>
+            </div>
+
+            <!-- 6. Resomaboo -->
+            <div class="bangboo-card">
+                <span class="rank rank-s">★ S-Rank</span>
+                <div class="img-wrapper">
+                   <img src="/img/bangboo/Resonaboo.jpg" class="boo-icon" alt="">
+                </div>
+                <div class="boo-name">Resonaboo</div>
+                <div class="boo-info">
+                    <span class="tag">💎 Support</span>
+                    <span class="tag">🌀 Elemental</span>
+                </div>
+                <div class="boo-desc">A mystical Bangboo that harnesses elemental resonance. Resomaboo amplifies the elemental damage of your agents, turning the tide of battle.</div>
+                <span class="boo-ability">⚡ Skill: Elemental Harmony · Buff</span>
+            </div>
+             <!-- 5. Bangvolver -->
+            <div class="bangboo-card">
+                <span class="rank rank-a">★ A-Rank</span>
+                <div class="img-wrapper">
+                    <img src="/img/bangboo/bangvolver.jpg" class="boo-icon" alt="">
+                </div>
+                <div class="boo-name">Bangvolver</div>
+                <div class="boo-info">
+                    <span class="tag">⚔️ Attack</span>
+                    <span class="tag">🎯 Ranged</span>
+                </div>
+                <div class="boo-desc">Dual-wielding pistols, Bangvolver is a gunslinger through and through. It provides consistent ranged fire support to keep enemies at bay.</div>
+                <span class="boo-ability">⚡ Skill: Gunpowder Waltz · Ranged Barrage</span>
+            </div>
+
+            <!-- 7. Cryboo -->
+            <div class="bangboo-card">
+                <span class="rank rank-a">★ A-Rank</span>
+                <div class="img-wrapper">
+                    <img src="/img/bangboo/cryboo.jpg" class="boo-icon" alt="">
+                </div>
+                <div class="boo-name">Cryboo</div>
+                <div class="boo-info">
+                    <span class="tag">⚔️ Attack</span>
+                    <span class="tag">❄️ Ice</span>
+                </div>
+                <div class="boo-desc">Freezing the battlefield one step at a time. Cryboo launches icicles at enemies, slowing them down and dealing consistent Ice damage.</div>
+                <span class="boo-ability">⚡ Skill: Frost Bolt · Ice Damage</span>
+            </div>
+
+            <!-- 8. Electroboo -->
+            <div class="bangboo-card">
+                <span class="rank rank-a">★ A-Rank</span>
+                <div class="img-wrapper">
+                    <img src="/img/bangboo/electroboo.jpg" class="boo-icon" alt="">
+                </div>
+                <div class="boo-name">Electroboo</div>
+                <div class="boo-info">
+                    <span class="tag">⚔️ Attack</span>
+                    <span class="tag">⚡ Shock</span>
+                </div>
+                <div class="boo-desc">A high-voltage companion, Electroboo chains lightning between enemies, making it perfect for dealing with groups of Ethereals.</div>
+                <span class="boo-ability">⚡ Skill: Chain Lightning · AoE Shock</span>
+            </div>
+
+            <!-- 9. Avocaboo -->
+            <div class="bangboo-card">
+                <span class="rank rank-b">★ B-Rank</span>
+                <div class="img-wrapper">
+                    <img src="/img/bangboo/avocaboo.jpg" class="boo-icon" alt="">
+                </div>
+                <div class="boo-name">Avocaboo</div>
+                <div class="boo-info">
+                    <span class="tag">💎 Support</span>
+                    <span class="tag">🍃 Heal</span>
+                </div>
+                <div class="boo-desc">Don't let the healthy appearance fool you; Avocaboo packs a punch while keeping the team nourished and healed. A reliable all-rounder.</div>
+                <span class="boo-ability">⚡ Skill: Guac Shield · Small Heal</span>
+            </div>
+
+            <!-- 10. Explorerboo -->
+            <div class="bangboo-card">
+                <span class="rank rank-b">★ B-Rank</span>
+                <div class="img-wrapper">
+                    <img src="/img/bangboo/explorerboo.jpg" alt="">
+                </div>
+                <div class="boo-name">Explorerboo</div>
+                <div class="boo-info">
+                    <span class="tag">🛠️ Utility</span>
+                    <span class="tag">🔍 Scouting</span>
+                </div>
+                <div class="boo-desc">The ultimate scout, Explorerboo can detect hidden passages and resources within the Hollows. It's the perfect companion for loot hunters.</div>
+                <span class="boo-ability">⚡ Skill: Pathfinder · Reveals Secrets</span>
+            </div>
+
+            <!-- 11. Safety -->
+            <div class="bangboo-card">
+                <span class="rank rank-b">★ B-Rank</span>
+                <div class="img-wrapper">
+                    <img src="/img/bangboo/safety.jpg" class="boo-icon" alt="">
+                </div>
+                <div class="boo-name">Safety</div>
+                <div class="boo-info">
+                    <span class="tag">🛡️ Defense</span>
+                    <span class="tag">🔰 Shield</span>
+                </div>
+                <div class="boo-desc">Safety is a protective Bangboo that erects barriers around its team. It might be small, but it takes its job of keeping Proxies safe very seriously.</div>
+                <span class="boo-ability">⚡ Skill: Bubble Barrier · Shield</span>
+            </div>
+
+            <!-- 12. Luckyboo -->
+            <div class="bangboo-card">
+                <span class="rank rank-a">★ A-Rank</span>
+                <div class="img-wrapper">
+                    <img src="/img/bangboo/luckyboo.jpg" class="boo-icon" alt="">
+                </div>
+                <div class="boo-name">Luckyboo</div>
+                <div class="boo-info">
+                    <span class="tag">💎 Support</span>
+                    <span class="tag">🎲 Luck</span>
+                </div>
+                <div class="boo-desc">A mysterious Bangboo that seems to bend probability. Luckyboo increases the drop rates of rare materials and boosts the team's critical hit rate.</div>
+                <span class="boo-ability">⚡ Skill: Fortune's Favor · Luck Buff</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER (توسط base.css مدیریت میشه)
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Hoyoverse Fans · All Games ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT (توسط base.js یا script.js مدیریت میشه)
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

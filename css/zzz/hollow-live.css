@@ -1,0 +1,493 @@
+/* ============================================================
+   HOLLOW ZERO LIVE — استایل‌های اختصاصی
+   ============================================================ */
+
+/* ===== OVERRIDE متغیرهای تم برای استایل ترمینال ===== */
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-card: rgba(20, 20, 30, 0.85);
+    --bg-header: linear-gradient(135deg, #0a0a0a 0%, #1a0f0f 50%, #0a0a0a 100%);
+    --border-color: #cc2222;
+    --border-light: rgba(200, 50, 50, 0.2);
+    --text-primary: #e8e0e0;
+    --text-secondary: #b0a0a0;
+    --text-muted: #6a5a5a;
+    --text-heading: #ffd0d0;
+    --text-heading-span: #ff5e5e;
+    --badge-bg: rgba(200, 50, 50, 0.15);
+    --badge-border: rgba(200, 60, 60, 0.2);
+    --btn-primary-bg: linear-gradient(135deg, #8b1a1a, #c0392b);
+    --btn-primary-hover: linear-gradient(135deg, #a02020, #d94444);
+    --btn-secondary-bg: rgba(255, 255, 255, 0.03);
+    --btn-secondary-border: rgba(180, 60, 60, 0.2);
+    --shadow-color: rgba(150, 30, 30, 0.15);
+    --shadow-strong: rgba(100, 0, 0, 0.3);
+    --footer-color: #5a4a4a;
+    --footer-border: rgba(180, 60, 60, 0.1);
+    --menu-bg: rgba(0, 0, 0, 0.7);
+    --menu-border: rgba(200, 80, 80, 0.15);
+    --dropdown-bg: #150a0a;
+    --dropdown-border: rgba(180, 60, 60, 0.2);
+    --dropdown-hover: rgba(200, 60, 60, 0.15);
+    --quick-nav-bg: linear-gradient(180deg, #0a0505, #120a0a);
+    --toggle-bg: #2a0f0f;
+    --toggle-border: rgba(180, 60, 60, 0.3);
+    --toggle-dot: #ff5e5e;
+    --card-hover-shadow: rgba(150, 30, 30, 0.15);
+    --page-title-bg: radial-gradient(ellipse at center, #0f0505 0%, #050202 100%);
+    --terminal-glitch: rgba(200, 50, 50, 0.05);
+    --live-dot: #00ff41;
+}
+
+[data-theme="blue"] {
+    --bg-primary: #060a18;
+    --bg-secondary: #0a0f22;
+    --bg-card: rgba(15, 25, 45, 0.85);
+    --bg-header: linear-gradient(135deg, #060a18 0%, #0e1a30 50%, #060a18 100%);
+    --border-color: #3a6aaa;
+    --border-light: rgba(60, 120, 255, 0.15);
+    --text-primary: #c8d8f0;
+    --text-secondary: #8090b8;
+    --text-muted: #40506a;
+    --text-heading: #d8e8ff;
+    --text-heading-span: #6a9aff;
+    --badge-bg: rgba(60, 120, 255, 0.12);
+    --badge-border: rgba(60, 120, 255, 0.15);
+    --btn-primary-bg: linear-gradient(135deg, #1a3a6a, #2a5a9a);
+    --btn-primary-hover: linear-gradient(135deg, #2a4a7a, #3a6aaa);
+    --btn-secondary-bg: rgba(60, 120, 255, 0.03);
+    --btn-secondary-border: rgba(60, 120, 255, 0.12);
+    --shadow-color: rgba(20, 60, 180, 0.12);
+    --shadow-strong: rgba(20, 60, 180, 0.2);
+    --footer-color: #3a4a6a;
+    --footer-border: rgba(60, 120, 255, 0.08);
+    --menu-bg: rgba(0, 0, 0, 0.7);
+    --menu-border: rgba(60, 120, 255, 0.1);
+    --dropdown-bg: #080e1a;
+    --dropdown-border: rgba(60, 120, 255, 0.12);
+    --dropdown-hover: rgba(60, 120, 255, 0.1);
+    --quick-nav-bg: linear-gradient(180deg, #040812, #0a0e1a);
+    --toggle-bg: #0a1a2e;
+    --toggle-border: rgba(60, 120, 255, 0.2);
+    --toggle-dot: #6a9aff;
+    --card-hover-shadow: rgba(20, 60, 180, 0.12);
+    --page-title-bg: radial-gradient(ellipse at center, #060a18 0%, #030612 100%);
+    --terminal-glitch: rgba(60, 120, 255, 0.04);
+    --live-dot: #66ff88;
+}
+
+/* ===== فونت مونوسپیس برای حس ترمینال ===== */
+.hollow-live-page {
+    font-family: 'Courier New', monospace;
+}
+
+/* ===== GLITCH PAGE TITLE ===== */
+.hollow-live-page .page-title {
+    text-align: center;
+    padding: 30px 20px 20px 20px;
+    background: var(--page-title-bg);
+    border-bottom: 2px solid var(--border-light);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.hollow-live-page .page-title::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(0deg, var(--terminal-glitch) 0px, transparent 3px, transparent 6px);
+    pointer-events: none;
+    animation: scanlines 8s linear infinite;
+}
+
+@keyframes scanlines {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(6px); }
+}
+
+.hollow-live-page .page-title h2 {
+    font-size: 36px;
+    color: var(--text-heading);
+    text-shadow: 0 0 30px var(--shadow-color);
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.hollow-live-page .page-title h2 span {
+    color: var(--text-heading-span);
+    transition: color 0.3s ease;
+}
+
+.hollow-live-page .page-title p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-top: 4px;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== LIVE BADGE ===== */
+.live-badge {
+    display: inline-block;
+    background: rgba(0, 255, 65, 0.15);
+    color: #00ff41;
+    padding: 2px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    animation: pulse-badge 2s ease-in-out infinite;
+    margin-left: 8px;
+}
+
+@keyframes pulse-badge {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* ===== LIVE CONTENT ===== */
+.hollow-live-page .content-section {
+    padding: 30px 30px 40px 30px;
+    background: var(--quick-nav-bg);
+    max-width: 1300px;
+    margin: 0 auto;
+    transition: all 0.4s ease;
+}
+
+.hollow-live-page .live-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+/* ===== PANELS ===== */
+.hollow-live-page .panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.hollow-live-page .panel:hover {
+    border-color: var(--border-color);
+}
+
+.hollow-live-page .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.hollow-live-page .panel-header h3 {
+    font-size: 16px;
+    color: var(--text-heading);
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.hollow-live-page .panel-header .status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    animation: blink-dot 1.2s ease-in-out infinite;
+}
+
+.hollow-live-page .status-dot.green {
+    background: var(--live-dot);
+    box-shadow: 0 0 10px var(--live-dot);
+}
+
+@keyframes blink-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+/* ===== COUNTDOWN ===== */
+.hollow-live-page .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.hollow-live-page .countdown-item {
+    background: var(--bg-primary);
+    border-radius: 8px;
+    padding: 10px 6px;
+    border: 1px solid var(--border-light);
+    transition: border-color 0.3s ease;
+}
+
+.hollow-live-page .countdown-item:hover {
+    border-color: var(--border-color);
+}
+
+.hollow-live-page .countdown-item .number {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-heading-span);
+    font-family: 'Courier New', monospace;
+    transition: color 0.3s ease;
+    display: block;
+}
+
+.hollow-live-page .countdown-item .label {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+/* ===== LIVE FEED ===== */
+.hollow-live-page .feed-container {
+    max-height: 340px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.hollow-live-page .feed-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.hollow-live-page .feed-container::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    border-radius: 4px;
+}
+
+.hollow-live-page .feed-container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.hollow-live-page .feed-item {
+    display: flex;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+    animation: fadeInItem 0.4s ease;
+}
+
+.hollow-live-page .feed-item:last-child {
+    border-bottom: none;
+}
+
+@keyframes fadeInItem {
+    0% { opacity: 0; transform: translateX(-10px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+.hollow-live-page .feed-item .feed-time {
+    color: var(--text-muted);
+    font-size: 11px;
+    min-width: 70px;
+    flex-shrink: 0;
+}
+
+.hollow-live-page .feed-item .feed-msg strong {
+    color: var(--text-heading-span);
+    transition: color 0.3s ease;
+}
+
+/* ===== SERVER STATUS ===== */
+.hollow-live-page .status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.hollow-live-page .status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 12px;
+    background: var(--bg-primary);
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
+    font-size: 13px;
+    transition: border-color 0.3s ease;
+}
+
+.hollow-live-page .status-item:hover {
+    border-color: var(--border-color);
+}
+
+.hollow-live-page .status-item .status-label {
+    color: var(--text-secondary);
+}
+
+.hollow-live-page .status-item .status-value {
+    font-weight: bold;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+}
+
+.hollow-live-page .status-value.online {
+    background: rgba(0, 255, 65, 0.15);
+    color: #00ff41;
+    border: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.hollow-live-page .status-value.maintenance {
+    background: rgba(255, 200, 0, 0.12);
+    color: #ffcc00;
+    border: 1px solid rgba(255, 200, 0, 0.15);
+}
+
+.hollow-live-page .status-value.offline {
+    background: rgba(255, 50, 50, 0.15);
+    color: #ff4444;
+    border: 1px solid rgba(255, 50, 50, 0.2);
+}
+
+/* ============================================================
+   RESPONSIVE — مخصوص Hollow Zero Live
+   ============================================================ */
+@media (max-width: 1024px) {
+    .hollow-live-page .live-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hollow-live-page .page-title h2 {
+        font-size: 28px;
+    }
+
+    .hollow-live-page .countdown-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+    }
+
+    .hollow-live-page .countdown-item .number {
+        font-size: 24px;
+    }
+
+    .hollow-live-page .status-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hollow-live-page .page-title h2 {
+        font-size: 22px;
+    }
+
+    .hollow-live-page .countdown-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hollow-live-page .countdown-item .number {
+        font-size: 20px;
+    }
+
+    .hollow-live-page .feed-item {
+        flex-wrap: wrap;
+    }
+}
+/* مخفی کردن دکمه‌ی تغییر تم از base.css */
+.hollow-live-page .theme-toggle-wrapper {
+    display: none !important;
+}
+/* ============================================================
+   مخفی کردن دکمه‌ی تغییر تم از base.css
+   ============================================================ */
+.hollow-live-page .theme-toggle-wrapper {
+    display: none !important;
+}
+
+/* ============================================================
+   استایل دکمه‌ی جدید (داخل هدر)
+   ============================================================ */
+.hollow-live-page .custom-theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 6px 14px 6px 10px;
+    border-radius: 30px;
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-light);
+    cursor: pointer;
+}
+
+.hollow-live-page .custom-theme-toggle .theme-toggle {
+    width: 44px;
+    height: 22px;
+    background: var(--toggle-bg);
+    border: 2px solid var(--toggle-border);
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+.hollow-live-page .custom-theme-toggle .theme-toggle .dot {
+    width: 16px;
+    height: 16px;
+    background: var(--toggle-dot);
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="blue"] .hollow-live-page .custom-theme-toggle .theme-toggle .dot {
+    left: 22px;
+}
+
+.hollow-live-page .custom-theme-toggle .theme-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* ریسپانسیو برای دکمه‌ی جدید */
+@media (max-width: 768px) {
+    .hollow-live-page .custom-theme-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 4px 10px 4px 8px;
+    }
+    .hollow-live-page .custom-theme-toggle .theme-toggle {
+        width: 36px;
+        height: 18px;
+    }
+    .hollow-live-page .custom-theme-toggle .theme-toggle .dot {
+        width: 13px;
+        height: 13px;
+        top: 1px;
+        left: 2px;
+    }
+    [data-theme="blue"] .hollow-live-page .custom-theme-toggle .theme-toggle .dot {
+        left: 18px;
+    }
+    .hollow-live-page .custom-theme-toggle .theme-label {
+        font-size: 10px;
+    }
+}

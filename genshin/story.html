@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin · Story</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+
+    <style>
+        /* ============================================================
+           STORY CONTENT
+           ============================================================ */
+        .content-section {
+            padding: 50px 30px;
+            background: var(--content-bg);
+            max-width: 1100px;
+            margin: 0 auto;
+            transition: all 0.4s ease;
+        }
+
+        .story-intro {
+            background: var(--intro-bg);
+            padding: 30px;
+            border-radius: 18px;
+            border-left: 6px solid var(--intro-border);
+            margin-bottom: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .story-intro p {
+            font-size: 18px;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .story-intro strong {
+            color: var(--intro-strong);
+            transition: color 0.3s ease;
+        }
+
+        .chapter {
+            background: var(--chapter-bg);
+            backdrop-filter: blur(4px);
+            padding: 25px 30px;
+            border-radius: 16px;
+            border: 1px solid var(--chapter-border);
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .chapter:hover {
+            border-color: var(--chapter-hover-border);
+            transform: translateX(6px);
+        }
+
+        .chapter .chapter-number {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--chapter-number-color);
+            background: var(--chapter-number-bg);
+            padding: 2px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--chapter-number-border);
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .chapter h3 {
+            font-size: 28px;
+            color: var(--text-heading);
+            margin-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .chapter .sub-title {
+            font-size: 16px;
+            color: var(--sub-title-color);
+            font-style: italic;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .chapter p {
+            color: var(--chapter-p-color);
+            line-height: 1.8;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .chapter .region-tag {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 4px 18px;
+            background: var(--region-tag-bg);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--region-tag-color);
+            border: 1px solid var(--region-tag-border);
+            transition: all 0.3s ease;
+        }
+
+        /* ============================================================
+           ARCHON LIST
+           ============================================================ */
+        .archon-section {
+            margin-top: 50px;
+            background: var(--archon-section-bg);
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid var(--archon-section-border);
+            transition: all 0.3s ease;
+        }
+
+        .archon-section h3 {
+            font-size: 30px;
+            color: var(--text-heading);
+            text-align: center;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .archon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .archon-card {
+            background: var(--archon-card-bg);
+            padding: 18px 12px;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid var(--archon-card-border);
+            transition: all 0.3s;
+        }
+
+        .archon-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--archon-card-hover-border);
+        }
+
+        .archon-card .icon {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .archon-card h4 {
+            color: var(--text-heading);
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .archon-card .archon-title {
+            font-size: 13px;
+            color: var(--archon-title-color);
+            transition: color 0.3s ease;
+        }
+
+        .archon-card div {
+            font-size: 13px;
+            color: var(--archon-name-color);
+            transition: color 0.3s ease;
+        }
+
+        .chapter em {
+            color: var(--em-color);
+            transition: color 0.3s ease;
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--footer-border);
+            color: var(--footer-color);
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: all 0.4s ease;
+        }
+
+        .footer span {
+            color: var(--text-heading-span);
+            transition: color 0.3s ease;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 768px) {
+            .page-title h2 {
+                font-size: 30px;
+            }
+
+            .chapter {
+                padding: 18px 16px;
+            }
+
+            .chapter h3 {
+                font-size: 22px;
+            }
+
+            .archon-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+
+            .story-intro {
+                padding: 18px;
+            }
+
+            .story-intro p {
+                font-size: 16px;
+            }
+
+            .theme-toggle-wrapper {
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .theme-label {
+                font-size: 11px;
+                padding: 2px 10px;
+            }
+
+            .theme-toggle {
+                width: 50px;
+                height: 26px;
+            }
+
+            .theme-toggle .dot {
+                width: 18px;
+                height: 18px;
+            }
+
+            [data-theme="blue"] .theme-toggle .dot {
+                left: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .page-title h2 {
+                font-size: 24px;
+            }
+
+            .archon-section {
+                padding: 18px;
+            }
+
+            .archon-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE
+    ========================================================== -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label" id="themeLabel">🔴 Red</span>
+        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Genshin</span> Impact ✦</h1>
+            <p>Story of Teyvat</p>
+            <a href="/index.html" class="back-link">← Back to Home</a>
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/s-rank.html">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>📖 <span>Story</span> of Teyvat</h2>
+        <p>The journey of the Traveler across seven nations</p>
+    </section>
+
+    <!-- ==========================================================
+    STORY CONTENT
+    ========================================================== -->
+    <section class="content-section">
+
+        <!-- INTRO -->
+        <div class="story-intro">
+            <p>
+                <strong>✦ The Traveler's Journey ✦</strong><br><br>
+                In a world called <strong>Teyvat</strong>, the Traveler — a being from beyond the stars — awakens after a catastrophic encounter with an unknown god. Their twin sibling has been taken, and the Traveler is left alone in a strange land.
+                <br><br>
+                Guided by the mysterious <strong>Paimon</strong>, the Traveler embarks on a journey across the seven nations, each ruled by an Archon who governs one of the seven elements. Along the way, they uncover the secrets of <strong>the Abyss</strong>, the <strong>Fatui</strong>, and the ancient cataclysm that changed Teyvat forever.
+                <br><br>
+                This is the story of the Traveler's search for their lost sibling — and the truth of this world.
+            </p>
+        </div>
+
+        <!-- CHAPTER 1 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Prologue</span>
+            <h3>The Outlander</h3>
+            <div class="sub-title">Mondstadt · The City of Freedom</div>
+            <p>
+                The Traveler arrives in Teyvat and meets Paimon. Together, they arrive in <strong>Mondstadt</strong>, the nation of freedom. There, they encounter the corrupt dragon <strong>Stormterror</strong> (Dvalin) and join forces with the <strong>Knights of Favonius</strong>.
+                <br><br>
+                With the help of the tone-deaf bard <strong>Venti</strong> — who is secretly the Anemo Archon — the Traveler helps purify Dvalin and save Mondstadt from the Abyss Order. In the process, they learn that the Abyss Order seeks to destroy the nations of Teyvat.
+            </p>
+            <span class="region-tag">🏔️ Mondstadt · Anemo</span>
+        </div>
+
+        <!-- CHAPTER 2 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter I</span>
+            <h3>Farewell, Archaic Lord</h3>
+            <div class="sub-title">Liyue · The City of Contracts</div>
+            <p>
+                The Traveler heads to <strong>Liyue</strong>, the nation of contracts. During the <strong>Rite of Descension</strong>, the Geo Archon <strong>Rex Lapis</strong> (Zhongli) is seemingly assassinated.
+                <br><br>
+                The Traveler becomes entangled in a conspiracy involving the <strong>Fatui</strong>, the <strong>Qixing</strong>, and the ancient god <strong>Osial</strong>. In the climax, they help the people of Liyue defend the harbor from Osial, proving that humanity can protect itself without the guidance of an Archon.
+            </p>
+            <span class="region-tag">🌸 Liyue · Geo</span>
+        </div>
+
+        <!-- CHAPTER 3 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter II</span>
+            <h3>Omnipresence Over Mortals</h3>
+            <div class="sub-title">Inazuma · The City of Eternity</div>
+            <p>
+                The Traveler journeys to <strong>Inazuma</strong>, a nation isolated by thunderstorms. The <strong>Raiden Shogun</strong>, the Electro Archon, has enacted a <strong>Vision Hunt Decree</strong>, seizing the ambitions of her people in pursuit of "eternity."
+                <br><br>
+                The Traveler joins the resistance and faces the Raiden Shogun in a climactic duel. With the support of her people and the revelation of her true self, the Shogun (Ei) decides to change her ideals, ending the decree and opening Inazuma to the world.
+            </p>
+            <span class="region-tag">⚡ Inazuma · Electro</span>
+        </div>
+
+        <!-- CHAPTER 4 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter III</span>
+            <h3>Truth Among the Pages of Purana</h3>
+            <div class="sub-title">Sumeru · The City of Wisdom</div>
+            <p>
+                The Traveler arrives in <strong>Sumeru</strong>, the nation of wisdom, ruled by the Dendro Archon. The <strong>Akademiya</strong> suppresses dreams and knowledge, and the Archon <strong>Nahida</strong> is imprisoned within her own sanctuary.
+                <br><br>
+                With the help of the desert wanderers and the people of Sumeru, the Traveler confronts the corrupt sages and rescues Nahida. They also confront the <strong>Doctor</strong> (Il Dottore) of the Fatui and uncover the truth about the <strong>Irminsul</strong> tree and the history of Teyvat.
+            </p>
+            <span class="region-tag">🌳 Sumeru · Dendro</span>
+        </div>
+
+        <!-- CHAPTER 5 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter IV</span>
+            <h3>Masquerade of the Guilty</h3>
+            <div class="sub-title">Fontaine · The City of Justice</div>
+            <p>
+                In <strong>Fontaine</strong>, the nation of justice, the Traveler finds a society obsessed with law and drama. The Hydro Archon <strong>Furina</strong> is the star of the opera, but beneath the surface lies a prophecy that threatens to flood the entire nation.
+                <br><br>
+                The Traveler uncovers the truth about the <strong>Oratrice Mecanique d'Analyse Cardinale</strong>, the history of the Hydro Archon, and the primordial sea. In a grand trial, the people of Fontaine are saved, and the Archon reveals her true nature.
+            </p>
+            <span class="region-tag">💧 Fontaine · Hydro</span>
+        </div>
+
+        <!-- CHAPTER 6 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter V · Coming Soon</span>
+            <h3>The Wrapped Soul</h3>
+            <div class="sub-title">Natlan · The City of War</div>
+            <p>
+                The Traveler's journey continues toward <strong>Natlan</strong>, the nation of war, ruled by the Pyro Archon. This land of dragons and warriors holds secrets about the ancient <strong>dragon civilization</strong> and the origin of the elements.
+                <br><br>
+                <em>(Story content will be updated upon release of the Natlan chapter.)</em>
+            </p>
+            <span class="region-tag">🔥 Natlan · Pyro</span>
+        </div>
+
+        <!-- CHAPTER 7 -->
+        <div class="chapter">
+            <span class="chapter-number">📜 Chapter VI · TBA</span>
+            <h3>The Crown of the North</h3>
+            <div class="sub-title">Snezhnaya · The City of Love</div>
+            <p>
+                The final nation, <strong>Snezhnaya</strong>, homeland of the Fatui and the Cryo Archon. The Traveler will finally face the <strong>Tsaritsa</strong> and the <strong>Fatui Harbingers</strong> in a confrontation that will decide the fate of Teyvat.
+                <br><br>
+                <em>(Story content will be updated upon release of the Snezhnaya chapter.)</em>
+            </p>
+            <span class="region-tag">❄️ Snezhnaya · Cryo</span>
+        </div>
+
+        <!-- ==========================================================
+        ARCHON LIST
+        ========================================================== -->
+        <div class="archon-section">
+            <h3>👑 The Seven Archons</h3>
+            <div class="archon-grid">
+
+                <div class="archon-card">
+                    <span class="icon">🌪️</span>
+                    <h4>Barbatos</h4>
+                    <div class="archon-title">Anemo · Mondstadt</div>
+                    <div>Venti</div>
+                </div>
+
+                <div class="archon-card">
+                    <span class="icon">⛰️</span>
+                    <h4>Rex Lapis</h4>
+                    <div class="archon-title">Geo · Liyue</div>
+                    <div>Zhongli</div>
+                </div>
+
+                <div class="archon-card">
+                    <span class="icon">⚡</span>
+                    <h4>Raiden Shogun</h4>
+                    <div class="archon-title">Electro · Inazuma</div>
+                    <div>Ei / Makoto</div>
+                </div>
+
+                <div class="archon-card">
+                    <span class="icon">🌿</span>
+                    <h4>Lesser Lord</h4>
+                    <div class="archon-title">Dendro · Sumeru</div>
+                    <div>Nahida</div>
+                </div>
+
+                <div class="archon-card">
+                    <span class="icon">💧</span>
+                    <h4>Focalors</h4>
+                    <div class="archon-title">Hydro · Fontaine</div>
+                    <div>Furina</div>
+                </div>
+
+                <div class="archon-card">
+                    <span class="icon">🔥</span>
+                    <h4>The Warrior</h4>
+                    <div class="archon-title">Pyro · Natlan</div>
+                    <div>???</div>
+                </div>
+
+                <div class="archon-card">
+                    <span class="icon">❄️</span>
+                    <h4>The Tsaritsa</h4>
+                    <div class="archon-title">Cryo · Snezhnaya</div>
+                    <div>???</div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Genshin Impact Fans ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT — THEME TOGGLE + ARROW TOGGLE
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

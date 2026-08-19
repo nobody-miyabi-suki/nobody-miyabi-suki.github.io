@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rail · Main</title>
+    <!-- استایل‌های عمومی -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- استایل‌های صفحات داخلی -->
+    <link rel="stylesheet" href="/css/pages.css">
+    <!-- استایل‌های اختصاصی صفحه اصلی Star Rail -->
+    <link rel="stylesheet" href="/css/starrail.css">
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE (توسط base.css مدیریت میشه)
+    ========================================================== -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label" id="themeLabel">🔴 Red</span>
+        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Honkai</span> Star Rail ✦</h1>
+            <p>Astral Express · Main</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
+        </div>
+
+        <!-- ==========================================================
+        MENU — استاندارد (آیکون تصویری برای بازی‌ها، ایموجی برای بقیه)
+        ========================================================== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/s-rank.html">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    HERO SECTION — مثل ZZZ Home
+    ========================================================== -->
+    <section class="hero">
+        <div class="hero-text">
+            <span class="badge">✦ All Aboard!</span>
+            <h2>Welcome to the <span>Astral Express</span></h2>
+            <div class="sub-title">Embark on an intergalactic journey across the stars</div>
+            <p>
+                Join the Trailblazer and the crew of the Astral Express as they travel across the cosmos.
+                Meet new companions, uncover ancient secrets, and fight against the Stellaron.
+            </p>
+            <div class="btn-group">
+                <a href="/starrail/story.html" class="btn-primary">🚀 Begin Your Journey</a>
+                <a href="/starrail/characters.html" class="btn-secondary">👤 Meet the Crew</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="/img/honkai-banner.png" alt="Honkai Star Rail" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22520%22 height=%22320%22%3E%3Crect fill=%22%231a0a0a%22 width=%22520%22 height=%22320%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2248%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ff5e5e%22%3E🚀%3C/text%3E%3C/svg%3E'">
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    QUICK NAVIGATION
+    ========================================================== -->
+    <section class="quick-nav">
+        <h3>🚀 Explore Star Rail</h3>
+        <p class="desc">Dive deep into the universe of Honkai Star Rail</p>
+        <div class="nav-grid">
+            <a href="/starrail/characters.html" class="nav-card">
+                <span class="icon">👤</span>
+                <h4>Characters</h4>
+                <p>All playable characters, paths, and elements</p>
+            </a>
+            <a href="/starrail/map.html" class="nav-card">
+                <span class="icon">🗺️</span>
+                <h4>Map</h4>
+                <p>Explore the worlds of the Astral Express</p>
+            </a>
+            <a href="/starrail/story.html" class="nav-card">
+                <span class="icon">📖</span>
+                <h4>Story</h4>
+                <p>The journey of the Trailblazer</p>
+            </a>
+            <a href="/starrail/paths.html" class="nav-card">
+                <span class="icon">🌀</span>
+                <h4>Paths</h4>
+                <p>All 7 Paths and their abilities</p>
+            </a>
+            <a href="/starrail/relics.html" class="nav-card">
+                <span class="icon">🧩</span>
+                <h4>Relics</h4>
+                <p>All relic sets and planar ornaments</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    WORLDS / REGIONS SECTION
+    ========================================================== -->
+    <section class="regions-section">
+        <h3>🌌 The Worlds</h3>
+        <p class="desc">Destinations of the Astral Express</p>
+        <div class="regions-grid">
+            <div class="region-item">
+                <span class="emoji">🛸</span>
+                <h5>Herta Space Station</h5>
+                <span class="element">🌠 The Museum Among the Stars</span>
+            </div>
+            <div class="region-item">
+                <span class="emoji">❄️</span>
+                <h5>Jarilo-VI</h5>
+                <span class="element">🧊 The Eternal Freeze · Belobog</span>
+            </div>
+            <div class="region-item">
+                <span class="emoji">🌿</span>
+                <h5>Xianzhou Luofu</h5>
+                <span class="element">🌱 Flagship of the Alliance</span>
+            </div>
+            <div class="region-item">
+                <span class="emoji">🌙</span>
+                <h5>Penacony</h5>
+                <span class="element">💤 The Planet of Festivities</span>
+            </div>
+            <div class="region-item">
+                <span class="emoji">🏛️</span>
+                <h5>Amphoreus</h5>
+                <span class="element">⚙️ The Eternal Land</span>
+            </div>
+            <div class="region-item">
+                <span class="emoji">🎭</span>
+                <h5>Planarcadia</h5>
+                <span class="element">🎉 The World of Elation</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    FEATURED CHARACTER: KAFKA (مثل Miyabi در ZZZ)
+    ========================================================== -->
+    <section class="spotlight">
+        <div class="spotlight-inner">
+            <div class="spotlight-text">
+                <span class="badge">✦ Featured Character</span>
+                <h3>Kafka · <span>Stellaron Hunter</span></h3>
+                <p>
+                    A member of the <strong>Stellaron Hunters</strong>, Kafka is a mysterious and elegant woman
+                    who wields lightning with deadly precision. Her calm demeanor and calculated actions
+                    make her one of the most feared and respected figures in the cosmos.
+                    <br><br>
+                    As a master of the <strong>Nihility</strong> path, she specializes in applying shock
+                    and triggering devastating follow-up attacks that leave her enemies paralyzed.
+                </p>
+                <a href="/starrail/kafka.html" class="btn">⚡ Learn More</a>
+            </div>
+            <div class="spotlight-image">
+                <img src="/img/characters/kafka.jpg" alt="Kafka" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22350%22 height=%22350%22%3E%3Crect fill=%22%231a0a0a%22 width=%22350%22 height=%22350%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%236a9aff%22%3E🕸️%3C/text%3E%3C/svg%3E'">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Honkai Star Rail Fans ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

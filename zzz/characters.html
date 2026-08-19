@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZZZ · Characters</title>
+    <!-- استایل‌های عمومی -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- استایل‌های صفحات داخلی -->
+    <link rel="stylesheet" href="/css/pages.css">
+    <!-- استایل‌های اختصاصی این صفحه -->
+    <style>
+        .characters-section .section-header:first-of-type {
+            margin-top: 0;
+        }
+
+        .character-card .rank {
+            display: inline-block;
+            font-weight: bold;
+            font-size: 11px;
+            padding: 2px 14px;
+            border-radius: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            align-self: center;
+            color: #1a0a0a;
+        }
+
+        .character-card .rank-a {
+            display: inline-block;
+            font-weight: bold;
+            font-size: 11px;
+            padding: 2px 14px;
+            border-radius: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            align-self: center;
+            color: #1a0a0a;
+            background: linear-gradient(135deg, #b0c4de, #8a9ac0);
+        }
+
+        .rank-s {
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+        }
+
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .character-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px 18px 18px 18px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s;
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .character-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-color);
+            box-shadow: 0 15px 50px var(--card-hover-shadow);
+            background: var(--bg-card);
+        }
+
+        .character-card .char-img-wrapper {
+            width: 100%;
+            height: 240px;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-light);
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 72px;
+            color: var(--text-muted);
+            opacity: 0.9;
+        }
+
+        .character-card .char-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .character-card .char-img-wrapper img:hover {
+            transform: scale(1.04);
+        }
+
+        .character-card .char-name {
+            color: var(--text-heading);
+            font-size: 22px;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .character-card .char-info {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 4px 0 8px 0;
+        }
+
+        .character-card .char-info .tag {
+            font-size: 12px;
+            background: var(--detail-bg);
+            padding: 2px 12px;
+            border-radius: 14px;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .character-card .char-faction {
+            display: inline-block;
+            background: var(--faction-bg);
+            padding: 2px 14px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            border: 1px solid var(--faction-border);
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="blue"] .character-card .char-faction {
+            background: rgba(60, 120, 255, 0.12);
+            border-color: rgba(60, 120, 255, 0.15);
+        }
+
+        .character-card .char-desc {
+            color: var(--text-secondary);
+            font-size: 13px;
+            line-height: 1.6;
+            padding: 8px 10px;
+            background: var(--detail-bg);
+            border-radius: 10px;
+            border-left: 3px solid var(--border-color);
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .character-card .btn-char {
+            display: inline-block;
+            padding: 8px 28px;
+            background: var(--btn-primary-bg);
+            color: white;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 1px solid var(--badge-border);
+            cursor: pointer;
+        }
+
+        .character-card .btn-char:hover {
+            background: var(--btn-primary-hover);
+            transform: scale(1.04);
+            box-shadow: 0 4px 20px var(--shadow-color);
+        }
+
+        @media (max-width: 768px) {
+            .characters-grid {
+                grid-template-columns: 1fr;
+                max-width: 380px;
+                margin: 0 auto;
+            }
+            .character-card .char-img-wrapper {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .character-card {
+                padding: 15px 12px;
+            }
+            .character-card .char-name {
+                font-size: 19px;
+            }
+            .character-card .char-img-wrapper {
+                height: 170px;
+            }
+            .character-card .char-desc {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================
+    THEME TOGGLE (توسط base.css مدیریت میشه)
+    ========================================================== -->
+
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Hoyoverse</span> ✦</h1>
+            <p>Fan Page · All Games</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
+        </div>
+
+        <!-- ==========================================================
+        MENU — فقط اسم بازی‌ها آیکون تصویری دارن، بقیه ایموجی
+        ========================================================== -->
+        <nav class="menu">
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/characters.html">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    PAGE TITLE
+    ========================================================== -->
+    <section class="page-title">
+        <h2>👤 <span>Agents</span> of New Eridu</h2>
+        <p>All playable characters in Zenless Zone Zero — S-Rank &amp; A-Rank</p>
+    </section>
+
+    <!-- ==========================================================
+    S-RANK CHARACTERS
+    ========================================================== -->
+    <section class="characters-section" id="srank">
+        <h3 class="section-header">🌟 S-Rank Agents</h3>
+        <div class="characters-grid">
+
+            <!-- MIYABI -->
+            <div class="character-card">
+                <span class="rank rank-s">★ S-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/characters/miyabi-2.jpg" alt="Miyabi" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">🗡️</div>
+                </div>
+                <div class="char-name">Miyabi</div>
+                <div class="char-info">
+                    <span class="tag">⚔️ Anomaly</span>
+                    <span class="tag">❄️ Ice</span>
+                </div>
+                <span class="char-faction">🏛️ Void Hunters</span>
+                <div class="char-desc">Void Hunter wielding a katana forged from Hollow energy.</div>
+                <a href="/zzz/agent.html?id=miyabi" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- ELLEN -->
+            <div class="character-card">
+                <span class="rank rank-s">★ S-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/characters/ellen.jpg" alt="Ellen" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">🧊</div>
+                </div>
+                <div class="char-name">Ellen Joe</div>
+                <div class="char-info">
+                    <span class="tag">⚔️ Attack</span>
+                    <span class="tag">❄️ Ice</span>
+                </div>
+                <span class="char-faction">🏫 Victoria Housekeeping</span>
+                <div class="char-desc">Elegant maid who uses ice-bladed weapons with deadly precision.</div>
+                <a href="/zzz/agent.html?id=ellen" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- ZHU YUAN -->
+            <div class="character-card">
+                <span class="rank rank-s">★ S-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/zhu-yuan.jpg" alt="Zhu Yuan" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">⚡</div>
+                </div>
+                <div class="char-name">Zhu Yuan</div>
+                <div class="char-info">
+                    <span class="tag">⚔️ Attack</span>
+                    <span class="tag">✨ Ether</span>
+                </div>
+                <span class="char-faction">👮 PubSec</span>
+                <div class="char-desc">PubSec officer using advanced firearms and electro-tech.</div>
+                <a href="/zzz/agent.html?id=zhu_yuan" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- QINGYI -->
+            <div class="character-card">
+                <span class="rank rank-s">★ S-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/Qingyi.jpg" alt="Qingyi" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">🔧</div>
+                </div>
+                <div class="char-name">Qingyi</div>
+                <div class="char-info">
+                    <span class="tag">🛡️ Stun</span>
+                    <span class="tag">⚡ Electric</span>
+                </div>
+                <span class="char-faction">👮 PubSec</span>
+                <div class="char-desc">Mechanical specialist using electro-magnetic gadgets.</div>
+                <a href="/zzz/agent.html?id=qingyi" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- GRACE -->
+            <div class="character-card">
+                <span class="rank rank-s">★ S-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/characters/Grace.jpg" alt="Grace" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">🤖</div>
+                </div>
+                <div class="char-name">Grace Howard</div>
+                <div class="char-info">
+                    <span class="tag">⚡ Anomaly</span>
+                    <span class="tag">⚡ Electric</span>
+                </div>
+                <span class="char-faction">🏭 Belobog Industries</span>
+                <div class="char-desc">Lead engineer using custom mechs and electro-tech.</div>
+                <a href="/zzz/agent.html?id=grace" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- VON LYCAON -->
+            <div class="character-card">
+                <span class="rank rank-s">★ S-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/characters/lycaon.jpg" alt="Von Lycaon" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">🐺</div>
+                </div>
+                <div class="char-name">Von Lycaon</div>
+                <div class="char-info">
+                    <span class="tag">🛡️ Stun</span>
+                    <span class="tag">❄️ Ice</span>
+                </div>
+                <span class="char-faction">🏫 Victoria Housekeeping</span>
+                <div class="char-desc">Wolf-like Thiren and chief of Victoria Housekeeping.</div>
+                <a href="/zzz/agent.html?id=lycaon" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- RINA -->
+            <div class="character-card">
+                <span class="rank rank-s">★ S-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/characters/Rina.webp" alt="Rina" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">🎀</div>
+                </div>
+                <div class="char-name">Rina</div>
+                <div class="char-info">
+                    <span class="tag">💎 Support</span>
+                    <span class="tag">⚡ Electric</span>
+                </div>
+                <span class="char-faction">🏫 Victoria Housekeeping</span>
+                <div class="char-desc">Graceful senior maid using electro-charged ribbons.</div>
+                <a href="/zzz/agent.html?id=rina" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- KOLEDA -->
+            <div class="character-card">
+                <span class="rank rank-s">★ S-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/characters/koleda.jpg" alt="Koleda" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">🔨</div>
+                </div>
+                <div class="char-name">Koleda Belobog</div>
+                <div class="char-info">
+                    <span class="tag">🛡️ Stun</span>
+                    <span class="tag">🔥 Fire</span>
+                </div>
+                <span class="char-faction">🏭 Belobog Industries</span>
+                <div class="char-desc">Fiery CEO who smashes enemies with a massive hammer.</div>
+                <a href="/zzz/agent.html?id=koleda" class="btn-char">View Profile →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    A-RANK CHARACTERS
+    ========================================================== -->
+    <section class="characters-section" id="arank">
+        <h3 class="section-header">⭐ A-Rank Agents</h3>
+        <div class="characters-grid">
+
+            <!-- ANBY -->
+            <div class="character-card">
+                <span class="rank-a">★ A-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/characters/anby.jpg" alt="Anby" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">⚡</div>
+                </div>
+                <div class="char-name">Anby Demara</div>
+                <div class="char-info">
+                    <span class="tag">⚔️ Attack</span>
+                    <span class="tag">⚡ Electric</span>
+                </div>
+                <span class="char-faction">🛵 Cunning Hares</span>
+                <div class="char-desc">A quiet but deadly soldier from the Cunning Hares.</div>
+                <a href="/zzz/agent.html?id=anby" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- NICOLE -->
+            <div class="character-card">
+                <span class="rank-a">★ A-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/characters/nicole.jpg" alt="Nicole" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">🪙</div>
+                </div>
+                <div class="char-name">Nicole Demara</div>
+                <div class="char-info">
+                    <span class="tag">💎 Support</span>
+                    <span class="tag">✨ Ether</span>
+                </div>
+                <span class="char-faction">🛵 Cunning Hares</span>
+                <div class="char-desc">The charismatic leader of the Cunning Hares.</div>
+                <a href="/zzz/agent.html?id=nicole" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- BILLY -->
+            <div class="character-card">
+                <span class="rank-a">★ A-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/characters/billy-kid.jpg" alt="Billy" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">🤖</div>
+                </div>
+                <div class="char-name">Billy Kid</div>
+                <div class="char-info">
+                    <span class="tag">⚔️ Attack</span>
+                    <span class="tag">🔥 Fire</span>
+                </div>
+                <span class="char-faction">🛵 Cunning Hares</span>
+                <div class="char-desc">A cheerful cyborg gunslinger with a flashy style.</div>
+                <a href="/zzz/agent.html?id=billy" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- SOUKAKU -->
+            <div class="character-card">
+                <span class="rank-a">★ A-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/characters/Soukaku.jpg" alt="Soukaku" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">🔮</div>
+                </div>
+                <div class="char-name">Soukaku</div>
+                <div class="char-info">
+                    <span class="tag">💎 Support</span>
+                    <span class="tag">❄️ Ice</span>
+                </div>
+                <span class="char-faction">🏮 Section 6</span>
+                <div class="char-desc">A mysterious support agent with a gentle heart.</div>
+                <a href="/zzz/agent.html?id=soukaku" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- CORIN -->
+            <div class="character-card">
+                <span class="rank-a">★ A-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/characters/corin.webp" alt="Corin" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">🧸</div>
+                </div>
+                <div class="char-name">Corin Wickes</div>
+                <div class="char-info">
+                    <span class="tag">🛡️ Stun</span>
+                    <span class="tag">⚡ Electric</span>
+                </div>
+                <span class="char-faction">🏫 Victoria Housekeeping</span>
+                <div class="char-desc">A shy maid with a giant electric saw.</div>
+                <a href="/zzz/agent.html?id=corin" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- ANTON -->
+            <div class="character-card">
+                <span class="rank-a">★ A-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/characters/anton.jpg" alt="Anton" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">⛏️</div>
+                </div>
+                <div class="char-name">Anton Ivanov</div>
+                <div class="char-info">
+                    <span class="tag">⚔️ Attack</span>
+                    <span class="tag">⚡ Electric</span>
+                </div>
+                <span class="char-faction">🏭 Belobog Industries</span>
+                <div class="char-desc">A passionate construction worker who fights with a drill.</div>
+                <a href="/zzz/agent.html?id=anton" class="btn-char">View Profile →</a>
+            </div>
+
+            <!-- BEN -->
+            <div class="character-card">
+                <span class="rank-a">★ A-Rank</span>
+                <div class="char-img-wrapper">
+                    <img src="/img/characters/ben-bigger.jpg" alt="Ben" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';">
+                    <div class="placeholder-icon" style="display:none;">🐻</div>
+                </div>
+                <div class="char-name">Ben Bigger</div>
+                <div class="char-info">
+                    <span class="tag">🛡️ Defense</span>
+                    <span class="tag">🔥 Fire</span>
+                </div>
+                <span class="char-faction">🏭 Belobog Industries</span>
+                <div class="char-desc">A gentle giant and the accountant of Belobog.</div>
+                <a href="/zzz/agent.html?id=ben" class="btn-char">View Profile →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Hoyoverse Fans · All Games ✦</p>
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT
+    ========================================================== -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>
