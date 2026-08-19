@@ -213,13 +213,13 @@ This is primarily a personal fan project, but ideas, bug reports, and suggestion
 ## 🌠 THE JOURNEY CONTINUES
 
 > *"May the stars guide your path."*
-""Just A little Vibe Code help from DeepSeek""
+
 **Made with ❤️, code, and way too much resin.**
 
 © 2026 · Fan Project · Not affiliated with HoYoverse
 
 Built by **nobody-miyabi-suki**
-
+Just A little Vibe Code help from DeepSeek
 ---
 
 [![Genshin Impact](https://img.shields.io/badge/Genshin-Impact-1a2a3a?style=flat-square)](https://github.com/nobody-miyabi-suki/nobody-miyabi-suki.github.io/tree/main/genshin)
