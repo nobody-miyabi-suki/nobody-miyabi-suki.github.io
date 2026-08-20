@@ -1,3 +1,5 @@
+const supabase = window.supabaseClient;
+
 async function registerUser(email, password, username) {
     email = email.trim().toLowerCase();
     username = username.trim();
@@ -9,6 +11,13 @@ async function registerUser(email, password, username) {
         };
     }
 
+    if (username.length < 3) {
+        return {
+            success: false,
+            message: 'Username must be at least 3 characters.'
+        };
+    }
+
     if (password.length < 6) {
         return {
             success: false,
@@ -17,11 +26,11 @@ async function registerUser(email, password, username) {
     }
 
     const { data, error } = await supabase.auth.signUp({
-        email: email,
-        password: password,
+        email,
+        password,
         options: {
             data: {
-                username: username
+                username
             }
         }
     });
@@ -48,9 +57,16 @@ async function registerUser(email, password, username) {
 async function loginUser(email, password) {
     email = email.trim().toLowerCase();
 
+    if (!email || !password) {
+        return {
+            success: false,
+            message: 'Please enter your email and password.'
+        };
+    }
+
     const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password
+        email,
+        password
     });
 
     if (error) {
@@ -77,44 +93,41 @@ async function logoutUser() {
 
     if (error) {
         console.error('Logout error:', error);
-        return false;
+
+        return {
+            success: false,
+            message: error.message
+        };
     }
 
-    return true;
-}
+    console.log('Logout success.');
 
-
-async function getCurrentUser() {
-    const {
-        data: { user },
-        error
-    } = await supabase.auth.getUser();
-
-    if (error) {
-        console.error('Get user error:', error);
-        return null;
-    }
-
-    return user;
+    return {
+        success: true
+    };
 }
 
 
 async function getCurrentSession() {
-    const {
-        data: { session },
-        error
-    } = await supabase.auth.getSession();
+    const { data, error } = await supabase.auth.getSession();
 
     if (error) {
-        console.error('Get session error:', error);
+        console.error('Session error:', error);
         return null;
     }
 
-    return session;
+    console.log('Session:', data.session);
+
+    return data.session;
 }
 
 
 supabase.auth.onAuthStateChange((event, session) => {
     console.log('Auth event:', event);
     console.log('Session:', session);
+});
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await getCurrentSession();
 });
