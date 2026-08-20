@@ -1,28 +1,44 @@
-const MAX_AVATAR_SIZE = 3 * 1024 * 1024;
-
-const ALLOWED_TYPES = [
-    'image/jpeg',
-    'image/png',
-    'image/webp'
-];
+const supabaseClient = window.supabaseClient;
 
 const AVATAR_BUCKET = 'avatars';
 const DEFAULT_AVATAR = '/img/icons/default-avatar.png';
+const MAX_AVATAR_SIZE = 9 * 1024 * 1024;
+
+const ALLOWED_TYPES = {
+    'image/jpeg': 'jpg',
+    'image/png': 'png',
+    'image/webp': 'webp'
+};
 
 let currentUser = null;
 let currentProfile = null;
 
 
 document.addEventListener('DOMContentLoaded', async () => {
+    if (!supabaseClient) {
+        console.error('Supabase client not found.');
+        showUploadStatus(
+            'Supabase is not initialized.',
+            'error'
+        );
+        return;
+    }
+
     const avatarInput = document.getElementById('avatarInput');
     const logoutBtn = document.getElementById('logoutBtn');
 
     if (avatarInput) {
-        avatarInput.addEventListener('change', handleAvatarUpload);
+        avatarInput.addEventListener(
+            'change',
+            handleAvatarUpload
+        );
     }
 
     if (logoutBtn) {
-        logoutBtn.addEventListener('click', handleLogout);
+        logoutBtn.addEventListener(
+            'click',
+            handleLogout
+        );
     }
 
     await loadProfile();
@@ -36,16 +52,26 @@ async function loadProfile() {
                 user
             },
             error
-        } = await supabase.auth.getUser();
+        } = await supabaseClient.auth.getUser();
 
         if (error) {
-            console.error('Get user error:', error);
-            showError('Failed to get user information.');
+            console.error(
+                'Get user error:',
+                error
+            );
+
+            showUploadStatus(
+                'Failed to get user information.',
+                'error'
+            );
+
             return;
         }
 
         if (!user) {
-            window.location.href = '/auth/login.html';
+            window.location.href =
+                '/auth/login.html';
+
             return;
         }
 
@@ -54,25 +80,43 @@ async function loadProfile() {
         const {
             data: profile,
             error: profileError
-        } = await supabase
+        } = await supabaseClient
             .from('profiles')
             .select('*')
             .eq('id', user.id)
             .single();
 
         if (profileError) {
-            console.error('Profile error:', profileError);
-            showError('Failed to load profile.');
+            console.error(
+                'Profile error:',
+                profileError
+            );
+
+            showUploadStatus(
+                'Failed to load profile.',
+                'error'
+            );
+
             return;
         }
 
         currentProfile = profile;
 
-        renderProfile(user, profile);
+        renderProfile(
+            user,
+            profile
+        );
 
     } catch (error) {
-        console.error('Load profile error:', error);
-        showError('Something went wrong while loading your profile.');
+        console.error(
+            'Load profile error:',
+            error
+        );
+
+        showUploadStatus(
+            'Something went wrong while loading your profile.',
+            'error'
+        );
     }
 }
 
@@ -161,7 +205,7 @@ async function handleAvatarUpload(event) {
         return;
     }
 
-    if (!ALLOWED_TYPES.includes(file.type)) {
+    if (!ALLOWED_TYPES[file.type]) {
         showUploadStatus(
             'Only JPG, PNG and WebP images are allowed.',
             'error'
@@ -180,16 +224,7 @@ async function handleAvatarUpload(event) {
     }
 
     const extension =
-        getExtension(file.type);
-
-    if (!extension) {
-        showUploadStatus(
-            'Unsupported image format.',
-            'error'
-        );
-
-        return;
-    }
+        ALLOWED_TYPES[file.type];
 
     const newPath =
         `${currentUser.id}/avatar.${extension}`;
@@ -201,30 +236,18 @@ async function handleAvatarUpload(event) {
 
     try {
         /*
-         * Find which avatar files currently exist.
-         * This lets us remove the old format if necessary.
-         */
-        const oldExtensions = [
-            'jpg',
-            'png',
-            'webp'
-        ];
-
-        const oldPaths = oldExtensions.map(
-            oldExtension =>
-                `${currentUser.id}/avatar.${oldExtension}`
-        );
-
-        /*
-         * Upload the new file.
+         * Upload new avatar.
          *
-         * upsert: true means:
-         * if the exact same path already exists,
-         * replace it instead of creating a duplicate.
+         * The original file format is preserved.
+         *
+         * Example:
+         * image/jpeg -> avatar.jpg
+         * image/png  -> avatar.png
+         * image/webp -> avatar.webp
          */
         const {
             error: uploadError
-        } = await supabase
+        } = await supabaseClient
             .storage
             .from(AVATAR_BUCKET)
             .upload(
@@ -252,23 +275,32 @@ async function handleAvatarUpload(event) {
             return;
         }
 
+
         /*
          * Remove old avatar formats.
          *
-         * We don't remove the newly uploaded file.
+         * Keep the newly uploaded file.
          */
-        const filesToDelete =
-            oldPaths.filter(
-                path => path !== newPath
+        const extensions = [
+            'jpg',
+            'png',
+            'webp'
+        ];
+
+        const oldFiles = extensions
+            .filter(ext => ext !== extension)
+            .map(
+                ext =>
+                    `${currentUser.id}/avatar.${ext}`
             );
 
-        if (filesToDelete.length > 0) {
+        if (oldFiles.length > 0) {
             const {
                 error: deleteError
-            } = await supabase
+            } = await supabaseClient
                 .storage
                 .from(AVATAR_BUCKET)
-                .remove(filesToDelete);
+                .remove(oldFiles);
 
             if (deleteError) {
                 console.warn(
@@ -278,15 +310,13 @@ async function handleAvatarUpload(event) {
             }
         }
 
+
         /*
          * Get public URL.
-         *
-         * This requires the avatars bucket
-         * to be public.
          */
         const {
             data: publicData
-        } = supabase
+        } = supabaseClient
             .storage
             .from(AVATAR_BUCKET)
             .getPublicUrl(newPath);
@@ -300,21 +330,20 @@ async function handleAvatarUpload(event) {
             return;
         }
 
+
         /*
          * Cache buster.
-         *
-         * Without this, the browser/CDN can keep
-         * showing the previous avatar after overwrite.
          */
         const avatarUrl =
             `${publicData.publicUrl}?v=${Date.now()}`;
 
+
         /*
-         * Save avatar URL inside profiles table.
+         * Save URL in profiles table.
          */
         const {
             error: profileError
-        } = await supabase
+        } = await supabaseClient
             .from('profiles')
             .update({
                 avatar_url: avatarUrl,
@@ -339,16 +368,18 @@ async function handleAvatarUpload(event) {
             return;
         }
 
+
         /*
-         * Update local profile state.
+         * Update local state.
          */
         currentProfile = {
             ...currentProfile,
             avatar_url: avatarUrl
         };
 
+
         /*
-         * Update avatar immediately on the page.
+         * Update avatar immediately.
          */
         const avatar =
             document.getElementById('profileAvatar');
@@ -356,6 +387,7 @@ async function handleAvatarUpload(event) {
         if (avatar) {
             avatar.src = avatarUrl;
         }
+
 
         showUploadStatus(
             'Avatar updated successfully!',
@@ -376,19 +408,63 @@ async function handleAvatarUpload(event) {
 }
 
 
-function getExtension(mimeType) {
-    switch (mimeType) {
-        case 'image/jpeg':
-            return 'jpg';
+async function handleLogout() {
+    const logoutBtn =
+        document.getElementById('logoutBtn');
 
-        case 'image/png':
-            return 'png';
+    if (logoutBtn) {
+        logoutBtn.disabled = true;
+        logoutBtn.textContent =
+            'Logging out...';
+    }
 
-        case 'image/webp':
-            return 'webp';
+    try {
+        const {
+            error
+        } = await supabaseClient
+            .auth
+            .signOut();
 
-        default:
-            return null;
+        if (error) {
+            console.error(
+                'Logout error:',
+                error
+            );
+
+            if (logoutBtn) {
+                logoutBtn.disabled = false;
+                logoutBtn.textContent =
+                    'Logout';
+            }
+
+            showUploadStatus(
+                error.message ||
+                'Logout failed.',
+                'error'
+            );
+
+            return;
+        }
+
+        window.location.href =
+            '/auth/login.html';
+
+    } catch (error) {
+        console.error(
+            'Logout exception:',
+            error
+        );
+
+        if (logoutBtn) {
+            logoutBtn.disabled = false;
+            logoutBtn.textContent =
+                'Logout';
+        }
+
+        showUploadStatus(
+            'Logout failed. Please try again.',
+            'error'
+        );
     }
 }
 
@@ -416,60 +492,6 @@ function formatDate(dateString) {
 }
 
 
-async function handleLogout() {
-    const logoutBtn =
-        document.getElementById('logoutBtn');
-
-    if (logoutBtn) {
-        logoutBtn.disabled = true;
-        logoutBtn.textContent = 'Logging out...';
-    }
-
-    try {
-        const {
-            error
-        } = await supabase.auth.signOut();
-
-        if (error) {
-            console.error(
-                'Logout error:',
-                error
-            );
-
-            if (logoutBtn) {
-                logoutBtn.disabled = false;
-                logoutBtn.textContent = 'Logout';
-            }
-
-            showError(
-                error.message ||
-                'Logout failed.'
-            );
-
-            return;
-        }
-
-        window.location.href =
-            '/auth/login.html';
-
-    } catch (error) {
-        console.error(
-            'Logout exception:',
-            error
-        );
-
-        if (logoutBtn) {
-            logoutBtn.disabled = false;
-            logoutBtn.textContent = 'Logout';
-        }
-
-        showError(
-            'Logout failed. Please try again.'
-        );
-    }
-}
-
-
 function setText(id, value) {
     const element =
         document.getElementById(id);
@@ -489,6 +511,7 @@ function showUploadStatus(message, type) {
     }
 
     element.textContent = message;
+
     element.className =
         `upload-status ${type}`;
 
@@ -499,17 +522,4 @@ function showUploadStatus(message, type) {
                 'upload-status';
         }, 3000);
     }
-}
-
-
-function showError(message) {
-    console.error(
-        'Profile error:',
-        message
-    );
-
-    showUploadStatus(
-        message,
-        'error'
-    );
 }
