@@ -3,114 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile — Miyabi-Suki</title>
+    <title>Profile | Miyabi-Suki</title>
     <link rel="icon" href="/img/icons/favicon.ico">
     <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
 
-    <div class="background"></div>
+<div class="profile-bg">
+    <div class="bg-grid"></div>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+    <div class="bg-particle particle-1">✦</div>
+    <div class="bg-particle particle-2">✧</div>
+    <div class="bg-particle particle-3">◇</div>
+</div>
 
-    <main class="profile-page">
+<main class="profile-page">
 
-        <a href="/" class="back-home">← Back to Home</a>
+    <a href="/" class="back-home">
+        <span>←</span>
+        Back to Home
+    </a>
 
-        <section class="profile-card">
+    <section class="profile-card">
 
-            <div class="profile-cover">
-                <div class="cover-glow"></div>
+        <div class="profile-banner">
+            <div class="banner-lines"></div>
+
+            <div class="banner-content">
+                <span>MIYABI-SUKI</span>
+                <small>HOYOVERSE FAN NETWORK</small>
             </div>
 
-            <div class="profile-content">
+            <div class="banner-symbol">✦</div>
+        </div>
 
-                <div class="avatar-section">
+        <div class="profile-body">
 
-                    <div class="avatar-wrapper">
-                        <img
-                            id="profileAvatar"
-                            src="/img/icons/default-avatar.png"
-                            alt="Profile Avatar"
-                        >
+            <div class="avatar-area">
 
-                        <label for="avatarInput" class="avatar-edit">
-                            ✎
-                        </label>
+                <div class="avatar-ring ring-outer"></div>
+                <div class="avatar-ring ring-inner"></div>
 
-                        <input
-                            type="file"
-                            id="avatarInput"
-                            accept="image/jpeg,image/png,image/webp"
-                            hidden
-                        >
-                    </div>
+                <div class="avatar-wrapper">
+                    <img
+                        id="profileAvatar"
+                        src="/img/icons/default-avatar.png"
+                        alt="Profile Avatar"
+                    >
 
-                    <div class="avatar-status">
-                        <span></span>
-                        Online
-                    </div>
+                    <label
+                        for="avatarInput"
+                        class="avatar-edit"
+                        title="Change avatar"
+                    >
+                        ✎
+                    </label>
 
+                    <input
+                        type="file"
+                        id="avatarInput"
+                        accept="image/jpeg,image/png,image/webp"
+                        hidden
+                    >
                 </div>
 
-                <div class="profile-main">
+                <div class="online-badge">
+                    <span></span>
+                    ONLINE
+                </div>
 
-                    <div class="profile-heading">
+            </div>
+
+            <div class="profile-header">
+
+                <div class="profile-title">
+                    <span class="member-tag">
+                        ✦ MIYABI-SUKI MEMBER
+                    </span>
+
+                    <h1 id="profileUsername">
+                        Loading...
+                    </h1>
+
+                    <p id="profileEmail">
+                        Loading...
+                    </p>
+                </div>
+
+                <div class="profile-actions">
+                    <button
+                        class="action-btn edit-btn"
+                        id="editProfileBtn"
+                    >
+                        ✎ Edit Profile
+                    </button>
+
+                    <button
+                        class="action-btn logout-btn"
+                        id="logoutBtn"
+                    >
+                        ⇥ Logout
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="profile-grid">
+
+                <div class="profile-panel about-panel">
+                    <div class="panel-heading">
+                        <span class="panel-icon">✦</span>
+                        <span>ABOUT ME</span>
+                    </div>
+
+                    <p id="profileBio">
+                        No bio yet.
+                    </p>
+                </div>
+
+                <div class="profile-panel stats-panel">
+
+                    <div class="stat-box">
+                        <span class="stat-icon">👤</span>
                         <div>
-                            <span class="profile-label">MIYABI-SUKI MEMBER</span>
-                            <h1 id="profileUsername">Loading...</h1>
-                            <p id="profileEmail">Loading...</p>
+                            <small>Username</small>
+                            <strong id="infoUsername">—</strong>
                         </div>
-
-                        <button id="logoutBtn" class="logout-btn">
-                            Logout
-                        </button>
                     </div>
 
-                    <div class="bio-box">
-                        <span class="bio-label">ABOUT ME</span>
-                        <p id="profileBio">No bio yet.</p>
+                    <div class="stat-box">
+                        <span class="stat-icon">✉</span>
+                        <div>
+                            <small>Email</small>
+                            <strong id="infoEmail">—</strong>
+                        </div>
                     </div>
 
-                    <div class="profile-info">
-
-                        <div class="info-item">
-                            <span class="info-icon">👤</span>
-                            <div>
-                                <small>Username</small>
-                                <strong id="infoUsername">—</strong>
-                            </div>
+                    <div class="stat-box">
+                        <span class="stat-icon">◷</span>
+                        <div>
+                            <small>Joined</small>
+                            <strong id="profileJoined">—</strong>
                         </div>
-
-                        <div class="info-item">
-                            <span class="info-icon">✉️</span>
-                            <div>
-                                <small>Email</small>
-                                <strong id="infoEmail">—</strong>
-                            </div>
-                        </div>
-
-                        <div class="info-item">
-                            <span class="info-icon">📅</span>
-                            <div>
-                                <small>Joined</small>
-                                <strong id="profileJoined">—</strong>
-                            </div>
-                        </div>
-
                     </div>
 
-                    <div id="uploadStatus" class="upload-status"></div>
+                    <div class="stat-box">
+                        <span class="stat-icon">⚡</span>
+                        <div>
+                            <small>Status</small>
+                            <strong>Active</strong>
+                        </div>
+                    </div>
 
                 </div>
 
             </div>
 
-        </section>
+            <div class="profile-footer">
 
-    </main>
+                <div class="footer-line"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/js/supabase.js"></script>
-    <script src="/js/profile.js"></script>
+                <div class="footer-content">
+                    <span>✦</span>
+                    <p>Made for Hoyoverse Fans</p>
+                    <span>✦</span>
+                </div>
+
+            </div>
+
+            <div
+                id="uploadStatus"
+                class="upload-status"
+            ></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<div
+    class="modal-overlay"
+    id="editModal"
+>
+    <div class="edit-modal">
+
+        <button
+            class="modal-close"
+            id="closeModalBtn"
+            type="button"
+        >
+            ×
+        </button>
+
+        <div class="modal-header">
+            <span>✦ PROFILE SETTINGS</span>
+            <h2>Edit Profile</h2>
+            <p>Customize your Miyabi-Suki identity.</p>
+        </div>
+
+        <form id="editProfileForm">
+
+            <div class="input-group">
+                <label for="editUsername">
+                    USERNAME
+                </label>
+
+                <input
+                    type="text"
+                    id="editUsername"
+                    maxlength="32"
+                    autocomplete="off"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="editBio">
+                    BIO
+                </label>
+
+                <textarea
+                    id="editBio"
+                    maxlength="160"
+                    rows="5"
+                    placeholder="Tell us something about yourself..."
+                ></textarea>
+
+                <div class="character-count">
+                    <span id="bioCount">0</span>/160
+                </div>
+            </div>
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="modal-btn cancel-btn"
+                    id="cancelEditBtn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="modal-btn save-btn"
+                    id="saveProfileBtn"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase.js"></script>
+<script src="/js/profile.js"></script>
 
 </body>
 </html>
