@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: #020c29;
+    color: white;
+    font-family: Inter, Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-page {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px 20px;
+}
+
+.profile-card {
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-card h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.email {
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.bio {
+    color: #ddd;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.info-label {
+    color: #999;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.profile-actions button,
+.profile-actions a {
+    padding: 11px 24px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.profile-actions button {
+    background: #b91c1c;
+    color: white;
+}
+
+.profile-actions a {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+.profile-actions button:hover,
+.profile-actions a:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+@media (max-width: 500px) {
+    .profile-card {
+        padding: 30px 20px;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+    }
+
+    .profile-actions button,
+    .profile-actions a {
+        width: 100%;
+    }
+}

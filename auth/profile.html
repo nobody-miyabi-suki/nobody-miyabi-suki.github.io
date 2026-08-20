@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile · Hoyoverse Fan Page</title>
+    <link rel="icon" href="/img/icons/favicon.ico">
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+
+    <main class="profile-page">
+
+        <section class="profile-card">
+
+            <div class="profile-avatar">
+                <img id="avatar" src="/img/icons/default-avatar.png" alt="Profile Avatar">
+            </div>
+
+            <h1 id="username">Loading...</h1>
+
+            <p id="email" class="email">Loading...</p>
+
+            <p id="bio" class="bio"></p>
+
+            <div class="profile-info">
+
+                <div class="info-item">
+                    <span class="info-label">Username</span>
+                    <span id="infoUsername">-</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">Email</span>
+                    <span id="infoEmail">-</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">Joined</span>
+                    <span id="createdAt">-</span>
+                </div>
+
+            </div>
+
+            <div class="profile-actions">
+                <button id="logoutBtn">Logout</button>
+                <a href="/">Home</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/profile.js"></script>
+
+</body>
+</html>
