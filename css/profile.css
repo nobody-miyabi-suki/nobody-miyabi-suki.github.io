@@ -130,3 +130,64 @@ body {
         width: 100%;
     }
 }
+.edit-profile {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    text-align: left;
+}
+
+.edit-profile h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.edit-profile label {
+    display: block;
+    margin: 14px 0 7px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.edit-profile input,
+.edit-profile textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+    outline: none;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.edit-profile input:focus,
+.edit-profile textarea:focus {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+#saveProfileBtn {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px;
+    border: 0;
+    border-radius: 10px;
+    background: #b91c1c;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#saveProfileBtn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+#profileMessage {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #aaa;
+}
