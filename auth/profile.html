@@ -3,76 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile · Hoyoverse Fan Page</title>
+    <title>Profile — Miyabi-Suki</title>
     <link rel="icon" href="/img/icons/favicon.ico">
     <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
 
+    <div class="background"></div>
+
     <main class="profile-page">
+
+        <a href="/" class="back-home">← Back to Home</a>
 
         <section class="profile-card">
 
-            <div class="profile-avatar">
-                <img id="avatar" src="/img/icons/default-avatar.png" alt="Profile Avatar">
+            <div class="profile-cover">
+                <div class="cover-glow"></div>
             </div>
 
-            <h1 id="username">Loading...</h1>
+            <div class="profile-content">
 
-            <p id="email" class="email">Loading...</p>
+                <div class="avatar-section">
 
-            <p id="bio" class="bio"></p>
+                    <div class="avatar-wrapper">
+                        <img
+                            id="profileAvatar"
+                            src="/img/icons/default-avatar.png"
+                            alt="Profile Avatar"
+                        >
 
-            <div class="edit-profile">
+                        <label for="avatarInput" class="avatar-edit">
+                            ✎
+                        </label>
 
-                <h2>Edit Profile</h2>
+                        <input
+                            type="file"
+                            id="avatarInput"
+                            accept="image/jpeg,image/png,image/webp"
+                            hidden
+                        >
+                    </div>
 
-                <label for="editUsername">Username</label>
-                <input
-                    type="text"
-                    id="editUsername"
-                    maxlength="30"
-                    autocomplete="off"
-                >
+                    <div class="avatar-status">
+                        <span></span>
+                        Online
+                    </div>
 
-                <label for="editBio">Bio</label>
-                <textarea
-                    id="editBio"
-                    maxlength="160"
-                    rows="4"
-                    placeholder="Tell us something about yourself..."
-                ></textarea>
-
-                <button id="saveProfileBtn">
-                    Save Changes
-                </button>
-
-                <p id="profileMessage"></p>
-
-            </div>
-
-            <div class="profile-info">
-
-                <div class="info-item">
-                    <span class="info-label">Username</span>
-                    <span id="infoUsername">-</span>
                 </div>
 
-                <div class="info-item">
-                    <span class="info-label">Email</span>
-                    <span id="infoEmail">-</span>
+                <div class="profile-main">
+
+                    <div class="profile-heading">
+                        <div>
+                            <span class="profile-label">MIYABI-SUKI MEMBER</span>
+                            <h1 id="profileUsername">Loading...</h1>
+                            <p id="profileEmail">Loading...</p>
+                        </div>
+
+                        <button id="logoutBtn" class="logout-btn">
+                            Logout
+                        </button>
+                    </div>
+
+                    <div class="bio-box">
+                        <span class="bio-label">ABOUT ME</span>
+                        <p id="profileBio">No bio yet.</p>
+                    </div>
+
+                    <div class="profile-info">
+
+                        <div class="info-item">
+                            <span class="info-icon">👤</span>
+                            <div>
+                                <small>Username</small>
+                                <strong id="infoUsername">—</strong>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-icon">✉️</span>
+                            <div>
+                                <small>Email</small>
+                                <strong id="infoEmail">—</strong>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-icon">📅</span>
+                            <div>
+                                <small>Joined</small>
+                                <strong id="profileJoined">—</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="uploadStatus" class="upload-status"></div>
+
                 </div>
 
-                <div class="info-item">
-                    <span class="info-label">Joined</span>
-                    <span id="createdAt">-</span>
-                </div>
-
-            </div>
-
-            <div class="profile-actions">
-                <button id="logoutBtn">Logout</button>
-                <a href="/">Home</a>
             </div>
 
         </section>
