@@ -1,0 +1,200 @@
+/* ============================================================
+   Honkai Impact 3rd – Map Page
+   Only page‑unique styles. All shared styles come from base.css.
+   ============================================================ */
+
+/* ---- Page‑specific variables (not in shared base) ---- */
+:root {
+    --region-bg: rgba(60, 20, 20, 0.25);
+    --region-border: rgba(180, 60, 60, 0.1);
+    --region-hover: rgba(60, 20, 20, 0.4);
+    --detail-bg: rgba(0, 0, 0, 0.25);
+    --subregion-bg: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="blue"] {
+    --region-bg: rgba(60, 120, 255, 0.03);
+    --region-border: rgba(60, 120, 255, 0.06);
+    --region-hover: rgba(60, 120, 255, 0.06);
+    --detail-bg: rgba(0, 0, 0, 0.25);
+    --subregion-bg: rgba(0, 0, 0, 0.15);
+}
+
+/* ---- Navigation menu icons (old style – no circle) ---- */
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+    border: 1px solid var(--border-light);
+    object-fit: cover;
+}
+
+/* ---- Page title ---- */
+.page-title {
+    text-align: center;
+    padding: 50px 20px 30px 20px;
+    background: var(--page-title-bg);
+    border-bottom: 2px solid var(--border-light);
+}
+.page-title h2 {
+    font-size: 44px;
+    color: var(--text-heading);
+    text-shadow: 0 0 30px var(--shadow-color);
+}
+.page-title h2 span {
+    color: var(--text-heading-span);
+}
+.page-title p {
+    color: var(--text-secondary);
+    font-size: 18px;
+    margin-top: 8px;
+    letter-spacing: 1px;
+}
+
+/* ---- Content sections ---- */
+.content-section {
+    padding: 50px 30px;
+    background: var(--quick-nav-bg);
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.section-header {
+    font-size: 32px;
+    color: var(--text-heading);
+    text-align: center;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 12px;
+}
+.section-desc {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+/* ---- Map grid & cards ---- */
+.map-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.map-card {
+    background: var(--region-bg);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    padding: 22px 20px 20px 20px;
+    border: 1px solid var(--region-border);
+    transition: all 0.4s;
+}
+.map-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border-color);
+    box-shadow: 0 12px 40px var(--card-hover-shadow);
+    background: var(--region-hover);
+}
+
+.map-card .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 10px;
+}
+.map-card .card-header .icon {
+    font-size: 38px;
+    line-height: 1;
+}
+.map-card .card-header .title-group {
+    flex: 1;
+}
+.map-card .card-header .title-group h4 {
+    color: var(--text-heading);
+    font-size: 22px;
+}
+.map-card .card-header .title-group .sub {
+    color: var(--text-muted);
+    font-size: 13px;
+    font-style: italic;
+}
+
+.map-card .card-body p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+.map-card .card-body .sub-locations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    margin: 6px 0 8px 0;
+}
+.map-card .card-body .sub-locations .loc {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 14px;
+    background: var(--subregion-bg);
+    border: 1px solid var(--border-light);
+    font-size: 11px;
+    color: var(--text-muted);
+}
+.map-card .card-body .danger-tag {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 3px 16px;
+    border-radius: 20px;
+    background: rgba(200, 50, 50, 0.15);
+    border: 1px solid rgba(200, 60, 60, 0.2);
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+[data-theme="blue"] .map-card .card-body .danger-tag {
+    background: rgba(60, 120, 255, 0.1);
+    border-color: rgba(60, 120, 255, 0.15);
+}
+
+/* ---- Footer sub text ---- */
+.footer-sub {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   RESPONSIVE TWEAKS (page‑specific only)
+   ============================================================ */
+@media (max-width: 768px) {
+    .page-title h2 {
+        font-size: 30px;
+    }
+    .map-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+    .map-card .card-header .icon {
+        font-size: 30px;
+    }
+    .map-card .card-header .title-group h4 {
+        font-size: 19px;
+    }
+    .section-header {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title h2 {
+        font-size: 24px;
+    }
+    .section-header {
+        font-size: 22px;
+    }
+    .map-card {
+        padding: 16px 14px;
+    }
+}

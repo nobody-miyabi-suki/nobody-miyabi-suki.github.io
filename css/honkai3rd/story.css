@@ -1,0 +1,313 @@
+/* ============================================================
+   Honkai Impact 3rd – Story Page
+   Only page‑unique styles. All shared styles come from base.css.
+   ============================================================ */
+
+/* ---- Page‑specific variables (not in shared base) ---- */
+:root {
+    --chapter-bg: rgba(60, 20, 20, 0.25);
+    --chapter-border: rgba(180, 60, 60, 0.12);
+    --chapter-hover-border: rgba(200, 70, 70, 0.3);
+    --intro-bg: rgba(60, 20, 20, 0.3);
+    --intro-border: #c0392b;
+    --intro-strong: #ffb0b0;
+    --chapter-number-color: #ff6b6b;
+    --chapter-number-bg: rgba(200, 50, 50, 0.15);
+    --chapter-number-border: rgba(180, 60, 60, 0.2);
+    --sub-title-color: #c0a8a8;
+    --chapter-p-color: #c8b0b0;
+    --region-tag-bg: rgba(200, 50, 50, 0.1);
+    --region-tag-border: rgba(180, 60, 60, 0.15);
+    --region-tag-color: #dbb8b8;
+    --story-img-shadow: rgba(150, 30, 30, 0.3);
+    --story-img-border: rgba(180, 60, 60, 0.2);
+    --download-bg: rgba(60, 20, 20, 0.25);
+    --download-border: rgba(180, 60, 60, 0.15);
+}
+
+[data-theme="blue"] {
+    --chapter-bg: rgba(60, 120, 255, 0.06);
+    --chapter-border: rgba(60, 120, 255, 0.12);
+    --chapter-hover-border: rgba(60, 120, 255, 0.25);
+    --intro-bg: rgba(60, 120, 255, 0.08);
+    --intro-border: #3a6aaa;
+    --intro-strong: #80b0ff;
+    --chapter-number-color: #6a9aff;
+    --chapter-number-bg: rgba(60, 120, 255, 0.12);
+    --chapter-number-border: rgba(60, 120, 255, 0.2);
+    --sub-title-color: #8a9ac0;
+    --chapter-p-color: #a0b0c8;
+    --region-tag-bg: rgba(60, 120, 255, 0.08);
+    --region-tag-border: rgba(60, 120, 255, 0.15);
+    --region-tag-color: #8a9ac0;
+    --story-img-shadow: rgba(20, 60, 180, 0.25);
+    --story-img-border: rgba(60, 120, 255, 0.2);
+    --download-bg: rgba(60, 120, 255, 0.06);
+    --download-border: rgba(60, 120, 255, 0.1);
+}
+
+/* ---- Page title (already in pages.css, but we keep our custom title) ---- */
+.page-title {
+    text-align: center;
+    padding: 50px 20px 30px 20px;
+    background: var(--page-title-bg);
+    border-bottom: 2px solid var(--border-light);
+}
+.page-title h2 {
+    font-size: 44px;
+    color: var(--text-heading);
+    text-shadow: 0 0 30px var(--shadow-color);
+}
+.page-title h2 span {
+    color: var(--text-heading-span);
+}
+.page-title p {
+    color: var(--text-secondary);
+    font-size: 18px;
+    margin-top: 8px;
+    letter-spacing: 1px;
+}
+
+/* ---- Content sections ---- */
+.content-section {
+    padding: 50px 30px;
+    background: var(--quick-nav-bg);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ---- Story intro ---- */
+.story-intro {
+    background: var(--intro-bg);
+    padding: 30px;
+    border-radius: 18px;
+    border-left: 6px solid var(--intro-border);
+    margin-bottom: 50px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+}
+.story-intro .intro-text {
+    flex: 2;
+    min-width: 280px;
+}
+.story-intro .intro-text p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: var(--text-secondary);
+}
+.story-intro .intro-text strong {
+    color: var(--intro-strong);
+}
+.story-intro .intro-image {
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+}
+.story-intro .intro-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    border: 2px solid var(--story-img-border);
+    box-shadow: 0 10px 40px var(--story-img-shadow);
+    transition: all 0.3s;
+}
+.story-intro .intro-image img:hover {
+    transform: scale(1.02);
+}
+
+/* ---- Chapters ---- */
+.chapter {
+    background: var(--chapter-bg);
+    backdrop-filter: blur(4px);
+    padding: 25px 30px;
+    border-radius: 16px;
+    border: 1px solid var(--chapter-border);
+    margin-bottom: 30px;
+    transition: all 0.3s;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: flex-start;
+}
+.chapter:hover {
+    border-color: var(--chapter-hover-border);
+    transform: translateX(6px);
+}
+.chapter .chapter-text {
+    flex: 2;
+    min-width: 260px;
+}
+.chapter .chapter-text .chapter-number {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--chapter-number-color);
+    background: var(--chapter-number-bg);
+    padding: 2px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--chapter-number-border);
+    margin-bottom: 8px;
+}
+.chapter .chapter-text h3 {
+    font-size: 28px;
+    color: var(--text-heading);
+    margin-bottom: 4px;
+}
+.chapter .chapter-text .sub-title {
+    font-size: 16px;
+    color: var(--sub-title-color);
+    font-style: italic;
+    margin-bottom: 12px;
+}
+.chapter .chapter-text p {
+    color: var(--chapter-p-color);
+    line-height: 1.8;
+    font-size: 16px;
+}
+.chapter .chapter-text .region-tag {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 4px 18px;
+    background: var(--region-tag-bg);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--region-tag-color);
+    border: 1px solid var(--region-tag-border);
+}
+.chapter .chapter-image {
+    flex: 1;
+    min-width: 180px;
+    max-width: 280px;
+}
+.chapter .chapter-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    border: 2px solid var(--story-img-border);
+    box-shadow: 0 8px 30px var(--story-img-shadow);
+    transition: all 0.3s;
+}
+.chapter .chapter-image img:hover {
+    transform: scale(1.03);
+}
+
+/* ---- Download section ---- */
+.download-section {
+    margin-top: 50px;
+    padding: 30px;
+    background: var(--download-bg);
+    border-radius: 18px;
+    border: 1px solid var(--download-border);
+}
+.download-section h3 {
+    font-size: 28px;
+    color: var(--text-heading);
+    text-align: center;
+    margin-bottom: 8px;
+}
+.download-section .download-desc {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.download-item {
+    background: var(--bg-card);
+    padding: 18px 16px;
+    border-radius: 14px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s;
+}
+.download-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-color);
+    box-shadow: 0 8px 30px var(--card-hover-shadow);
+}
+.download-item .icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 6px;
+}
+.download-item h5 {
+    color: var(--text-heading);
+    font-size: 16px;
+}
+.download-item p {
+    color: var(--text-muted);
+    font-size: 13px;
+    margin: 4px 0 10px 0;
+}
+.download-item .btn-download {
+    display: inline-block;
+    padding: 6px 24px;
+    background: var(--btn-primary-bg);
+    color: white;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: all 0.3s;
+    border: 1px solid var(--badge-border);
+}
+.download-item .btn-download:hover {
+    background: var(--btn-primary-hover);
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+/* ---- Footer sub text ---- */
+.footer-sub {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   RESPONSIVE TWEAKS (page‑specific only)
+   ============================================================ */
+@media (max-width: 768px) {
+    .page-title h2 {
+        font-size: 30px;
+    }
+    .chapter {
+        padding: 18px 16px;
+    }
+    .chapter .chapter-text h3 {
+        font-size: 22px;
+    }
+    .chapter .chapter-image {
+        max-width: 100%;
+    }
+    .story-intro {
+        padding: 18px;
+    }
+    .story-intro .intro-text p {
+        font-size: 16px;
+    }
+    .story-intro .intro-image {
+        max-width: 100%;
+    }
+    .download-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title h2 {
+        font-size: 24px;
+    }
+    .download-grid {
+        grid-template-columns: 1fr;
+    }
+    .download-section {
+        padding: 18px;
+    }
+}

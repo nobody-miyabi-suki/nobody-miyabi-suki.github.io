@@ -1,0 +1,436 @@
+{
+  "kiana-void": {
+    "name": "Kiana Kaslana (Void Drifter)",
+    "faction": "Schicksal",
+    "element": "Physical",
+    "type": "Psychic",
+    "title": "Void Drifter",
+    "bioSub": "The girl who carries the will of the Void.",
+    "description": "Kiana in her Void Drifter battlesuit, wielding the power of the Void. She is a fierce warrior who fights for humanity.",
+    "image": "kiana-void.jpg",
+    "bioImage": "kiana-void-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "S-Rank" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "⚔️ Physical" },
+      { "label": "Type", "value": "🔮 Psychic" }
+    ],
+    "features": [
+      { "icon": "🌌", "title": "Void Power", "desc": "Deals Physical DMG with the power of the Void, capable of teleporting." },
+      { "icon": "⚡", "title": "Combo", "desc": "Her combo attacks deal additional Void damage." }
+    ],
+    "bioContent": [
+      "Kiana's Void Drifter battlesuit represents her acceptance of the Void within her. She uses this power to protect her friends.",
+      "She is a symbol of hope for humanity."
+    ],
+    "skills": [
+      { "icon": "⚔️", "name": "Void Slash", "type": "Basic ATK", "desc": "Deals Physical DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🌌", "name": "Void Shift", "type": "Skill", "desc": "Teleports to a target and deals Physical DMG equal to 200% of ATK." },
+      { "icon": "⭐", "name": "Void Burst", "type": "Ultimate", "desc": "Deals Physical DMG equal to 600% of ATK to all enemies." }
+    ],
+    "gallery": ["🌌", "⚔️", "✨"]
+  },
+  "kiana-flamescion": {
+    "name": "Kiana Kaslana (Herrscher of Flamescion)",
+    "faction": "Schicksal",
+    "element": "Fire",
+    "type": "Psychic",
+    "title": "Herrscher of Flamescion",
+    "bioSub": "The girl who inherited the will of the flame.",
+    "description": "Kiana's ultimate form as the Herrscher of Flamescion, wielding the power of fire and the legacy of Himeko.",
+    "image": "kiana-flamescion.jpg",
+    "bioImage": "kiana-flamescion-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "S-Rank" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "🔥 Fire" },
+      { "label": "Type", "value": "🔮 Psychic" }
+    ],
+    "features": [
+      { "icon": "🔥", "title": "Flame DMG", "desc": "Deals massive fire damage, excelling in sustained combat." },
+      { "icon": "🌌", "title": "Herrscher Power", "desc": "Unlocks her true Herrscher form, increasing all stats." }
+    ],
+    "bioContent": [
+      "Kiana Kaslana is a carefree girl who hides a deep pain. She was separated from her father at a young age and raised by the Schicksal organization.",
+      "As she uncovers the truth about the Honkai and her own heritage, she becomes a symbol of hope for humanity."
+    ],
+    "skills": [
+      { "icon": "🔥", "name": "Blazing Strike", "type": "Basic ATK", "desc": "Deals Fire DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💥", "name": "Flame Charge", "type": "Combo", "desc": "Deals Fire DMG equal to 250% of ATK to all enemies, igniting them for 3 seconds." },
+      { "icon": "⭐", "name": "Finality", "type": "Ultimate", "desc": "Deals Fire DMG equal to 600% of ATK to all enemies, and grants Herrscher form for 10 seconds." }
+    ],
+    "gallery": ["🔥", "⚔️", "🌅"]
+  },
+  "mei-thunder": {
+    "name": "Raiden Mei (Herrscher of Thunder)",
+    "faction": "Schicksal",
+    "element": "Lightning",
+    "type": "Bio",
+    "title": "Herrscher of Thunder",
+    "bioSub": "The silent swordswoman with a storm within.",
+    "description": "Raiden Mei is a gentle girl who wields the power of lightning. She is a skilled swordswoman and a loyal friend to Kiana.",
+    "image": "mei-thunder.jpg",
+    "bioImage": "mei-thunder-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "S-Rank" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "⚡ Lightning" },
+      { "label": "Type", "value": "🧬 Bio" }
+    ],
+    "features": [
+      { "icon": "⚡", "title": "Lightning DMG", "desc": "Deals high lightning damage with quick attacks." },
+      { "icon": "🌸", "title": "Sakura's Grace", "desc": "Increases attack speed and crit rate when in Herrscher form." }
+    ],
+    "bioContent": [
+      "Mei was once a normal girl who was forced to become a Herrscher. She struggles to control her power, but finds strength in her bonds with Kiana and Bronya.",
+      "Her calm demeanor hides a fierce determination to protect those she loves."
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Lightning Slash", "type": "Basic ATK", "desc": "Deals Lightning DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🌩️", "name": "Thunder Call", "type": "Skill", "desc": "Deals Lightning DMG equal to 200% of ATK to all enemies, with a 70% chance to stun for 2 seconds." },
+      { "icon": "⚡", "name": "Herrscher's Wrath", "type": "Ultimate", "desc": "Deals Lightning DMG equal to 500% of ATK to all enemies, and enters Herrscher form for 12 seconds." }
+    ],
+    "gallery": ["🌸", "⚔️", "🌩️"]
+  },
+  "bronya-reason": {
+    "name": "Bronya Zaychik (Herrscher of Reason)",
+    "faction": "Schicksal",
+    "element": "Imaginary",
+    "type": "Mecha",
+    "title": "Herrscher of Reason",
+    "bioSub": "The girl who defied logic.",
+    "description": "Bronya is a genius hacker and a powerful Herrscher of Reason. She uses her skills to protect her friends and fight against the Honkai.",
+    "image": "bronya-reason.jpg",
+    "bioImage": "bronya-reason-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "S-Rank" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "🌀 Imaginary" },
+      { "label": "Type", "value": "🤖 Mecha" }
+    ],
+    "features": [
+      { "icon": "🤖", "title": "Mecha Tech", "desc": "Uses powerful mecha battlesuits to dominate the battlefield." },
+      { "icon": "🖥️", "title": "Hacking", "desc": "Can disable enemy abilities and increase ally damage." }
+    ],
+    "bioContent": [
+      "Bronya was once a soldier of the Soviet Union, but after a traumatic event, she became a loyal friend to Kiana and Mei.",
+      "As the Herrscher of Reason, she can create any weapon she imagines, making her a versatile fighter."
+    ],
+    "skills": [
+      { "icon": "🤖", "name": "Mecha Strike", "type": "Basic ATK", "desc": "Deals Physical DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💥", "name": "Project Bunny", "type": "Skill", "desc": "Deals Imaginary DMG equal to 200% of ATK to all enemies, with a 60% chance to reduce enemy DEF by 20%." },
+      { "icon": "🌌", "name": "Reason Unleashed", "type": "Ultimate", "desc": "Deals Imaginary DMG equal to 450% of ATK to all enemies, and summons Project Bunny to assist for 10 seconds." }
+    ],
+    "gallery": ["🤖", "💻", "🌌"]
+  },
+  "bronya-silverwing": {
+    "name": "Bronya Zaychik (Silverwing: N-EX)",
+    "faction": "Schicksal",
+    "element": "Ice",
+    "type": "Mecha",
+    "title": "Silverwing",
+    "bioSub": "The future of mecha technology.",
+    "description": "Bronya's Silverwing battlesuit is a state-of-the-art mecha that uses ice-based attacks. It represents the pinnacle of Schicksal's engineering.",
+    "image": "bronya-silverwing.jpg",
+    "bioImage": "bronya-silverwing-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "S-Rank" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "❄️ Ice" },
+      { "label": "Type", "value": "🤖 Mecha" }
+    ],
+    "features": [
+      { "icon": "❄️", "title": "Ice DMG", "desc": "Deals Ice damage with AoE attacks." },
+      { "icon": "🛡️", "title": "Shield", "desc": "Grants a shield to herself and boosts attack." }
+    ],
+    "bioContent": [
+      "The Silverwing battlesuit was designed by Bronya herself, incorporating her experiences as the Herrscher of Reason. It is a testament to her genius.",
+      "She uses it to protect her friends and defeat the Honkai."
+    ],
+    "skills": [
+      { "icon": "❄️", "name": "Ice Bolt", "type": "Basic ATK", "desc": "Deals Ice DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🛡️", "name": "Frozen Shield", "type": "Skill", "desc": "Deals Ice DMG equal to 180% of ATK to all enemies and grants a shield to Bronya equal to 30% of ATK." },
+      { "icon": "💥", "name": "Silverwing Blast", "type": "Ultimate", "desc": "Deals Ice DMG equal to 400% of ATK to all enemies and freezes them for 3 seconds." }
+    ],
+    "gallery": ["❄️", "🤖", "⚙️"]
+  },
+  "seele-stygian": {
+    "name": "Seele Vollerei (Stygian Nymph)",
+    "faction": "Schicksal",
+    "element": "Quantum",
+    "type": "Quantum",
+    "title": "Stygian Nymph",
+    "bioSub": "The girl who dances between worlds.",
+    "description": "Seele's Stygian Nymph battlesuit allows her to control quantum energy. She moves through reality like a shadow.",
+    "image": "seele-stygian.jpg",
+    "bioImage": "seele-stygian-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "S-Rank" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "🌀 Quantum" },
+      { "label": "Type", "value": "🌀 Quantum" }
+    ],
+    "features": [
+      { "icon": "🌀", "title": "Quantum DMG", "desc": "Deals Quantum damage with high mobility." },
+      { "icon": "🌊", "title": "Sea of Quanta", "desc": "Can phase through enemy attacks." }
+    ],
+    "bioContent": [
+      "Seele is a gentle girl who carries the weight of a dark past. She is inseparable from the dark personality known as 'Dark Seele'.",
+      "Her Stygian Nymph battlesuit allows her to harness the power of the Sea of Quanta."
+    ],
+    "skills": [
+      { "icon": "🌀", "name": "Quantum Slash", "type": "Basic ATK", "desc": "Deals Quantum DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🌊", "name": "Phantom Shift", "type": "Skill", "desc": "Deals Quantum DMG equal to 200% of ATK to all enemies, and phasing through attacks." },
+      { "icon": "💥", "name": "Abyss Echo", "type": "Ultimate", "desc": "Deals Quantum DMG equal to 500% of ATK to all enemies and creates a quantum rift that deals additional damage." }
+    ],
+    "gallery": ["🌀", "🌊", "🌑"]
+  },
+  "seele-rebirth": {
+    "name": "Seele Vollerei (Herrscher of Rebirth)",
+    "faction": "Schicksal",
+    "element": "Quantum",
+    "type": "Quantum",
+    "title": "Herrscher of Rebirth",
+    "bioSub": "The one who brings life to the dead.",
+    "description": "Seele's Herrscher of Rebirth form gives her the power to revive the dead and control quantum energy. She is a formidable force.",
+    "image": "seele-rebirth.jpg",
+    "bioImage": "seele-rebirth-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "S-Rank" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "🌀 Quantum" },
+      { "label": "Type", "value": "🌀 Quantum" }
+    ],
+    "features": [
+      { "icon": "🌀", "title": "Quantum DMG", "desc": "Deals massive Quantum damage." },
+      { "icon": "🔄", "title": "Rebirth", "desc": "Can revive fallen allies under certain conditions." }
+    ],
+    "bioContent": [
+      "Seele's true power awakens as the Herrscher of Rebirth. She can manipulate quantum energy to revive the dead and reshape reality.",
+      "She is a force of nature, but still retains her kind heart."
+    ],
+    "skills": [
+      { "icon": "🌀", "name": "Quantum Burst", "type": "Basic ATK", "desc": "Deals Quantum DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🔄", "name": "Rebirth Wave", "type": "Skill", "desc": "Deals Quantum DMG equal to 220% of ATK to all enemies and heals allies for 20% of damage dealt." },
+      { "icon": "💥", "name": "Eternal Return", "type": "Ultimate", "desc": "Deals Quantum DMG equal to 600% of ATK to all enemies and revives one fallen ally with 50% HP." }
+    ],
+    "gallery": ["🌀", "🔄", "🌸"]
+  },
+  "fu-hua-sentience": {
+    "name": "Fu Hua (Herrscher of Sentience)",
+    "faction": "Schicksal",
+    "element": "Physical",
+    "type": "Bio",
+    "title": "Herrscher of Sentience",
+    "bioSub": "The warrior who masters the mind.",
+    "description": "Fu Hua is the Herrscher of Sentience, a master of martial arts and mental manipulation. She fights to protect humanity.",
+    "image": "fu-hua-sentience.jpg",
+    "bioImage": "fu-hua-sentience-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "S-Rank" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "⚔️ Physical" },
+      { "label": "Type", "value": "🧬 Bio" }
+    ],
+    "features": [
+      { "icon": "🧠", "title": "Sentience", "desc": "Manipulates enemies' minds and deals Physical damage." },
+      { "icon": "🥊", "title": "Martial Arts", "desc": "High speed combos and critical hits." }
+    ],
+    "bioContent": [
+      "Fu Hua is a legendary warrior who has lived for thousands of years. She is a master of martial arts and the Herrscher of Sentience.",
+      "She fights to protect humanity from the Honkai, using her mental powers to outsmart her enemies."
+    ],
+    "skills": [
+      { "icon": "🥊", "name": "Fist of the Phoenix", "type": "Basic ATK", "desc": "Deals Physical DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🧠", "name": "Mind Over Matter", "type": "Skill", "desc": "Deals Physical DMG equal to 200% of ATK to all enemies and reduces their ATK by 20% for 3 seconds." },
+      { "icon": "💥", "name": "Sentience Unleashed", "type": "Ultimate", "desc": "Deals Physical DMG equal to 500% of ATK to all enemies and increases all allies' CRIT Rate by 20% for 10 seconds." }
+    ],
+    "gallery": ["🥊", "🧠", "🔥"]
+  },
+  "fu-hua-phoenix": {
+    "name": "Fu Hua (Phoenix)",
+    "faction": "Schicksal",
+    "element": "Fire",
+    "type": "Psychic",
+    "title": "Phoenix",
+    "bioSub": "The fire that burns eternal.",
+    "description": "Fu Hua's Phoenix battlesuit channels her inner fire, dealing powerful Pyro damage. She is a force of nature.",
+    "image": "fu-hua-phoenix.jpg",
+    "bioImage": "fu-hua-phoenix-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "A-Rank" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "🔥 Fire" },
+      { "label": "Type", "value": "🔮 Psychic" }
+    ],
+    "features": [
+      { "icon": "🔥", "title": "Fire DMG", "desc": "Deals Fire damage with AoE attacks." },
+      { "icon": "🕊️", "title": "Rebirth", "desc": "Gains a second life when defeated." }
+    ],
+    "bioContent": [
+      "Fu Hua's Phoenix battlesuit represents her mastery over fire. She fights with grace and fury, burning away the darkness.",
+      "She is a symbol of hope and resilience."
+    ],
+    "skills": [
+      { "icon": "🔥", "name": "Flame Kick", "type": "Basic ATK", "desc": "Deals Fire DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💥", "name": "Phoenix Wing", "type": "Skill", "desc": "Deals Fire DMG equal to 180% of ATK to all enemies and applies Burn for 3 seconds." },
+      { "icon": "🕊️", "name": "Rebirth Flame", "type": "Ultimate", "desc": "Deals Fire DMG equal to 350% of ATK to all enemies and revives Fu Hua with 20% HP if she is defeated." }
+    ],
+    "gallery": ["🔥", "🕊️", "🌟"]
+  },
+  "theresa-celestial": {
+    "name": "Theresa Apocalypse (Celestial Hymn)",
+    "faction": "Schicksal",
+    "element": "Physical",
+    "type": "Psychic",
+    "title": "Celestial Hymn",
+    "bioSub": "The song of the heavens.",
+    "description": "Theresa is a kind-hearted leader of Schicksal. Her Celestial Hymn battlesuit uses holy powers to smite evil.",
+    "image": "theresa-celestial.jpg",
+    "bioImage": "theresa-celestial-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "S-Rank" },
+      { "label": "Role", "value": "💪 Support" },
+      { "label": "Element", "value": "⚔️ Physical" },
+      { "label": "Type", "value": "🔮 Psychic" }
+    ],
+    "features": [
+      { "icon": "🎵", "title": "Hymn", "desc": "Buffes allies and deals Physical damage." },
+      { "icon": "🛡️", "title": "Shield", "desc": "Protects allies with holy shields." }
+    ],
+    "bioContent": [
+      "Theresa is the principal of St. Freya Academy and a powerful Valkyrie. She is known for her compassion and her unwavering faith.",
+      "She uses her holy powers to protect the innocent."
+    ],
+    "skills": [
+      { "icon": "🎵", "name": "Holy Note", "type": "Basic ATK", "desc": "Deals Physical DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🛡️", "name": "Divine Shield", "type": "Skill", "desc": "Grants a shield to all allies equal to 20% of DEF for 5 seconds and increases their ATK by 15%." },
+      { "icon": "💥", "name": "Celestial Chant", "type": "Ultimate", "desc": "Deals Physical DMG equal to 300% of ATK to all enemies and heals all allies for 30% of ATK." }
+    ],
+    "gallery": ["🎵", "🛡️", "🌟"]
+  },
+  "rita-starchasm": {
+    "name": "Rita Rossweisse (Starchasm Nyx)",
+    "faction": "Schicksal",
+    "element": "Quantum",
+    "type": "Quantum",
+    "title": "Starchasm Nyx",
+    "bioSub": "The maiden of the void.",
+    "description": "Rita is an S-rank Valkyrie with a mysterious past. Her Starchasm Nyx battlesuit wields the power of the void.",
+    "image": "rita-starchasm.jpg",
+    "bioImage": "rita-starchasm-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "S-Rank" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "🌀 Quantum" },
+      { "label": "Type", "value": "🌀 Quantum" }
+    ],
+    "features": [
+      { "icon": "🌀", "title": "Quantum DMG", "desc": "Deals Quantum damage with speed and precision." },
+      { "icon": "🌑", "title": "Void", "desc": "Can reduce enemy resistance and increase her own damage." }
+    ],
+    "bioContent": [
+      "Rita is a refined and elegant Valkyrie who serves Schicksal. She is loyal to the Overseer and is a master of void-based combat.",
+      "She is always calm and composed, even in the heat of battle."
+    ],
+    "skills": [
+      { "icon": "🌀", "name": "Void Slice", "type": "Basic ATK", "desc": "Deals Quantum DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🌑", "name": "Nyx Shift", "type": "Skill", "desc": "Deals Quantum DMG equal to 200% of ATK to all enemies, with a 50% chance to reduce enemy DEF by 20%." },
+      { "icon": "💥", "name": "Starless Night", "type": "Ultimate", "desc": "Deals Quantum DMG equal to 500% of ATK to all enemies and reduces their resistance by 30% for 8 seconds." }
+    ],
+    "gallery": ["🌀", "🌑", "🌙"]
+  },
+  "rita-umbral": {
+    "name": "Rita Rossweisse (Umbral Rose)",
+    "faction": "Schicksal",
+    "element": "Physical",
+    "type": "Mecha",
+    "title": "Umbral Rose",
+    "bioSub": "The shadow of the battlefield.",
+    "description": "Rita's Umbral Rose battlesuit focuses on melee combat and physical damage, using her scythe to cut down enemies.",
+    "image": "rita-umbral.jpg",
+    "bioImage": "rita-umbral-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "A-Rank" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "⚔️ Physical" },
+      { "label": "Type", "value": "🤖 Mecha" }
+    ],
+    "features": [
+      { "icon": "⚔️", "title": "Physical DMG", "desc": "Deals Physical damage with a scythe." },
+      { "icon": "🌹", "title": "Rose's Grace", "desc": "Increases ATK and CRIT Rate when dodging." }
+    ],
+    "bioContent": [
+      "Rita's Umbral Rose battlesuit is a graceful yet deadly combat style. She wields a scythe with deadly precision.",
+      "She is known for her elegance and efficiency in battle."
+    ],
+    "skills": [
+      { "icon": "⚔️", "name": "Scythe Slash", "type": "Basic ATK", "desc": "Deals Physical DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🌹", "name": "Rapid Rose", "type": "Skill", "desc": "Deals Physical DMG equal to 180% of ATK to all enemies and increases CRIT Rate by 15% for 3 seconds." },
+      { "icon": "💥", "name": "Umbral Finale", "type": "Ultimate", "desc": "Deals Physical DMG equal to 400% of ATK to all enemies and increases ATK by 20% for 10 seconds." }
+    ],
+    "gallery": ["⚔️", "🌹", "🖤"]
+  },
+  "durandal-dea": {
+    "name": "Durandal (Dea Anchora)",
+    "faction": "Schicksal",
+    "element": "Physical",
+    "type": "Psychic",
+    "title": "Dea Anchora",
+    "bioSub": "The goddess of the battlefield.",
+    "description": "Durandal is an S-rank Valkyrie who wields the power of the Divine Key. Her Dea Anchora battlesuit is the pinnacle of Schicksal's technology.",
+    "image": "durandal-dea.jpg",
+    "bioImage": "durandal-dea-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "S-Rank" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "⚔️ Physical" },
+      { "label": "Type", "value": "🔮 Psychic" }
+    ],
+    "features": [
+      { "icon": "⚜️", "title": "Divine Power", "desc": "Deals Physical damage with divine energy." },
+      { "icon": "🛡️", "title": "Shield", "desc": "Provides shields and boosts damage." }
+    ],
+    "bioContent": [
+      "Durandal is one of the most powerful Valkyries in Schicksal. She carries the burden of leadership and fights with unwavering resolve.",
+      "Her Dea Anchora battlesuit is named after the goddess of justice."
+    ],
+    "skills": [
+      { "icon": "⚜️", "name": "Divine Strike", "type": "Basic ATK", "desc": "Deals Physical DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🛡️", "name": "Anchora Shield", "type": "Skill", "desc": "Grants a shield to all allies equal to 25% of DEF and deals Physical DMG equal to 150% of ATK to all enemies." },
+      { "icon": "💥", "name": "Goddess's Judgement", "type": "Ultimate", "desc": "Deals Physical DMG equal to 600% of ATK to all enemies and increases all allies' ATK by 30% for 15 seconds." }
+    ],
+    "gallery": ["⚜️", "🛡️", "🌟"]
+  },
+  "elysia-ego": {
+    "name": "Elysia (Herrscher of Human: Ego)",
+    "faction": "Schicksal",
+    "element": "Imaginary",
+    "type": "Psychic",
+    "title": "Herrscher of Human: Ego",
+    "bioSub": "The girl who became a legend.",
+    "description": "Elysia is the Herrscher of Human: Ego, a powerful Valkyrie who fights for the freedom of humanity.",
+    "image": "elysia-ego.jpg",
+    "bioImage": "elysia-ego-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "S-Rank" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "🌀 Imaginary" },
+      { "label": "Type", "value": "🔮 Psychic" }
+    ],
+    "features": [
+      { "icon": "🦋", "title": "Imaginary DMG", "desc": "Deals Imaginary damage with graceful attacks." },
+      { "icon": "💖", "title": "Ego", "desc": "Increases damage based on her own HP." }
+    ],
+    "bioContent": [
+      "Elysia is a legendary figure who sacrificed herself to save humanity. Her Ego battlesuit represents the best of humanity.",
+      "She is a symbol of hope and selflessness."
+    ],
+    "skills": [
+      { "icon": "🦋", "name": "Ego Strike", "type": "Basic ATK", "desc": "Deals Imaginary DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💖", "name": "Ego Burst", "type": "Skill", "desc": "Deals Imaginary DMG equal to 220% of ATK to all enemies and increases damage by 10% for each 10% HP lost." },
+      { "icon": "💥", "name": "Final Ego", "type": "Ultimate", "desc": "Deals Imaginary DMG equal to 550% of ATK to all enemies and revives all fallen allies with 30% HP." }
+    ],
+    "gallery": ["🦋", "💖", "🌟"]
+  }
+}

@@ -4,171 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genshin · Map</title>
-    <!-- استایل‌های عمومی (هدر، منو، فوتر، دکمه‌ی تغییر تم) -->
+    <link rel="icon" href="/img/icons/favicon.ico">
+
+    <!-- Shared Miyabi‑Suki CSS -->
     <link rel="stylesheet" href="/css/base.css">
-    <!-- استایل‌های صفحات داخلی -->
     <link rel="stylesheet" href="/css/pages.css">
-    <!-- استایل‌های اختصاصی این صفحه (نقشه) -->
-     <link rel="icon" href="/img/icons/favicon.ico">
-    <style>
-        /* ============================================================
-           استایل‌های اختصاصی MAP
-           ============================================================ */
-        :root {
-            --region-border: rgba(180, 60, 60, 0.15);
-            --region-bg: rgba(60, 20, 20, 0.35);
-            --region-sub-color: #c0a8a8;
-            --region-p-color: #b09898;
-            --element-tag-bg: rgba(200, 50, 50, 0.15);
-            --element-tag-border: rgba(180, 60, 60, 0.2);
-            --element-tag-color: #dbb8b8;
-            --list-bg: rgba(0, 0, 0, 0.2);
-        }
+    <link rel="stylesheet" href="/css/header-auth.css">
 
-        [data-theme="blue"] {
-            --region-border: rgba(60, 120, 255, 0.15);
-            --region-bg: rgba(60, 120, 255, 0.08);
-            --region-sub-color: #8a9ac0;
-            --region-p-color: #8a9ab0;
-            --element-tag-bg: rgba(60, 120, 255, 0.12);
-            --element-tag-border: rgba(60, 120, 255, 0.2);
-            --element-tag-color: #8a9ac0;
-            --list-bg: rgba(0, 0, 0, 0.2);
-        }
-
-        .region-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            margin-top: 30px;
-        }
-
-        .region-card {
-            background: var(--region-bg);
-            backdrop-filter: blur(8px);
-            padding: 30px 25px 25px 25px;
-            border-radius: 18px;
-            border: 1px solid var(--region-border);
-            transition: all 0.4s;
-        }
-
-        .region-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-color);
-            box-shadow: 0 12px 40px var(--card-shadow);
-        }
-
-        .region-header {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-        }
-
-        .region-header .icon {
-            font-size: 48px;
-            line-height: 1;
-        }
-
-        .region-header .region-title {
-            flex: 1;
-        }
-
-        .region-header .region-title h4 {
-            color: var(--text-heading);
-            font-size: 28px;
-            transition: color 0.3s ease;
-        }
-
-        .region-header .region-title .sub {
-            color: var(--region-sub-color);
-            font-size: 16px;
-            font-style: italic;
-            transition: color 0.3s ease;
-        }
-
-        .region-body {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .region-body .description {
-            color: var(--region-p-color);
-            font-size: 15px;
-            line-height: 1.8;
-            transition: color 0.3s ease;
-        }
-
-        .region-body .description strong {
-            color: var(--text-heading-span);
-            transition: color 0.3s ease;
-        }
-
-        .region-body .sub-regions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 12px;
-            margin-top: 4px;
-        }
-
-        .region-body .sub-regions .sub-tag {
-            display: inline-block;
-            padding: 4px 14px;
-            border-radius: 20px;
-            background: var(--list-bg);
-            border: 1px solid var(--border-light);
-            font-size: 13px;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-        }
-
-        .region-body .element-tag {
-            display: inline-block;
-            margin-top: 4px;
-            padding: 4px 18px;
-            border-radius: 20px;
-            background: var(--element-tag-bg);
-            border: 1px solid var(--element-tag-border);
-            font-size: 13px;
-            color: var(--element-tag-color);
-            transition: all 0.3s ease;
-            align-self: flex-start;
-        }
-
-        @media (max-width: 768px) {
-            .region-header .region-title h4 {
-                font-size: 22px;
-            }
-            .region-header .icon {
-                font-size: 38px;
-            }
-            .region-card {
-                padding: 20px 18px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .region-header {
-                gap: 12px;
-            }
-            .region-header .icon {
-                font-size: 32px;
-            }
-            .region-header .region-title h4 {
-                font-size: 19px;
-            }
-            .region-header .region-title .sub {
-                font-size: 14px;
-            }
-        }
-    </style>
+    <!-- Page‑specific CSS (unique to this page) -->
+    <link rel="stylesheet" href="/css/genshin/map.css">
 </head>
 <body>
 
     <!-- ==========================================================
-    THEME TOGGLE
+    THEME TOGGLE (shared, placed outside header)
     ========================================================== -->
     <div class="theme-toggle-wrapper">
         <span class="theme-label" id="themeLabel">🔴 Red</span>
@@ -185,9 +34,14 @@
             <h1>✦ <span>Genshin</span> Impact ✦</h1>
             <p>Map of Teyvat</p>
             <a href="/index.html" class="back-link">← Back to Home</a>
+            <div id="authControls"></div>
         </div>
 
         <nav class="menu">
+            <button class="mobile-games-toggle" id="mobileGamesToggle">
+                <span>🎮 Games</span>
+                <span class="mobile-games-arrow">▼</span>
+            </button>
             <ul>
                 <!-- Genshin Impact -->
                 <li>
@@ -428,16 +282,19 @@
     </section>
 
     <!-- ==========================================================
-    FOOTER
+    FOOTER (shared styles from base.css)
     ========================================================== -->
     <footer class="footer">
         <p>✦ Made with <span>❤️</span> for Genshin Impact Fans ✦</p>
-        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+        <p class="footer-sub">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT — THEME TOGGLE + ARROW TOGGLE
+    SHARED JAVASCRIPT (auth, theme, mobile menu)
     ========================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/header-auth.js"></script>
     <script src="/js/script.js"></script>
 
 </body>

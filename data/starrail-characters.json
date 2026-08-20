@@ -1,0 +1,838 @@
+{
+  "trailblazer-physical": {
+    "name": "Trailblazer (Physical)",
+    "faction": "Astral Express",
+    "element": "Physical",
+    "path": "Destruction",
+    "title": "The Nameless",
+    "bioSub": "A stowaway from beyond the stars.",
+    "description": "The Trailblazer wields a baseball bat and fights with raw physical power. They are the key to the Stellaron's mystery.",
+    "image": "trailblazer-physical.jpg",
+    "bioImage": "trailblazer-physical-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "⚔️ Physical" },
+      { "label": "Path", "value": "💥 Destruction" }
+    ],
+    "features": [
+      { "icon": "⚔️", "title": "Physical DMG", "desc": "Strong single-target and AoE physical attacks." },
+      { "icon": "⭐", "title": "Stellaron Power", "desc": "Can unleash powerful blast attacks." }
+    ],
+    "bioContent": [
+      "The Trailblazer woke up with no memory aboard the Astral Express. They are the key to the Stellaron crisis and are determined to find their past.",
+      "Their journey takes them across the cosmos, meeting new allies and facing impossible odds."
+    ],
+    "skills": [
+      { "icon": "⚔️", "name": "Bat Swipe", "type": "Basic ATK", "desc": "Deals Physical DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💥", "name": "Starbreaker", "type": "Skill", "desc": "Deals Physical DMG equal to 200% of ATK to all enemies." },
+      { "icon": "⭐", "name": "Stellaron Blast", "type": "Ultimate", "desc": "Deals Physical DMG equal to 500% of ATK to all enemies." }
+    ],
+    "gallery": ["⭐", "🚀", "🌌"]
+  },
+  "trailblazer-fire": {
+    "name": "Trailblazer (Fire)",
+    "faction": "Astral Express",
+    "element": "Fire",
+    "path": "Preservation",
+    "title": "The Nameless",
+    "bioSub": "The flames of the Stellaron burn within.",
+    "description": "The Trailblazer wields the power of fire, becoming a guardian who shields their allies.",
+    "image": "trailblazer-fire.jpg",
+    "bioImage": "trailblazer-fire-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "🛡️ Tank/Support" },
+      { "label": "Element", "value": "🔥 Fire" },
+      { "label": "Path", "value": "🛡️ Preservation" }
+    ],
+    "features": [
+      { "icon": "🛡️", "title": "Shield", "desc": "Provides shields to the party and reduces damage taken." },
+      { "icon": "🔥", "title": "Fire DMG", "desc": "Deals fire damage with increased aggro." }
+    ],
+    "bioContent": [
+      "After awakening the power of the Stellaron, the Trailblazer gains the ability to manipulate fire, becoming a stalwart defender."
+    ],
+    "skills": [
+      { "icon": "🔥", "name": "Flame Strike", "type": "Basic ATK", "desc": "Deals Fire DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🛡️", "name": "Guardian's Oath", "type": "Skill", "desc": "Grants a shield to all allies equal to 20% of DEF for 2 turns." },
+      { "icon": "💥", "name": "Blazing Shield", "type": "Ultimate", "desc": "Deals Fire DMG equal to 300% of ATK to all enemies and grants all allies a shield equal to 30% of DEF for 3 turns." }
+    ],
+    "gallery": ["🔥", "🛡️", "🌟"]
+  },
+  "dan-heng": {
+    "name": "Dan Heng",
+    "faction": "Astral Express",
+    "element": "Wind",
+    "path": "Hunt",
+    "title": "Cold Dragon Young",
+    "bioSub": "A quiet guard of the Astral Express.",
+    "description": "A young man who holds a spear and guards the Astral Express. He is reserved and rarely speaks of his past.",
+    "image": "dan-heng.jpg",
+    "bioImage": "dan-heng-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "4-Star" },
+      { "label": "Role", "value": "⚔️ Single Target DPS" },
+      { "label": "Element", "value": "🌪️ Wind" },
+      { "label": "Path", "value": "🐎 Hunt" }
+    ],
+    "features": [
+      { "icon": "🌀", "title": "Wind DMG", "desc": "Deals Wind damage with high multiplier on single targets." },
+      { "icon": "⚡", "title": "Spear of Cloud Piercer", "desc": "Increases DMG dealt to enemies with Wind Shear." }
+    ],
+    "bioContent": [
+      "Dan Heng is a member of the Astral Express crew, serving as a guard. He is always accompanied by his spear, which he wields with great skill.",
+      "Little is known about his past, but he seems to carry a heavy burden. He keeps to himself, but his loyalty to the Express is unwavering."
+    ],
+    "skills": [
+      { "icon": "🌀", "name": "Cloud Piercer", "type": "Basic ATK", "desc": "Deals Wind DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💨", "name": "Wind's Edge", "type": "Skill", "desc": "Deals Wind DMG equal to 220% of ATK to a single enemy, with a 60% chance to apply Wind Shear." },
+      { "icon": "⭐", "name": "Astral Strike", "type": "Ultimate", "desc": "Deals Wind DMG equal to 400% of ATK to a single enemy, with 100% base chance to apply Wind Shear." }
+    ],
+    "gallery": ["🗡️", "🌌", "🏹"]
+  },
+  "march-7th": {
+    "name": "March 7th",
+    "faction": "Astral Express",
+    "element": "Ice",
+    "path": "Preservation",
+    "title": "The Frozen Girl",
+    "bioSub": "A cheerful girl who loves taking photos.",
+    "description": "March 7th is a young girl who was found frozen in space. She is full of energy and loves to document everything with her camera.",
+    "image": "march-7th.jpg",
+    "bioImage": "march-7th-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "4-Star" },
+      { "label": "Role", "value": "🛡️ Tank/Support" },
+      { "label": "Element", "value": "❄️ Ice" },
+      { "label": "Path", "value": "🛡️ Preservation" }
+    ],
+    "features": [
+      { "icon": "❄️", "title": "Ice DMG", "desc": "Freezes enemies and provides shields to allies." },
+      { "icon": "📷", "title": "Photography", "desc": "Increases the party's damage against frozen enemies." }
+    ],
+    "bioContent": [
+      "March 7th woke up with no memory of her past, only the name of the day she was found. She is an enthusiastic photographer and a loyal friend.",
+      "She is always eager to help and bring joy to the crew of the Astral Express."
+    ],
+    "skills": [
+      { "icon": "❄️", "name": "Ice Arrow", "type": "Basic ATK", "desc": "Deals Ice DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🛡️", "name": "Freeze Shield", "type": "Skill", "desc": "Grants a shield to an ally equal to 30% of DEF for 2 turns. When hit, the attacker has a 50% chance to be frozen." },
+      { "icon": "💥", "name": "Glacier Blast", "type": "Ultimate", "desc": "Deals Ice DMG equal to 200% of ATK to all enemies and has a 70% base chance to freeze them for 1 turn." }
+    ],
+    "gallery": ["📷", "❄️", "🌨️"]
+  },
+  "herta": {
+    "name": "Herta",
+    "faction": "Genius Society",
+    "element": "Ice",
+    "path": "Erudition",
+    "title": "The Curious Genius",
+    "bioSub": "A member of the Genius Society, she loves to experiment.",
+    "description": "Herta is a genius researcher who loves to learn and explore. She often appears in the form of a puppet to observe the world.",
+    "image": "herta.jpg",
+    "bioImage": "herta-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "4-Star" },
+      { "label": "Role", "value": "⚔️ AoE DPS" },
+      { "label": "Element", "value": "❄️ Ice" },
+      { "label": "Path", "value": "📚 Erudition" }
+    ],
+    "features": [
+      { "icon": "❄️", "title": "Ice DMG", "desc": "Deals AoE Ice damage with high frequency." },
+      { "icon": "💡", "title": "Curiosity", "desc": "Follow-up attacks are triggered when allies use their ultimate." }
+    ],
+    "bioContent": [
+      "Herta is a member of the Genius Society and the founder of the Herta Space Station. She is endlessly curious and often leaves her own body to observe the world through puppets.",
+      "Her desire for knowledge is insatiable, and she always seeks new discoveries."
+    ],
+    "skills": [
+      { "icon": "❄️", "name": "Ice Shot", "type": "Basic ATK", "desc": "Deals Ice DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💥", "name": "Curious Experiment", "type": "Skill", "desc": "Deals Ice DMG equal to 150% of ATK to all enemies." },
+      { "icon": "⭐", "name": "Genius's Insight", "type": "Ultimate", "desc": "Deals Ice DMG equal to 300% of ATK to all enemies, and increases all allies' ATK by 20% for 2 turns." }
+    ],
+    "gallery": ["📚", "❄️", "🧪"]
+  },
+  "qingque": {
+    "name": "Qingque",
+    "faction": "Xianzhou Luofu",
+    "element": "Quantum",
+    "path": "Erudition",
+    "title": "The Carefree Diviner",
+    "bioSub": "A diviner who hates work and loves games.",
+    "description": "Qingque is a diviner of the Xianzhou Luofu who would rather play mahjong than work. She uses her skill to predict outcomes.",
+    "image": "qingque.jpg",
+    "bioImage": "qingque-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "4-Star" },
+      { "label": "Role", "value": "⚔️ AoE DPS" },
+      { "label": "Element", "value": "🌀 Quantum" },
+      { "label": "Path", "value": "📚 Erudition" }
+    ],
+    "features": [
+      { "icon": "🌀", "title": "Quantum DMG", "desc": "Deals Quantum damage with a chance to Entangle." },
+      { "icon": "🎲", "title": "Mahjong", "desc": "Her skill deals additional damage based on the number of tiles drawn." }
+    ],
+    "bioContent": [
+      "Qingque is a diviner of the Xianzhou Luofu, but she spends most of her time playing mahjong rather than working. She is surprisingly skilled when she focuses.",
+      "She often complains about having to do actual work, but her carefree attitude hides a sharp mind."
+    ],
+    "skills": [
+      { "icon": "🌀", "name": "Tile Throw", "type": "Basic ATK", "desc": "Deals Quantum DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🎲", "name": "Mahjong Draw", "type": "Skill", "desc": "Deals Quantum DMG equal to 130% of ATK to all enemies. Draws 1 tile, increasing DMG by 20% per tile drawn." },
+      { "icon": "💥", "name": "Tumbleweed", "type": "Ultimate", "desc": "Deals Quantum DMG equal to 250% of ATK to all enemies, with a 60% base chance to Entangle." }
+    ],
+    "gallery": ["🎲", "🌀", "🌸"]
+  },
+  "tingyun": {
+    "name": "Tingyun",
+    "faction": "Xianzhou Luofu",
+    "element": "Lightning",
+    "path": "Harmony",
+    "title": "The Foxian Diplomat",
+    "bioSub": "A cheerful and cunning merchant.",
+    "description": "Tingyun is a merchant from the Xianzhou Luofu who uses her charm and wit to make deals. She is also a skilled diplomat.",
+    "image": "tingyun.jpg",
+    "bioImage": "tingyun-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "4-Star" },
+      { "label": "Role", "value": "💪 Support" },
+      { "label": "Element", "value": "⚡ Lightning" },
+      { "label": "Path", "value": "🎶 Harmony" }
+    ],
+    "features": [
+      { "icon": "⚡", "title": "Lightning DMG", "desc": "Deals Lightning damage and buffs allies." },
+      { "icon": "🦊", "title": "Foxian Charm", "desc": "Increases ally ATK and DMG by a percentage." }
+    ],
+    "bioContent": [
+      "Tingyun is a skilled merchant and diplomat who represents the Xianzhou Luofu in various affairs. Her fox-like appearance and charm make her a natural negotiator.",
+      "She is always looking for opportunities to strike a deal, but she also cares deeply for her friends."
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Lightning Arrow", "type": "Basic ATK", "desc": "Deals Lightning DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🦊", "name": "Charming Smile", "type": "Skill", "desc": "Increases all allies' ATK by 20% for 2 turns and deals Lightning DMG equal to 80% of ATK to a single enemy." },
+      { "icon": "💥", "name": "Fox's Deal", "type": "Ultimate", "desc": "Increases all allies' DMG by 30% for 2 turns and deals Lightning DMG equal to 150% of ATK to all enemies." }
+    ],
+    "gallery": ["🦊", "🌟", "🌸"]
+  },
+  "sushang": {
+    "name": "Sushang",
+    "faction": "Xianzhou Luofu",
+    "element": "Physical",
+    "path": "Hunt",
+    "title": "The Gullible Swordswoman",
+    "bioSub": "A naive but talented swordswoman.",
+    "description": "Sushang is a young swordswoman who believes in the power of justice. She is honest to a fault and often trusts others too easily.",
+    "image": "sushang.jpg",
+    "bioImage": "sushang-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "4-Star" },
+      { "label": "Role", "value": "⚔️ Single Target DPS" },
+      { "label": "Element", "value": "⚔️ Physical" },
+      { "label": "Path", "value": "🐎 Hunt" }
+    ],
+    "features": [
+      { "icon": "⚔️", "title": "Physical DMG", "desc": "High single-target physical damage." },
+      { "icon": "🦋", "title": "Butterfly Stance", "desc": "Increases her ATK after each skill usage." }
+    ],
+    "bioContent": [
+      "Sushang is a swordswoman from the Xianzhou Luofu who is eager to prove herself. She is incredibly honest and has a strong sense of justice.",
+      "Despite her naivety, she is a formidable fighter who never backs down from a challenge."
+    ],
+    "skills": [
+      { "icon": "⚔️", "name": "Sword Slash", "type": "Basic ATK", "desc": "Deals Physical DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🦋", "name": "Butterfly Dance", "type": "Skill", "desc": "Deals Physical DMG equal to 200% of ATK to a single enemy and increases ATK by 10% for 2 turns." },
+      { "icon": "💥", "name": "Sword of Justice", "type": "Ultimate", "desc": "Deals Physical DMG equal to 400% of ATK to a single enemy." }
+    ],
+    "gallery": ["⚔️", "🌸", "🦋"]
+  },
+  "yukong": {
+    "name": "Yukong",
+    "faction": "Xianzhou Luofu",
+    "element": "Imaginary",
+    "path": "Harmony",
+    "title": "The Cloud Knight Commander",
+    "bioSub": "A stern commander of the Xianzhou fleet.",
+    "description": "Yukong is a commander in the Xianzhou Luofu's Cloud Knights. She is strict but fair, and she leads her troops with unwavering discipline.",
+    "image": "yukong.jpg",
+    "bioImage": "yukong-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "4-Star" },
+      { "label": "Role", "value": "💪 Support" },
+      { "label": "Element", "value": "🌀 Imaginary" },
+      { "label": "Path", "value": "🎶 Harmony" }
+    ],
+    "features": [
+      { "icon": "🌀", "title": "Imaginary DMG", "desc": "Deals Imaginary damage and buffs allies." },
+      { "icon": "⚓", "title": "Command", "desc": "Increases all allies' ATK and SPD." }
+    ],
+    "bioContent": [
+      "Yukong is a veteran commander who has served the Xianzhou Luofu for many years. She is a strict leader who expects excellence from her subordinates, but she also shows great care for her troops.",
+      "She is a skilled pilot and tactician, and her presence on the battlefield inspires confidence."
+    ],
+    "skills": [
+      { "icon": "🌀", "name": "Imaginary Shot", "type": "Basic ATK", "desc": "Deals Imaginary DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "⚓", "name": "Battle Command", "type": "Skill", "desc": "Increases all allies' ATK by 15% and SPD by 10% for 2 turns." },
+      { "icon": "💥", "name": "Cloud Knight's Charge", "type": "Ultimate", "desc": "Deals Imaginary DMG equal to 200% of ATK to all enemies and increases all allies' ATK by 25% for 2 turns." }
+    ],
+    "gallery": ["⚓", "🌀", "🌌"]
+  },
+  "luocha": {
+    "name": "Luocha",
+    "faction": "Interastral Peace Corporation",
+    "element": "Imaginary",
+    "path": "Abundance",
+    "title": "The Merciful Medic",
+    "bioSub": "A merchant who travels the universe to heal.",
+    "description": "Luocha is a mysterious merchant who sells medicine and carries a coffin. He seems to know more than he lets on.",
+    "image": "luocha.jpg",
+    "bioImage": "luocha-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "💚 Healer/Support" },
+      { "label": "Element", "value": "🌀 Imaginary" },
+      { "label": "Path", "value": "💚 Abundance" }
+    ],
+    "features": [
+      { "icon": "🌀", "title": "Imaginary DMG", "desc": "Deals Imaginary damage and heals allies." },
+      { "icon": "⚰️", "title": "Coffin", "desc": "His skill removes debuffs and heals based on ATK." }
+    ],
+    "bioContent": [
+      "Luocha is a wandering merchant who always carries a coffin. He offers his healing services to those in need, but his true intentions remain a mystery.",
+      "He is calm and collected, even in the most dangerous situations."
+    ],
+    "skills": [
+      { "icon": "🌀", "name": "Imaginary Blade", "type": "Basic ATK", "desc": "Deals Imaginary DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💚", "name": "Healing Touch", "type": "Skill", "desc": "Heals an ally for 50% of ATK and removes all debuffs." },
+      { "icon": "💥", "name": "Coffin of Mercy", "type": "Ultimate", "desc": "Heals all allies for 60% of ATK and deals Imaginary DMG equal to 150% of ATK to all enemies." }
+    ],
+    "gallery": ["⚰️", "🌀", "🌙"]
+  },
+  "jing-yuan": {
+    "name": "Jing Yuan",
+    "faction": "Xianzhou Luofu",
+    "element": "Lightning",
+    "path": "Erudition",
+    "title": "The Divine Foresight",
+    "bioSub": "A general of the Xianzhou Luofu, wise and composed.",
+    "description": "Jing Yuan is the general of the Xianzhou Luofu's Cloud Knights. He is a master strategist and a formidable warrior.",
+    "image": "jingyuan.jpg",
+    "bioImage": "jingyuan-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "⚔️ AoE DPS" },
+      { "label": "Element", "value": "⚡ Lightning" },
+      { "label": "Path", "value": "📚 Erudition" }
+    ],
+    "features": [
+      { "icon": "⚡", "title": "Lightning DMG", "desc": "Deals heavy Lightning AoE damage." },
+      { "icon": "🦁", "title": "Lightning Lord", "desc": "Summons a Lightning Lord to perform follow-up attacks." }
+    ],
+    "bioContent": [
+      "Jing Yuan is a brilliant general who has led the Xianzhou Luofu to many victories. He is known for his calm demeanor and strategic mind.",
+      "He wields the power of lightning and commands the Lightning Lord, a fearsome entity that strikes down his enemies."
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Lightning Strike", "type": "Basic ATK", "desc": "Deals Lightning DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🦁", "name": "Lightning Lord", "type": "Skill", "desc": "Deals Lightning DMG equal to 180% of ATK to all enemies. Summons the Lightning Lord, which performs an extra attack after allies use their ultimate." },
+      { "icon": "💥", "name": "Divine Thunder", "type": "Ultimate", "desc": "Deals Lightning DMG equal to 300% of ATK to all enemies and increases the Lightning Lord's damage by 20% for 2 turns." }
+    ],
+    "gallery": ["🦁", "⚡", "🌩️"]
+  },
+  "blade": {
+    "name": "Blade",
+    "faction": "Stellaron Hunters",
+    "element": "Wind",
+    "path": "Destruction",
+    "title": "The Immortal Swordsman",
+    "bioSub": "An immortal swordsman seeking death.",
+    "description": "Blade is a member of the Stellaron Hunters who seeks to end his own immortality. He wields a sword and is a relentless fighter.",
+    "image": "blade.jpg",
+    "bioImage": "blade-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "🌪️ Wind" },
+      { "label": "Path", "value": "💥 Destruction" }
+    ],
+    "features": [
+      { "icon": "🌪️", "title": "Wind DMG", "desc": "Deals Wind damage that increases with health lost." },
+      { "icon": "⚔️", "title": "Immortal", "desc": "Gains stacks of 'Lost Life' to boost damage." }
+    ],
+    "bioContent": [
+      "Blade is an immortal swordsman who has lived for centuries. He is haunted by his past and seeks to find a way to end his eternal life.",
+      "He is a member of the Stellaron Hunters and follows their orders, but his true motivations remain unclear."
+    ],
+    "skills": [
+      { "icon": "🌪️", "name": "Wind Slash", "type": "Basic ATK", "desc": "Deals Wind DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "⚔️", "name": "Lost Life", "type": "Skill", "desc": "Deals Wind DMG equal to 250% of ATK to a single enemy, consuming a stack of 'Lost Life' to increase damage by 20%." },
+      { "icon": "💥", "name": "Eternal Death", "type": "Ultimate", "desc": "Deals Wind DMG equal to 500% of ATK to a single enemy. Consumes all 'Lost Life' stacks for additional damage." }
+    ],
+    "gallery": ["⚔️", "🌪️", "🌑"]
+  },
+  "kafka": {
+    "name": "Kafka",
+    "faction": "Stellaron Hunters",
+    "element": "Lightning",
+    "path": "Nihility",
+    "title": "The Hunter's Grace",
+    "bioSub": "A member of the Stellaron Hunters, known for her mysterious smile.",
+    "description": "A member of the Stellaron Hunters. She always appears at the most critical moments, using her strings of fate to control the flow of battle.",
+    "image": "kafka.jpg",
+    "bioImage": "/img/characters/kafka-2.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "⚔️ Debuffer / Sub-DPS" },
+      { "label": "Element", "value": "⚡ Lightning" },
+      { "label": "Path", "value": "🌀 Nihility" }
+    ],
+    "features": [
+      { "icon": "🔮", "title": "Fate Manipulation", "desc": "Can apply Shock and increase damage taken by enemies." },
+      { "icon": "🕸️", "title": "Spider Web", "desc": "Her follow-up attacks are triggered when allies use their ultimate." }
+    ],
+    "bioContent": [
+      "Kafka is a captivating figure who seems to know more than she lets on. She is a core member of the Stellaron Hunters, a group that operates outside the jurisdiction of the IPC.",
+      "She often speaks in riddles and has a calm demeanor that never wavers, even in the face of danger."
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Lacerating Strike", "type": "Basic ATK", "desc": "Deals Lightning DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🕸️", "name": "Web of Fate", "type": "Skill", "desc": "Deals Lightning DMG equal to 160% of ATK to all enemies, with a 80% base chance to apply Shock." },
+      { "icon": "💥", "name": "Fragrant Memory", "type": "Ultimate", "desc": "Deals Lightning DMG equal to 300% of ATK to all enemies, extends Shock duration by 2 turns." }
+    ],
+    "gallery": ["🎭", "🕷️", "🌙"]
+  },
+  "silver-wolf": {
+    "name": "Silver Wolf",
+    "faction": "Stellaron Hunters",
+    "element": "Quantum",
+    "path": "Nihility",
+    "title": "The Virtual Gamer",
+    "bioSub": "A hacker who treats reality like a game.",
+    "description": "Silver Wolf is a hacker who sees the world as a game. She can manipulate data to create weaknesses in her enemies.",
+    "image": "silver-wolf.jpg",
+    "bioImage": "silver-wolf-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "⚔️ Debuffer" },
+      { "label": "Element", "value": "🌀 Quantum" },
+      { "label": "Path", "value": "🌀 Nihility" }
+    ],
+    "features": [
+      { "icon": "🌀", "title": "Quantum DMG", "desc": "Deals Quantum damage and adds weaknesses to enemies." },
+      { "icon": "🎮", "title": "Game Hacks", "desc": "Can add a random weakness to an enemy." }
+    ],
+    "bioContent": [
+      "Silver Wolf is a member of the Stellaron Hunters who treats life like a video game. She is a brilliant hacker who can alter reality through data.",
+      "She is laid-back and often makes jokes, but her skills are unmatched."
+    ],
+    "skills": [
+      { "icon": "🌀", "name": "Quantum Shot", "type": "Basic ATK", "desc": "Deals Quantum DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🎮", "name": "Data Hack", "type": "Skill", "desc": "Deals Quantum DMG equal to 160% of ATK to a single enemy and adds a random weakness to the target for 2 turns." },
+      { "icon": "💥", "name": "Game Over", "type": "Ultimate", "desc": "Deals Quantum DMG equal to 300% of ATK to all enemies and has a 70% base chance to add a random weakness to all enemies." }
+    ],
+    "gallery": ["🎮", "🌀", "💻"]
+  },
+  "seele": {
+    "name": "Seele",
+    "faction": "Wildfire",
+    "element": "Quantum",
+    "path": "Hunt",
+    "title": "Shadow of the Abyss",
+    "bioSub": "A member of the Underworld resistance, fighting for freedom.",
+    "description": "Seele is a fierce warrior from the Underworld, fighting against the injustices of the IPC. She wields a scythe and moves like a shadow.",
+    "image": "Seele.jpg",
+    "bioImage": "seele-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "⚔️ Hypercarry" },
+      { "label": "Element", "value": "🌀 Quantum" },
+      { "label": "Path", "value": "🐎 Hunt" }
+    ],
+    "features": [
+      { "icon": "🌑", "title": "Quantum DMG", "desc": "Deals Quantum damage with ability to inflict Entanglement." },
+      { "icon": "⚡", "title": "Resurgence", "desc": "Gains an extra turn after defeating an enemy." }
+    ],
+    "bioContent": [
+      "Seele grew up in the harsh environment of the Underworld, where she learned to survive by any means necessary.",
+      "She is a member of Wildfire, a resistance group that opposes the IPC's control. Her fierce loyalty to her friends makes her a formidable ally."
+    ],
+    "skills": [
+      { "icon": "🌑", "name": "Shadow Strike", "type": "Basic ATK", "desc": "Deals Quantum DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💠", "name": "Quantum Flash", "type": "Skill", "desc": "Deals Quantum DMG equal to 200% of ATK to a single enemy, with a 50% base chance to Entangle." },
+      { "icon": "🔥", "name": "Final Embrace", "type": "Ultimate", "desc": "Deals Quantum DMG equal to 500% of ATK to a single enemy. Defeating an enemy triggers Resurgence." }
+    ],
+    "gallery": ["🌊", "🌑", "💀"]
+  },
+  "bronya": {
+    "name": "Bronya Rand",
+    "faction": "Silvermane Guard",
+    "element": "Wind",
+    "path": "Harmony",
+    "title": "The Silver Mane",
+    "bioSub": "The commander of the Silvermane Guard, loyal to Belobog.",
+    "description": "Bronya is the commander of the Silvermane Guard, defending Belobog from the Fragmentum. She carries the hopes of her people.",
+    "image": "bronya.jpg",
+    "bioImage": "bronya-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "💪 Support" },
+      { "label": "Element", "value": "🌪️ Wind" },
+      { "label": "Path", "value": "🎶 Harmony" }
+    ],
+    "features": [
+      { "icon": "🛡️", "title": "Shield", "desc": "Provides shields and boosts ATK of allies." },
+      { "icon": "🎵", "title": "Harmony", "desc": "Increases ally damage and speed." }
+    ],
+    "bioContent": [
+      "Bronya was raised as the heir to the Supreme Guardian, but she chose to forge her own path after learning the truth about the Fragmentum.",
+      "She is a skilled tactician and a caring leader, always putting the safety of her people first."
+    ],
+    "skills": [
+      { "icon": "🌪️", "name": "Wind Slash", "type": "Basic ATK", "desc": "Deals Wind DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🛡️", "name": "Guardian's Oath", "type": "Skill", "desc": "Grants a shield to all allies based on Bronya's DEF, and increases their ATK by 20% for 2 turns." },
+      { "icon": "💥", "name": "Silvermane Charge", "type": "Ultimate", "desc": "Deals Wind DMG equal to 200% of ATK to all enemies and increases all allies' ATK by 40% for 2 turns." }
+    ],
+    "gallery": ["⚔️", "🛡️", "🏔️"]
+  },
+  "gepard": {
+    "name": "Gepard",
+    "faction": "Silvermane Guard",
+    "element": "Ice",
+    "path": "Preservation",
+    "title": "The Unyielding Shield",
+    "bioSub": "The captain of the Silvermane Guard, defender of Belobog.",
+    "description": "Gepard is the captain of the Silvermane Guard, a stoic defender who will never retreat. He uses ice to protect his allies.",
+    "image": "gepard.jpg",
+    "bioImage": "gepard-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "🛡️ Tank" },
+      { "label": "Element", "value": "❄️ Ice" },
+      { "label": "Path", "value": "🛡️ Preservation" }
+    ],
+    "features": [
+      { "icon": "❄️", "title": "Ice Shield", "desc": "Provides shields and taunts enemies." },
+      { "icon": "🛡️", "title": "Unyielding", "desc": "Increases DEF and reduces damage taken." }
+    ],
+    "bioContent": [
+      "Gepard is the captain of the Silvermane Guard, a position he earned through unwavering loyalty and strength. He is a stern but just leader who will protect Belobog at any cost.",
+      "He wields a massive greatshield and uses ice to freeze his enemies in place."
+    ],
+    "skills": [
+      { "icon": "❄️", "name": "Ice Strike", "type": "Basic ATK", "desc": "Deals Ice DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🛡️", "name": "Defense Formation", "type": "Skill", "desc": "Grants a shield to all allies equal to 30% of DEF for 3 turns and taunts enemies." },
+      { "icon": "💥", "name": "Glacial Wall", "type": "Ultimate", "desc": "Deals Ice DMG equal to 200% of ATK to all enemies and increases all allies' DEF by 40% for 3 turns." }
+    ],
+    "gallery": ["❄️", "🛡️", "⚔️"]
+  },
+  "clara": {
+    "name": "Clara",
+    "faction": "Belobog",
+    "element": "Physical",
+    "path": "Destruction",
+    "title": "The Innocent Guardian",
+    "bioSub": "A girl who protects the weak with her mechanical friend.",
+    "description": "Clara is a young girl who lives in the Underworld of Belobog. She is protected by Svarog, a powerful robot she considers family.",
+    "image": "clara.jpg",
+    "bioImage": "clara-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "⚔️ DPS/Tank" },
+      { "label": "Element", "value": "⚔️ Physical" },
+      { "label": "Path", "value": "💥 Destruction" }
+    ],
+    "features": [
+      { "icon": "🤖", "title": "Svarog", "desc": "Uses Svarog's attacks, dealing damage based on Clara's HP." },
+      { "icon": "⚔️", "title": "Physical DMG", "desc": "High single-target and AoE physical damage." }
+    ],
+    "bioContent": [
+      "Clara is a kind-hearted girl who was raised by Svarog, a robot she considers her family. She helps the people of the Underworld and protects them from danger.",
+      "Svarog is a powerful weapon that obeys Clara's every command."
+    ],
+    "skills": [
+      { "icon": "⚔️", "name": "Svarog Strike", "type": "Basic ATK", "desc": "Deals Physical DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🤖", "name": "Svarog's Wrath", "type": "Skill", "desc": "Deals Physical DMG equal to 200% of ATK to all enemies, with a 60% chance to reduce enemy ATK by 20%." },
+      { "icon": "💥", "name": "Protective Fist", "type": "Ultimate", "desc": "Deals Physical DMG equal to 400% of ATK to a single enemy, and if Clara's HP is below 50%, the damage is doubled." }
+    ],
+    "gallery": ["🤖", "⚔️", "❤️"]
+  },
+  "bailu": {
+    "name": "Bailu",
+    "faction": "Xianzhou Luofu",
+    "element": "Lightning",
+    "path": "Abundance",
+    "title": "The Curious Healer",
+    "bioSub": "A young healer from the Xianzhou Luofu who loves medicine.",
+    "description": "Bailu is a young girl who heals the wounded with her medicinal skills. She is also a researcher who dreams of curing all illnesses.",
+    "image": "bailu.jpg",
+    "bioImage": "bailu-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "💚 Healer" },
+      { "label": "Element", "value": "⚡ Lightning" },
+      { "label": "Path", "value": "💚 Abundance" }
+    ],
+    "features": [
+      { "icon": "⚡", "title": "Lightning DMG", "desc": "Deals Lightning damage and heals allies." },
+      { "icon": "💚", "title": "Healing", "desc": "Heals allies based on ATK and removes debuffs." }
+    ],
+    "bioContent": [
+      "Bailu is a child prodigy in the art of medicine. She is energetic and loves to learn about new diseases and cures.",
+      "Despite her young age, she is a skilled healer who has saved many lives."
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Lightning Needle", "type": "Basic ATK", "desc": "Deals Lightning DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💚", "name": "Healing Spring", "type": "Skill", "desc": "Heals an ally for 40% of ATK and removes all debuffs." },
+      { "icon": "💥", "name": "Bailu's Prescription", "type": "Ultimate", "desc": "Heals all allies for 50% of ATK and increases their DEF by 20% for 2 turns." }
+    ],
+    "gallery": ["💚", "⚡", "🌸"]
+  },
+  "himeko": {
+    "name": "Himeko",
+    "faction": "Astral Express",
+    "element": "Fire",
+    "path": "Erudition",
+    "title": "The Flame of the Express",
+    "bioSub": "A veteran traveler and researcher of the Stellaron.",
+    "description": "Himeko is a member of the Astral Express crew and a specialist in Stellaron research. She uses her flame powers to protect the Express.",
+    "image": "himeko.jpg",
+    "bioImage": "himeko-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "⚔️ AoE DPS" },
+      { "label": "Element", "value": "🔥 Fire" },
+      { "label": "Path", "value": "📚 Erudition" }
+    ],
+    "features": [
+      { "icon": "🔥", "title": "Fire DMG", "desc": "Deals powerful Fire AoE damage." },
+      { "icon": "🛤️", "title": "Stellaron Research", "desc": "Her damage increases against enemies with Burn." }
+    ],
+    "bioContent": [
+      "Himeko is a passionate researcher who has dedicated her life to studying the Stellaron. She is the owner of the Astral Express and a fierce protector of her crew.",
+      "She uses her fire powers to burn away any threat that dares to harm the Express."
+    ],
+    "skills": [
+      { "icon": "🔥", "name": "Flame Shot", "type": "Basic ATK", "desc": "Deals Fire DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💥", "name": "Stellar Flame", "type": "Skill", "desc": "Deals Fire DMG equal to 180% of ATK to all enemies, with a 60% chance to Burn for 2 turns." },
+      { "icon": "⭐", "name": "Flare of the Stars", "type": "Ultimate", "desc": "Deals Fire DMG equal to 300% of ATK to all enemies and deals additional damage to enemies with Burn." }
+    ],
+    "gallery": ["🔥", "🚀", "⭐"]
+  },
+  "welt": {
+    "name": "Welt Yang",
+    "faction": "Astral Express",
+    "element": "Imaginary",
+    "path": "Nihility",
+    "title": "The Silent Observer",
+    "bioSub": "A mysterious man with the power of gravity.",
+    "description": "Welt is a member of the Astral Express who possesses the power of gravity. He is calm and observant, always thinking several steps ahead.",
+    "image": "welt.jpg",
+    "bioImage": "welt-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "5-Star" },
+      { "label": "Role", "value": "⚔️ Debuffer/DPS" },
+      { "label": "Element", "value": "🌀 Imaginary" },
+      { "label": "Path", "value": "🌀 Nihility" }
+    ],
+    "features": [
+      { "icon": "🌀", "title": "Gravity", "desc": "Slows enemies and deals Imaginary damage." },
+      { "icon": "⏳", "title": "Time Manipulation", "desc": "Can delay enemy turns and increase team speed." }
+    ],
+    "bioContent": [
+      "Welt is a man of few words, but his actions speak volumes. He is a powerful gravity manipulator who can alter the battlefield to his advantage.",
+      "He has a deep understanding of the Stellaron and often provides wisdom to the crew."
+    ],
+    "skills": [
+      { "icon": "🌀", "name": "Gravity Spike", "type": "Basic ATK", "desc": "Deals Imaginary DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "⏳", "name": "Time Distortion", "type": "Skill", "desc": "Deals Imaginary DMG equal to 160% of ATK to a single enemy and delays their action by 20%." },
+      { "icon": "💥", "name": "Black Hole", "type": "Ultimate", "desc": "Deals Imaginary DMG equal to 300% of ATK to all enemies and reduces their speed by 30% for 2 turns." }
+    ],
+    "gallery": ["🌀", "⏳", "🌌"]
+  },
+  "natasha": {
+    "name": "Natasha",
+    "faction": "Wildfire",
+    "element": "Physical",
+    "path": "Abundance",
+    "title": "The Underground Doctor",
+    "bioSub": "A doctor who heals the people of the Underworld.",
+    "description": "Natasha is a doctor in the Underworld of Belobog who risks her life to heal the sick and wounded. She is a member of Wildfire.",
+    "image": "natasha.jpg",
+    "bioImage": "natasha-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "4-Star" },
+      { "label": "Role", "value": "💚 Healer" },
+      { "label": "Element", "value": "⚔️ Physical" },
+      { "label": "Path", "value": "💚 Abundance" }
+    ],
+    "features": [
+      { "icon": "💚", "title": "Healing", "desc": "Heals allies and cleanses debuffs." },
+      { "icon": "🩺", "title": "Medical Expertise", "desc": "Increases healing done to allies below 50% HP." }
+    ],
+    "bioContent": [
+      "Natasha is the only doctor in the Underworld, a dangerous place where medical supplies are scarce. She fights to keep her people alive.",
+      "She is a member of Wildfire, the resistance group that opposes the IPC's rule."
+    ],
+    "skills": [
+      { "icon": "⚔️", "name": "Scalpel Throw", "type": "Basic ATK", "desc": "Deals Physical DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💚", "name": "Healing Shot", "type": "Skill", "desc": "Heals an ally for 50% of ATK and increases their DEF by 20% for 2 turns." },
+      { "icon": "💥", "name": "Emergency Care", "type": "Ultimate", "desc": "Heals all allies for 60% of ATK and removes all debuffs." }
+    ],
+    "gallery": ["🩺", "💚", "🏥"]
+  },
+  "pela": {
+    "name": "Pela",
+    "faction": "Silvermane Guard",
+    "element": "Ice",
+    "path": "Nihility",
+    "title": "The Tactical Analyst",
+    "bioSub": "An intelligence officer with a sharp mind.",
+    "description": "Pela is an intelligence officer of the Silvermane Guard who analyses enemy weaknesses and provides support to her allies.",
+    "image": "pela.jpg",
+    "bioImage": "pela-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "4-Star" },
+      { "label": "Role", "value": "⚔️ Debuffer" },
+      { "label": "Element", "value": "❄️ Ice" },
+      { "label": "Path", "value": "🌀 Nihility" }
+    ],
+    "features": [
+      { "icon": "❄️", "title": "Ice DMG", "desc": "Deals Ice damage and reduces enemy DEF." },
+      { "icon": "🔍", "title": "Analysis", "desc": "Increases her team's damage against debuffed enemies." }
+    ],
+    "bioContent": [
+      "Pela is a sharp-witted intelligence officer who always thinks ahead. She is a valued member of the Silvermane Guard, using her analytical skills to outsmart the enemy.",
+      "She is calm and collected, even in the most tense situations."
+    ],
+    "skills": [
+      { "icon": "❄️", "name": "Ice Shot", "type": "Basic ATK", "desc": "Deals Ice DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "🔍", "name": "Weakness Scan", "type": "Skill", "desc": "Deals Ice DMG equal to 150% of ATK to a single enemy and reduces their DEF by 20% for 2 turns." },
+      { "icon": "💥", "name": "Strategic Strike", "type": "Ultimate", "desc": "Deals Ice DMG equal to 250% of ATK to all enemies and reduces their DEF by 30% for 2 turns." }
+    ],
+    "gallery": ["❄️", "🔍", "📊"]
+  },
+  "hook": {
+    "name": "Hook",
+    "faction": "The Moles",
+    "element": "Fire",
+    "path": "Destruction",
+    "title": "The Little Mole",
+    "bioSub": "A lively girl who loves adventure.",
+    "description": "Hook is a member of the Moles, a group of adventurers in the Underworld. She is energetic and always ready for a challenge.",
+    "image": "hook.jpg",
+    "bioImage": "hook-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "4-Star" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "🔥 Fire" },
+      { "label": "Path", "value": "💥 Destruction" }
+    ],
+    "features": [
+      { "icon": "🔥", "title": "Fire DMG", "desc": "Deals Fire damage and applies Burn." },
+      { "icon": "🐭", "title": "Mole Sense", "desc": "Increases her damage against enemies with Burn." }
+    ],
+    "bioContent": [
+      "Hook is a member of the Moles, a group of children who explore the Underworld. She is brave and never backs down from a fight.",
+      "She loves stories of adventure and dreams of becoming a legendary hero."
+    ],
+    "skills": [
+      { "icon": "🔥", "name": "Flame Punch", "type": "Basic ATK", "desc": "Deals Fire DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💥", "name": "Mole Charge", "type": "Skill", "desc": "Deals Fire DMG equal to 200% of ATK to a single enemy, with a 60% chance to Burn for 2 turns." },
+      { "icon": "⭐", "name": "Mole's Fury", "type": "Ultimate", "desc": "Deals Fire DMG equal to 300% of ATK to all enemies and deals additional damage to Burning enemies." }
+    ],
+    "gallery": ["🔥", "🐭", "🌟"]
+  },
+  "arlan": {
+    "name": "Arlan",
+    "faction": "Astral Express",
+    "element": "Lightning",
+    "path": "Destruction",
+    "title": "The Guardian of the Express",
+    "bioSub": "A loyal guard of the Astral Express.",
+    "description": "Arlan is a member of the Astral Express crew who serves as a guard. He is fiercely loyal and will protect the Express at all costs.",
+    "image": "arlan.jpg",
+    "bioImage": "arlan-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "4-Star" },
+      { "label": "Role", "value": "⚔️ DPS" },
+      { "label": "Element", "value": "⚡ Lightning" },
+      { "label": "Path", "value": "💥 Destruction" }
+    ],
+    "features": [
+      { "icon": "⚡", "title": "Lightning DMG", "desc": "Deals Lightning damage and increases damage as HP decreases." },
+      { "icon": "🛡️", "title": "Guardian", "desc": "Reduces damage taken when HP is low." }
+    ],
+    "bioContent": [
+      "Arlan is a dedicated guard who watches over the Astral Express. He is known for his stoic demeanor and unwavering loyalty to the crew.",
+      "He fights with a greatsword and unleashes powerful lightning attacks."
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Lightning Slash", "type": "Basic ATK", "desc": "Deals Lightning DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💥", "name": "Berserker Charge", "type": "Skill", "desc": "Deals Lightning DMG equal to 200% of ATK to a single enemy. Damage increases by 20% for each 10% HP lost." },
+      { "icon": "⭐", "name": "Guardian's Oath", "type": "Ultimate", "desc": "Deals Lightning DMG equal to 300% of ATK to all enemies and restores 10% HP to Arlan." }
+    ],
+    "gallery": ["⚡", "🛡️", "⚔️"]
+  },
+  "serval": {
+    "name": "Serval",
+    "faction": "Belobog",
+    "element": "Lightning",
+    "path": "Erudition",
+    "title": "The Mechanical Genius",
+    "bioSub": "An inventor who loves machines and music.",
+    "description": "Serval is an inventor from Belobog who builds powerful machinery. She also plays music in her free time.",
+    "image": "serval.jpg",
+    "bioImage": "serval-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "4-Star" },
+      { "label": "Role", "value": "⚔️ AoE DPS" },
+      { "label": "Element", "value": "⚡ Lightning" },
+      { "label": "Path", "value": "📚 Erudition" }
+    ],
+    "features": [
+      { "icon": "⚡", "title": "Lightning DMG", "desc": "Deals Lightning AoE damage with a chance to Shock." },
+      { "icon": "🎸", "title": "Music", "desc": "Her ultimate deals additional damage to shocked enemies." }
+    ],
+    "bioContent": [
+      "Serval is a brilliant inventor and engineer. She designs powerful machines that help the people of Belobog.",
+      "She also plays the guitar and believes that music can heal the soul."
+    ],
+    "skills": [
+      { "icon": "⚡", "name": "Lightning Bolt", "type": "Basic ATK", "desc": "Deals Lightning DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "💥", "name": "Shockwave", "type": "Skill", "desc": "Deals Lightning DMG equal to 150% of ATK to all enemies, with a 50% chance to Shock for 2 turns." },
+      { "icon": "🎸", "name": "Power Chord", "type": "Ultimate", "desc": "Deals Lightning DMG equal to 250% of ATK to all enemies and increases damage to shocked enemies by 30%." }
+    ],
+    "gallery": ["⚡", "🎸", "🔧"]
+  },
+  "asta": {
+    "name": "Asta",
+    "faction": "Herta Space Station",
+    "element": "Fire",
+    "path": "Harmony",
+    "title": "The Passionate Researcher",
+    "bioSub": "A researcher at Herta Space Station who loves to explore.",
+    "description": "Asta is a researcher at Herta Space Station who is obsessed with uncovering the mysteries of the universe. She is full of passion and energy.",
+    "image": "asta.jpg",
+    "bioImage": "asta-bio.jpg",
+    "stats": [
+      { "label": "Rarity", "value": "4-Star" },
+      { "label": "Role", "value": "💪 Support" },
+      { "label": "Element", "value": "🔥 Fire" },
+      { "label": "Path", "value": "🎶 Harmony" }
+    ],
+    "features": [
+      { "icon": "🔥", "title": "Fire DMG", "desc": "Deals Fire damage and buffs allies." },
+      { "icon": "📚", "title": "Research", "desc": "Increases all allies' ATK and SPD." }
+    ],
+    "bioContent": [
+      "Asta is an energetic researcher who loves to explore the unknown. She works at Herta Space Station and is always eager to share her discoveries.",
+      "She is a supportive presence who boosts the morale of her team."
+    ],
+    "skills": [
+      { "icon": "🔥", "name": "Flame Blast", "type": "Basic ATK", "desc": "Deals Fire DMG equal to 100% of ATK to a single enemy." },
+      { "icon": "📚", "name": "Inspire", "type": "Skill", "desc": "Increases all allies' ATK by 15% for 2 turns." },
+      { "icon": "💥", "name": "Explosive Passion", "type": "Ultimate", "desc": "Deals Fire DMG equal to 200% of ATK to all enemies and increases all allies' SPD by 15% for 2 turns." }
+    ],
+    "gallery": ["🔥", "📚", "🚀"]
+  }
+}

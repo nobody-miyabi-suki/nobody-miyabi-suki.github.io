@@ -9,6 +9,7 @@
     <!-- استایل‌های صفحات شخصیت‌ها -->
     <link rel="stylesheet" href="/css/character-pages.css">
     <link rel="icon" href="/img/icons/favicon.ico">
+    <link rel="stylesheet" href="/css/header-auth.css">
     <style>
         /* ============================================================
            استایل‌های اختصاصی برای صفحات شخصیت‌ها
@@ -457,10 +458,15 @@
             <h1>✦ <span>Honkai</span> Star Rail ✦</h1>
             <p id="headerSub">Character Profile</p>
             <a href="/index.html" class="back-link">← Back to Main Hub</a>
+            <div id="authControls"></div>
         </div>
 
         <!-- ===== MENU (همان منوی استاندارد) ===== -->
         <nav class="menu">
+            <button class="mobile-games-toggle" id="mobileGamesToggle">
+                <span>🎮 Games</span>
+                <span class="mobile-games-arrow">▼</span>
+            </button>
             <ul>
                 <!-- Genshin Impact -->
                 <li>
@@ -690,6 +696,9 @@
     <!-- ==========================================================
     JAVASCRIPT — LOADER
     ========================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/header-auth.js"></script>
     <script src="/js/script.js"></script>
     <script>
         // ============================================================

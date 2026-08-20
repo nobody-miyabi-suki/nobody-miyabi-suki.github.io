@@ -1,0 +1,267 @@
+/* ============================================================
+   Genshin – Story Page
+   Only page‑unique styles. All shared styles come from base.css.
+   ============================================================ */
+
+/* ---- Page‑specific variables (not in shared base) ---- */
+:root {
+    --content-bg: rgba(0, 0, 0, 0.15);
+    --intro-bg: rgba(60, 20, 20, 0.3);
+    --intro-border: #c0392b;
+    --intro-strong: #ffb0b0;
+    --chapter-bg: rgba(60, 20, 20, 0.25);
+    --chapter-border: rgba(180, 60, 60, 0.12);
+    --chapter-hover-border: rgba(200, 70, 70, 0.3);
+    --chapter-number-color: #ff6b6b;
+    --chapter-number-bg: rgba(200, 50, 50, 0.15);
+    --chapter-number-border: rgba(180, 60, 60, 0.2);
+    --sub-title-color: #c0a8a8;
+    --chapter-p-color: #c8b0b0;
+    --region-tag-bg: rgba(200, 50, 50, 0.1);
+    --region-tag-border: rgba(180, 60, 60, 0.15);
+    --region-tag-color: #dbb8b8;
+    --em-color: #e0c0c0;
+    --archon-section-bg: rgba(60, 20, 20, 0.25);
+    --archon-section-border: rgba(180, 60, 60, 0.15);
+    --archon-card-bg: rgba(60, 20, 20, 0.2);
+    --archon-card-border: rgba(180, 60, 60, 0.08);
+    --archon-card-hover-border: rgba(200, 70, 70, 0.3);
+    --archon-title-color: #c0a8a8;
+    --archon-name-color: #a08888;
+}
+
+[data-theme="blue"] {
+    --content-bg: rgba(0, 0, 0, 0.15);
+    --intro-bg: rgba(60, 120, 255, 0.08);
+    --intro-border: #3a6aaa;
+    --intro-strong: #80b0ff;
+    --chapter-bg: rgba(60, 120, 255, 0.06);
+    --chapter-border: rgba(60, 120, 255, 0.12);
+    --chapter-hover-border: rgba(60, 120, 255, 0.25);
+    --chapter-number-color: #6a9aff;
+    --chapter-number-bg: rgba(60, 120, 255, 0.12);
+    --chapter-number-border: rgba(60, 120, 255, 0.2);
+    --sub-title-color: #8a9ac0;
+    --chapter-p-color: #a0b0c8;
+    --region-tag-bg: rgba(60, 120, 255, 0.08);
+    --region-tag-border: rgba(60, 120, 255, 0.15);
+    --region-tag-color: #8a9ac0;
+    --em-color: #8a9ab0;
+    --archon-section-bg: rgba(60, 120, 255, 0.06);
+    --archon-section-border: rgba(60, 120, 255, 0.1);
+    --archon-card-bg: rgba(60, 120, 255, 0.04);
+    --archon-card-border: rgba(60, 120, 255, 0.06);
+    --archon-card-hover-border: rgba(60, 120, 255, 0.2);
+    --archon-title-color: #8a9ac0;
+    --archon-name-color: #6a7a9a;
+}
+
+/* ---- Mobile games toggle (kept from original) ---- */
+.mobile-games-toggle {
+    display: none; /* hidden on desktop, shown on mobile via media query */
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 16px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.mobile-games-toggle .mobile-games-arrow {
+    float: right;
+    transition: transform 0.3s;
+}
+
+.mobile-games-toggle.active .mobile-games-arrow {
+    transform: rotate(180deg);
+}
+
+/* ---- Content section ---- */
+.content-section {
+    padding: 50px 30px;
+    background: var(--content-bg);
+    max-width: 1100px;
+    margin: 0 auto;
+    transition: all 0.4s ease;
+}
+
+/* ---- Story intro ---- */
+.story-intro {
+    background: var(--intro-bg);
+    padding: 30px;
+    border-radius: 18px;
+    border-left: 6px solid var(--intro-border);
+    margin-bottom: 50px;
+    transition: all 0.3s ease;
+}
+.story-intro p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+.story-intro strong {
+    color: var(--intro-strong);
+    transition: color 0.3s ease;
+}
+
+/* ---- Chapters ---- */
+.chapter {
+    background: var(--chapter-bg);
+    backdrop-filter: blur(4px);
+    padding: 25px 30px;
+    border-radius: 16px;
+    border: 1px solid var(--chapter-border);
+    margin-bottom: 30px;
+    transition: all 0.3s;
+}
+.chapter:hover {
+    border-color: var(--chapter-hover-border);
+    transform: translateX(6px);
+}
+.chapter .chapter-number {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--chapter-number-color);
+    background: var(--chapter-number-bg);
+    padding: 2px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--chapter-number-border);
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+.chapter h3 {
+    font-size: 28px;
+    color: var(--text-heading);
+    margin-bottom: 6px;
+    transition: color 0.3s ease;
+}
+.chapter .sub-title {
+    font-size: 16px;
+    color: var(--sub-title-color);
+    font-style: italic;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+.chapter p {
+    color: var(--chapter-p-color);
+    line-height: 1.8;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+.chapter em {
+    color: var(--em-color);
+    transition: color 0.3s ease;
+}
+.chapter .region-tag {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 4px 18px;
+    background: var(--region-tag-bg);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--region-tag-color);
+    border: 1px solid var(--region-tag-border);
+    transition: all 0.3s ease;
+}
+
+/* ---- Archon section ---- */
+.archon-section {
+    margin-top: 50px;
+    background: var(--archon-section-bg);
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid var(--archon-section-border);
+    transition: all 0.3s ease;
+}
+.archon-section h3 {
+    font-size: 30px;
+    color: var(--text-heading);
+    text-align: center;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+.archon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+.archon-card {
+    background: var(--archon-card-bg);
+    padding: 18px 12px;
+    border-radius: 14px;
+    text-align: center;
+    border: 1px solid var(--archon-card-border);
+    transition: all 0.3s;
+}
+.archon-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--archon-card-hover-border);
+}
+.archon-card .icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 6px;
+}
+.archon-card h4 {
+    color: var(--text-heading);
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+.archon-card .archon-title {
+    font-size: 13px;
+    color: var(--archon-title-color);
+    transition: color 0.3s ease;
+}
+.archon-card div:last-child {
+    font-size: 13px;
+    color: var(--archon-name-color);
+    transition: color 0.3s ease;
+}
+
+/* ---- Footer sub text ---- */
+.footer-sub {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   RESPONSIVE TWEAKS (page‑specific only)
+   ============================================================ */
+@media (max-width: 768px) {
+    .chapter {
+        padding: 18px 16px;
+    }
+    .chapter h3 {
+        font-size: 22px;
+    }
+    .archon-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+    .story-intro {
+        padding: 18px;
+    }
+    .story-intro p {
+        font-size: 16px;
+    }
+    /* Show the mobile games toggle on small screens */
+    .mobile-games-toggle {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .archon-section {
+        padding: 18px;
+    }
+    .archon-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 12px;
+    }
+}

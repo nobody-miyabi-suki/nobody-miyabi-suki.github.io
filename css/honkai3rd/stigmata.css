@@ -1,0 +1,263 @@
+/* ============================================================
+   Honkai Impact 3rd – Stigmata Page
+   Only page‑unique styles. All shared styles come from base.css.
+   ============================================================ */
+
+/* ---- Page‑specific variables (not in shared base) ---- */
+:root {
+    --rarity-5-bg: linear-gradient(135deg, #ffd700, #ff8c00);
+    --rarity-4-bg: linear-gradient(135deg, #b0c4de, #8a9ac0);
+    --rarity-color: #1a0a0a;
+    --stigmata-img-border: rgba(180, 60, 60, 0.2);
+    --stigmata-img-shadow: rgba(150, 30, 30, 0.3);
+    --set-bg: rgba(60, 20, 20, 0.15);
+    --set-border: rgba(180, 60, 60, 0.08);
+    --detail-bg: rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="blue"] {
+    --rarity-5-bg: linear-gradient(135deg, #ffd700, #ff8c00);
+    --rarity-4-bg: linear-gradient(135deg, #b0c4de, #7a8aaa);
+    --rarity-color: #1a0a0a;
+    --stigmata-img-border: rgba(60, 120, 255, 0.2);
+    --stigmata-img-shadow: rgba(20, 60, 180, 0.25);
+    --set-bg: rgba(60, 120, 255, 0.04);
+    --set-border: rgba(60, 120, 255, 0.06);
+    --detail-bg: rgba(0, 0, 0, 0.25);
+}
+
+/* ---- Navigation menu icons (no forced circle) ---- */
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+    border: 1px solid var(--border-light);
+    object-fit: cover;
+}
+
+/* ---- Page title (already in pages.css, but we keep our custom title) ---- */
+.page-title {
+    text-align: center;
+    padding: 50px 20px 30px 20px;
+    background: var(--page-title-bg);
+    border-bottom: 2px solid var(--border-light);
+}
+.page-title h2 {
+    font-size: 44px;
+    color: var(--text-heading);
+    text-shadow: 0 0 30px var(--shadow-color);
+}
+.page-title h2 span {
+    color: var(--text-heading-span);
+}
+.page-title p {
+    color: var(--text-secondary);
+    font-size: 18px;
+    margin-top: 8px;
+    letter-spacing: 1px;
+}
+
+/* ---- Content sections ---- */
+.content-section {
+    padding: 50px 30px;
+    background: var(--quick-nav-bg);
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.section-header {
+    font-size: 32px;
+    color: var(--text-heading);
+    text-align: center;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 12px;
+}
+.section-desc {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+/* ---- Stigmata grid & cards ---- */
+.stigmata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.stigmata-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    padding: 22px 20px 20px 20px;
+    border: 1px solid var(--border-light);
+    transition: all 0.4s;
+    display: flex;
+    flex-direction: column;
+}
+.stigmata-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border-color);
+    box-shadow: 0 12px 40px var(--card-hover-shadow);
+    background: var(--bg-card);
+}
+
+.stigmata-card .rarity {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 2px 14px;
+    border-radius: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+    color: var(--rarity-color);
+}
+.rarity-5 {
+    background: var(--rarity-5-bg);
+}
+.rarity-4 {
+    background: var(--rarity-4-bg);
+}
+
+.stigmata-card .set-name {
+    color: var(--text-heading);
+    font-size: 22px;
+    font-weight: 700;
+}
+.stigmata-card .set-sub {
+    color: var(--text-muted);
+    font-size: 13px;
+    font-style: italic;
+}
+
+.stigmata-card .stigmata-icon {
+    width: 100%;
+    height: 120px;
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 10px 0;
+    border: 1px solid var(--stigmata-img-border);
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+    color: var(--text-muted);
+    opacity: 0.9;
+    transition: all 0.3s;
+}
+.stigmata-card .stigmata-icon:hover {
+    transform: scale(1.02);
+}
+
+.stigmata-card .pieces {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+.stigmata-card .pieces .piece {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 12px;
+    background: var(--detail-bg);
+    border: 1px solid var(--border-light);
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.stigmata-card .bonus {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+    padding: 8px 10px;
+    background: var(--detail-bg);
+    border-radius: 10px;
+    border-left: 3px solid var(--border-color);
+    margin-bottom: 10px;
+    flex: 1;
+}
+.stigmata-card .bonus strong {
+    color: var(--text-heading-span);
+}
+
+.stigmata-card .stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 6px 10px;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    flex-wrap: wrap;
+    gap: 4px 12px;
+}
+.stigmata-card .stats .stat {
+    color: var(--text-secondary);
+}
+.stigmata-card .stats .stat strong {
+    color: var(--text-heading-span);
+}
+
+.stigmata-card .used-by {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+}
+.stigmata-card .used-by .valk {
+    font-size: 11px;
+    color: var(--text-muted);
+    background: var(--bg-secondary);
+    padding: 2px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+/* ---- Footer sub text ---- */
+.footer-sub {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   RESPONSIVE TWEAKS (page‑specific only)
+   ============================================================ */
+@media (max-width: 768px) {
+    .page-title h2 {
+        font-size: 30px;
+    }
+    .stigmata-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+    .section-header {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title h2 {
+        font-size: 24px;
+    }
+    .section-header {
+        font-size: 22px;
+    }
+    .stigmata-card {
+        padding: 16px 14px;
+    }
+    .stigmata-card .stigmata-icon {
+        height: 100px;
+        font-size: 44px;
+    }
+    .stigmata-card .pieces .piece {
+        font-size: 10px;
+        padding: 2px 10px;
+    }
+}

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="icon" href="img/icons/favicon.ico">
+    <link rel="stylesheet" href="/css/header-auth.css">
     <style>
         /* ============================================================
            استایل‌های اضافی برای کاروسل کاراکترها
@@ -488,9 +489,14 @@
         <div class="header-content">
             <h1>✦ <span>Hoyoverse</span> ✦</h1>
             <p>Fan Page · All Games</p>
+            <div id="authControls"></div>
         </div>
 
         <nav class="menu">
+            <button class="mobile-games-toggle" id="mobileGamesToggle">
+                <span>Menu</span>
+                <span class="mobile-games-arrow">▼</span>
+            </button>
             <ul>
                 <!-- Genshin Impact -->
                 <li>
@@ -801,6 +807,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase.js"></script>
     <script src="/js/auth.js"></script>
+    <script src="/js/header-auth.js"></script>
     <!-- ==========================================================
     JAVASCRIPT — SLIDESHOW + THEME + CAROUSEL
     ========================================================== -->
@@ -870,75 +877,166 @@
         // ============================================================
         // CAROUSEL
         // ============================================================
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded',function() {
             const track = document.getElementById('carouselTrack');
-            const slides = track.querySelectorAll('.carousel-slide');
+            const slides = track ? track.querySelectorAll('.carousel-slide') : [];
             const prevBtn = document.getElementById('carouselPrev');
             const nextBtn = document.getElementById('carouselNext');
             const dotsContainer = document.getElementById('carouselDots');
 
-            let currentIndex = 0;
-            const totalSlides = slides.length;
+            if(!track || !slides.length || !prevBtn || !nextBtn || !dotsContainer) {
+                return;
+            }
 
-            // ایجاد دات‌ها
-            slides.forEach((_, index) => {
+            let currentIndex = 0;
+            let resizeTimer = null;
+
+            /* ========================================================
+            DOTS
+            ======================================================== */
+
+            slides.forEach(function(_,index) {
                 const dot = document.createElement('span');
+
                 dot.className = 'dot' + (index === 0 ? ' active' : '');
                 dot.dataset.index = index;
-                dot.addEventListener('click', () => goToSlide(index));
+
+                dot.addEventListener('click',function(event) {
+                    event.stopPropagation();
+                    goToSlide(index);
+                });
+
                 dotsContainer.appendChild(dot);
             });
 
             const dots = dotsContainer.querySelectorAll('.dot');
 
-            function goToSlide(index) {
-                if (index < 0) index = totalSlides - 1;
-                if (index >= totalSlides) index = 0;
-                currentIndex = index;
+            /* ========================================================
+            GET CURRENT SLIDE WIDTH
+            ======================================================== */
 
-                // حرکت ترک
-                const slideWidth = slides[0].offsetWidth + 20; // عرض + gap
-                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            function getSlideWidth() {
+                const container = track.parentElement;
 
-                // به‌روزرسانی دات‌ها
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === currentIndex);
+                if(!container) {
+                    return 0;
+                }
+
+                return container.clientWidth;
+            }
+
+            /* ========================================================
+            UPDATE CAROUSEL
+            ======================================================== */
+
+            function updateCarousel(animate = true) {
+                const slideWidth = getSlideWidth();
+
+                if(!slideWidth) {
+                    return;
+                }
+
+                track.style.transition = animate
+                    ? 'transform .5s cubic-bezier(.25,.46,.45,.94)'
+                    : 'none';
+
+                track.style.transform =
+                    `translate3d(-${currentIndex * slideWidth}px,0,0)`;
+
+                dots.forEach(function(dot,index) {
+                    dot.classList.toggle(
+                        'active',
+                        index === currentIndex
+                    );
                 });
             }
 
-            // رویدادها
-            prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-            nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+            /* ========================================================
+            GO TO SLIDE
+            ======================================================== */
 
-            // کلیک روی اسلاید برای رفتن به صفحه
-            slides.forEach((slide) => {
-                slide.addEventListener('click', function() {
-                    const link = this.dataset.link;
-                    if (link && link !== '#') {
+            function goToSlide(index) {
+                if(index < 0) {
+                    index = slides.length - 1;
+                }
+
+                if(index >= slides.length) {
+                    index = 0;
+                }
+
+                currentIndex = index;
+
+                updateCarousel(true);
+            }
+
+            /* ========================================================
+            BUTTONS
+            ======================================================== */
+
+            prevBtn.addEventListener('click',function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                goToSlide(currentIndex - 1);
+            });
+
+            nextBtn.addEventListener('click',function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                goToSlide(currentIndex + 1);
+            });
+
+            /* ========================================================
+            SLIDE CLICK
+            ======================================================== */
+
+            slides.forEach(function(slide) {
+                slide.addEventListener('click',function(event) {
+                    const interactive =
+                        event.target.closest('a,button');
+
+                    if(interactive) {
+                        return;
+                    }
+
+                    const link = slide.dataset.link;
+
+                    if(link && link !== '#') {
                         window.location.href = link;
                     }
                 });
             });
 
-            // ریسپانسیو: به‌روزرسانی در تغییر اندازه
-            let resizeTimeout;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => {
-                    const slideWidth = slides[0].offsetWidth + 20;
-                    track.style.transition = 'none';
-                    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-                    setTimeout(() => {
-                        track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                    }, 20);
-                }, 200);
+            /* ========================================================
+            RESIZE
+            ======================================================== */
+
+            window.addEventListener('resize',function() {
+                clearTimeout(resizeTimer);
+
+                resizeTimer = setTimeout(function() {
+                    updateCarousel(false);
+                },150);
             });
 
-            // مقداردهی اولیه
-            setTimeout(() => {
-                const slideWidth = slides[0].offsetWidth + 20;
-                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-            }, 100);
+            /* ========================================================
+            ORIENTATION CHANGE
+            ======================================================== */
+
+            window.addEventListener('orientationchange',function() {
+                setTimeout(function() {
+                    updateCarousel(false);
+                },250);
+            });
+
+            /* ========================================================
+            INITIAL POSITION
+            ======================================================== */
+
+            requestAnimationFrame(function() {
+                updateCarousel(false);
+            });
         });
 
         // ============================================================
@@ -986,6 +1084,24 @@
                         }
                     });
                 }
+            });
+        });
+        document.addEventListener('DOMContentLoaded',function() {
+            const toggle = document.getElementById('mobileGamesToggle');
+            const menuList = document.querySelector('.menu > ul');
+
+            if(!toggle || !menuList) {
+                return;
+            }
+
+            toggle.addEventListener('click',function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                const isOpen = menuList.classList.toggle('mobile-games-open');
+
+                toggle.classList.toggle('active',isOpen);
+                toggle.setAttribute('aria-expanded',String(isOpen));
             });
         });
     </script>

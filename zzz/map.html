@@ -9,13 +9,28 @@
     <!-- استایل‌های صفحات داخلی (نقشه، کاراکترها، و ...) -->
     <link rel="stylesheet" href="/css/pages.css">
     <link rel="icon" href="/img/icons/favicon.ico">
+    <link rel="stylesheet" href="/css/header-auth.css">
 </head>
 <body>
 
     <!-- ==========================================================
-    THEME TOGGLE (توسط base.css مدیریت میشه)
+    THEME TOGGLE
     ========================================================== -->
 
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label" id="themeLabel">🔴 Red</span>
+
+        <div
+            class="theme-toggle"
+            id="themeToggle"
+            onclick="toggleTheme()"
+            role="button"
+            tabindex="0"
+            aria-label="Toggle theme"
+        >
+            <div class="dot"></div>
+        </div>
+    </div>
     <!-- ==========================================================
     HEADER
     ========================================================== -->
@@ -24,12 +39,17 @@
             <h1>✦ <span>Hoyoverse</span> ✦</h1>
             <p>Fan Page · All Games</p>
             <a href="/index.html" class="back-link">← Back to Main Hub</a>
+            <div id="authControls"></div>
         </div>
 
         <!-- ==========================================================
         MENU — فقط اسم بازی‌ها آیکون تصویری دارن، بقیه ایموجی
         ========================================================== -->
         <nav class="menu">
+                <button class="mobile-games-toggle" id="mobileGamesToggle">
+        <span>🎮 Games</span>
+        <span class="mobile-games-arrow">▼</span>
+    </button>
             <ul>
                 <!-- Genshin Impact -->
                 <li>
@@ -417,6 +437,9 @@
     <!-- ==========================================================
     JAVASCRIPT
     ========================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/header-auth.js"></script>
     <script src="/js/script.js"></script>
 
 </body>

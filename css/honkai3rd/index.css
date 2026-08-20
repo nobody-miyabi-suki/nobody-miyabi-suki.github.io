@@ -1,0 +1,336 @@
+/* ============================================================
+   Honkai Impact 3rd – Landing Page (index)
+   Only page‑unique styles. All shared styles come from base.css.
+   ============================================================ */
+
+/* ---- Page‑specific variables (not in shared base) ---- */
+:root {
+    --hero-bg: radial-gradient(ellipse at 70% 30%, #2a0f0f 0%, #0d0505 100%);
+    --regions-bg: radial-gradient(ellipse at center, #1a0a0a, #0d0505);
+    --img-shadow: rgba(150, 30, 30, 0.3);
+    --img-border: rgba(180, 60, 60, 0.2);
+}
+
+[data-theme="blue"] {
+    --hero-bg: radial-gradient(ellipse at 70% 30%, #0a1a2e 0%, #040812 100%);
+    --regions-bg: radial-gradient(ellipse at center, #0a0e1a, #040812);
+    --img-shadow: rgba(20, 60, 180, 0.25);
+    --img-border: rgba(60, 120, 255, 0.2);
+}
+
+/* ---- Hero section ---- */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 60px 30px;
+    min-height: 70vh;
+    background: var(--hero-bg);
+    border-bottom: 2px solid var(--border-light);
+    flex-wrap: wrap;
+    transition: all 0.4s ease;
+}
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 550px;
+}
+.hero-text .badge {
+    display: inline-block;
+    background: var(--badge-bg);
+    padding: 4px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    border: 1px solid var(--badge-border);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+.hero-text h2 {
+    font-size: 52px;
+    color: var(--text-heading);
+    margin-bottom: 10px;
+    text-shadow: 0 0 30px var(--shadow-color);
+    transition: color 0.3s ease;
+}
+.hero-text h2 span {
+    color: var(--text-heading-span);
+    transition: color 0.3s ease;
+}
+.hero-text .sub-title {
+    font-size: 22px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-bottom: 18px;
+    transition: color 0.3s ease;
+}
+.hero-text p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    transition: color 0.3s ease;
+}
+.hero-text .btn-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.hero-text .btn-primary {
+    display: inline-block;
+    padding: 14px 40px;
+    background: var(--btn-primary-bg);
+    color: #ffffff;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    border: 1px solid var(--badge-border);
+}
+.hero-text .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px var(--shadow-color);
+    background: var(--btn-primary-hover);
+}
+.hero-text .btn-secondary {
+    display: inline-block;
+    padding: 14px 40px;
+    background: var(--btn-secondary-bg);
+    color: var(--text-secondary);
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s;
+    border: 1px solid var(--btn-secondary-border);
+}
+.hero-text .btn-secondary:hover {
+    background: var(--badge-bg);
+    color: var(--text-heading);
+    border-color: var(--border-color);
+    transform: translateY(-3px);
+}
+.hero-image {
+    flex: 1.2;
+    min-width: 300px;
+    max-width: 520px;
+    text-align: center;
+    z-index: 1;
+}
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px var(--img-shadow);
+    border: 2px solid var(--img-border);
+    transition: all 0.4s;
+}
+.hero-image img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 30px 80px var(--img-shadow);
+}
+
+/* ---- Quick navigation ---- */
+.quick-nav {
+    padding: 60px 30px;
+    background: var(--quick-nav-bg);
+    transition: all 0.4s ease;
+}
+.quick-nav h3 {
+    text-align: center;
+    font-size: 36px;
+    color: var(--text-heading);
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+.quick-nav .desc {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 16px;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+.nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.nav-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(6px);
+    padding: 25px 15px 20px 15px;
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+    transition: all 0.4s;
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+.nav-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--border-color);
+    box-shadow: 0 12px 40px var(--shadow-color);
+    background: var(--bg-card);
+    color: var(--text-heading);
+}
+.nav-card .icon {
+    font-size: 44px;
+    display: block;
+    margin-bottom: 10px;
+}
+.nav-card h4 {
+    color: var(--text-heading);
+    font-size: 18px;
+    margin-bottom: 4px;
+    transition: color 0.3s ease;
+}
+.nav-card p {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+/* ---- Regions ---- */
+.regions-section {
+    padding: 60px 30px;
+    background: var(--regions-bg);
+    border-top: 2px solid var(--border-light);
+    border-bottom: 2px solid var(--border-light);
+    transition: all 0.4s ease;
+}
+.regions-section h3 {
+    text-align: center;
+    font-size: 36px;
+    color: var(--text-heading);
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+.regions-section .desc {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 16px;
+    margin-bottom: 40px;
+    transition: color 0.3s ease;
+}
+.regions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.region-item {
+    background: var(--bg-card);
+    padding: 18px 12px;
+    border-radius: 14px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s;
+    color: var(--text-secondary);
+}
+.region-item:hover {
+    transform: scale(1.04);
+    border-color: var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-heading);
+}
+.region-item .emoji {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 6px;
+}
+.region-item h5 {
+    color: var(--text-heading);
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+.region-item .element {
+    font-size: 13px;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+/* ---- Footer sub text (unique) ---- */
+.footer-sub {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   RESPONSIVE TWEAKS (page‑specific only)
+   ============================================================ */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+    .hero-text h2 {
+        font-size: 32px;
+    }
+    .hero-image {
+        max-width: 400px;
+        flex: 1;
+    }
+    .hero-text .sub-title {
+        font-size: 18px;
+    }
+    .hero-text p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .quick-nav {
+        padding: 40px 16px;
+    }
+    .quick-nav h3 {
+        font-size: 28px;
+    }
+    .nav-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    .regions-section {
+        padding: 40px 16px;
+    }
+    .regions-section h3 {
+        font-size: 28px;
+    }
+    .regions-grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 30px 16px;
+        min-height: auto;
+    }
+    .hero-text h2 {
+        font-size: 26px;
+    }
+    .hero-image {
+        max-width: 280px;
+    }
+    .hero-text .btn-primary,
+    .hero-text .btn-secondary {
+        padding: 10px 24px;
+        font-size: 14px;
+    }
+    .regions-grid {
+        grid-template-columns: 1fr;
+        max-width: 260px;
+    }
+}

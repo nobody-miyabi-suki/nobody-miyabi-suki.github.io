@@ -9,6 +9,7 @@
     <!-- استایل‌های صفحات شخصیت‌ها -->
     <link rel="stylesheet" href="/css/character-pages.css">
     <link rel="icon" href="/img/icons/favicon.ico">
+    <link rel="stylesheet" href="/css/header-auth.css">
     <style>
         /* ===== استایل‌های اختصاصی برای صفحات Agent ===== */
         .character-hero {
@@ -448,10 +449,15 @@
             <h1>✦ <span>Zenless</span> Zone Zero ✦</h1>
             <p id="headerSub">Agent Profile</p>
             <a href="/index.html" class="back-link">← Back to Main Hub</a>
+            <div id="authControls"></div>
         </div>
 
         <!-- ===== MENU (استاندارد) ===== -->
         <nav class="menu">
+            <button class="mobile-games-toggle" id="mobileGamesToggle">
+                <span>🎮 Games</span>
+                <span class="mobile-games-arrow">▼</span>
+            </button>
             <ul>
                 <!-- Genshin Impact -->
                 <li>
@@ -681,6 +687,9 @@
     <!-- ==========================================================
     JAVASCRIPT — LOADER
     ========================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/header-auth.js"></script>
     <script src="/js/script.js"></script>
     <script>
         // ============================================================

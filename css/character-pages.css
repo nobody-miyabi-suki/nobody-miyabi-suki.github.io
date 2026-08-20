@@ -1,235 +1,769 @@
 /* ============================================================
-   استایل‌های مشترک برای صفحات شخصیت‌های خاص
-   (Miyabi, Ellen Joe, Zhu Yuan, و ...)
+   CHARACTER PAGES — PREMIUM HOYO STYLE
+   Shared styles for:
+   Miyabi / Ellen Joe / Zhu Yuan / etc.
    ============================================================ */
 
-/* ===== متغیرهای اضافی ===== */
+/* ============================================================
+   CHARACTER VARIABLES
+   ============================================================ */
+
 :root {
-    --hero-bg: radial-gradient(ellipse at center, #2a0f0f 0%, #0d0505 100%);
-    --features-bg: linear-gradient(180deg, #0d0505, #1a0a0a);
-    --hero-shadow: rgba(200, 50, 50, 0.2);
-    --feature-shadow: rgba(150, 30, 30, 0.15);
-    --img-border: rgba(180, 60, 60, 0.2);
-    --img-shadow: rgba(150, 30, 30, 0.3);
+    --hero-bg:
+        radial-gradient(
+            circle at 72% 45%,
+            rgba(255, 60, 90, 0.14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 35% 20%,
+            rgba(255, 255, 255, 0.035),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #18070a 0%,
+            #0e0507 55%,
+            #070304 100%
+        );
+
+    --features-bg:
+        linear-gradient(
+            180deg,
+            #070304 0%,
+            #120609 100%
+        );
+
+    --hero-shadow: rgba(255, 50, 75, 0.22);
+    --feature-shadow: rgba(255, 50, 75, 0.14);
+
+    --img-border: rgba(255, 90, 110, 0.22);
+    --img-shadow: rgba(255, 40, 65, 0.28);
+
     --character-icon-size: 80px;
+
+    --character-glow:
+        radial-gradient(
+            circle,
+            rgba(255, 70, 95, 0.2),
+            transparent 68%
+        );
 }
 
 [data-theme="blue"] {
-    --hero-bg: radial-gradient(ellipse at center, #0a1a2e 0%, #040812 100%);
-    --features-bg: linear-gradient(180deg, #040812, #0a0e1a);
-    --hero-shadow: rgba(20, 60, 180, 0.15);
-    --feature-shadow: rgba(20, 60, 180, 0.15);
-    --img-border: rgba(60, 120, 255, 0.2);
-    --img-shadow: rgba(20, 60, 180, 0.25);
+    --hero-bg:
+        radial-gradient(
+            circle at 72% 45%,
+            rgba(65, 130, 255, 0.14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 35% 20%,
+            rgba(255, 255, 255, 0.035),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #071225 0%,
+            #050b16 55%,
+            #02050b 100%
+        );
+
+    --features-bg:
+        linear-gradient(
+            180deg,
+            #02050b 0%,
+            #07101d 100%
+        );
+
+    --hero-shadow: rgba(60, 120, 255, 0.2);
+    --feature-shadow: rgba(40, 100, 255, 0.14);
+
+    --img-border: rgba(80, 145, 255, 0.22);
+    --img-shadow: rgba(30, 90, 255, 0.25);
+
+    --character-glow:
+        radial-gradient(
+            circle,
+            rgba(70, 135, 255, 0.18),
+            transparent 68%
+        );
 }
 
-/* ===== HERO SECTION ===== */
+/* ============================================================
+   HERO
+   ============================================================ */
+
 .character-hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-    min-height: 80vh;
-    padding: 50px 30px;
-    background: var(--hero-bg);
     position: relative;
     overflow: hidden;
-    transition: all 0.4s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 75px;
+
+    min-height: 76vh;
+    padding: 80px 40px;
+
+    background: var(--hero-bg);
+
+    border-bottom: 1px solid var(--border-light);
+
+    transition:
+        background 0.4s ease,
+        border-color 0.3s ease;
 }
 
+/* atmospheric glow */
 .character-hero::before {
-    content: '';
+    content: "";
     position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, var(--shadow-color) 0%, transparent 70%);
+
+    width: 700px;
+    height: 700px;
+
+    left: 54%;
     top: 50%;
-    left: 50%;
+
     transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: var(--character-glow);
+
+    filter: blur(80px);
+
+    opacity: 0.8;
+
     pointer-events: none;
 }
 
+/* cinematic bottom fade */
+.character-hero::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 150px;
+
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(0, 0, 0, 0.35)
+    );
+
+    pointer-events: none;
+}
+
+/* ============================================================
+   HERO TEXT
+   ============================================================ */
+
 .character-hero .hero-text {
-    flex: 1;
-    max-width: 500px;
-    z-index: 1;
+    position: relative;
+    z-index: 3;
+
+    flex: 1 1 0;
+
+    max-width: 560px;
+    min-width: 280px;
 }
 
 .character-hero .hero-text .badge {
-    display: inline-block;
-    background: var(--badge-bg);
-    padding: 4px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 6px 15px;
+    margin-bottom: 16px;
+
     border: 1px solid var(--badge-border);
-    margin-bottom: 12px;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.035),
+            transparent
+        ),
+        var(--badge-bg);
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    box-shadow:
+        0 5px 20px var(--shadow-color),
+        inset 0 1px 0 rgba(255,255,255,0.03);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
 }
 
 .character-hero .hero-text h2 {
-    font-size: 48px;
+    position: relative;
+
+    margin-bottom: 13px;
+
+    font-size: clamp(42px, 5vw, 64px);
+    line-height: 1.05;
+
+    font-weight: 900;
+
+    letter-spacing: -1.5px;
+
     color: var(--text-heading);
-    margin-bottom: 12px;
-    text-shadow: 0 0 30px var(--hero-shadow);
-    transition: color 0.3s ease;
+
+    text-shadow:
+        0 5px 25px rgba(0,0,0,0.45),
+        0 0 35px var(--hero-shadow);
+
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+.character-hero .hero-text h2::after {
+    content: "";
+
+    display: block;
+
+    width: 60px;
+    height: 3px;
+
+    margin-top: 16px;
+
+    border-radius: 99px;
+
+    background: var(--text-heading-span);
+
+    box-shadow:
+        0 0 16px var(--shadow-color);
 }
 
 .character-hero .hero-text h2 span {
     color: var(--text-heading-span);
+
+    text-shadow:
+        0 0 18px var(--shadow-color),
+        0 0 45px var(--shadow-color);
+
     transition: color 0.3s ease;
 }
 
 .character-hero .hero-text .sub-title {
-    font-size: 18px;
+    margin-bottom: 17px;
+
     color: var(--text-secondary);
-    font-weight: 300;
-    margin-bottom: 16px;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    letter-spacing: 0.6px;
+
     transition: color 0.3s ease;
 }
 
 .character-hero .hero-text p {
-    font-size: 17px;
-    line-height: 1.8;
+    margin-bottom: 27px;
+
     color: var(--text-secondary);
-    margin-bottom: 25px;
+
+    font-size: 16px;
+    line-height: 1.9;
+
     transition: color 0.3s ease;
 }
 
+.character-hero .hero-text strong {
+    color: var(--text-heading);
+    font-weight: 700;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
 .character-hero .hero-text .btn-group {
     display: flex;
-    gap: 15px;
+    align-items: center;
+    gap: 11px;
     flex-wrap: wrap;
 }
 
+.character-hero .hero-text .btn-primary,
+.character-hero .hero-text .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+
+    padding: 11px 28px;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        color 0.3s ease;
+}
+
 .character-hero .hero-text .btn-primary {
-    display: inline-block;
-    padding: 12px 35px;
-    background: var(--btn-primary-bg);
-    color: white;
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 15px;
-    transition: all 0.3s;
-    box-shadow: 0 4px 20px var(--shadow-color);
     border: 1px solid var(--badge-border);
+
+    background: var(--btn-primary-bg);
+
+    color: #fff;
+
+    box-shadow:
+        0 8px 24px var(--shadow-color);
 }
 
 .character-hero .hero-text .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px var(--shadow-color);
+
     background: var(--btn-primary-hover);
+
+    border-color: var(--border-color);
+
+    box-shadow:
+        0 13px 32px var(--shadow-color),
+        0 0 20px var(--glow-color);
 }
 
 .character-hero .hero-text .btn-secondary {
-    display: inline-block;
-    padding: 12px 35px;
-    background: var(--btn-secondary-bg);
-    color: var(--text-secondary);
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 15px;
-    transition: all 0.3s;
     border: 1px solid var(--btn-secondary-border);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.04),
+            rgba(255,255,255,0.015)
+        );
+
+    color: var(--text-secondary);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.025);
 }
 
 .character-hero .hero-text .btn-secondary:hover {
-    background: var(--badge-bg);
-    color: var(--text-heading);
-    border-color: var(--border-color);
     transform: translateY(-3px);
+
+    background: var(--badge-bg);
+
+    border-color: var(--border-color);
+
+    color: var(--text-heading);
+
+    box-shadow:
+        0 10px 25px var(--shadow-color);
 }
 
+/* ============================================================
+   CHARACTER IMAGE
+   ============================================================ */
+
 .character-hero .hero-image {
-    flex: 1;
-    max-width: 400px;
-    z-index: 1;
+    position: relative;
+    z-index: 3;
+
+    flex: 0 1 420px;
+
+    width: 420px;
+    max-width: 420px;
+
     text-align: center;
+}
+
+.character-hero .hero-image::before {
+    content: "";
+
+    position: absolute;
+
+    width: 82%;
+    height: 82%;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: var(--character-glow);
+
+    filter: blur(45px);
+
+    opacity: 0.7;
+
+    z-index: -1;
 }
 
 .character-hero .hero-image img {
+    display: block;
+
     width: 100%;
     height: auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px var(--img-shadow);
-    border: 2px solid var(--img-border);
-    transition: all 0.4s;
+
+    border-radius: 24px;
+
+    border: 1px solid var(--img-border);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.01)
+        );
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,0.5),
+        0 0 45px var(--img-shadow),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        transform 0.45s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.4s ease,
+        border-color 0.3s ease;
 }
 
 .character-hero .hero-image img:hover {
-    transform: scale(1.02);
-    box-shadow: 0 30px 80px var(--img-shadow);
+    transform: scale(1.025) translateY(-4px);
+
+    border-color: var(--border-color);
+
+    box-shadow:
+        0 40px 110px rgba(0,0,0,0.55),
+        0 0 60px var(--img-shadow);
 }
 
 .character-hero .hero-image .placeholder-icon {
-    font-size: var(--character-icon-size, 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 280px;
+
+    border: 1px solid var(--img-border);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.025),
+            rgba(255,255,255,0.01)
+        );
+
     color: var(--text-muted);
-    opacity: 0.5;
+
+    font-size: var(--character-icon-size, 80px);
+
+    opacity: 0.55;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.4),
+        0 0 35px var(--img-shadow);
 }
 
-/* ===== FEATURES SECTION ===== */
+/* ============================================================
+   FEATURES
+   ============================================================ */
+
 .character-features {
+    position: relative;
+
     display: flex;
+    align-items: stretch;
     justify-content: center;
-    gap: 40px;
-    padding: 60px 30px;
-    background: var(--features-bg);
+
+    gap: 18px;
+
+    padding: 70px 30px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,255,255,0.025),
+            transparent 35%
+        ),
+        var(--features-bg);
+
+    border-bottom: 1px solid var(--border-light);
+
     flex-wrap: wrap;
-    transition: all 0.4s ease;
+
+    transition:
+        background 0.4s ease,
+        border-color 0.3s ease;
 }
+
+.character-features::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: min(900px, 90%);
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--border-color),
+        transparent
+    );
+
+    opacity: 0.45;
+}
+
+/* ============================================================
+   FEATURE CARD
+   ============================================================ */
 
 .character-features .feature-card {
-    background: var(--bg-card);
-    backdrop-filter: blur(10px);
-    padding: 30px 25px;
-    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+
+    flex: 1 1 240px;
+
+    max-width: 320px;
+    min-height: 220px;
+
+    padding: 28px 24px;
+
     text-align: center;
-    max-width: 280px;
-    flex: 1;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.04),
+            rgba(255,255,255,0.012)
+        ),
+        var(--bg-card);
+
     border: 1px solid var(--border-light);
-    transition: all 0.3s;
+    border-radius: 20px;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+
+    transition:
+        transform 0.35s cubic-bezier(.2,.8,.2,1),
+        border-color 0.3s ease,
+        box-shadow 0.35s ease,
+        background 0.3s ease;
+}
+
+.character-features .feature-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    left: 50%;
+    top: -90px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: var(--character-glow);
+
+    filter: blur(45px);
+
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+}
+
+.character-features .feature-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 1px;
+
+    border: 1px solid rgba(255,255,255,0.025);
+
+    border-radius: 19px;
+
+    pointer-events: none;
 }
 
 .character-features .feature-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
+
     border-color: var(--border-color);
-    box-shadow: 0 10px 40px var(--feature-shadow);
-    background: var(--bg-card);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.065),
+            rgba(255,255,255,0.015)
+        ),
+        var(--bg-card);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.35),
+        0 0 35px var(--feature-shadow),
+        inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
+.character-features .feature-card:hover::before {
+    opacity: 1;
+}
+
+/* ============================================================
+   FEATURE ICON
+   ============================================================ */
+
 .character-features .feature-card .icon {
-    font-size: 42px;
-    margin-bottom: 15px;
-    display: block;
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 17px;
+
+    border: 1px solid var(--border-light);
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.015)
+        );
+
+    font-size: 34px;
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,0.18);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.character-features .feature-card:hover .icon {
+    transform: translateY(-3px) scale(1.05);
+
+    border-color: var(--badge-border);
+
+    box-shadow:
+        0 10px 28px var(--shadow-color),
+        0 0 18px var(--glow-color);
 }
 
 .character-features .feature-card h3 {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 9px;
+
     color: var(--text-heading);
-    font-size: 20px;
-    margin-bottom: 10px;
-    transition: color 0.3s ease;
+
+    font-size: 19px;
+    font-weight: 800;
+
+    transition:
+        color 0.3s ease;
+}
+
+.character-features .feature-card:hover h3 {
+    color: var(--text-heading-span);
 }
 
 .character-features .feature-card p {
+    position: relative;
+    z-index: 2;
+
     color: var(--text-secondary);
-    font-size: 14px;
-    line-height: 1.6;
-    transition: color 0.3s ease;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    transition:
+        color 0.3s ease;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ============================================================
+   TABLET
+   ============================================================ */
+
 @media (max-width: 900px) {
+
     .character-hero {
         flex-direction: column;
-        text-align: center;
-        gap: 30px;
-        padding: 40px 20px;
+
+        gap: 38px;
+
         min-height: auto;
+
+        padding: 65px 24px 55px;
+
+        text-align: center;
+    }
+
+    .character-hero::before {
+        width: 500px;
+        height: 500px;
+
+        left: 50%;
+        top: 42%;
+    }
+
+    .character-hero .hero-text {
+        max-width: 700px;
+        min-width: 0;
     }
 
     .character-hero .hero-text h2 {
-        font-size: 32px;
+        font-size: 40px;
+    }
+
+    .character-hero .hero-text h2::after {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .character-hero .hero-text .sub-title {
@@ -238,56 +772,155 @@
 
     .character-hero .hero-text p {
         font-size: 15px;
-    }
-
-    .character-hero .hero-image {
-        max-width: 300px;
-    }
-
-    .character-features {
-        flex-direction: column;
-        align-items: center;
-        padding: 40px 20px;
-        gap: 20px;
-    }
-
-    .character-features .feature-card {
-        max-width: 100%;
-        width: 100%;
+        line-height: 1.8;
     }
 
     .character-hero .hero-text .btn-group {
         justify-content: center;
     }
+
+    .character-hero .hero-image {
+        width: 340px;
+        max-width: 340px;
+
+        flex-basis: auto;
+    }
+
+    .character-features {
+        padding: 55px 20px;
+        gap: 15px;
+    }
+
+    .character-features .feature-card {
+        flex: 1 1 220px;
+        max-width: 290px;
+    }
 }
 
-@media (max-width: 480px) {
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    .character-hero {
+        gap: 28px;
+
+        padding: 48px 16px 45px;
+    }
+
+    .character-hero::before {
+        width: 380px;
+        height: 380px;
+
+        filter: blur(70px);
+
+        opacity: 0.65;
+    }
+
+    .character-hero::after {
+        height: 90px;
+    }
+
+    .character-hero .hero-text {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .character-hero .hero-text .badge {
+        padding: 5px 12px;
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
     .character-hero .hero-text h2 {
-        font-size: 26px;
+        margin-bottom: 10px;
+
+        font-size: 28px;
+        line-height: 1.1;
+
+        letter-spacing: -0.5px;
+    }
+
+    .character-hero .hero-text h2::after {
+        width: 45px;
+        height: 2px;
+        margin-top: 12px;
     }
 
     .character-hero .hero-text .sub-title {
-        font-size: 14px;
+        margin-bottom: 12px;
+        font-size: 13px;
     }
 
-    .character-hero .hero-image {
-        max-width: 220px;
+    .character-hero .hero-text p {
+        margin-bottom: 20px;
+
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .character-hero .hero-text .btn-group {
+        width: 100%;
+        gap: 9px;
     }
 
     .character-hero .hero-text .btn-primary,
     .character-hero .hero-text .btn-secondary {
-        padding: 10px 24px;
-        font-size: 13px;
         width: 100%;
-        text-align: center;
+        min-height: 40px;
+
+        padding: 9px 18px;
+
+        font-size: 11px;
+    }
+
+    .character-hero .hero-image {
+        width: min(78vw, 270px);
+        max-width: 270px;
+    }
+
+    .character-hero .hero-image img {
+        border-radius: 19px;
+    }
+
+    .character-hero .hero-image .placeholder-icon {
+        min-height: 220px;
+        border-radius: 19px;
+        font-size: 64px;
+    }
+
+    /* Features */
+
+    .character-features {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 13px;
+
+        padding: 45px 14px;
     }
 
     .character-features .feature-card {
-        padding: 20px 16px;
+        width: 100%;
+        max-width: 420px;
+        min-height: 0;
+
+        padding: 22px 18px;
+
+        border-radius: 17px;
     }
 
     .character-features .feature-card .icon {
-        font-size: 34px;
+        width: 55px;
+        height: 55px;
+
+        margin-bottom: 13px;
+
+        border-radius: 14px;
+
+        font-size: 28px;
     }
 
     .character-features .feature-card h3 {
@@ -295,6 +928,60 @@
     }
 
     .character-features .feature-card p {
-        font-size: 13px;
+        font-size: 12px;
+        line-height: 1.65;
+    }
+}
+
+/* ============================================================
+   SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 380px) {
+
+    .character-hero {
+        padding: 40px 12px;
+        gap: 24px;
+    }
+
+    .character-hero .hero-text h2 {
+        font-size: 25px;
+    }
+
+    .character-hero .hero-text .sub-title {
+        font-size: 12px;
+    }
+
+    .character-hero .hero-text p {
+        font-size: 12px;
+        line-height: 1.65;
+    }
+
+    .character-hero .hero-image {
+        width: min(74vw, 235px);
+        max-width: 235px;
+    }
+
+    .character-features {
+        padding: 38px 10px;
+    }
+
+    .character-features .feature-card {
+        padding: 19px 15px;
+    }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .character-hero .hero-image img,
+    .character-hero .hero-text .btn-primary,
+    .character-hero .hero-text .btn-secondary,
+    .character-features .feature-card,
+    .character-features .feature-card .icon {
+        transition: none;
     }
 }

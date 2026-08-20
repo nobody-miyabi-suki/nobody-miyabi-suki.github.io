@@ -4,580 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Honkai Impact 3rd · Stigmata</title>
-    <link rel="icon" href="/img/icons/favicon.ico">
-    <style>
-        /* ============================================================
-           CSS VARIABLES — THEMES (Red & Blue)
-           ============================================================ */
-        :root {
-            --bg-primary: #1a0a0a;
-            --bg-secondary: #0d0505;
-            --bg-card: rgba(60, 20, 20, 0.35);
-            --bg-header: linear-gradient(135deg, #3d0c0c 0%, #6b1a1a 50%, #4a1010 100%);
-            --border-color: #8b2a2a;
-            --border-light: rgba(180, 60, 60, 0.15);
-            --text-primary: #f0e0e0;
-            --text-secondary: #d4b8b8;
-            --text-muted: #a08080;
-            --text-heading: #ffd0d0;
-            --text-heading-span: #ff5e5e;
-            --badge-bg: rgba(200, 50, 50, 0.2);
-            --badge-border: rgba(200, 60, 60, 0.2);
-            --btn-primary-bg: linear-gradient(135deg, #8b1a1a, #c0392b);
-            --btn-primary-hover: linear-gradient(135deg, #a02020, #d94444);
-            --btn-secondary-bg: rgba(255,255,255,0.05);
-            --btn-secondary-border: rgba(180,60,60,0.3);
-            --shadow-color: rgba(150,30,30,0.2);
-            --shadow-strong: rgba(100,0,0,0.4);
-            --footer-color: #8a6a6a;
-            --footer-border: rgba(180,60,60,0.15);
-            --menu-bg: rgba(0,0,0,0.35);
-            --menu-border: rgba(200,80,80,0.2);
-            --dropdown-bg: #2a0f0f;
-            --dropdown-border: rgba(180,60,60,0.3);
-            --dropdown-hover: rgba(200,60,60,0.25);
-            --quick-nav-bg: linear-gradient(180deg, #0d0505, #1a0a0a);
-            --toggle-bg: #2a0f0f;
-            --toggle-border: rgba(180,60,60,0.3);
-            --toggle-dot: #ff5e5e;
-            --card-hover-shadow: rgba(150,30,30,0.2);
-            --page-title-bg: radial-gradient(ellipse at center, #2a0f0f 0%, #0d0505 100%);
-            --rarity-5-bg: linear-gradient(135deg, #ffd700, #ff8c00);
-            --rarity-4-bg: linear-gradient(135deg, #b0c4de, #8a9ac0);
-            --rarity-color: #1a0a0a;
-            --stigmata-img-border: rgba(180,60,60,0.2);
-            --stigmata-img-shadow: rgba(150,30,30,0.3);
-            --set-bg: rgba(60,20,20,0.15);
-            --set-border: rgba(180,60,60,0.08);
-            --detail-bg: rgba(0,0,0,0.25);
-        }
+    <link rel="icon" href="/img/icons/favicon.ico" />
 
-        [data-theme="blue"] {
-            --bg-primary: #0a0e1a;
-            --bg-secondary: #040812;
-            --bg-card: rgba(60,120,255,0.08);
-            --bg-header: linear-gradient(135deg, #0f1a2e 0%, #1a2a4a 50%, #0f1a2e 100%);
-            --border-color: #3a5a8a;
-            --border-light: rgba(60,120,255,0.15);
-            --text-primary: #d0d8f0;
-            --text-secondary: #a0b0d0;
-            --text-muted: #6a7a9a;
-            --text-heading: #e0e8ff;
-            --text-heading-span: #6a9aff;
-            --badge-bg: rgba(60,120,255,0.12);
-            --badge-border: rgba(60,120,255,0.2);
-            --btn-primary-bg: linear-gradient(135deg, #1a3a6a, #2a5a9a);
-            --btn-primary-hover: linear-gradient(135deg, #2a4a7a, #3a6aaa);
-            --btn-secondary-bg: rgba(60,120,255,0.05);
-            --btn-secondary-border: rgba(60,120,255,0.2);
-            --shadow-color: rgba(20,60,180,0.15);
-            --shadow-strong: rgba(20,60,180,0.3);
-            --footer-color: #5a6a8a;
-            --footer-border: rgba(60,120,255,0.08);
-            --menu-bg: rgba(0,0,0,0.3);
-            --menu-border: rgba(60,120,255,0.1);
-            --dropdown-bg: #0f1a30;
-            --dropdown-border: rgba(60,120,255,0.2);
-            --dropdown-hover: rgba(60,120,255,0.15);
-            --quick-nav-bg: linear-gradient(180deg, #040812, #0a0e1a);
-            --toggle-bg: #0a1a2e;
-            --toggle-border: rgba(60,120,255,0.2);
-            --toggle-dot: #6a9aff;
-            --card-hover-shadow: rgba(20,60,180,0.15);
-            --page-title-bg: radial-gradient(ellipse at center, #0a1a2e 0%, #040812 100%);
-            --rarity-5-bg: linear-gradient(135deg, #ffd700, #ff8c00);
-            --rarity-4-bg: linear-gradient(135deg, #b0c4de, #7a8aaa);
-            --rarity-color: #1a0a0a;
-            --stigmata-img-border: rgba(60,120,255,0.2);
-            --stigmata-img-shadow: rgba(20,60,180,0.25);
-            --set-bg: rgba(60,120,255,0.04);
-            --set-border: rgba(60,120,255,0.06);
-            --detail-bg: rgba(0,0,0,0.25);
-        }
+    <!-- Shared Miyabi‑Suki CSS -->
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+    <link rel="stylesheet" href="/css/header-auth.css" />
 
-        /* ============================================================
-           RESET & BASE
-           ============================================================ */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            transition: background 0.4s ease, color 0.3s ease;
-        }
-        a { text-decoration: none; }
-
-        /* ============================================================
-           THEME TOGGLE BUTTON
-           ============================================================ */
-        .theme-toggle-wrapper {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .theme-toggle {
-            width: 60px;
-            height: 30px;
-            background: var(--toggle-bg);
-            border: 2px solid var(--toggle-border);
-            border-radius: 30px;
-            cursor: pointer;
-            position: relative;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            flex-shrink: 0;
-        }
-        .theme-toggle .dot {
-            width: 22px;
-            height: 22px;
-            background: var(--toggle-dot);
-            border-radius: 50%;
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            transition: all 0.4s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        }
-        [data-theme="blue"] .theme-toggle .dot { left: 32px; }
-        .theme-label {
-            font-size: 13px;
-            color: var(--text-muted);
-            font-weight: bold;
-            letter-spacing: 0.5px;
-            background: var(--bg-card);
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1px solid var(--border-light);
-            backdrop-filter: blur(8px);
-            white-space: nowrap;
-            transition: all 0.3s ease;
-        }
-
-        /* ============================================================
-           HEADER
-           ============================================================ */
-        .header {
-            background: var(--bg-header);
-            padding: 15px 0 0 0;
-            color: var(--text-primary);
-            box-shadow: 0 4px 20px var(--shadow-strong);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--border-color);
-            transition: all 0.4s ease;
-        }
-        .header-content {
-            text-align: center;
-            padding: 0 20px 10px 20px;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 38px;
-            letter-spacing: 3px;
-            color: var(--text-heading);
-            text-shadow: 0 0 20px var(--shadow-color);
-            transition: color 0.3s ease;
-        }
-        .header h1 span { color: var(--text-heading-span); transition: color 0.3s ease; }
-        .header p {
-            margin: 5px 0 0 0;
-            font-size: 16px;
-            opacity: 0.85;
-            color: var(--text-secondary);
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 8px;
-            padding: 8px 20px;
-            background: var(--btn-secondary-bg);
-            border-radius: 20px;
-            color: var(--text-secondary);
-            font-size: 14px;
-            transition: all 0.3s;
-            border: 1px solid var(--btn-secondary-border);
-        }
-        .back-link:hover {
-            background: var(--badge-bg);
-            color: var(--text-heading);
-            border-color: var(--border-color);
-        }
-
-        /* ============================================================
-           MENU — click‑to‑toggle with arrows (identical to other pages)
-           ============================================================ */
-        .menu {
-            background: var(--menu-bg);
-            margin-top: 10px;
-            border-top: 1px solid var(--menu-border);
-            transition: all 0.3s ease;
-        }
-        .menu > ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 0;
-            margin: 0;
-        }
-        .menu > ul > li {
-            position: relative;
-            display: inline-block;
-        }
-        .menu > ul > li > .menu-item-wrap {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 25px;
-            color: var(--text-secondary);
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-        }
-        .menu > ul > li > .menu-item-wrap:hover {
-            background: var(--badge-bg);
-            border-bottom-color: var(--border-color);
-            color: var(--text-heading);
-        }
-        .menu > ul > li > .menu-item-wrap a {
-            flex: 1;
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .arrow {
-            display: inline-block;
-            font-size: 14px;
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-            user-select: none;
-            cursor: pointer;
-            color: var(--text-muted);
-            padding: 2px 6px;
-            border-radius: 4px;
-            flex-shrink: 0;
-        }
-        .arrow:hover { background: rgba(255,255,255,0.05); }
-        .arrow.open { transform: rotate(180deg); }
-
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--dropdown-bg);
-            min-width: 220px;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-            z-index: 1000;
-            padding: 0;
-            list-style: none;
-            border: 1px solid var(--dropdown-border);
-            border-top: none;
-            transition: background 0.3s ease;
-        }
-        .dropdown li {
-            display: block;
-            border-bottom: 1px solid var(--border-light);
-            position: relative;
-        }
-        .dropdown li:last-child { border-bottom: none; }
-        .dropdown .menu-item-wrap {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 20px;
-            color: var(--text-secondary);
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .dropdown .menu-item-wrap:hover {
-            background: var(--dropdown-hover);
-            color: var(--text-heading);
-        }
-        .dropdown .menu-item-wrap a {
-            flex: 1;
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .sub-dropdown {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 100%;
-            background: var(--dropdown-bg);
-            min-width: 180px;
-            border-radius: 0 10px 10px 10px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-            padding: 0;
-            list-style: none;
-            border: 1px solid var(--dropdown-border);
-            transition: background 0.3s ease;
-        }
-        .sub-dropdown .menu-item-wrap {
-            padding: 10px 18px;
-            font-size: 13px;
-        }
-        .sub-dropdown .menu-item-wrap:hover {
-            background: var(--dropdown-hover);
-        }
-
-        .dropdown.open { display: block; }
-        .sub-dropdown.open { display: block; }
-
-        @media (max-width: 768px) {
-            .header { padding: 8px 0 0 0; }
-            .header-content { padding: 0 15px 6px 15px; }
-            .header h1 { font-size: 24px !important; letter-spacing: 2px !important; }
-            .header p { font-size: 12px !important; margin-top: 2px !important; }
-            .back-link { font-size: 11px !important; padding: 4px 14px !important; margin-top: 4px !important; }
-            .menu { margin-top: 4px !important; }
-            .menu > ul { flex-direction: column; align-items: stretch; }
-            .menu > ul > li { width: 100%; text-align: left; }
-            .menu > ul > li > .menu-item-wrap { padding: 10px 16px; font-size: 14px; }
-            .menu > ul > li > .menu-item-wrap .arrow { font-size: 15px; padding: 4px 8px; margin-left: 0; }
-            .dropdown { position: static; width: 100%; border-radius: 0; box-shadow: none; border: 1px solid var(--border-light); border-top: none; }
-            .sub-dropdown { position: static; width: 100%; border-radius: 0; padding-left: 20px; box-shadow: none; border: 1px solid var(--border-light); border-top: none; }
-            .dropdown .menu-item-wrap { padding: 10px 16px; font-size: 13px; }
-            .sub-dropdown .menu-item-wrap { padding: 8px 16px 8px 24px; font-size: 12px; }
-            .theme-toggle-wrapper { bottom: 15px; right: 15px; }
-            .theme-label { font-size: 11px; padding: 2px 10px; }
-            .theme-toggle { width: 50px; height: 26px; }
-            .theme-toggle .dot { width: 18px; height: 18px; }
-            [data-theme="blue"] .theme-toggle .dot { left: 26px; }
-        }
-
-        @media (max-width: 480px) {
-            .header h1 { font-size: 20px !important; letter-spacing: 1px !important; }
-            .header p { font-size: 11px !important; }
-            .back-link { font-size: 10px !important; padding: 3px 12px !important; }
-            .menu > ul > li > .menu-item-wrap { padding: 8px 14px; font-size: 13px; }
-            .dropdown .menu-item-wrap { padding: 8px 14px; font-size: 12px; }
-            .sub-dropdown .menu-item-wrap { padding: 6px 14px 6px 20px; font-size: 11px; }
-        }
-
-        /* ============================================================
-           PAGE TITLE
-           ============================================================ */
-        .page-title {
-            text-align: center;
-            padding: 50px 20px 30px 20px;
-            background: var(--page-title-bg);
-            border-bottom: 2px solid var(--border-light);
-            transition: all 0.4s ease;
-        }
-        .page-title h2 {
-            font-size: 44px;
-            color: var(--text-heading);
-            text-shadow: 0 0 30px var(--shadow-color);
-            transition: color 0.3s ease;
-        }
-        .page-title h2 span { color: var(--text-heading-span); transition: color 0.3s ease; }
-        .page-title p {
-            color: var(--text-secondary);
-            font-size: 18px;
-            margin-top: 8px;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        /* ============================================================
-           STIGMATA CONTENT
-           ============================================================ */
-        .content-section {
-            padding: 50px 30px;
-            background: var(--quick-nav-bg);
-            max-width: 1300px;
-            margin: 0 auto;
-            transition: all 0.4s ease;
-        }
-        .section-header {
-            font-size: 32px;
-            color: var(--text-heading);
-            text-align: center;
-            margin: 0 0 10px 0;
-            border-bottom: 2px solid var(--border-light);
-            padding-bottom: 12px;
-            transition: color 0.3s ease, border-color 0.3s ease;
-        }
-        .section-desc {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 16px;
-            margin-bottom: 40px;
-            transition: color 0.3s ease;
-        }
-
-        .stigmata-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .stigmata-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(6px);
-            border-radius: 18px;
-            padding: 22px 20px 20px 20px;
-            border: 1px solid var(--border-light);
-            transition: all 0.4s;
-            display: flex;
-            flex-direction: column;
-        }
-        .stigmata-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--border-color);
-            box-shadow: 0 12px 40px var(--card-hover-shadow);
-            background: var(--bg-card);
-        }
-
-        .stigmata-card .rarity {
-            display: inline-block;
-            font-weight: bold;
-            font-size: 11px;
-            padding: 2px 14px;
-            border-radius: 12px;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            align-self: flex-start;
-            color: var(--rarity-color);
-        }
-        .rarity-5 { background: var(--rarity-5-bg); }
-        .rarity-4 { background: var(--rarity-4-bg); }
-
-        .stigmata-card .set-name {
-            color: var(--text-heading);
-            font-size: 22px;
-            font-weight: 700;
-            transition: color 0.3s ease;
-        }
-        .stigmata-card .set-sub {
-            color: var(--text-muted);
-            font-size: 13px;
-            font-style: italic;
-            transition: color 0.3s ease;
-        }
-
-        .stigmata-card .stigmata-icon {
-            width: 100%;
-            height: 120px;
-            border-radius: 14px;
-            overflow: hidden;
-            margin: 10px 0;
-            border: 1px solid var(--stigmata-img-border);
-            background: var(--bg-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 56px;
-            color: var(--text-muted);
-            opacity: 0.9;
-            transition: all 0.3s;
-        }
-        .stigmata-card .stigmata-icon:hover { transform: scale(1.02); }
-
-        .stigmata-card .pieces {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-        .stigmata-card .pieces .piece {
-            display: inline-block;
-            padding: 2px 12px;
-            border-radius: 12px;
-            background: var(--detail-bg);
-            border: 1px solid var(--border-light);
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        .stigmata-card .bonus {
-            color: var(--text-secondary);
-            font-size: 14px;
-            line-height: 1.7;
-            padding: 8px 10px;
-            background: var(--detail-bg);
-            border-radius: 10px;
-            border-left: 3px solid var(--border-color);
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-            flex: 1;
-        }
-        .stigmata-card .bonus strong { color: var(--text-heading-span); }
-
-        .stigmata-card .stats {
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            color: var(--text-muted);
-            padding: 6px 10px;
-            background: var(--bg-primary);
-            border-radius: 8px;
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-            flex-wrap: wrap;
-            gap: 4px 12px;
-        }
-        .stigmata-card .stats .stat { color: var(--text-secondary); }
-        .stigmata-card .stats .stat strong { color: var(--text-heading-span); }
-
-        .stigmata-card .used-by {
-            margin-top: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px 8px;
-        }
-        .stigmata-card .used-by .valk {
-            font-size: 11px;
-            color: var(--text-muted);
-            background: var(--bg-secondary);
-            padding: 2px 10px;
-            border-radius: 12px;
-            border: 1px solid var(--border-light);
-        }
-
-        /* ============================================================
-           FOOTER (FIXED)
-           ============================================================ */
-        .footer {
-            text-align: center;
-            padding: 30px 20px;
-            background: var(--bg-secondary, #0d0505);
-            border-top: 1px solid var(--footer-border, rgba(180,60,60,0.15));
-            color: var(--footer-color, #8a6a6a);
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            transition: all 0.4s ease;
-        }
-        .footer span { color: var(--text-heading-span); transition: color 0.3s ease; }
-
-        @media (max-width: 768px) {
-            .page-title h2 { font-size: 30px; }
-            .stigmata-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
-            .section-header { font-size: 26px; }
-        }
-        @media (max-width: 480px) {
-            .page-title h2 { font-size: 24px; }
-            .section-header { font-size: 22px; }
-            .stigmata-card { padding: 16px 14px; }
-            .stigmata-card .stigmata-icon { height: 100px; font-size: 44px; }
-            .stigmata-card .pieces .piece { font-size: 10px; padding: 2px 10px; }
-        }
-    </style>
+    <!-- Page‑specific CSS (unique to this page) -->
+    <link rel="stylesheet" href="/css/honkai3rd/stigmata.css" />
 </head>
 <body>
 
     <!-- ==========================================================
-    THEME TOGGLE
+    THEME TOGGLE (shared, placed outside header)
     ========================================================== -->
     <div class="theme-toggle-wrapper">
         <span class="theme-label" id="themeLabel">🔴 Red</span>
@@ -587,21 +27,31 @@
     </div>
 
     <!-- ==========================================================
-    HEADER
+    HEADER (shared styles from base.css)
     ========================================================== -->
     <header class="header">
         <div class="header-content">
             <h1>✦ <span>Hoyoverse</span> ✦</h1>
             <p>Fan Page · All Games</p>
             <a href="/index.html" class="back-link">← Back to Main Hub</a>
+            <!-- Auth controls – populated by header-auth.js -->
+            <div id="authControls"></div>
         </div>
 
+        <!-- Navigation – shared menu structure, with icons preserved -->
         <nav class="menu">
+            <button class="mobile-games-toggle" id="mobileGamesToggle">
+                <span>🎮 Games</span>
+                <span class="mobile-games-arrow">▼</span>
+            </button>
             <ul>
                 <!-- Genshin Impact -->
                 <li>
                     <div class="menu-item-wrap">
-                        <a href="/genshin/index.html">🎮 Genshin Impact</a>
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin" class="menu-icon" />
+                            Genshin Impact
+                        </a>
                         <span class="arrow">▼</span>
                     </div>
                     <ul class="dropdown">
@@ -638,7 +88,10 @@
                 <!-- Honkai Star Rail -->
                 <li>
                     <div class="menu-item-wrap">
-                        <a href="/starrail/index.html">🚀 Honkai Star Rail</a>
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon" />
+                            Honkai Star Rail
+                        </a>
                         <span class="arrow">▼</span>
                     </div>
                     <ul class="dropdown">
@@ -673,7 +126,10 @@
                 <!-- Zenless Zone Zero -->
                 <li>
                     <div class="menu-item-wrap">
-                        <a href="/zzz/index.html">🎯 Zenless Zone Zero</a>
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="ZZZ" class="menu-icon" />
+                            Zenless Zone Zero
+                        </a>
                         <span class="arrow">▼</span>
                     </div>
                     <ul class="dropdown">
@@ -707,7 +163,10 @@
                 <!-- Honkai Impact 3rd -->
                 <li>
                     <div class="menu-item-wrap">
-                        <a href="/honkai3rd/index.html">⚡ Honkai Impact 3rd</a>
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon" />
+                            Honkai Impact 3rd
+                        </a>
                         <span class="arrow">▼</span>
                     </div>
                     <ul class="dropdown">
@@ -1055,97 +514,20 @@
     </section>
 
     <!-- ==========================================================
-    FOOTER (FIXED)
+    FOOTER (shared styles from base.css)
     ========================================================== -->
     <footer class="footer">
         <p>✦ Made with <span>❤️</span> for Hoyoverse Fans · All Games ✦</p>
-        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+        <p class="footer-sub">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT — THEME TOGGLE + MOBILE MENU
+    SHARED JAVASCRIPT (auth, theme, mobile menu)
     ========================================================== -->
-    <script>
-        // ============================================================
-        // THEME TOGGLE
-        // ============================================================
-        function toggleTheme() {
-            const html = document.documentElement;
-            const label = document.getElementById('themeLabel');
-
-            if (html.getAttribute('data-theme') === 'blue') {
-                html.removeAttribute('data-theme');
-                label.textContent = '🔴 Red';
-            } else {
-                html.setAttribute('data-theme', 'blue');
-                label.textContent = '🔵 Blue';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('hoyoverse-theme');
-            const label = document.getElementById('themeLabel');
-            if (savedTheme === 'blue') {
-                document.documentElement.setAttribute('data-theme', 'blue');
-                label.textContent = '🔵 Blue';
-            }
-        });
-
-        const originalToggle = toggleTheme;
-        toggleTheme = function() {
-            originalToggle();
-            const theme = document.documentElement.getAttribute('data-theme') || 'red';
-            localStorage.setItem('hoyoverse-theme', theme);
-        };
-
-        // ============================================================
-        // MOBILE MENU — Arrow toggles (shared with /js/script.js)
-        // ============================================================
-        document.addEventListener('DOMContentLoaded', function() {
-            const allArrows = document.querySelectorAll('.arrow');
-
-            allArrows.forEach(function(arrow) {
-                arrow.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    const isOpen = this.classList.contains('open');
-                    const parentLi = this.closest('li');
-                    if (!parentLi) return;
-                    const dropdown = parentLi.querySelector('.dropdown, .sub-dropdown');
-                    if (!dropdown) return;
-
-                    if (isOpen) {
-                        this.classList.remove('open');
-                        dropdown.classList.remove('open');
-                    } else {
-                        const siblings = parentLi.parentElement.querySelectorAll('.dropdown.open, .sub-dropdown.open');
-                        siblings.forEach(function(sib) {
-                            if (sib !== dropdown) {
-                                sib.classList.remove('open');
-                                const arrowBtn = sib.closest('li').querySelector('.arrow');
-                                if (arrowBtn) arrowBtn.classList.remove('open');
-                            }
-                        });
-                        this.classList.add('open');
-                        dropdown.classList.add('open');
-                    }
-                });
-            });
-
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.menu')) {
-                    document.querySelectorAll('.arrow.open').forEach(function(arrow) {
-                        arrow.classList.remove('open');
-                        const parentLi = arrow.closest('li');
-                        if (parentLi) {
-                            const dropdown = parentLi.querySelector('.dropdown, .sub-dropdown');
-                            if (dropdown) dropdown.classList.remove('open');
-                        }
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/header-auth.js"></script>
+    <script src="/js/script.js"></script>
 
 </body>
 </html>

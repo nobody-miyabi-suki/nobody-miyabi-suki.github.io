@@ -4,270 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genshin · Story</title>
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/pages.css">
     <link rel="icon" href="/img/icons/favicon.ico">
 
-    <style>
-        /* ============================================================
-           STORY CONTENT
-           ============================================================ */
-        .content-section {
-            padding: 50px 30px;
-            background: var(--content-bg);
-            max-width: 1100px;
-            margin: 0 auto;
-            transition: all 0.4s ease;
-        }
+    <!-- Shared Miyabi‑Suki CSS -->
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+    <link rel="stylesheet" href="/css/header-auth.css">
 
-        .story-intro {
-            background: var(--intro-bg);
-            padding: 30px;
-            border-radius: 18px;
-            border-left: 6px solid var(--intro-border);
-            margin-bottom: 50px;
-            transition: all 0.3s ease;
-        }
-
-        .story-intro p {
-            font-size: 18px;
-            line-height: 1.9;
-            color: var(--text-secondary);
-            transition: color 0.3s ease;
-        }
-
-        .story-intro strong {
-            color: var(--intro-strong);
-            transition: color 0.3s ease;
-        }
-
-        .chapter {
-            background: var(--chapter-bg);
-            backdrop-filter: blur(4px);
-            padding: 25px 30px;
-            border-radius: 16px;
-            border: 1px solid var(--chapter-border);
-            margin-bottom: 30px;
-            transition: all 0.3s;
-        }
-
-        .chapter:hover {
-            border-color: var(--chapter-hover-border);
-            transform: translateX(6px);
-        }
-
-        .chapter .chapter-number {
-            display: inline-block;
-            font-size: 14px;
-            font-weight: bold;
-            color: var(--chapter-number-color);
-            background: var(--chapter-number-bg);
-            padding: 2px 16px;
-            border-radius: 20px;
-            border: 1px solid var(--chapter-number-border);
-            margin-bottom: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .chapter h3 {
-            font-size: 28px;
-            color: var(--text-heading);
-            margin-bottom: 6px;
-            transition: color 0.3s ease;
-        }
-
-        .chapter .sub-title {
-            font-size: 16px;
-            color: var(--sub-title-color);
-            font-style: italic;
-            margin-bottom: 12px;
-            transition: color 0.3s ease;
-        }
-
-        .chapter p {
-            color: var(--chapter-p-color);
-            line-height: 1.8;
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
-
-        .chapter .region-tag {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 4px 18px;
-            background: var(--region-tag-bg);
-            border-radius: 20px;
-            font-size: 13px;
-            color: var(--region-tag-color);
-            border: 1px solid var(--region-tag-border);
-            transition: all 0.3s ease;
-        }
-
-        /* ============================================================
-           ARCHON LIST
-           ============================================================ */
-        .archon-section {
-            margin-top: 50px;
-            background: var(--archon-section-bg);
-            padding: 30px;
-            border-radius: 18px;
-            border: 1px solid var(--archon-section-border);
-            transition: all 0.3s ease;
-        }
-
-        .archon-section h3 {
-            font-size: 30px;
-            color: var(--text-heading);
-            text-align: center;
-            margin-bottom: 20px;
-            transition: color 0.3s ease;
-        }
-
-        .archon-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
-
-        .archon-card {
-            background: var(--archon-card-bg);
-            padding: 18px 12px;
-            border-radius: 14px;
-            text-align: center;
-            border: 1px solid var(--archon-card-border);
-            transition: all 0.3s;
-        }
-
-        .archon-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--archon-card-hover-border);
-        }
-
-        .archon-card .icon {
-            font-size: 40px;
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .archon-card h4 {
-            color: var(--text-heading);
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-
-        .archon-card .archon-title {
-            font-size: 13px;
-            color: var(--archon-title-color);
-            transition: color 0.3s ease;
-        }
-
-        .archon-card div {
-            font-size: 13px;
-            color: var(--archon-name-color);
-            transition: color 0.3s ease;
-        }
-
-        .chapter em {
-            color: var(--em-color);
-            transition: color 0.3s ease;
-        }
-
-        /* ============================================================
-           FOOTER
-           ============================================================ */
-        .footer {
-            text-align: center;
-            padding: 30px 20px;
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--footer-border);
-            color: var(--footer-color);
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            transition: all 0.4s ease;
-        }
-
-        .footer span {
-            color: var(--text-heading-span);
-            transition: color 0.3s ease;
-        }
-
-        /* ============================================================
-           RESPONSIVE
-           ============================================================ */
-        @media (max-width: 768px) {
-            .page-title h2 {
-                font-size: 30px;
-            }
-
-            .chapter {
-                padding: 18px 16px;
-            }
-
-            .chapter h3 {
-                font-size: 22px;
-            }
-
-            .archon-grid {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            }
-
-            .story-intro {
-                padding: 18px;
-            }
-
-            .story-intro p {
-                font-size: 16px;
-            }
-
-            .theme-toggle-wrapper {
-                bottom: 15px;
-                right: 15px;
-            }
-
-            .theme-label {
-                font-size: 11px;
-                padding: 2px 10px;
-            }
-
-            .theme-toggle {
-                width: 50px;
-                height: 26px;
-            }
-
-            .theme-toggle .dot {
-                width: 18px;
-                height: 18px;
-            }
-
-            [data-theme="blue"] .theme-toggle .dot {
-                left: 26px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 28px;
-            }
-
-            .page-title h2 {
-                font-size: 24px;
-            }
-
-            .archon-section {
-                padding: 18px;
-            }
-
-            .archon-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 12px;
-            }
-        }
-    </style>
+    <!-- Page‑specific CSS (unique to this page) -->
+    <link rel="stylesheet" href="/css/genshin/story.css">
 </head>
 <body>
 
     <!-- ==========================================================
-    THEME TOGGLE
+    THEME TOGGLE (shared, placed outside header)
     ========================================================== -->
     <div class="theme-toggle-wrapper">
         <span class="theme-label" id="themeLabel">🔴 Red</span>
@@ -284,9 +34,14 @@
             <h1>✦ <span>Genshin</span> Impact ✦</h1>
             <p>Story of Teyvat</p>
             <a href="/index.html" class="back-link">← Back to Home</a>
+            <div id="authControls"></div>
         </div>
 
         <nav class="menu">
+            <button class="mobile-games-toggle" id="mobileGamesToggle">
+                <span>🎮 Games</span>
+                <span class="mobile-games-arrow">▼</span>
+            </button>
             <ul>
                 <!-- Genshin Impact -->
                 <li>
@@ -624,16 +379,19 @@
     </section>
 
     <!-- ==========================================================
-    FOOTER
+    FOOTER (shared styles from base.css)
     ========================================================== -->
     <footer class="footer">
         <p>✦ Made with <span>❤️</span> for Genshin Impact Fans ✦</p>
-        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+        <p class="footer-sub">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT — THEME TOGGLE + ARROW TOGGLE
+    SHARED JAVASCRIPT (auth, theme, mobile menu)
     ========================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/header-auth.js"></script>
     <script src="/js/script.js"></script>
 
 </body>

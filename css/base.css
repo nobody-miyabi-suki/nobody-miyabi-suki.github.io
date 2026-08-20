@@ -1,91 +1,107 @@
-/* ============================================================
-   CSS VARIABLES — THEMES (Red & Blue)
-   ============================================================ */
 :root {
-    /* ===== RED THEME ===== */
-    --bg-primary: #1a0a0a;
-    --bg-secondary: #0d0505;
-    --bg-card: rgba(60, 20, 20, 0.35);
-    --bg-header: linear-gradient(135deg, #3d0c0c 0%, #6b1a1a 50%, #4a1010 100%);
-    --border-color: #8b2a2a;
-    --border-light: rgba(180, 60, 60, 0.15);
-    --text-primary: #f0e0e0;
-    --text-secondary: #d4b8b8;
-    --text-muted: #a08080;
-    --text-heading: #ffd0d0;
-    --text-heading-span: #ff5e5e;
-    --badge-bg: rgba(200, 50, 50, 0.2);
-    --badge-border: rgba(200, 60, 60, 0.2);
-    --btn-primary-bg: linear-gradient(135deg, #8b1a1a, #c0392b);
-    --btn-primary-hover: linear-gradient(135deg, #a02020, #d94444);
-    --btn-secondary-bg: rgba(255, 255, 255, 0.05);
-    --btn-secondary-border: rgba(180, 60, 60, 0.3);
-    --shadow-color: rgba(150, 30, 30, 0.2);
-    --shadow-strong: rgba(100, 0, 0, 0.4);
-    --footer-color: #8a6a6a;
-    --footer-border: rgba(180, 60, 60, 0.15);
-    --menu-bg: rgba(0, 0, 0, 0.35);
-    --menu-border: rgba(200, 80, 80, 0.2);
-    --dropdown-bg: #2a0f0f;
-    --dropdown-border: rgba(180, 60, 60, 0.3);
-    --dropdown-hover: rgba(200, 60, 60, 0.25);
-    --toggle-bg: #2a0f0f;
-    --toggle-border: rgba(180, 60, 60, 0.3);
-    --toggle-dot: #ff5e5e;
+    --bg-primary: #120607;
+    --bg-secondary: #080304;
+    --bg-card: rgba(255, 255, 255, 0.035);
+    --bg-header: linear-gradient(135deg, rgba(44, 8, 12, 0.98), rgba(92, 18, 25, 0.96) 50%, rgba(36, 7, 11, 0.98));
+    --border-color: #a83a45;
+    --border-light: rgba(255, 110, 120, 0.14);
+    --text-primary: #f3e9ea;
+    --text-secondary: #d6c1c4;
+    --text-muted: #92777b;
+    --text-heading: #ffe4e7;
+    --text-heading-span: #ff6874;
+    --badge-bg: rgba(255, 78, 94, 0.1);
+    --badge-border: rgba(255, 98, 110, 0.24);
+    --btn-primary-bg: linear-gradient(135deg, #8c202a, #c63d48);
+    --btn-primary-hover: linear-gradient(135deg, #a52a35, #e04c58);
+    --btn-secondary-bg: rgba(255, 255, 255, 0.045);
+    --btn-secondary-border: rgba(255, 110, 120, 0.2);
+    --shadow-color: rgba(255, 50, 65, 0.15);
+    --shadow-strong: rgba(20, 0, 4, 0.65);
+    --footer-color: #765e62;
+    --footer-border: rgba(255, 110, 120, 0.1);
+    --menu-bg: rgba(7, 3, 4, 0.72);
+    --menu-border: rgba(255, 100, 110, 0.13);
+    --dropdown-bg: rgba(24, 8, 11, 0.97);
+    --dropdown-border: rgba(255, 110, 120, 0.18);
+    --dropdown-hover: rgba(255, 70, 85, 0.1);
+    --toggle-bg: rgba(20, 6, 8, 0.9);
+    --toggle-border: rgba(255, 100, 110, 0.22);
+    --toggle-dot: #ff5f6d;
     --menu-icon-size: 22px;
-    --quick-nav-bg: linear-gradient(180deg, #0d0505, #1a0a0a);
-    --page-title-bg: radial-gradient(ellipse at center, #2a0f0f 0%, #0d0505 100%);
+    --quick-nav-bg: linear-gradient(180deg, #080304, #120607);
+    --page-title-bg: radial-gradient(circle at 50% 20%, rgba(125, 20, 30, 0.25), transparent 52%), linear-gradient(180deg, #18080b 0%, #080304 100%);
+    --glass-bg: rgba(255, 255, 255, 0.035);
+    --glass-bg-hover: rgba(255, 255, 255, 0.065);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --surface-highlight: rgba(255, 255, 255, 0.055);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --glow-color: rgba(255, 70, 85, 0.22);
+    --glow-strong: rgba(255, 70, 85, 0.34);
 }
 
 [data-theme="blue"] {
-    --bg-primary: #0a0e1a;
-    --bg-secondary: #040812;
-    --bg-card: rgba(60, 120, 255, 0.08);
-    --bg-header: linear-gradient(135deg, #0f1a2e 0%, #1a2a4a 50%, #0f1a2e 100%);
-    --border-color: #3a5a8a;
-    --border-light: rgba(60, 120, 255, 0.15);
-    --text-primary: #d0d8f0;
-    --text-secondary: #a0b0d0;
-    --text-muted: #6a7a9a;
-    --text-heading: #e0e8ff;
-    --text-heading-span: #6a9aff;
-    --badge-bg: rgba(60, 120, 255, 0.12);
-    --badge-border: rgba(60, 120, 255, 0.2);
-    --btn-primary-bg: linear-gradient(135deg, #1a3a6a, #2a5a9a);
-    --btn-primary-hover: linear-gradient(135deg, #2a4a7a, #3a6aaa);
-    --btn-secondary-bg: rgba(60, 120, 255, 0.05);
-    --btn-secondary-border: rgba(60, 120, 255, 0.2);
-    --shadow-color: rgba(20, 60, 180, 0.15);
-    --shadow-strong: rgba(20, 60, 180, 0.3);
-    --footer-color: #5a6a8a;
-    --footer-border: rgba(60, 120, 255, 0.08);
-    --menu-bg: rgba(0, 0, 0, 0.3);
-    --menu-border: rgba(60, 120, 255, 0.1);
-    --dropdown-bg: #0f1a30;
-    --dropdown-border: rgba(60, 120, 255, 0.2);
-    --dropdown-hover: rgba(60, 120, 255, 0.15);
-    --toggle-bg: #0a1a2e;
-    --toggle-border: rgba(60, 120, 255, 0.2);
-    --toggle-dot: #6a9aff;
-    --quick-nav-bg: linear-gradient(180deg, #040812, #0a0e1a);
-    --page-title-bg: radial-gradient(ellipse at center, #0a1a2e 0%, #040812 100%);
+    --bg-primary: #060b15;
+    --bg-secondary: #02050b;
+    --bg-card: rgba(90, 145, 255, 0.04);
+    --bg-header: linear-gradient(135deg, rgba(8, 20, 39, 0.98), rgba(21, 44, 79, 0.96) 50%, rgba(7, 18, 33, 0.98));
+    --border-color: #4a7ec7;
+    --border-light: rgba(95, 155, 255, 0.14);
+    --text-primary: #e9eef8;
+    --text-secondary: #c0cade;
+    --text-muted: #7787a3;
+    --text-heading: #e4edff;
+    --text-heading-span: #6ba4ff;
+    --badge-bg: rgba(70, 135, 255, 0.08);
+    --badge-border: rgba(90, 150, 255, 0.22);
+    --btn-primary-bg: linear-gradient(135deg, #21497d, #356fb6);
+    --btn-primary-hover: linear-gradient(135deg, #2b5a96, #4785d0);
+    --btn-secondary-bg: rgba(90, 145, 255, 0.045);
+    --btn-secondary-border: rgba(90, 145, 255, 0.2);
+    --shadow-color: rgba(50, 110, 255, 0.17);
+    --shadow-strong: rgba(0, 10, 30, 0.7);
+    --footer-color: #5d6f91;
+    --footer-border: rgba(90, 145, 255, 0.1);
+    --menu-bg: rgba(2, 6, 13, 0.72);
+    --menu-border: rgba(90, 145, 255, 0.12);
+    --dropdown-bg: rgba(6, 16, 31, 0.97);
+    --dropdown-border: rgba(90, 145, 255, 0.18);
+    --dropdown-hover: rgba(70, 130, 255, 0.1);
+    --toggle-bg: rgba(5, 15, 28, 0.9);
+    --toggle-border: rgba(90, 145, 255, 0.22);
+    --toggle-dot: #6aa3ff;
+    --quick-nav-bg: linear-gradient(180deg, #02050b, #060b15);
+    --page-title-bg: radial-gradient(circle at 50% 20%, rgba(30, 75, 150, 0.25), transparent 52%), linear-gradient(180deg, #081528 0%, #02050b 100%);
+    --glass-bg: rgba(100, 150, 255, 0.035);
+    --glass-bg-hover: rgba(100, 150, 255, 0.06);
+    --glass-border: rgba(130, 170, 255, 0.08);
+    --surface-highlight: rgba(150, 190, 255, 0.05);
+    --glow-color: rgba(70, 135, 255, 0.2);
+    --glow-strong: rgba(70, 135, 255, 0.32);
 }
 
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--bg-primary);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%, var(--glow-color), transparent 25%),
+        radial-gradient(circle at 85% 90%, rgba(255, 255, 255, 0.025), transparent 28%),
+        var(--bg-primary);
     color: var(--text-primary);
-    transition: background 0.4s ease, color 0.3s ease;
     min-height: 100vh;
+    line-height: 1.5;
+    transition: background 0.4s ease, color 0.3s ease;
 }
 
 a {
@@ -93,47 +109,79 @@ a {
     color: inherit;
 }
 
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    background: var(--badge-bg);
+    color: var(--text-heading);
+}
+
 /* ============================================================
-   THEME TOGGLE BUTTON
+   THEME TOGGLE
    ============================================================ */
+
 .theme-toggle-wrapper {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 18px;
+    right: 18px;
     z-index: 9999;
     display: flex;
     align-items: center;
     gap: 10px;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 6px 14px 6px 10px;
-    border-radius: 30px;
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--border-light);
+    padding: 7px 12px 7px 10px;
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    background: rgba(5, 5, 8, 0.58);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 var(--surface-highlight);
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-toggle-wrapper:hover {
+    border-color: var(--badge-border);
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.32),
+        0 0 20px var(--glow-color),
+        inset 0 1px 0 var(--surface-highlight);
 }
 
 .theme-toggle {
     width: 44px;
-    height: 22px;
+    height: 24px;
     background: var(--toggle-bg);
-    border: 2px solid var(--toggle-border);
-    border-radius: 30px;
+    border: 1px solid var(--toggle-border);
+    border-radius: 999px;
     cursor: pointer;
     position: relative;
-    transition: all 0.4s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     flex-shrink: 0;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.theme-toggle:hover {
+    box-shadow:
+        inset 0 1px 4px rgba(0, 0, 0, 0.4),
+        0 0 12px var(--glow-color);
 }
 
 .theme-toggle .dot {
-    width: 16px;
-    height: 16px;
-    background: var(--toggle-dot);
-    border-radius: 50%;
+    width: 17px;
+    height: 17px;
     position: absolute;
-    top: 1px;
-    left: 2px;
-    transition: all 0.4s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    top: 2px;
+    left: 3px;
+    border-radius: 50%;
+    background: var(--toggle-dot);
+    box-shadow:
+        0 2px 7px rgba(0, 0, 0, 0.35),
+        0 0 10px var(--glow-color);
+    transition: left 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
 }
 
 [data-theme="blue"] .theme-toggle .dot {
@@ -142,8 +190,8 @@ a {
 
 .theme-label {
     font-size: 11px;
+    font-weight: 700;
     color: var(--text-secondary);
-    font-weight: bold;
     letter-spacing: 0.5px;
     white-space: nowrap;
 }
@@ -151,81 +199,99 @@ a {
 /* ============================================================
    HEADER
    ============================================================ */
+
 .header {
-    background: var(--bg-header);
-    padding: 12px 0 0 0;
-    color: var(--text-primary);
-    box-shadow: 0 4px 20px var(--shadow-strong);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--border-color);
-    transition: all 0.4s ease;
+    padding: 14px 0 0;
+    color: var(--text-primary);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 45%),
+        var(--bg-header);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow:
+        0 10px 35px var(--shadow-strong),
+        0 0 25px rgba(0, 0, 0, 0.15);
+    transition: background 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header-content {
     text-align: center;
-    padding: 0 20px 8px 20px;
+    padding: 0 20px 10px;
 }
 
 .header h1 {
     margin: 0;
     font-size: 32px;
+    font-weight: 800;
     letter-spacing: 3px;
     color: var(--text-heading);
-    text-shadow: 0 0 20px var(--shadow-color);
-    transition: color 0.3s ease;
+    text-shadow:
+        0 0 12px var(--shadow-color),
+        0 0 28px rgba(255, 255, 255, 0.03);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .header h1 span {
     color: var(--text-heading-span);
-    transition: color 0.3s ease;
 }
 
 .header p {
-    margin: 4px 0 0 0;
-    font-size: 14px;
-    opacity: 0.85;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 500;
     color: var(--text-secondary);
     letter-spacing: 1px;
-    transition: color 0.3s ease;
+    opacity: 0.88;
 }
 
 .back-link {
-    display: inline-block;
-    margin-top: 6px;
-    padding: 6px 18px;
-    background: var(--btn-secondary-bg);
-    border-radius: 20px;
-    color: var(--text-secondary);
-    font-size: 13px;
-    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 9px;
+    padding: 7px 17px;
     border: 1px solid var(--btn-secondary-border);
+    border-radius: 999px;
+    background: var(--btn-secondary-bg);
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .back-link:hover {
+    transform: translateY(-2px);
     background: var(--badge-bg);
-    color: var(--text-heading);
     border-color: var(--border-color);
+    color: var(--text-heading);
+    box-shadow: 0 6px 20px var(--shadow-color);
 }
 
 /* ============================================================
-   MENU
+   MAIN MENU
    ============================================================ */
+
 .menu {
-    background: var(--menu-bg);
     margin-top: 8px;
+    background: var(--menu-bg);
     border-top: 1px solid var(--menu-border);
-    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .menu > ul {
     list-style: none;
     display: flex;
+    align-items: stretch;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 0;
+    padding: 3px 10px;
     margin: 0;
+    gap: 4px;
 }
 
 .menu > ul > li {
@@ -237,80 +303,103 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 22px;
+    min-height: 42px;
+    padding: 9px 16px;
+    border: 1px solid transparent;
+    border-radius: 10px;
     color: var(--text-secondary);
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 700;
     cursor: pointer;
-    border-bottom: 2px solid transparent;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .menu > ul > li > .menu-item-wrap:hover {
-    background: var(--badge-bg);
-    border-bottom-color: var(--border-color);
+    background: var(--glass-bg-hover);
+    border-color: var(--border-light);
     color: var(--text-heading);
+    box-shadow:
+        inset 0 1px 0 var(--surface-highlight),
+        0 5px 16px rgba(0, 0, 0, 0.12);
 }
 
 .menu > ul > li > .menu-item-wrap a {
-    flex: 1;
-    color: inherit;
-    text-decoration: none;
     display: flex;
     align-items: center;
     gap: 8px;
+    flex: 1;
+    color: inherit;
 }
 
 .arrow {
-    display: inline-block;
-    font-size: 12px;
-    margin-left: 6px;
-    transition: transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    min-height: 22px;
+    margin-left: 5px;
+    padding: 2px 4px;
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-size: 11px;
     user-select: none;
     cursor: pointer;
-    color: var(--text-muted);
-    padding: 2px 4px;
-    border-radius: 4px;
-    flex-shrink: 0;
+    transition: transform 0.3s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .arrow:hover {
     background: rgba(255, 255, 255, 0.05);
+    color: var(--text-heading);
 }
 
 .arrow.open {
     transform: rotate(180deg);
+    color: var(--text-heading-span);
 }
 
 .menu-icon {
     width: var(--menu-icon-size, 22px);
     height: var(--menu-icon-size, 22px);
-    vertical-align: middle;
-    border-radius: 4px;
-    object-fit: cover;
     flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+.menu-item-wrap:hover .menu-icon {
+    transform: scale(1.06);
+    box-shadow: 0 0 12px var(--glow-color);
+}
+
+/* ============================================================
+   DROPDOWN
+   ============================================================ */
 
 .dropdown {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 5px);
     left: 0;
-    background: var(--dropdown-bg);
-    min-width: 210px;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-    z-index: 1000;
-    padding: 0;
+    min-width: 220px;
+    padding: 6px;
     list-style: none;
+    background: var(--dropdown-bg);
     border: 1px solid var(--dropdown-border);
-    border-top: none;
-    transition: background 0.3s ease;
+    border-radius: 12px;
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.55),
+        0 0 20px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 1000;
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .dropdown li {
+    position: relative;
     display: block;
     border-bottom: 1px solid var(--border-light);
-    position: relative;
 }
 
 .dropdown li:last-child {
@@ -321,10 +410,12 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 18px;
+    padding: 10px 12px;
+    border-radius: 8px;
     color: var(--text-secondary);
     font-size: 13px;
     cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .dropdown .menu-item-wrap:hover {
@@ -333,31 +424,34 @@ a {
 }
 
 .dropdown .menu-item-wrap a {
-    flex: 1;
-    color: inherit;
-    text-decoration: none;
     display: flex;
     align-items: center;
     gap: 8px;
+    flex: 1;
+    color: inherit;
 }
 
 .sub-dropdown {
     display: none;
     position: absolute;
-    top: 0;
-    left: 100%;
-    background: var(--dropdown-bg);
-    min-width: 170px;
-    border-radius: 0 10px 10px 10px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-    padding: 0;
+    top: -7px;
+    left: calc(100% + 5px);
+    min-width: 185px;
+    padding: 6px;
     list-style: none;
+    background: var(--dropdown-bg);
     border: 1px solid var(--dropdown-border);
-    transition: background 0.3s ease;
+    border-radius: 12px;
+    box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .sub-dropdown .menu-item-wrap {
-    padding: 8px 16px;
+    padding: 8px 10px;
     font-size: 12px;
 }
 
@@ -380,224 +474,643 @@ a {
 }
 
 /* ============================================================
-   PAGE TITLE (برای صفحات داخلی)
+   PAGE TITLE
    ============================================================ */
+
 .page-title {
     text-align: center;
-    padding: 40px 20px 25px 20px;
+    padding: 48px 20px 30px;
     background: var(--page-title-bg);
-    border-bottom: 2px solid var(--border-light);
-    transition: all 0.4s ease;
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.4s ease, border-color 0.3s ease;
 }
 
 .page-title h2 {
-    font-size: 36px;
+    font-size: 38px;
+    line-height: 1.2;
+    font-weight: 800;
     color: var(--text-heading);
-    text-shadow: 0 0 30px var(--shadow-color);
-    transition: color 0.3s ease;
+    text-shadow:
+        0 0 18px var(--shadow-color),
+        0 0 35px rgba(255, 255, 255, 0.025);
 }
 
 .page-title h2 span {
     color: var(--text-heading-span);
-    transition: color 0.3s ease;
 }
 
 .page-title p {
+    margin-top: 8px;
     color: var(--text-secondary);
-    font-size: 16px;
-    margin-top: 6px;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
+    font-size: 15px;
+    letter-spacing: 0.8px;
 }
 
 /* ============================================================
-   CONTENT SECTION (برای صفحات داخلی)
+   CONTENT
    ============================================================ */
+
 .content-section {
-    padding: 40px 20px;
-    background: var(--quick-nav-bg);
-    max-width: 1200px;
+    width: min(1200px, calc(100% - 40px));
     margin: 0 auto;
-    transition: all 0.4s ease;
+    padding: 45px 20px;
+    background: var(--quick-nav-bg);
+    transition: background 0.4s ease;
 }
 
 .section-header {
-    font-size: 28px;
+    margin: 0 0 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
     color: var(--text-heading);
     text-align: center;
-    margin: 0 0 8px 0;
-    border-bottom: 2px solid var(--border-light);
-    padding-bottom: 10px;
+    font-size: 28px;
+    font-weight: 800;
     transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .section-desc {
+    margin-bottom: 32px;
     text-align: center;
     color: var(--text-muted);
-    font-size: 15px;
-    margin-bottom: 30px;
+    font-size: 14px;
     transition: color 0.3s ease;
 }
 
 /* ============================================================
    FOOTER
    ============================================================ */
+
 .footer {
-    text-align: center;
-    padding: 25px 20px;
-    background: var(--bg-secondary);
+    padding: 28px 20px;
     border-top: 1px solid var(--footer-border);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 45%),
+        var(--bg-secondary);
     color: var(--footer-color);
+    text-align: center;
     font-size: 13px;
     letter-spacing: 0.5px;
-    transition: all 0.4s ease;
+    transition: background 0.4s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .footer span {
     color: var(--text-heading-span);
-    transition: color 0.3s ease;
 }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width: 768px) {
+
+@media (max-width: 900px) {
     .header {
-        padding: 8px 0 0 0;
+        padding-top: 8px;
     }
+
     .header-content {
-        padding: 0 15px 6px 15px;
+        padding: 0 14px 8px;
     }
+
     .header h1 {
-        font-size: 22px !important;
-        letter-spacing: 1px !important;
+        font-size: 24px !important;
+        letter-spacing: 1.5px !important;
+        line-height: 1.15;
     }
+
     .header p {
-        font-size: 12px !important;
-        margin-top: 2px !important;
-    }
-    .back-link {
+        margin-top: 3px !important;
         font-size: 11px !important;
-        padding: 4px 14px !important;
-        margin-top: 4px !important;
+    }
+
+    .back-link {
+        margin-top: 6px !important;
+        padding: 6px 14px !important;
+        font-size: 11px !important;
     }
 
     .menu {
         margin-top: 4px !important;
     }
+
     .menu > ul {
+        display: flex;
         flex-direction: column;
-        align-items: stretch;
+        gap: 3px;
+        padding: 5px 8px;
     }
+
     .menu > ul > li {
         width: 100%;
-        text-align: left;
+        display: block;
     }
+
     .menu > ul > li > .menu-item-wrap {
-        padding: 8px 14px;
+        width: 100%;
+        min-height: 44px;
+        padding: 9px 13px;
+        border-radius: 10px;
         font-size: 13px;
     }
-    .menu > ul > li > .menu-item-wrap .arrow {
-        font-size: 14px;
-        padding: 3px 6px;
-        margin-left: 0;
+
+    .menu > ul > li > .menu-item-wrap a {
+        min-width: 0;
     }
+
+    .menu-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .menu > ul > li > .menu-item-wrap .arrow {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        min-height: 32px;
+        margin-left: 5px;
+        font-size: 12px;
+    }
+
+    /*
+        Main game dropdowns
+        Stay inside normal document flow on mobile.
+    */
 
     .dropdown {
         position: static;
         width: 100%;
-        border-radius: 0;
+        min-width: 0;
+        margin: 2px 0 3px;
+        padding: 4px;
+        border-radius: 10px;
         box-shadow: none;
-        border: 1px solid var(--border-light);
-        border-top: none;
+        background: rgba(0, 0, 0, 0.18);
     }
-    .sub-dropdown {
-        position: static;
-        width: 100%;
-        border-radius: 0;
-        padding-left: 16px;
-        box-shadow: none;
-        border: 1px solid var(--border-light);
-        border-top: none;
+
+    .dropdown li {
+        border-bottom: 1px solid var(--border-light);
     }
+
+    .dropdown li:last-child {
+        border-bottom: none;
+    }
+
     .dropdown .menu-item-wrap {
-        padding: 8px 14px;
+        min-height: 38px;
+        padding: 7px 11px;
+        border-radius: 7px;
         font-size: 12px;
     }
+
+    .dropdown .menu-item-wrap a {
+        min-width: 0;
+    }
+
+    .dropdown .menu-item-wrap .arrow {
+        width: 29px;
+        height: 29px;
+        min-width: 29px;
+        min-height: 29px;
+    }
+
+    /*
+        Third-level menus:
+        instead of floating beside the screen,
+        they become compact nested rows.
+    */
+
+    .sub-dropdown {
+        position: static;
+        width: calc(100% - 10px);
+        min-width: 0;
+        margin: 2px 0 3px 10px;
+        padding: 3px;
+        border-radius: 8px;
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.15);
+    }
+
     .sub-dropdown .menu-item-wrap {
-        padding: 6px 14px 6px 20px;
+        min-height: 34px;
+        padding: 6px 10px 6px 15px;
+        border-radius: 6px;
         font-size: 11px;
     }
 
+    /*
+        Theme toggle
+    */
+
     .theme-toggle-wrapper {
-        top: 12px;
-        right: 12px;
-        padding: 4px 10px 4px 8px;
-    }
-    .theme-toggle {
-        width: 36px;
-        height: 18px;
-    }
-    .theme-toggle .dot {
-        width: 13px;
-        height: 13px;
-        top: 1px;
-        left: 2px;
-    }
-    [data-theme="blue"] .theme-toggle .dot {
-        left: 18px;
-    }
-    .theme-label {
-        font-size: 10px;
+        top: 10px;
+        right: 10px;
+        padding: 5px 8px;
     }
 
-    .page-title h2 {
-        font-size: 28px;
+    .theme-toggle {
+        width: 38px;
+        height: 20px;
     }
-    .page-title p {
-        font-size: 14px;
+
+    .theme-toggle .dot {
+        width: 14px;
+        height: 14px;
+        top: 2px;
+        left: 2px;
     }
-    .section-header {
-        font-size: 24px;
+
+    [data-theme="blue"] .theme-toggle .dot {
+        left: 20px;
     }
-    .content-section {
-        padding: 30px 15px;
+
+    .theme-label {
+        font-size: 9px;
     }
 }
 
-@media (max-width: 480px) {
-    .header h1 {
-        font-size: 18px !important;
-        letter-spacing: 1px !important;
-    }
-    .header p {
-        font-size: 10px !important;
-    }
-    .back-link {
-        font-size: 10px !important;
-        padding: 3px 12px !important;
+
+/* ============================================================
+   PHONE NAV
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding-top: 6px;
     }
 
+    /*
+        Reserve space for the theme button.
+    */
+
+    .header-content {
+        min-height: 82px;
+        padding: 0 65px 7px 10px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header h1 {
+        max-width: 100%;
+        font-size: 20px !important;
+        letter-spacing: .8px !important;
+        white-space: nowrap;
+    }
+
+    .header p {
+        font-size: 9px !important;
+        letter-spacing: .4px;
+    }
+
+    .back-link {
+        margin-top: 5px !important;
+        padding: 5px 11px !important;
+        font-size: 9px !important;
+    }
+
+    /*
+        ========================================================
+        MOBILE GAME NAVIGATION
+        ========================================================
+    */
+
+    .menu {
+        margin-top: 2px !important;
+    }
+
+    .menu > ul {
+        gap: 2px;
+        padding: 4px 6px;
+    }
+
+    /*
+        Each game becomes a compact launcher row.
+    */
+
     .menu > ul > li > .menu-item-wrap {
-        padding: 6px 12px;
+        min-height: 42px;
+        padding: 8px 10px;
+
+        border-radius: 9px;
+
         font-size: 12px;
     }
+
+    .menu > ul > li > .menu-item-wrap a {
+        gap: 7px;
+    }
+
+    .menu-icon {
+        width: 21px;
+        height: 21px;
+        border-radius: 5px;
+    }
+
+    .menu > ul > li > .menu-item-wrap .arrow {
+        width: 29px;
+        height: 29px;
+        min-width: 29px;
+        min-height: 29px;
+    }
+
+    /*
+        First-level dropdown
+    */
+
+    .dropdown {
+        width: calc(100% - 8px);
+        margin-left: 4px;
+        padding: 3px;
+
+        border-radius: 8px;
+
+        background: rgba(3, 3, 7, 0.42);
+    }
+
     .dropdown .menu-item-wrap {
-        padding: 6px 12px;
+        min-height: 35px;
+        padding: 6px 9px;
+
+        border-radius: 6px;
+
         font-size: 11px;
     }
+
+    .dropdown .menu-item-wrap a {
+        gap: 6px;
+    }
+
+    /*
+        Nested menu
+    */
+
+    .sub-dropdown {
+        width: calc(100% - 8px);
+        margin-left: 8px;
+
+        padding: 2px;
+
+        border-radius: 7px;
+
+        background: rgba(0, 0, 0, 0.20);
+    }
+
     .sub-dropdown .menu-item-wrap {
-        padding: 5px 12px 5px 16px;
+        min-height: 31px;
+        padding: 5px 8px 5px 12px;
+
+        border-radius: 5px;
+
         font-size: 10px;
     }
 
-    .page-title h2 {
-        font-size: 22px;
+    /*
+        Reduce visual noise on mobile.
+    */
+
+    .dropdown .menu-item-wrap:hover,
+    .sub-dropdown .menu-item-wrap:hover {
+        transform: none;
+        box-shadow: none;
     }
-    .page-title p {
-        font-size: 12px;
+
+    /*
+        Theme toggle
+    */
+
+    .theme-toggle-wrapper {
+        top: 9px;
+        right: 8px;
+
+        padding: 5px 6px;
+        gap: 0;
     }
-    .section-header {
-        font-size: 20px;
+
+    .theme-label {
+        display: none;
+    }
+
+    .theme-toggle {
+        width: 35px;
+        height: 19px;
+    }
+
+    .theme-toggle .dot {
+        width: 13px;
+        height: 13px;
+
+        top: 2px;
+        left: 2px;
+    }
+
+    [data-theme="blue"] .theme-toggle .dot {
+        left: 18px;
+    }
+}
+
+
+/* ============================================================
+   VERY SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 380px) {
+
+    .header-content {
+        padding-left: 7px;
+        padding-right: 58px;
+    }
+
+    .header h1 {
+        font-size: 18px !important;
+        letter-spacing: .5px !important;
+    }
+
+    .header p {
+        font-size: 8px !important;
+    }
+
+    .back-link {
+        font-size: 8px !important;
+        padding: 4px 9px !important;
+    }
+
+    .menu > ul {
+        padding: 3px 5px;
+    }
+
+    .menu > ul > li > .menu-item-wrap {
+        min-height: 40px;
+        padding: 7px 8px;
+        font-size: 11px;
+    }
+
+    .menu-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .menu > ul > li > .menu-item-wrap .arrow {
+        width: 27px;
+        height: 27px;
+        min-width: 27px;
+        min-height: 27px;
+    }
+
+    .dropdown .menu-item-wrap {
+        min-height: 33px;
+        padding: 5px 8px;
+        font-size: 10px;
+    }
+
+    .sub-dropdown .menu-item-wrap {
+        min-height: 29px;
+        padding: 4px 7px 4px 11px;
+        font-size: 9px;
+    }
+}
+
+
+/* ============================================================
+   320px DEVICES
+   ============================================================ */
+
+@media (max-width: 320px) {
+
+    .header h1 {
+        font-size: 16px !important;
+    }
+
+    .menu > ul > li > .menu-item-wrap {
+        min-height: 38px;
+        padding: 6px 7px;
+        font-size: 10px;
+    }
+
+    .menu-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .dropdown .menu-item-wrap {
+        font-size: 9px;
+    }
+
+    .sub-dropdown .menu-item-wrap {
+        font-size: 8px;
+    }
+}
+/* ============================================================
+   MOBILE GAMES MENU
+   ============================================================ */
+
+.mobile-games-toggle {
+    display:none;
+}
+
+@media (max-width:600px) {
+    .mobile-games-toggle {
+        width:calc(100% - 12px);
+        min-height:44px;
+        margin:5px 6px;
+
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+
+        padding:9px 12px;
+
+        border:1px solid var(--border-light);
+        border-radius:10px;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255,255,255,.04),
+                rgba(255,255,255,.015)
+            ),
+            var(--menu-bg);
+
+        color:var(--text-heading);
+
+        font-size:13px;
+        font-weight:800;
+
+        cursor:pointer;
+
+        backdrop-filter:blur(12px);
+        -webkit-backdrop-filter:blur(12px);
+
+        box-shadow:
+            0 6px 20px rgba(0,0,0,.15),
+            inset 0 1px 0 var(--surface-highlight);
+
+        transition:
+            background .25s ease,
+            border-color .25s ease,
+            box-shadow .25s ease;
+    }
+
+    .mobile-games-toggle:hover {
+        border-color:var(--border-color);
+        background:var(--glass-bg-hover);
+    }
+
+    .mobile-games-toggle.active {
+        border-color:var(--border-color);
+        box-shadow:
+            0 8px 24px var(--shadow-color),
+            inset 0 1px 0 var(--surface-highlight);
+    }
+
+    .mobile-games-arrow {
+        width:28px;
+        height:28px;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        border-radius:7px;
+
+        color:var(--text-muted);
+        font-size:11px;
+
+        transition:
+            transform .3s ease,
+            background .2s ease,
+            color .2s ease;
+    }
+
+    .mobile-games-toggle.active .mobile-games-arrow {
+        transform:rotate(180deg);
+        color:var(--text-heading-span);
+        background:var(--badge-bg);
+    }
+
+    .menu > ul {
+        display:none !important;
+        flex-direction:column;
+    }
+
+    .menu > ul.mobile-games-open {
+        display:flex !important;
+    }
+}
+
+@media (max-width:380px) {
+    .mobile-games-toggle {
+        min-height:41px;
+        margin:4px 5px;
+
+        padding:8px 10px;
+
+        font-size:11px;
+    }
+
+    .mobile-games-arrow {
+        width:26px;
+        height:26px;
     }
 }

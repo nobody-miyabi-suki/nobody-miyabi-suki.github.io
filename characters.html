@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Characters · Hoyoverse</title>
+    <link rel="icon" href="/img/icons/favicon.ico">
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+    <link rel="stylesheet" href="/css/header-auth.css">
+
+    <!-- Character system CSS -->
+    <link rel="stylesheet" href="/css/character-system.css">
+</head>
+<body>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label" id="themeLabel">🔴 Red</span>
+        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- Header (shared) -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Hoyoverse</span> ✦</h1>
+            <p id="headerSub">Characters</p>
+            <a href="/index.html" class="back-link">← Back to Home</a>
+            <div id="authControls"></div>
+        </div>
+
+        <!-- Navigation (shared) – same as before -->
+        <nav class="menu">
+            <button class="mobile-games-toggle" id="mobileGamesToggle">
+                <span>🎮 Games</span>
+                <span class="mobile-games-arrow">▼</span>
+            </button>
+            <ul>
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li><div class="menu-item-wrap"><a href="/genshin/characters.html">👤 Characters</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/map.html">🗺️ Map</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+                    </ul>
+                </li>
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li><div class="menu-item-wrap"><a href="/starrail/characters.html">👤 Characters</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/map.html">🗺️ Map</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+                    </ul>
+                </li>
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li><div class="menu-item-wrap"><a href="/zzz/characters.html">👤 Characters</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/map.html">🗺️ Map</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+                    </ul>
+                </li>
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown">
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html">👤 Characters</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html">🗺️ Map</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+                    </ul>
+                </li>
+                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== Page Content ===== -->
+    <section class="page-title" id="listPageTitle">
+        <h2 id="gameTitle">👤 <span>Characters</span></h2>
+        <p id="gameSubtitle">All playable characters</p>
+    </section>
+
+    <!-- Game Selector & Filter Bar -->
+    <section class="filter-section" id="filterSection">
+        <div class="filter-controls">
+            <!-- Game Selector -->
+            <div class="game-selector-wrapper">
+                <label for="gameSelector" class="game-selector-label">🎮 Game:</label>
+                <select id="gameSelector" class="game-selector">
+                    <option value="genshin">Genshin Impact</option>
+                    <option value="starrail">Honkai: Star Rail</option>
+                    <option value="zzz">Zenless Zone Zero</option>
+                    <option value="honkai3rd">Honkai Impact 3rd</option>
+                </select>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons" id="filterButtons">
+                <!-- Dynamically generated -->
+            </div>
+
+            <!-- Search -->
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" placeholder="🔍 Search by name, faction, element..." aria-label="Search characters">
+            </div>
+        </div>
+    </section>
+
+    <!-- Character Grid -->
+    <section class="content-section" id="charactersContainer">
+        <div id="loadingMessage" class="loading-spinner">Loading characters</div>
+        <div class="characters-grid" id="charactersGrid"></div>
+        <div class="no-results" id="noResults" style="display:none;">No characters match your criteria.</div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Hoyoverse Fans ✦</p>
+        <p class="footer-sub">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/header-auth.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/character-list.js"></script>
+</body>
+</html>

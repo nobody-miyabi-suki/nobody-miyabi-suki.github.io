@@ -1,0 +1,163 @@
+{
+    "kiana": {
+        "name": "Herrscher of Finality",
+        "character": "Kiana Kaslana",
+        "rank": "srank",
+        "type": "psychic",
+        "faction": "🏛️ Schicksal",
+        "role": "⚔️ DPS",
+        "element": "🔥 Fire",
+        "title": "The Finality",
+        "description": "The ultimate Herrscher form of Kiana Kaslana, wielding the power of Finality itself.",
+        "image": "/img/honkai3rd/characters/kiana-finality.jpg",
+        "bioImage": "/img/honkai3rd/characters/kiana-bio.jpg",
+        "bioSub": "\"I will end this journey.\"",
+        "bioContent": [
+            "<strong>Kiana Kaslana</strong> became the <strong>Herrscher of Finality</strong>, wielding power beyond imagination.",
+            "She stands at the end of humanity's long struggle against the Honkai.",
+            "Her journey represents sacrifice, determination, and hope."
+        ],
+        "features": [
+            {
+                "icon": "🔥",
+                "title": "Finality",
+                "desc": "Wields the ultimate power of the Herrscher of Finality."
+            },
+            {
+                "icon": "⚔️",
+                "title": "Valkyrie",
+                "desc": "A legendary warrior of Schicksal."
+            },
+            {
+                "icon": "🌌",
+                "title": "Herrscher",
+                "desc": "Commands overwhelming Herrscher power."
+            }
+        ],
+        "stats": [
+            {
+                "label": "Faction",
+                "value": "🏛️ Schicksal"
+            },
+            {
+                "label": "Role",
+                "value": "⚔️ DPS"
+            },
+            {
+                "label": "Type",
+                "value": "🔮 Psychic"
+            },
+            {
+                "label": "Rarity",
+                "value": "⭐ S-Rank"
+            }
+        ],
+        "skills": [
+            {
+                "icon": "⚔️",
+                "name": "Finality Strike",
+                "type": "Basic Attack",
+                "desc": "A devastating series of attacks infused with Herrscher power."
+            },
+            {
+                "icon": "🔥",
+                "name": "Final Flame",
+                "type": "Special",
+                "desc": "Unleashes a massive burst of destructive energy."
+            },
+            {
+                "icon": "🌌",
+                "name": "Authority of Finality",
+                "type": "Ultimate",
+                "desc": "Releases the overwhelming authority of Finality."
+            }
+        ],
+        "galleryImages": [
+            "/img/honkai3rd/characters/kiana-gallery-1.jpg",
+            "/img/honkai3rd/characters/kiana-gallery-2.jpg",
+            "/img/honkai3rd/characters/kiana-gallery-3.jpg",
+            "/img/honkai3rd/characters/kiana-gallery-4.jpg"
+        ]
+    },
+
+    "mei": {
+        "name": "Herrscher of Origin",
+        "character": "Raiden Mei",
+        "rank": "srank",
+        "type": "bio",
+        "faction": "⚡ Schicksal",
+        "role": "⚔️ DPS",
+        "element": "⚡ Lightning",
+        "title": "The Origin",
+        "description": "Mei's Herrscher form, embodying the Origin and wielding overwhelming Lightning power.",
+        "image": "/img/honkai3rd/characters/mei-origin.jpg",
+        "bioImage": "/img/honkai3rd/characters/mei-bio.jpg",
+        "bioSub": "\"I will carve our future myself.\"",
+        "bioContent": [
+            "<strong>Raiden Mei</strong> awakened the power of the <strong>Herrscher of Origin</strong>.",
+            "Her Lightning abilities make her one of the strongest Valkyries.",
+            "She fights to protect the people she cares about."
+        ],
+        "features": [
+            {
+                "icon": "⚡",
+                "title": "Lightning",
+                "desc": "Commands devastating Lightning energy."
+            },
+            {
+                "icon": "🗡️",
+                "title": "Swordmaster",
+                "desc": "A master of high-speed sword combat."
+            },
+            {
+                "icon": "🌌",
+                "title": "Origin",
+                "desc": "Wields the authority of Origin."
+            }
+        ],
+        "stats": [
+            {
+                "label": "Faction",
+                "value": "⚡ Schicksal"
+            },
+            {
+                "label": "Role",
+                "value": "⚔️ DPS"
+            },
+            {
+                "label": "Type",
+                "value": "🧬 Bio"
+            },
+            {
+                "label": "Rarity",
+                "value": "⭐ S-Rank"
+            }
+        ],
+        "skills": [
+            {
+                "icon": "⚡",
+                "name": "Lightning Slash",
+                "type": "Basic Attack",
+                "desc": "Fast sword strikes infused with Lightning."
+            },
+            {
+                "icon": "🗡️",
+                "name": "Origin Blade",
+                "type": "Special",
+                "desc": "Channels the power of Origin into a devastating attack."
+            },
+            {
+                "icon": "🌩️",
+                "name": "Origin Thunder",
+                "type": "Ultimate",
+                "desc": "Summons overwhelming Lightning energy across the battlefield."
+            }
+        ],
+        "galleryImages": [
+            "/img/honkai3rd/characters/mei-gallery-1.jpg",
+            "/img/honkai3rd/characters/mei-gallery-2.jpg",
+            "/img/honkai3rd/characters/mei-gallery-3.jpg",
+            "/img/honkai3rd/characters/mei-gallery-4.jpg"
+        ]
+    }
+}

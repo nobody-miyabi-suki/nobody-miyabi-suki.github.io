@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/zzz/zzz-home.css">
     <link rel="icon" href="/img/icons/favicon.ico">
+    <link rel="stylesheet" href="/css/header-auth.css">
 </head>
 <body>
 
@@ -28,12 +29,17 @@
             <h1>✦ <span>Hoyoverse</span> ✦</h1>
             <p>Fan Page · All Games</p>
             <a href="/index.html" class="back-link">← Back to Main Hub</a>
+            <div id="authControls"></div>
         </div>
 
         <!-- ==========================================================
         MENU — با آیکون تصویری برای اسم بازی‌ها (دقیقاً مثل نقشه و کاراکترها)
         ========================================================== -->
         <nav class="menu">
+            <button class="mobile-games-toggle" id="mobileGamesToggle">
+                <span>🎮 Games</span>
+                <span class="mobile-games-arrow">▼</span>
+            </button>
             <ul>
                 <!-- Genshin Impact -->
                 <li>
@@ -341,9 +347,10 @@ HOLLOW ZERO LIVE STATUS — REAL COUNTDOWN + SIMULATED STATUS
     <!-- ==========================================================
     JAVASCRIPT — shared script.js (theme + arrow toggles)
     ========================================================== -->
-    <script src="/js/script.js">
-        
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/header-auth.js"></script>
+    <script src="/js/script.js"></script>
 
 </body>
 </html>

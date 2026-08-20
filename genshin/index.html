@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/pages.css">
     <link rel="stylesheet" href="/css/starrail.css">
     <link rel="icon" href="/img/icons/favicon.ico">
+    <link rel="stylesheet" href="/css/header-auth.css">
 
 </head>
 <body>
@@ -30,9 +31,14 @@
             <h1>✦ <span>Genshin</span> Impact ✦</h1>
             <p>Teyvat</p>
             <a href="/index.html" class="back-link">← Back to Main Hub</a>
+            <div id="authControls"></div>
         </div>
 
         <nav class="menu">
+            <button class="mobile-games-toggle" id="mobileGamesToggle">
+                <span>🎮 Games</span>
+                <span class="mobile-games-arrow">▼</span>
+            </button>
             <ul>
                 <!-- Genshin Impact -->
                 <li>
@@ -320,6 +326,9 @@
     <!-- ==========================================================
     JAVASCRIPT — THEME TOGGLE + ARROW TOGGLE
     ========================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/header-auth.js"></script>
     <script src="/js/script.js"></script>
 
 </body>

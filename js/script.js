@@ -231,3 +231,22 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('✅ Hollow Widget is LIVE! Next reset: ' + new Date(TARGET_DATE).toLocaleString());
 
     });
+
+        document.addEventListener('DOMContentLoaded',function() {
+            const toggle = document.getElementById('mobileGamesToggle');
+            const menuList = document.querySelector('.menu > ul');
+
+            if(!toggle || !menuList) {
+                return;
+            }
+
+            toggle.addEventListener('click',function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                const isOpen = menuList.classList.toggle('mobile-games-open');
+
+                toggle.classList.toggle('active',isOpen);
+                toggle.setAttribute('aria-expanded',String(isOpen));
+            });
+        });

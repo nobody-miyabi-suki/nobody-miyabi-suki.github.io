@@ -1,0 +1,209 @@
+/* ============================================================
+   Genshin – Weapons Page
+   Only page‑unique styles. All shared styles come from base.css.
+   ============================================================ */
+
+/* ---- Page‑specific variables (not in shared base) ---- */
+:root {
+    --rarity-5-color: #ffd700;
+    --rarity-4-color: #b0c4de;
+    --no-image-color: #6a4a4a;
+    --image-border: rgba(180, 60, 60, 0.15);
+    --image-bg: rgba(0, 0, 0, 0.4);
+    --stats-bg: rgba(0, 0, 0, 0.3);
+    --section-border: rgba(180, 60, 60, 0.2);
+    --card-shadow: rgba(150, 30, 30, 0.2);
+}
+
+[data-theme="blue"] {
+    --rarity-5-color: #ffd700;
+    --rarity-4-color: #b0c4de;
+    --no-image-color: #4a5a7a;
+    --image-border: rgba(60, 120, 255, 0.15);
+    --image-bg: rgba(0, 0, 0, 0.4);
+    --stats-bg: rgba(0, 0, 0, 0.3);
+    --section-border: rgba(60, 120, 255, 0.2);
+    --card-shadow: rgba(20, 60, 180, 0.15);
+}
+
+/* ---- Mobile games toggle (kept from original) ---- */
+.mobile-games-toggle {
+    display: none; /* hidden on desktop, shown on mobile via media query */
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 16px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.mobile-games-toggle .mobile-games-arrow {
+    float: right;
+    transition: transform 0.3s;
+}
+
+.mobile-games-toggle.active .mobile-games-arrow {
+    transform: rotate(180deg);
+}
+
+/* ---- Content sections ---- */
+.content-section {
+    padding: 50px 30px;
+    background: var(--content-bg, var(--quick-nav-bg));
+    max-width: 1400px;
+    margin: 0 auto;
+    transition: all 0.4s ease;
+}
+
+.section-header {
+    font-size: 32px;
+    color: var(--text-heading);
+    text-align: center;
+    margin: 50px 0 20px 0;
+    border-bottom: 2px solid var(--section-border);
+    padding-bottom: 12px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.section-header:first-of-type {
+    margin-top: 0;
+}
+
+/* ---- Weapon grid & cards ---- */
+.weapon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.weapon-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    padding: 20px 15px 18px 15px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+    transition: all 0.4s;
+}
+
+.weapon-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border-color);
+    box-shadow: 0 12px 40px var(--card-shadow);
+}
+
+.weapon-card .image-wrapper {
+    width: 100%;
+    height: 160px;
+    background: var(--image-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--image-border);
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.weapon-card .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+    display: block;
+}
+
+.weapon-card .image-wrapper img:hover {
+    transform: scale(1.05);
+}
+
+.weapon-card .image-wrapper .no-image {
+    font-size: 52px;
+    color: var(--no-image-color);
+    opacity: 0.7;
+}
+
+.weapon-card .rarity {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.rarity-5 {
+    color: var(--rarity-5-color);
+}
+
+.rarity-4 {
+    color: var(--rarity-4-color);
+}
+
+.weapon-card h4 {
+    color: var(--text-heading);
+    font-size: 17px;
+    margin: 6px 0 2px 0;
+    transition: color 0.3s ease;
+}
+
+.weapon-card .type {
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.weapon-card .stats {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    background: var(--stats-bg);
+    padding: 4px 8px;
+    border-radius: 8px;
+    display: inline-block;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+/* ---- Footer sub text ---- */
+.footer-sub {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   RESPONSIVE TWEAKS (page‑specific only)
+   ============================================================ */
+@media (max-width: 768px) {
+    .weapon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .weapon-card .image-wrapper {
+        height: 130px;
+    }
+
+    /* Show the mobile games toggle on small screens */
+    .mobile-games-toggle {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-header {
+        font-size: 22px;
+    }
+
+    .weapon-grid {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .weapon-card .image-wrapper {
+        height: 160px;
+    }
+}

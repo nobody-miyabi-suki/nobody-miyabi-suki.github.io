@@ -1,0 +1,177 @@
+/* ============================================================
+   Genshin – Map Page
+   Only page‑unique styles. All shared styles come from base.css.
+   ============================================================ */
+
+/* ---- Page‑specific variables (not in shared base) ---- */
+:root {
+    --region-border: rgba(180, 60, 60, 0.15);
+    --region-bg: rgba(60, 20, 20, 0.35);
+    --region-sub-color: #c0a8a8;
+    --region-p-color: #b09898;
+    --element-tag-bg: rgba(200, 50, 50, 0.15);
+    --element-tag-border: rgba(180, 60, 60, 0.2);
+    --element-tag-color: #dbb8b8;
+    --list-bg: rgba(0, 0, 0, 0.2);
+    --card-shadow: rgba(150, 30, 30, 0.2);
+}
+
+[data-theme="blue"] {
+    --region-border: rgba(60, 120, 255, 0.15);
+    --region-bg: rgba(60, 120, 255, 0.08);
+    --region-sub-color: #8a9ac0;
+    --region-p-color: #8a9ab0;
+    --element-tag-bg: rgba(60, 120, 255, 0.12);
+    --element-tag-border: rgba(60, 120, 255, 0.2);
+    --element-tag-color: #8a9ac0;
+    --list-bg: rgba(0, 0, 0, 0.2);
+    --card-shadow: rgba(20, 60, 180, 0.15);
+}
+
+/* ---- Mobile games toggle (kept from original) ---- */
+.mobile-games-toggle {
+    display: none; /* hidden on desktop, shown on mobile via media query */
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 16px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.mobile-games-toggle .mobile-games-arrow {
+    float: right;
+    transition: transform 0.3s;
+}
+
+.mobile-games-toggle.active .mobile-games-arrow {
+    transform: rotate(180deg);
+}
+
+/* ---- Region grid ---- */
+.region-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.region-card {
+    background: var(--region-bg);
+    backdrop-filter: blur(8px);
+    padding: 30px 25px 25px 25px;
+    border-radius: 18px;
+    border: 1px solid var(--region-border);
+    transition: all 0.4s;
+}
+
+.region-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-color);
+    box-shadow: 0 12px 40px var(--card-shadow);
+}
+
+.region-card .icon {
+    font-size: 48px;
+    line-height: 1;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.region-card h4 {
+    color: var(--text-heading);
+    font-size: 28px;
+    margin: 0 0 4px 0;
+    transition: color 0.3s ease;
+}
+
+.region-card .sub {
+    color: var(--region-sub-color);
+    font-size: 16px;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.region-card p {
+    color: var(--region-p-color);
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 12px 0 10px 0;
+    transition: color 0.3s ease;
+}
+
+.region-card p strong {
+    color: var(--text-heading-span);
+    transition: color 0.3s ease;
+}
+
+.region-card .element-tag {
+    display: inline-block;
+    padding: 4px 18px;
+    border-radius: 20px;
+    background: var(--element-tag-bg);
+    border: 1px solid var(--element-tag-border);
+    font-size: 13px;
+    color: var(--element-tag-color);
+    transition: all 0.3s ease;
+}
+
+.region-card .sub-regions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin-top: 4px;
+}
+
+.region-card .sub-regions .sub-tag {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    background: var(--list-bg);
+    border: 1px solid var(--border-light);
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+/* ---- Footer sub text ---- */
+.footer-sub {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   RESPONSIVE TWEAKS (page‑specific only)
+   ============================================================ */
+@media (max-width: 768px) {
+    .region-card h4 {
+        font-size: 22px;
+    }
+    .region-card .icon {
+        font-size: 38px;
+    }
+    .region-card {
+        padding: 20px 18px;
+    }
+    /* Show the mobile games toggle on small screens */
+    .mobile-games-toggle {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .region-card .icon {
+        font-size: 32px;
+    }
+    .region-card h4 {
+        font-size: 19px;
+    }
+    .region-card .sub {
+        font-size: 14px;
+    }
+}
