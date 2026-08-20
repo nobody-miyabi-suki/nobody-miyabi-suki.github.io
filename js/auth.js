@@ -1,34 +1,45 @@
 async function registerUser(email, password, username) {
+    const cleanEmail = String(email).trim();
+    const cleanUsername = String(username).trim();
+
+    if (!cleanEmail || !password || !cleanUsername) {
+        throw new Error("Email, password, and username are required.");
+    }
+
+    if (cleanUsername.length < 3) {
+        throw new Error("Username must be at least 3 characters.");
+    }
+
+    if (password.length < 8) {
+        throw new Error("Password must be at least 8 characters.");
+    }
+
     const { data, error } = await supabaseClient.auth.signUp({
-        email,
-        password
+        email: cleanEmail,
+        password,
+        options: {
+            data: {
+                username: cleanUsername
+            }
+        }
     });
 
     if (error) {
         throw error;
     }
 
-    if (!data.user) {
-        throw new Error("User was not created.");
-    }
-
-    const { error: profileError } = await supabaseClient
-        .from("profiles")
-        .insert({
-            id: data.user.id,
-            username: username
-        });
-
-    if (profileError) {
-        throw profileError;
-    }
-
-    return data.user;
+    return data;
 }
 
 async function loginUser(email, password) {
+    const cleanEmail = String(email).trim();
+
+    if (!cleanEmail || !password) {
+        throw new Error("Email and password are required.");
+    }
+
     const { data, error } = await supabaseClient.auth.signInWithPassword({
-        email,
+        email: cleanEmail,
         password
     });
 
@@ -36,7 +47,7 @@ async function loginUser(email, password) {
         throw error;
     }
 
-    return data.user;
+    return data;
 }
 
 async function logoutUser() {
@@ -49,8 +60,13 @@ async function logoutUser() {
 
 async function getCurrentUser() {
     const {
-        data: { user }
+        data: { user },
+        error
     } = await supabaseClient.auth.getUser();
+
+    if (error) {
+        throw error;
+    }
 
     return user;
 }

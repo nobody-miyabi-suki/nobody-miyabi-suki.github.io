@@ -11,7 +11,10 @@ async function testSupabase() {
         .from("profiles")
         .select("*");
 
-    console.log("Supabase test:", { data, error });
+    console.log("Supabase test:", {
+        data,
+        error
+    });
 }
 
 testSupabase();
