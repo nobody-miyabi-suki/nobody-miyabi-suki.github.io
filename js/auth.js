@@ -1,4 +1,3 @@
-```js
 async function registerUser(email, password, username) {
     email = email.trim().toLowerCase();
     username = username.trim();
@@ -130,4 +129,3 @@ window.supabaseClient.auth.onAuthStateChange((event, session) => {
 document.addEventListener('DOMContentLoaded', async () => {
     await getCurrentSession();
 });
-```
