@@ -1,5 +1,4 @@
-const supabase = window.supabaseClient;
-
+```js
 async function registerUser(email, password, username) {
     email = email.trim().toLowerCase();
     username = username.trim();
@@ -25,7 +24,7 @@ async function registerUser(email, password, username) {
         };
     }
 
-    const { data, error } = await supabase.auth.signUp({
+    const { data, error } = await window.supabaseClient.auth.signUp({
         email,
         password,
         options: {
@@ -64,7 +63,7 @@ async function loginUser(email, password) {
         };
     }
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await window.supabaseClient.auth.signInWithPassword({
         email,
         password
     });
@@ -89,7 +88,7 @@ async function loginUser(email, password) {
 
 
 async function logoutUser() {
-    const { error } = await supabase.auth.signOut();
+    const { error } = await window.supabaseClient.auth.signOut();
 
     if (error) {
         console.error('Logout error:', error);
@@ -109,7 +108,7 @@ async function logoutUser() {
 
 
 async function getCurrentSession() {
-    const { data, error } = await supabase.auth.getSession();
+    const { data, error } = await window.supabaseClient.auth.getSession();
 
     if (error) {
         console.error('Session error:', error);
@@ -122,7 +121,7 @@ async function getCurrentSession() {
 }
 
 
-supabase.auth.onAuthStateChange((event, session) => {
+window.supabaseClient.auth.onAuthStateChange((event, session) => {
     console.log('Auth event:', event);
     console.log('Session:', session);
 });
@@ -131,3 +130,4 @@ supabase.auth.onAuthStateChange((event, session) => {
 document.addEventListener('DOMContentLoaded', async () => {
     await getCurrentSession();
 });
+```
