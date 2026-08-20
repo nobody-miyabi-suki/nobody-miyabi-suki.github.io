@@ -1,0 +1,34 @@
+# OS / Editor
+
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local environment / secrets
+
+.env
+.env.*
+!.env.example
+
+# Local development files
+
+*.log
+*.tmp
+*.temp
+
+# Git / tooling artifacts accidentally created in project root
+
+FETCH_HEAD
+git
+
+# Supabase local development
+
+.supabase/
+
+# Node / package manager (if added later)
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
