@@ -153,7 +153,7 @@ async function handleAvatarUpload(event) {
         return;
     }
 
-    const filePath = `${currentUser.id}/avatar.${extension}`;
+    const filePath = `${currentUser.id}/avatar-${Date.now()}.${extension}`;
 
     showStatus('Uploading avatar...');
 
@@ -164,7 +164,6 @@ async function handleAvatarUpload(event) {
             .from('avatars')
             .upload(filePath, file, {
                 cacheControl: '3600',
-                upsert: true,
                 contentType: file.type
             });
 
