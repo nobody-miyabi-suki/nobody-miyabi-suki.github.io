@@ -36,7 +36,7 @@
         <!-- Navigation (shared) – same as before -->
         <nav class="menu">
             <button class="mobile-games-toggle" id="mobileGamesToggle">
-                <span>🎮 Games</span>
+                <span>Menu</span>
                 <span class="mobile-games-arrow">▼</span>
             </button>
             <ul>
@@ -50,13 +50,48 @@
                         <span class="arrow">▼</span>
                     </div>
                     <ul class="dropdown">
-                        <li><div class="menu-item-wrap"><a href="/genshin/characters.html">👤 Characters</a></div></li>
-                        <li><div class="menu-item-wrap"><a href="/genshin/map.html">🗺️ Map</a></div></li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/characters.html?game=genshin">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=genshin&filter=5-Star">🌟 5-Star</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=genshin&filter=4-Star">⭐ 4-Star</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=genshin&filter=Sword">🗡️ Sword Users</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
                         <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
                         <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
                         <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
                     </ul>
                 </li>
+
                 <!-- Honkai Star Rail -->
                 <li>
                     <div class="menu-item-wrap">
@@ -67,13 +102,46 @@
                         <span class="arrow">▼</span>
                     </div>
                     <ul class="dropdown">
-                        <li><div class="menu-item-wrap"><a href="/starrail/characters.html">👤 Characters</a></div></li>
-                        <li><div class="menu-item-wrap"><a href="/starrail/map.html">🗺️ Map</a></div></li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/characters.html?game=starrail">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=starrail&filter=5-Star">🌟 5-Star</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=starrail&filter=4-Star">⭐ 4-Star</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=starrail&filter=Path">🎭 By Path</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
                         <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
                         <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
                         <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
                     </ul>
                 </li>
+
                 <!-- Zenless Zone Zero -->
                 <li>
                     <div class="menu-item-wrap">
@@ -84,13 +152,45 @@
                         <span class="arrow">▼</span>
                     </div>
                     <ul class="dropdown">
-                        <li><div class="menu-item-wrap"><a href="/zzz/characters.html">👤 Characters</a></div></li>
-                        <li><div class="menu-item-wrap"><a href="/zzz/map.html">🗺️ Map</a></div></li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/characters.html?game=zzz">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=zzz&filter=S-Rank">🌟 S-Rank</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=zzz&filter=A-Rank">⭐ A-Rank</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=zzz&filter=Role">🎮 By Role</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
                         <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
                         <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
                         <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
                     </ul>
                 </li>
+
                 <!-- Honkai Impact 3rd -->
                 <li>
                     <div class="menu-item-wrap">
@@ -101,14 +201,52 @@
                         <span class="arrow">▼</span>
                     </div>
                     <ul class="dropdown">
-                        <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html">👤 Characters</a></div></li>
-                        <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html">🗺️ Map</a></div></li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/characters.html?game=honkai3rd">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=honkai3rd&filter=S-Rank">🌟 S-Rank</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=honkai3rd&filter=A-Rank">⭐ A-Rank</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=honkai3rd&filter=Type">🎭 By Type</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
                         <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
                         <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
                         <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
                     </ul>
                 </li>
-                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+
+                <!-- Home -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/index.html">🏠 Home</a>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>

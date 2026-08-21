@@ -14,6 +14,7 @@
     <!-- ==========================================================
     THEME TOGGLE
     ========================================================== -->
+
     <div class="theme-toggle-wrapper">
         <span class="theme-label" id="themeLabel">🔴 Red</span>
         <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
@@ -24,7 +25,9 @@
     <!-- ==========================================================
     HEADER
     ========================================================== -->
+
     <header class="header">
+
         <div class="header-content">
             <h1>✦ <span>Hoyoverse</span> ✦</h1>
             <p>Fan Page · All Games</p>
@@ -32,325 +35,1284 @@
             <div id="authControls"></div>
         </div>
 
-        <!-- ==========================================================
-        MENU — با آیکون تصویری برای اسم بازی‌ها (دقیقاً مثل نقشه و کاراکترها)
-        ========================================================== -->
+        <!-- ======================================================
+        MENU
+        ====================================================== -->
+
         <nav class="menu">
+
             <button class="mobile-games-toggle" id="mobileGamesToggle">
                 <span>🎮 Games</span>
                 <span class="mobile-games-arrow">▼</span>
             </button>
+
             <ul>
-                <!-- Genshin Impact -->
+
+                <!-- ==================================================
+                GENSHIN IMPACT
+                ================================================== -->
+
                 <li>
+
                     <div class="menu-item-wrap">
+
                         <a href="/genshin/index.html">
                             <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
                             Genshin Impact
                         </a>
+
                         <span class="arrow">▼</span>
+
                     </div>
+
                     <ul class="dropdown">
+
+                        <li>
+
+                            <div class="menu-item-wrap">
+
+                                <a href="/characters.html?game=genshin">
+                                    👤 Characters
+                                </a>
+
+                                <span class="arrow">▼</span>
+
+                            </div>
+
+                            <ul class="sub-dropdown">
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=genshin&filter=5-Star">
+                                            🌟 5-Star
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=genshin&filter=4-Star">
+                                            ⭐ 4-Star
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=genshin&filter=Sword">
+                                            🗡️ Sword Users
+                                        </a>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                        <li>
+
+                            <div class="menu-item-wrap">
+
+                                <a href="/genshin/map.html">
+                                    🗺️ Map
+                                </a>
+
+                                <span class="arrow">▼</span>
+
+                            </div>
+
+                            <ul class="sub-dropdown">
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/genshin/map.html#mondstadt">
+                                            🏔️ Mondstadt
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/genshin/map.html#liyue">
+                                            🌸 Liyue
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/genshin/map.html#inazuma">
+                                            ⚡ Inazuma
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/genshin/map.html#sumeru">
+                                            🌳 Sumeru
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/genshin/map.html#fontaine">
+                                            💧 Fontaine
+                                        </a>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
                         <li>
                             <div class="menu-item-wrap">
-                                <a href="/genshin/characters.html">👤 Characters</a>
-                                <span class="arrow">▼</span>
+                                <a href="/genshin/story.html">
+                                    📖 Story
+                                </a>
                             </div>
-                            <ul class="sub-dropdown">
-                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#5star">🌟 5-Star</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#4star">⭐ 4-Star</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/genshin/characters.html#sword">🗡️ Sword Users</a></div></li>
-                            </ul>
                         </li>
+
                         <li>
                             <div class="menu-item-wrap">
-                                <a href="/genshin/map.html">🗺️ Map</a>
-                                <span class="arrow">▼</span>
+                                <a href="/genshin/weapons.html">
+                                    ⚔️ Weapons
+                                </a>
                             </div>
-                            <ul class="sub-dropdown">
-                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
-                            </ul>
                         </li>
-                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
-                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
-                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
+
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/artifacts.html">
+                                    💎 Artifacts
+                                </a>
+                            </div>
+                        </li>
+
                     </ul>
+
                 </li>
 
-                <!-- Honkai Star Rail -->
+                <!-- ==================================================
+                HONKAI STAR RAIL
+                ================================================== -->
+
                 <li>
+
                     <div class="menu-item-wrap">
+
                         <a href="/starrail/index.html">
                             <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
                             Honkai Star Rail
                         </a>
+
                         <span class="arrow">▼</span>
+
                     </div>
+
                     <ul class="dropdown">
+
+                        <li>
+
+                            <div class="menu-item-wrap">
+
+                                <a href="/characters.html?game=starrail">
+                                    👤 Characters
+                                </a>
+
+                                <span class="arrow">▼</span>
+
+                            </div>
+
+                            <ul class="sub-dropdown">
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=starrail&filter=5-Star">
+                                            🌟 5-Star
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=starrail&filter=4-Star">
+                                            ⭐ 4-Star
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=starrail">
+                                            🎭 By Path
+                                        </a>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                        <li>
+
+                            <div class="menu-item-wrap">
+
+                                <a href="/starrail/map.html">
+                                    🗺️ Map
+                                </a>
+
+                                <span class="arrow">▼</span>
+
+                            </div>
+
+                            <ul class="sub-dropdown">
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/starrail/map.html#herta">
+                                            🌌 Herta Station
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/starrail/map.html#jarilo">
+                                            ❄️ Jarilo-VI
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/starrail/map.html#luofu">
+                                            🌿 Xianzhou Luofu
+                                        </a>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
                         <li>
                             <div class="menu-item-wrap">
-                                <a href="/starrail/characters.html">👤 Characters</a>
-                                <span class="arrow">▼</span>
+                                <a href="/starrail/story.html">
+                                    📖 Story
+                                </a>
                             </div>
-                            <ul class="sub-dropdown">
-                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#5star">🌟 5-Star</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#4star">⭐ 4-Star</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/starrail/characters.html#paths">🎭 By Path</a></div></li>
-                            </ul>
                         </li>
+
                         <li>
                             <div class="menu-item-wrap">
-                                <a href="/starrail/map.html">🗺️ Map</a>
-                                <span class="arrow">▼</span>
+                                <a href="/starrail/paths.html">
+                                    🌀 Paths
+                                </a>
                             </div>
-                            <ul class="sub-dropdown">
-                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
-                            </ul>
                         </li>
-                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
-                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
-                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/relics.html">
+                                    🧩 Relics
+                                </a>
+                            </div>
+                        </li>
+
                     </ul>
+
                 </li>
 
-                <!-- Zenless Zone Zero -->
+                <!-- ==================================================
+                ZENLESS ZONE ZERO
+                ================================================== -->
+
                 <li>
+
                     <div class="menu-item-wrap">
+
                         <a href="/zzz/index.html">
                             <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
                             Zenless Zone Zero
                         </a>
+
                         <span class="arrow">▼</span>
+
                     </div>
+
                     <ul class="dropdown">
+
+                        <li>
+
+                            <div class="menu-item-wrap">
+
+                                <a href="/characters.html?game=zzz">
+                                    👤 Characters
+                                </a>
+
+                                <span class="arrow">▼</span>
+
+                            </div>
+
+                            <ul class="sub-dropdown">
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=zzz&filter=S-Rank">
+                                            🌟 S-Rank
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=zzz&filter=A-Rank">
+                                            ⭐ A-Rank
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=zzz">
+                                            🎮 By Role
+                                        </a>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                        <li>
+
+                            <div class="menu-item-wrap">
+
+                                <a href="/zzz/map.html">
+                                    🗺️ Map
+                                </a>
+
+                                <span class="arrow">▼</span>
+
+                            </div>
+
+                            <ul class="sub-dropdown">
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/zzz/map.html#new-eridu">
+                                            🏙️ New Eridu
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/zzz/map.html#hollows">
+                                            🌆 Hollows
+                                        </a>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
                         <li>
                             <div class="menu-item-wrap">
-                                <a href="/zzz/characters.html">👤 Characters</a>
-                                <span class="arrow">▼</span>
+                                <a href="/zzz/story.html">
+                                    📖 Story
+                                </a>
                             </div>
-                            <ul class="sub-dropdown">
-                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#srank">🌟 S-Rank</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#arank">⭐ A-Rank</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/zzz/characters.html#roles">🎮 By Role</a></div></li>
-                            </ul>
                         </li>
+
                         <li>
                             <div class="menu-item-wrap">
-                                <a href="/zzz/map.html">🗺️ Map</a>
-                                <span class="arrow">▼</span>
+                                <a href="/zzz/bangboo.html">
+                                    🔫 Bangboo
+                                </a>
                             </div>
-                            <ul class="sub-dropdown">
-                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
-                            </ul>
                         </li>
-                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
-                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
-                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/hollow-zero-live.html">
+                                    ☣️ Live Monitor
+                                </a>
+                            </div>
+                        </li>
+
                     </ul>
+
                 </li>
 
-                <!-- Honkai Impact 3rd -->
+                <!-- ==================================================
+                HONKAI IMPACT 3RD
+                ================================================== -->
+
                 <li>
+
                     <div class="menu-item-wrap">
+
                         <a href="/honkai3rd/index.html">
                             <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
                             Honkai Impact 3rd
                         </a>
+
                         <span class="arrow">▼</span>
+
                     </div>
+
                     <ul class="dropdown">
+
+                        <li>
+
+                            <div class="menu-item-wrap">
+
+                                <a href="/characters.html?game=honkai3rd">
+                                    👤 Characters
+                                </a>
+
+                                <span class="arrow">▼</span>
+
+                            </div>
+
+                            <ul class="sub-dropdown">
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=honkai3rd&filter=S-Rank">
+                                            🌟 S-Rank
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=honkai3rd&filter=A-Rank">
+                                            ⭐ A-Rank
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=honkai3rd">
+                                            🎭 By Type
+                                        </a>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                        <li>
+
+                            <div class="menu-item-wrap">
+
+                                <a href="/honkai3rd/map.html">
+                                    🗺️ Map
+                                </a>
+
+                                <span class="arrow">▼</span>
+
+                            </div>
+
+                            <ul class="sub-dropdown">
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/honkai3rd/map.html#stfreya">
+                                            🏫 St. Freya
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/honkai3rd/map.html#schicksal">
+                                            🏛️ Schicksal
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/honkai3rd/map.html#sea">
+                                            🌊 Sea of Quanta
+                                        </a>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
                         <li>
                             <div class="menu-item-wrap">
-                                <a href="/honkai3rd/characters.html">👤 Characters</a>
-                                <span class="arrow">▼</span>
+                                <a href="/honkai3rd/story.html">
+                                    📖 Story
+                                </a>
                             </div>
-                            <ul class="sub-dropdown">
-                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#srank">🌟 S-Rank</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#arank">⭐ A-Rank</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/honkai3rd/characters.html#types">🎭 By Type</a></div></li>
-                            </ul>
                         </li>
+
                         <li>
                             <div class="menu-item-wrap">
-                                <a href="/honkai3rd/map.html">🗺️ Map</a>
-                                <span class="arrow">▼</span>
+                                <a href="/honkai3rd/weapons.html">
+                                    ⚔️ Weapons
+                                </a>
                             </div>
-                            <ul class="sub-dropdown">
-                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
-                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
-                            </ul>
                         </li>
-                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
-                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
-                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
+
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/stigmata.html">
+                                    👘 Stigmata
+                                </a>
+                            </div>
+                        </li>
+
                     </ul>
+
                 </li>
 
-                <li><div class="menu-item-wrap"><a href="/index.html">🏠 Home</a></div></li>
+                <!-- HOME -->
+
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/index.html">
+                            🏠 Home
+                        </a>
+                    </div>
+                </li>
+
             </ul>
+
         </nav>
+
     </header>
 
     <!-- ==========================================================
-    HERO SECTION
+    HERO
     ========================================================== -->
+
     <section class="hero">
+
         <div class="hero-text">
-            <span class="badge">✦ Welcome to New Eridu</span>
-            <h2>Zenless <span>Zone Zero</span></h2>
-            <div class="sub-title">The last city on Earth — where hope and chaos collide</div>
+
+            <span class="badge">
+                ✦ Welcome to New Eridu
+            </span>
+
+            <h2>
+                Zenless <span>Zone Zero</span>
+            </h2>
+
+            <div class="sub-title">
+                The last city on Earth — where hope and chaos collide
+            </div>
+
             <p>
-                In a world ravaged by the mysterious <strong>Hollows</strong>, the last bastion of civilization is <strong>New Eridu</strong>.
-                Here, elite agents known as <strong>Proxies</strong> and their Bangboo companions venture into the dangerous Hollows
-                to retrieve valuable resources, uncover hidden truths, and fight against the monstrous <strong>Ethereals</strong>.
-                With stylish combat, deep character stories, and a vibrant urban setting, Zenless Zone Zero invites you to
-                experience the thrill of the hollows.
+                In a world ravaged by the mysterious <strong>Hollows</strong>,
+                the last bastion of civilization is <strong>New Eridu</strong>.
+                Here, elite agents known as <strong>Proxies</strong> and their
+                Bangboo companions venture into the dangerous Hollows to retrieve
+                valuable resources, uncover hidden truths, and fight against
+                the monstrous <strong>Ethereals</strong>.
+                With stylish combat, deep character stories, and a vibrant
+                urban setting, Zenless Zone Zero invites you to experience
+                the thrill of the Hollows.
             </p>
+
             <div class="btn-group">
-                <a href="/zzz/characters.html#srank" class="btn-primary">⭐ See Agents</a>
-                <a href="/zzz/miyabi.html" class="btn-secondary">🗡️ Meet Miyabi</a>
-                <a href="/zzz/ellen-joe.html" class="btn-secondary">❄️ Meet Ellen</a>
+
+                <a href="/characters.html?game=zzz" class="btn-primary">
+                    ⭐ See Agents
+                </a>
+
+                <a href="/character.html?game=zzz&id=miyabi" class="btn-secondary">
+                    🗡️ Meet Miyabi
+                </a>
+
+                <a href="/character.html?game=zzz&id=ellen" class="btn-secondary">
+                    ❄️ Meet Ellen
+                </a>
+
             </div>
+
         </div>
+
         <div class="hero-image">
-            <img src="/img/zzz-banner.jpg" alt="Zenless Zone Zero" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22520%22 height=%22320%22%3E%3Crect fill=%22%231a0a0a%22 width=%22520%22 height=%22320%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2248%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ff5e5e%22%3E🎯%3C/text%3E%3C/svg%3E'">
+
+            <img
+                src="/img/zzz-banner.webp"
+                alt="Zenless Zone Zero"
+                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22520%22 height=%22320%22%3E%3Crect fill=%22%231a0a0a%22 width=%22520%22 height=%22320%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2248%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ff5e5e%22%3E🎯%3C/text%3E%3C/svg%3E'"
+            >
+
         </div>
+
     </section>
-<!-- ==========================================================
-HOLLOW ZERO LIVE STATUS — REAL COUNTDOWN + SIMULATED STATUS
-========================================================== -->
-<section class="hollow-widget">
-    <div class="widget-container">
-        <div class="widget-header">
-            <span class="widget-icon">☣️</span>
-            <h3>Hollow Zero <span>Live Status</span></h3>
-            <span class="widget-badge" id="statusBadge">🟢 Safe</span>
-        </div>
 
-        <div class="widget-grid">
-            <!-- Status -->
-            <div class="widget-item">
-                <span class="widget-label">Status</span>
-                <span class="widget-value" id="statusText">Safe</span>
-                <span class="widget-sub" id="statusSub">No immediate threats</span>
+    <!-- ==========================================================
+    HOLLOW ZERO LIVE STATUS
+    Synced with current Sigrid banner
+    ========================================================== -->
+
+    <section class="hollow-widget">
+
+        <div class="widget-container">
+
+            <div class="widget-header">
+
+                <span class="widget-icon">
+                    ☣️
+                </span>
+
+                <h3>
+                    Hollow Zero
+                    <span>Live Status</span>
+                </h3>
+
+                <span class="widget-badge" id="statusBadge">
+                    🟢 Stable
+                </span>
+
             </div>
 
-            <!-- Corruption -->
-            <div class="widget-item">
-                <span class="widget-label">Ether Corruption</span>
-                <span class="widget-value" id="corruptionValue">23.4%</span>
-                <div class="corruption-bar">
-                    <div class="corruption-fill" id="corruptionFill" style="width:23.4%;"></div>
+            <div class="widget-grid">
+
+                <!-- STATUS -->
+
+                <div class="widget-item">
+
+                    <span class="widget-label">
+                        Status
+                    </span>
+
+                    <span class="widget-value" id="statusText">
+                        Stable
+                    </span>
+
+                    <span class="widget-sub" id="statusSub">
+                        Hollow activity within normal range
+                    </span>
+
                 </div>
-                <span class="widget-sub" id="corruptionTrend">▲ Rising slowly</span>
+
+                <!-- CORRUPTION -->
+
+                <div class="widget-item">
+
+                    <span class="widget-label">
+                        Ether Corruption
+                    </span>
+
+                    <span class="widget-value" id="corruptionValue">
+                        23.4%
+                    </span>
+
+                    <div class="corruption-bar">
+
+                        <div
+                            class="corruption-fill"
+                            id="corruptionFill"
+                            style="width:23.4%;"
+                        ></div>
+
+                    </div>
+
+                    <span class="widget-sub" id="corruptionTrend">
+                        — Stable
+                    </span>
+
+                </div>
+
+                <!-- CURRENT BANNER -->
+
+                <div class="widget-item">
+
+                    <span class="widget-label">
+                        Current Banner
+                    </span>
+
+                    <span
+                        class="widget-value"
+                        id="countdownDisplay"
+                    >
+                        -- : -- : --
+                    </span>
+
+                    <span class="widget-sub">
+                        Sigrid · Till the Ends of the Sky
+                    </span>
+
+                </div>
+
             </div>
 
-            <!-- Countdown -->
-            <div class="widget-item">
-                <span class="widget-label">Next Expansion</span>
-                <span class="widget-value" id="countdownDisplay">-- : -- : --</span>
-                <span class="widget-sub">Until Hollow Zero resets</span>
+            <div class="widget-footer">
+
+                <span class="widget-update">
+                    ⏱️ Updated:
+                    <span id="updateTime">
+                        Just now
+                    </span>
+                </span>
+
+                <a
+                    href="/zzz/hollow-zero-live.html"
+                    class="widget-btn"
+                >
+                    ▶ View Full Monitor
+                </a>
+
             </div>
+
         </div>
 
-        <!-- Footer -->
-        <div class="widget-footer">
-            <span class="widget-update">⏱️ Updated: <span id="updateTime">Just now</span></span>
-            <a href="/zzz/hollow-zero-live.html" class="widget-btn">▶ View Full Monitor</a>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- ==========================================================
     QUICK NAVIGATION
     ========================================================== -->
+
     <section class="quick-nav">
-        <h3>🎯 Explore Zenless Zone Zero</h3>
-        <p class="desc">Dive deep into the world of New Eridu</p>
+
+        <h3>
+            🎯 Explore Zenless Zone Zero
+        </h3>
+
+        <p class="desc">
+            Dive deep into the world of New Eridu
+        </p>
+
         <div class="nav-grid">
-            <a href="/zzz/characters.html#srank" class="nav-card">
-                <span class="icon">⭐</span>
-                <h4>S-Rank Agents</h4>
-                <p>The most powerful characters in New Eridu</p>
+
+            <a
+                href="/characters.html?game=zzz"
+                class="nav-card"
+            >
+                <span class="icon">
+                    ⭐
+                </span>
+
+                <h4>
+                    Agents
+                </h4>
+
+                <p>
+                    Explore the complete Agent database
+                </p>
+
             </a>
-            <a href="/zzz/agent.html?id=miyabi" class="nav-card">
-                <span class="icon">🗡️</span>
-                <h4>Miyabi</h4>
-                <p>The legendary Void Hunter</p>
+
+            <a
+                href="/character.html?game=zzz&id=miyabi"
+                class="nav-card"
+            >
+
+                <span class="icon">
+                    🗡️
+                </span>
+
+                <h4>
+                    Miyabi
+                </h4>
+
+                <p>
+                    The legendary Void Hunter
+                </p>
+
             </a>
-            <a href="/zzz/agent.html?id=ellen" class="nav-card">
-                <span class="icon">❄️</span>
-                <h4>Ellen</h4>
-                <p>Maid From Housekeeping</p>
+
+            <a
+                href="/character.html?game=zzz&id=ellen"
+                class="nav-card"
+            >
+
+                <span class="icon">
+                    ❄️
+                </span>
+
+                <h4>
+                    Ellen
+                </h4>
+
+                <p>
+                    Maid from Victoria Housekeeping
+                </p>
+
             </a>
-            <a href="/zzz/map.html" class="nav-card">
-                <span class="icon">🗺️</span>
-                <h4>Map</h4>
-                <p>Explore the Hollows and New Eridu</p>
+
+            <a
+                href="/character.html?game=zzz&id=sigrid"
+                class="nav-card"
+            >
+
+                <span class="icon">
+                    🛡️
+                </span>
+
+                <h4>
+                    Sigrid
+                </h4>
+
+                <p>
+                    The knight of the Airspace Patrol
+                </p>
+
             </a>
-            <a href="/zzz/story.html" class="nav-card">
-                <span class="icon">📖</span>
-                <h4>Story</h4>
-                <p>The narrative behind the chaos</p>
+
+            <a
+                href="/zzz/map.html"
+                class="nav-card"
+            >
+
+                <span class="icon">
+                    🗺️
+                </span>
+
+                <h4>
+                    Map
+                </h4>
+
+                <p>
+                    Explore the Hollows and New Eridu
+                </p>
+
             </a>
-            <a href="/zzz/bangboo.html" class="nav-card">
-                <span class="icon">🔫</span>
-                <h4>Bangboo</h4>
-                <p>Your adorable robotic companions</p>
+
+            <a
+                href="/zzz/story.html"
+                class="nav-card"
+            >
+
+                <span class="icon">
+                    📖
+                </span>
+
+                <h4>
+                    Story
+                </h4>
+
+                <p>
+                    The narrative behind the chaos
+                </p>
+
             </a>
-            <a href="/zzz/hollow-zero-live.html" class="nav-card">
-                <span class="icon">☣️</span>
-                <h4>Hollow Zero Live</h4>
-                <p>Live Status of Hollow's</p>
+
+            <a
+                href="/zzz/bangboo.html"
+                class="nav-card"
+            >
+
+                <span class="icon">
+                    🔫
+                </span>
+
+                <h4>
+                    Bangboo
+                </h4>
+
+                <p>
+                    Your adorable robotic companions
+                </p>
+
             </a>
+
+            <a
+                href="/zzz/hollow-zero-live.html"
+                class="nav-card"
+            >
+
+                <span class="icon">
+                    ☣️
+                </span>
+
+                <h4>
+                    Hollow Zero Live
+                </h4>
+
+                <p>
+                    Live status and banner monitor
+                </p>
+
+            </a>
+
         </div>
+
     </section>
 
     <!-- ==========================================================
-    FEATURED CHARACTER: MIYABI
+    FEATURED CHARACTER
     ========================================================== -->
+
     <section class="spotlight">
+
         <div class="spotlight-inner">
+
             <div class="spotlight-text">
-                <span class="badge">✦ Featured Character</span>
-                <h3>Miyabi · <span>Void Hunter</span></h3>
+
+                <span class="badge">
+                    ✦ Featured Character
+                </span>
+
+                <h3>
+                    Miyabi ·
+                    <span>Void Hunter</span>
+                </h3>
+
                 <p>
-                    A warrior from the Void Hunters of <strong>Zenless Zone Zero</strong>.
-                    With her blazing red eyes and unmatched sword skills, she cuts through
-                    the Hollows with grace and fury. One of the most anticipated characters
-                    in New Eridu.
+                    A warrior from the Void Hunters of
+                    <strong>Zenless Zone Zero</strong>.
+                    With her blazing red eyes and unmatched sword skills,
+                    she cuts through the Hollows with grace and fury.
+                    One of the most iconic agents of New Eridu.
                 </p>
-                <a href="/zzz/miyabi.html" class="btn">⚔️ Learn More</a>
+
+                <a
+                    href="/character.html?game=zzz&id=miyabi"
+                    class="btn"
+                >
+                    ⚔️ Learn More
+                </a>
+
             </div>
+
             <div class="spotlight-image">
-                <img src="/img/miyabi.png" alt="Miyabi" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22350%22 height=%22350%22%3E%3Crect fill=%22%231a0a0a%22 width=%22350%22 height=%22350%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ff5e5e%22%3E⚔️%3C/text%3E%3C/svg%3E'">
+
+                <img
+                    src="/img/miyabi.png"
+                    alt="Miyabi"
+                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22350%22 height=%22350%22%3E%3Crect fill=%22%231a0a0a%22 width=%22350%22 height=%22350%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ff5e5e%22%3E⚔️%3C/text%3E%3C/svg%3E'"
+                >
+
             </div>
+
         </div>
+
     </section>
 
     <!-- ==========================================================
     FOOTER
     ========================================================== -->
+
     <footer class="footer">
-        <p>✦ Made with <span>❤️</span> for Hoyoverse Fans · All Games ✦</p>
-        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+
+        <p>
+            ✦ Made with
+            <span>❤️</span>
+            for Zenless Zone Zero Fans · All Games ✦
+        </p>
+
+        <p style="margin-top:5px; font-size:12px; color:var(--text-muted);">
+            © 2026 · Fan Project · Not affiliated with Hoyoverse
+        </p>
+
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT — shared script.js (theme + arrow toggles)
+    JAVASCRIPT
     ========================================================== -->
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase.js"></script>
     <script src="/js/header-auth.js"></script>
     <script src="/js/script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase.js"></script>
+<script src="/js/header-auth.js"></script>
+<script src="/js/script.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // ============================================================
+        // HOLLOW ZERO LIVE STATUS
+        // ============================================================
+
+        const statusText = document.getElementById('statusText');
+        const statusBadge = document.getElementById('statusBadge');
+        const statusSub = document.getElementById('statusSub');
+
+        const corruptionValue = document.getElementById('corruptionValue');
+        const corruptionFill = document.getElementById('corruptionFill');
+        const corruptionTrend = document.getElementById('corruptionTrend');
+
+        const countdownDisplay = document.getElementById('countdownDisplay');
+        const updateTime = document.getElementById('updateTime');
+
+        if (
+            !statusText ||
+            !statusBadge ||
+            !statusSub ||
+            !corruptionValue ||
+            !corruptionFill ||
+            !corruptionTrend ||
+            !countdownDisplay ||
+            !updateTime
+        ) {
+            console.warn('Hollow Zero widget elements not found.');
+            return;
+        }
+
+        // ============================================================
+        // NEXT HOLLOW ZERO RESET
+        // ============================================================
+        //
+        // Current target:
+        // August 23, 2026 at 23:59:59
+        //
+        // Change this date whenever you want.
+        //
+        const TARGET_DATE = new Date('2026-09-08T17:28:59').getTime();
+
+        // ============================================================
+        // STATUS SYSTEM
+        // ============================================================
+
+        const statuses = [
+            {
+                label: 'Safe',
+                badge: '🟢 Safe',
+                sub: 'No immediate threats',
+                className: ''
+            },
+            {
+                label: 'Elevated',
+                badge: '🟡 Elevated',
+                sub: 'Increased Ethereal activity',
+                className: 'warning'
+            },
+            {
+                label: 'Extreme',
+                badge: '🔴 Extreme',
+                sub: '⚠️ Hollow expansion imminent!',
+                className: 'danger'
+            }
+        ];
+
+        let currentStatus = 0;
+
+        // ============================================================
+        // ETHER CORRUPTION
+        // ============================================================
+
+        let corruption = 23.4;
+        let targetCorruption = 23.4;
+        let previousCorruption = 23.4;
+
+        function updateCorruption() {
+
+            // Occasionally choose a new target
+            if (Math.random() < 0.25) {
+                targetCorruption = Math.random() * 70 + 5;
+            }
+
+            // Smooth movement toward target
+            corruption += (targetCorruption - corruption) * 0.08;
+
+            // Keep value within safe range
+            corruption = Math.min(75, Math.max(5, corruption));
+
+            // Display number
+            corruptionValue.textContent =
+                corruption.toFixed(1) + '%';
+
+            // Move progress bar
+            corruptionFill.style.width =
+                corruption.toFixed(1) + '%';
+
+            // Calculate movement
+            const change = corruption - previousCorruption;
+
+            if (change > 0.35) {
+                corruptionTrend.textContent = '▲ Rising quickly';
+            } else if (change > 0.05) {
+                corruptionTrend.textContent = '▲ Rising slowly';
+            } else if (change < -0.35) {
+                corruptionTrend.textContent = '▼ Falling quickly';
+            } else if (change < -0.05) {
+                corruptionTrend.textContent = '▼ Falling slowly';
+            } else {
+                corruptionTrend.textContent = '— Stable';
+            }
+
+            previousCorruption = corruption;
+        }
+
+        // ============================================================
+        // STATUS BASED ON CORRUPTION
+        // ============================================================
+
+        function updateStatus() {
+
+            let newStatus = 0;
+
+            if (corruption >= 60) {
+                newStatus = 2;
+            } else if (corruption >= 35) {
+                newStatus = 1;
+            } else {
+                newStatus = 0;
+            }
+
+            // Small random events
+            if (
+                Math.random() < 0.08 &&
+                corruption > 25 &&
+                corruption < 50
+            ) {
+                newStatus = 1;
+            }
+
+            if (newStatus !== currentStatus) {
+
+                currentStatus = newStatus;
+
+                const status = statuses[currentStatus];
+
+                statusText.textContent = status.label;
+
+                statusBadge.textContent = status.badge;
+
+                statusBadge.className =
+                    'widget-badge ' + status.className;
+
+                statusSub.textContent = status.sub;
+            }
+
+            // Keep status synced even when it doesn't change
+            const status = statuses[currentStatus];
+
+            statusText.textContent = status.label;
+            statusBadge.textContent = status.badge;
+            statusBadge.className =
+                'widget-badge ' + status.className;
+            statusSub.textContent = status.sub;
+        }
+
+        // ============================================================
+        // COUNTDOWN
+        // ============================================================
+
+        function updateCountdown() {
+
+            const now = Date.now();
+            const diff = TARGET_DATE - now;
+
+            if (diff <= 0) {
+                countdownDisplay.textContent =
+                    '🎉 AVAILABLE NOW!';
+                return;
+            }
+
+            const days = Math.floor(
+                diff / (1000 * 60 * 60 * 24)
+            );
+
+            const hours = Math.floor(
+                (diff % (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
+
+            const minutes = Math.floor(
+                (diff % (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
+
+            const seconds = Math.floor(
+                (diff % (1000 * 60)) /
+                1000
+            );
+
+            countdownDisplay.textContent =
+                String(days).padStart(2, '0') + 'd ' +
+                String(hours).padStart(2, '0') + 'h ' +
+                String(minutes).padStart(2, '0') + 'm ' +
+                String(seconds).padStart(2, '0') + 's';
+        }
+
+        // ============================================================
+        // UPDATE TIME
+        // ============================================================
+
+        function updateTimestamp() {
+            updateTime.textContent =
+                new Date().toLocaleTimeString();
+        }
+
+        // ============================================================
+        // INITIAL UPDATE
+        // ============================================================
+
+        updateCorruption();
+        updateStatus();
+        updateCountdown();
+        updateTimestamp();
+
+        // ============================================================
+        // LIVE LOOP
+        // ============================================================
+
+        // Ether Corruption changes every second
+        setInterval(function() {
+            updateCorruption();
+            updateStatus();
+            updateTimestamp();
+        }, 1000);
+
+        // Countdown updates every second
+        setInterval(updateCountdown, 1000);
+
+        console.log(
+            '✅ Hollow Zero Live System initialized.'
+        );
+
+        console.log(
+            '🕒 Target:',
+            new Date(TARGET_DATE).toLocaleString()
+        );
+
+        // ============================================================
+        // OPTIONAL DEBUG
+        // ============================================================
+
+        window.HollowZero = {
+            getCorruption: function() {
+                return corruption;
+            },
+
+            getTargetCorruption: function() {
+                return targetCorruption;
+            },
+
+            setCorruption: function(value) {
+                corruption = Math.min(
+                    75,
+                    Math.max(5, Number(value))
+                );
+
+                targetCorruption = corruption;
+
+                corruptionValue.textContent =
+                    corruption.toFixed(1) + '%';
+
+                corruptionFill.style.width =
+                    corruption.toFixed(1) + '%';
+
+                updateStatus();
+            }
+        };
+
+    });
+    </script>
 
 </body>
 </html>

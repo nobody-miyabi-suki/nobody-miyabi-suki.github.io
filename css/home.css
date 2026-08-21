@@ -1778,3 +1778,135 @@
         transition:none;
     }
 }
+/* ============================================================
+   MOBILE PERFORMANCE OPTIMIZATION
+   Keeps desktop UI unchanged
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    /* ----- Background slideshow ----- */
+
+    .slideshow-container {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+    }
+
+    .slideshow-container .slide {
+        background-attachment: scroll !important;
+        transition: opacity 0.8s ease !important;
+        filter: none !important;
+    }
+
+    .slideshow-container .slide-overlay {
+        /*backdrop-filter: none !important;*/
+        -webkit-backdrop-filter: none !important;
+    }
+
+    /* ----- Global blur reduction ----- */
+
+    .spotlight-carousel,
+    .carousel-btn,
+    .carousel-slide,
+    .game-card {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    /* ----- Reduce expensive shadows ----- */
+
+    .game-card,
+    .carousel-slide,
+    .carousel-slide .slide-image img,
+    .carousel-btn {
+        box-shadow: 0 6px 20px rgba(0,0,0,.18) !important;
+    }
+
+    /* ----- Disable hover transforms on touch devices ----- */
+
+    .game-card:hover,
+    .carousel-slide:hover,
+    .carousel-slide .slide-image img:hover,
+    .carousel-btn:hover {
+        transform: none !important;
+    }
+
+    /* ----- Carousel ----- */
+
+    .carousel-track {
+        transition: transform 0.35s ease !important;
+        will-change: transform;
+    }
+
+    .carousel-slide {
+        contain: layout paint;
+    }
+
+    .carousel-slide .slide-text p {
+        overflow: hidden !important;
+    }
+
+    /* ----- Images ----- */
+
+    .game-img,
+    .carousel-slide .slide-image img {
+        content-visibility: auto;
+    }
+
+    /* ----- Reduce animated/blurred decorations ----- */
+
+    .spotlight-carousel {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    /* ----- General rendering optimization ----- */
+
+    .game-card,
+    .carousel-slide,
+    .carousel-dots,
+    .games-grid {
+        contain: layout paint;
+    }
+}
+
+/* ============================================================
+   VERY LOW POWER DEVICES
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+    .slideshow-container .slide {
+        transition: opacity 0.5s ease !important;
+    }
+
+    .carousel-track {
+        transition: transform 0.3s ease !important;
+    }
+
+    .carousel-slide {
+        box-shadow: 0 4px 14px rgba(0,0,0,.15) !important;
+    }
+
+    .carousel-slide .slide-image img {
+        box-shadow: 0 6px 18px rgba(0,0,0,.18) !important;
+    }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
