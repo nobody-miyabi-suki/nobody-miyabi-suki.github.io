@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#120607">
+<title>Post · Miyabi-Suki</title>
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/community/post.css">
+</head>
+<body>
+<main class="post-page">
+<section class="post-hero">
+<div class="post-hero-glow"></div>
+<div class="post-hero-content">
+<a href="/community/" class="post-back"><span>←</span>Back to Community</a>
+<div class="post-badge"><span>✦</span>Community Post</div>
+<h1>Community <span>Post</span></h1>
+<p>Read the post, share your thoughts, and connect with the Miyabi-Suki community.</p>
+</div>
+</section>
+<section class="post-container">
+<div class="post-main">
+<article class="post-detail-card" id="postCard">
+<div class="post-detail-loading" id="postLoading">
+<div class="post-loading-icon">✦</div>
+<h3>Loading post...</h3>
+<p>Gathering the post details.</p>
+</div>
+<div class="post-detail-content" id="postContent">
+<header class="post-detail-header">
+<div class="post-detail-author">
+<div class="post-detail-avatar">
+<img id="postAuthorAvatar" src="/img/icons/default-avatar.png" alt="Author avatar">
+</div>
+<div class="post-detail-author-info">
+<div class="post-detail-author-name" id="postAuthorName">Unknown User</div>
+<div class="post-detail-time" id="postTime">Unknown time</div>
+</div>
+</div>
+<button class="post-detail-menu" id="postMenu" type="button" aria-label="Post options">⋯</button>
+</header>
+<div class="post-detail-body">
+<p id="postText"></p>
+<div class="post-detail-image" id="postImageWrapper" hidden>
+<img id="postImage" src="" alt="Post image">
+</div>
+</div>
+<footer class="post-detail-footer">
+<button class="post-detail-action like" id="likeButton" type="button">
+<span class="action-icon" id="likeIcon">♡</span>
+<span>Like</span>
+<span class="action-count" id="likeCount">0</span>
+</button>
+<button class="post-detail-action" id="commentScrollButton" type="button">
+<span class="action-icon">💬</span>
+<span>Comments</span>
+<span class="action-count" id="commentCount">0</span>
+</button>
+<button class="post-detail-action" id="shareButton" type="button">
+<span class="action-icon">↗</span>
+<span>Share</span>
+</button>
+</footer>
+</div>
+<div class="post-error" id="postError" hidden>
+<div class="post-error-icon">⚠</div>
+<h3>Post could not be loaded</h3>
+<p id="postErrorMessage">Something went wrong while loading this post.</p>
+<button class="post-btn post-btn-primary" id="retryButton" type="button">↻ Try Again</button>
+</div>
+</article>
+<section class="comments-card" id="commentsSection">
+<div class="comments-header">
+<div>
+<div class="comments-badge"><span>✦</span>Discussion</div>
+<h2>Comments</h2>
+</div>
+<span class="comments-total" id="commentsTotal">0 comments</span>
+</div>
+<div class="comments-list" id="commentsList">
+<div class="comments-loading">
+<div class="comments-loading-icon">✦</div>
+<p>Loading comments...</p>
+</div>
+</div>
+<div class="comment-login" id="commentLogin" hidden>
+<div class="comment-login-icon">🔒</div>
+<div>
+<h4>Join the conversation</h4>
+<p>Log in to leave a comment.</p>
+</div>
+<a href="/auth/login.html" class="post-btn post-btn-primary">Login</a>
+</div>
+<form class="comment-form" id="commentForm" hidden>
+<div class="comment-form-avatar">
+<img id="currentUserAvatar" src="/img/icons/default-avatar.png" alt="Your avatar">
+</div>
+<div class="comment-input-wrapper">
+<textarea id="commentInput" name="comment" rows="3" maxlength="1000" placeholder="Share your thoughts..." required></textarea>
+<div class="comment-form-footer">
+<span class="comment-character-count" id="commentCharacterCount">0 / 1000</span>
+<button class="post-btn post-btn-primary" id="commentSubmit" type="submit"><span>Send Comment</span><span>↗</span></button>
+</div>
+</div>
+</form>
+</section>
+</div>
+<aside class="post-sidebar">
+<div class="post-side-card">
+<div class="side-card-icon">✦</div>
+<h3>Miyabi-Suki</h3>
+<p>A place for fans to share, discuss, and enjoy the community together.</p>
+<a href="/community/" class="post-btn post-btn-secondary">Explore Community</a>
+</div>
+<div class="post-side-card post-side-info">
+<div class="side-info-item">
+<span class="side-info-icon">♥</span>
+<div><strong>Like</strong><span>Show your appreciation</span></div>
+</div>
+<div class="side-info-item">
+<span class="side-info-icon">💬</span>
+<div><strong>Comment</strong><span>Join the discussion</span></div>
+</div>
+<div class="side-info-item">
+<span class="side-info-icon">↗</span>
+<div><strong>Share</strong><span>Share this post</span></div>
+</div>
+</div>
+</aside>
+</section>
+</main>
+<div class="community-status" id="communityStatus" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase.js"></script>
+<script src="/js/community/post.js"></script>
+</body>
+</html>
