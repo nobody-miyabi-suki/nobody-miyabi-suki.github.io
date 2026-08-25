@@ -253,13 +253,22 @@
     min-width:0;
 }
 
-.author-avatar {
-    width:42px;
-    height:42px;
-    flex-shrink:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+/* =========================================================
+   AUTHOR AVATAR
+   ========================================================= */
+
+.community-page .post-card .post-top .post-author .author-avatar {
+    position:relative;
+    width:44px !important;
+    height:44px !important;
+    min-width:44px !important;
+    min-height:44px !important;
+    max-width:44px !important;
+    max-height:44px !important;
+    flex:0 0 44px !important;
+    overflow:hidden !important;
+    display:block !important;
+    box-sizing:border-box !important;
     border:1px solid var(--border-light);
     border-radius:50%;
     background:
@@ -269,6 +278,33 @@
     font-size:18px;
     box-shadow:0 0 18px var(--glow-color);
 }
+
+.community-page .post-card .post-top .post-author .author-avatar img {
+    position:absolute !important;
+    inset:0 !important;
+    width:44px !important;
+    height:44px !important;
+    min-width:44px !important;
+    min-height:44px !important;
+    max-width:44px !important;
+    max-height:44px !important;
+    margin:0 !important;
+    padding:0 !important;
+    display:block !important;
+    box-sizing:border-box !important;
+    object-fit:cover !important;
+    object-position:center !important;
+    border:0 !important;
+    border-radius:50% !important;
+    transform:none !important;
+}
+
+.community-page .post-card .post-author .author-avatar img[src] {
+    width:44px !important;
+    height:44px !important;
+}
+
+/* ========================================================= */
 
 .author-info {
     min-width:0;
@@ -598,10 +634,6 @@
         font-size:13px;
         line-height:1.7;
     }
-
-    .sidebar {
-        display:flex;
-    }
 }
 
 @media (max-width:380px) {
@@ -638,12 +670,6 @@
         padding:13px;
     }
 
-    .author-avatar {
-        width:36px;
-        height:36px;
-        font-size:15px;
-    }
-
     .author-name {
         font-size:11px;
     }
@@ -659,5 +685,25 @@
     .post-action {
         padding:5px 8px;
         font-size:9px;
+    }
+
+    .community-page .post-card .post-top .post-author .author-avatar {
+        width:36px !important;
+        height:36px !important;
+        min-width:36px !important;
+        min-height:36px !important;
+        max-width:36px !important;
+        max-height:36px !important;
+        flex-basis:36px !important;
+    }
+
+    .community-page .post-card .post-top .post-author .author-avatar img,
+    .community-page .post-card .post-author .author-avatar img[src] {
+        width:36px !important;
+        height:36px !important;
+        min-width:36px !important;
+        min-height:36px !important;
+        max-width:36px !important;
+        max-height:36px !important;
     }
 }

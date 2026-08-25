@@ -1,467 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Community · Miyabi-Suki</title>
-<link rel="icon" href="/img/icons/favicon.ico">
-<link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/css/pages.css">
-<link rel="stylesheet" href="/css/header-auth.css">
-<link rel="stylesheet" href="/css/community/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community · Miyabi-Suki</title>
+    <link rel="icon" href="/img/icons/favicon.ico">
+
+    <!-- Shared Miyabi-Suki CSS -->
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+    <link rel="stylesheet" href="/css/header-auth.css">
+
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="/css/community/index.css">
 </head>
 <body>
 
-<div class="theme-toggle-wrapper">
-    <span class="theme-label" id="themeLabel">🔴 Red</span>
-    <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
-        <div class="dot"></div>
-    </div>
-</div>
-
-<header class="header">
-    <div class="header-content">
-        <h1>✦ <span>Miyabi-Suki</span> ✦</h1>
-        <p>Community · Share · Connect</p>
-        <a href="/index.html" class="back-link">← Back to Main Hub</a>
-        <div id="authControls"></div>
+    <!-- ==========================================================
+    THEME TOGGLE
+    ========================================================== -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label" id="themeLabel">🔴 Red</span>
+        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <div class="dot"></div>
+        </div>
     </div>
 
-    <nav class="menu">
-        <button class="mobile-games-toggle" id="mobileGamesToggle" type="button" aria-expanded="false">
-            <span>Menu</span>
-            <span class="mobile-games-arrow">▼</span>
-        </button>
+    <!-- ==========================================================
+    HEADER
+    ========================================================== -->
+    <header class="header">
+        <div class="header-content">
+            <h1>✦ <span>Hoyoverse</span> ✦</h1>
+            <p>Community · Share · Connect</p>
+            <a href="/index.html" class="back-link">← Back to Main Hub</a>
 
-        <ul>
-
-            <li>
-                <div class="menu-item-wrap">
-                    <a href="/index.html">🏠 Home</a>
-                </div>
-            </li>
-
-            <li>
-                <div class="menu-item-wrap">
-                    <a href="/community/index.html">💬 Community</a>
-                </div>
-            </li>
-
-            <!-- Genshin Impact -->
-            <li>
-                <div class="menu-item-wrap">
-                    <a href="/genshin/index.html">
-                        <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
-                        Genshin Impact
-                    </a>
-                    <span class="arrow">▼</span>
-                </div>
-
-                <ul class="dropdown">
-                    <li>
-                        <div class="menu-item-wrap">
-                            <a href="/characters.html?game=genshin">👤 Characters</a>
-                            <span class="arrow">▼</span>
-                        </div>
-
-                        <ul class="sub-dropdown">
-                            <li>
-                                <div class="menu-item-wrap">
-                                    <a href="/characters.html?game=genshin&filter=5-Star">🌟 5-Star</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="menu-item-wrap">
-                                    <a href="/characters.html?game=genshin&filter=4-Star">⭐ 4-Star</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="menu-item-wrap">
-                                    <a href="/characters.html?game=genshin&filter=Sword">🗡️ Sword Users</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <div class="menu-item-wrap">
-                            <a href="/genshin/map.html">🗺️ Map</a>
-                            <span class="arrow">▼</span>
-                        </div>
-
-                        <ul class="sub-dropdown">
-                            <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
-                            <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
-                            <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
-                            <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
-                            <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
-                        </ul>
-                    </li>
-
-                    <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
-                    <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
-                    <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
-                </ul>
-            </li>
-
-            <!-- Honkai Star Rail -->
-            <li>
-                <div class="menu-item-wrap">
-                    <a href="/starrail/index.html">
-                        <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
-                        Honkai Star Rail
-                    </a>
-                    <span class="arrow">▼</span>
-                </div>
-
-                <ul class="dropdown">
-                    <li>
-                        <div class="menu-item-wrap">
-                            <a href="/characters.html?game=starrail">👤 Characters</a>
-                            <span class="arrow">▼</span>
-                        </div>
-
-                        <ul class="sub-dropdown">
-                            <li>
-                                <div class="menu-item-wrap">
-                                    <a href="/characters.html?game=starrail&filter=5-Star">🌟 5-Star</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="menu-item-wrap">
-                                    <a href="/characters.html?game=starrail&filter=4-Star">⭐ 4-Star</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="menu-item-wrap">
-                                    <a href="/characters.html?game=starrail&filter=Path">🎭 By Path</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <div class="menu-item-wrap">
-                            <a href="/starrail/map.html">🗺️ Map</a>
-                            <span class="arrow">▼</span>
-                        </div>
-
-                        <ul class="sub-dropdown">
-                            <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
-                            <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
-                            <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
-                        </ul>
-                    </li>
-
-                    <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
-                    <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
-                    <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
-                </ul>
-            </li>
-
-            <!-- Zenless Zone Zero -->
-            <li>
-                <div class="menu-item-wrap">
-                    <a href="/zzz/index.html">
-                        <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
-                        Zenless Zone Zero
-                    </a>
-                    <span class="arrow">▼</span>
-                </div>
-
-                <ul class="dropdown">
-                    <li>
-                        <div class="menu-item-wrap">
-                            <a href="/characters.html?game=zzz">👤 Characters</a>
-                            <span class="arrow">▼</span>
-                        </div>
-
-                        <ul class="sub-dropdown">
-                            <li>
-                                <div class="menu-item-wrap">
-                                    <a href="/characters.html?game=zzz&filter=S-Rank">🌟 S-Rank</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="menu-item-wrap">
-                                    <a href="/characters.html?game=zzz&filter=A-Rank">⭐ A-Rank</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="menu-item-wrap">
-                                    <a href="/characters.html?game=zzz&filter=Role">🎮 By Role</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <div class="menu-item-wrap">
-                            <a href="/zzz/map.html">🗺️ Map</a>
-                            <span class="arrow">▼</span>
-                        </div>
-
-                        <ul class="sub-dropdown">
-                            <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
-                            <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
-                        </ul>
-                    </li>
-
-                    <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
-                    <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
-                    <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
-                </ul>
-            </li>
-
-            <!-- Honkai Impact 3rd -->
-            <li>
-                <div class="menu-item-wrap">
-                    <a href="/honkai3rd/index.html">
-                        <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
-                        Honkai Impact 3rd
-                    </a>
-                    <span class="arrow">▼</span>
-                </div>
-
-                <ul class="dropdown">
-                    <li>
-                        <div class="menu-item-wrap">
-                            <a href="/characters.html?game=honkai3rd">👤 Characters</a>
-                            <span class="arrow">▼</span>
-                        </div>
-
-                        <ul class="sub-dropdown">
-                            <li>
-                                <div class="menu-item-wrap">
-                                    <a href="/characters.html?game=honkai3rd&filter=S-Rank">🌟 S-Rank</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="menu-item-wrap">
-                                    <a href="/characters.html?game=honkai3rd&filter=A-Rank">⭐ A-Rank</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="menu-item-wrap">
-                                    <a href="/characters.html?game=honkai3rd&filter=Type">🎭 By Type</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <div class="menu-item-wrap">
-                            <a href="/honkai3rd/map.html">🗺️ Map</a>
-                            <span class="arrow">▼</span>
-                        </div>
-
-                        <ul class="sub-dropdown">
-                            <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
-                            <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
-                            <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
-                        </ul>
-                    </li>
-
-                    <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
-                    <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
-                    <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
-                </ul>
-            </li>
-
-        </ul>
-    </nav>
-</header>
-
-<main class="community-page">
-
-    <section class="community-hero">
-        <div class="community-hero-content">
-
-            <span class="community-badge">
-                ✦ MIYABI-SUKI COMMUNITY
-            </span>
-
-            <h2>
-                Welcome to the <span>Community</span>
-            </h2>
-
-            <p>
-                A place for Travelers, Trailblazers, Proxies, Captains,
-                and every Hoyoverse fan to share thoughts, discoveries,
-                memories, and everything they love.
-            </p>
-
-            <div class="community-actions">
-                <a href="/community/create.html" class="community-btn community-btn-primary">
-                    ✦ Create a Post
-                </a>
-
-                <a href="#feed" class="community-btn community-btn-secondary">
-                    ↓ Explore Posts
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="community-stats">
-        <div class="community-stat">
-            <span class="community-stat-value" id="postCount">—</span>
-            <span class="community-stat-label">Posts</span>
+            <!-- Auth controls -->
+            <div id="authControls"></div>
         </div>
 
-        <div class="community-stat">
-            <span class="community-stat-value" id="commentCount">—</span>
-            <span class="community-stat-label">Comments</span>
-        </div>
+        <!-- Navigation -->
+        <nav class="menu">
+            <button class="mobile-games-toggle" id="mobileGamesToggle">
+                <span>Menu</span>
+                <span class="mobile-games-arrow">▼</span>
+            </button>
 
-        <div class="community-stat">
-            <span class="community-stat-value" id="likeCount">—</span>
-            <span class="community-stat-label">Likes</span>
-        </div>
-    </section>
+            <ul>
 
-    <section class="community-layout" id="feed">
+                <!-- Genshin Impact -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/genshin/index.html">
+                            <img src="/img/icons/genshin-icon.jpeg" alt="Genshin Impact" class="menu-icon">
+                            Genshin Impact
+                        </a>
+                        <span class="arrow">▼</span>
+                    </div>
 
-        <div class="feed-column">
+                    <ul class="dropdown">
 
-            <div class="community-section-title">
-                <h3>🔥 Latest Posts</h3>
-                <span>Fresh from the community</span>
-            </div>
-
-            <div class="feed" id="postsFeed">
-
-                <article class="post-card">
-
-                    <div class="post-top">
-
-                        <div class="post-author">
-
-                            <div class="author-avatar">
-                                ✦
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/characters.html?game=genshin">👤 Characters</a>
+                                <span class="arrow">▼</span>
                             </div>
 
-                            <div class="author-info">
-                                <div class="author-name">
-                                    Miyabi-Suki
-                                </div>
+                            <ul class="sub-dropdown">
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=genshin&filter=5-Star">🌟 5-Star</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=genshin&filter=4-Star">⭐ 4-Star</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="menu-item-wrap">
+                                        <a href="/characters.html?game=genshin&filter=Sword">🗡️ Sword Users</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
 
-                                <div class="post-time">
-                                    Just now
-                                </div>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/genshin/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
                             </div>
 
-                        </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#mondstadt">🏔️ Mondstadt</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#liyue">🌸 Liyue</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#inazuma">⚡ Inazuma</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#sumeru">🌳 Sumeru</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/genshin/map.html#fontaine">💧 Fontaine</a></div></li>
+                            </ul>
+                        </li>
 
-                        <button class="post-menu" type="button" aria-label="Post options">
-                            ⋯
-                        </button>
+                        <li><div class="menu-item-wrap"><a href="/genshin/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/genshin/artifacts.html">💎 Artifacts</a></div></li>
 
+                    </ul>
+                </li>
+
+                <!-- Honkai Star Rail -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/starrail/index.html">
+                            <img src="/img/icons/honkai-icon.jpeg" alt="Honkai Star Rail" class="menu-icon">
+                            Honkai Star Rail
+                        </a>
+                        <span class="arrow">▼</span>
                     </div>
 
-                    <div class="post-content">
-                        <p>Welcome to the Miyabi-Suki Community! ✦
+                    <ul class="dropdown">
 
-This is where everyone can share their favorite characters, theories, screenshots, discoveries and random thoughts about Hoyoverse games.
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/characters.html?game=starrail">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
 
-Make yourself at home. ❤️</p>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/characters.html?game=starrail&filter=5-Star">🌟 5-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/characters.html?game=starrail&filter=4-Star">⭐ 4-Star</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/characters.html?game=starrail&filter=Path">🎭 By Path</a></div></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/starrail/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
+
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#herta">🌌 Herta Station</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#jarilo">❄️ Jarilo-VI</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/starrail/map.html#luofu">🌿 Xianzhou Luofu</a></div></li>
+                            </ul>
+                        </li>
+
+                        <li><div class="menu-item-wrap"><a href="/starrail/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/paths.html">🌀 Paths</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/starrail/relics.html">🧩 Relics</a></div></li>
+
+                    </ul>
+                </li>
+
+                <!-- Zenless Zone Zero -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/zzz/index.html">
+                            <img src="/img/icons/zzz-icon.jpeg" alt="Zenless Zone Zero" class="menu-icon">
+                            Zenless Zone Zero
+                        </a>
+                        <span class="arrow">▼</span>
                     </div>
 
-                    <div class="post-footer">
+                    <ul class="dropdown">
 
-                        <button class="post-action like" type="button">
-                            ♡ <span class="count">0</span>
-                        </button>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/characters.html?game=zzz">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
 
-                        <button class="post-action" type="button">
-                            💬 <span class="count">0</span>
-                        </button>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/characters.html?game=zzz&filter=S-Rank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/characters.html?game=zzz&filter=A-Rank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/characters.html?game=zzz&filter=Role">🎮 By Role</a></div></li>
+                            </ul>
+                        </li>
 
-                        <button class="post-action" type="button">
-                            ↗ Share
-                        </button>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/zzz/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
 
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#new-eridu">🏙️ New Eridu</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/zzz/map.html#hollows">🌆 Hollows</a></div></li>
+                            </ul>
+                        </li>
+
+                        <li><div class="menu-item-wrap"><a href="/zzz/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/bangboo.html">🔫 Bangboo</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/zzz/hollow-zero-live.html">☣️ Live Monitor</a></div></li>
+
+                    </ul>
+                </li>
+
+                <!-- Honkai Impact 3rd -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/honkai3rd/index.html">
+                            <img src="/img/icons/honkai3rd-icon.jpeg" alt="Honkai Impact 3rd" class="menu-icon">
+                            Honkai Impact 3rd
+                        </a>
+                        <span class="arrow">▼</span>
                     </div>
 
-                </article>
+                    <ul class="dropdown">
 
-            </div>
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/characters.html?game=honkai3rd">👤 Characters</a>
+                                <span class="arrow">▼</span>
+                            </div>
 
-        </div>
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/characters.html?game=honkai3rd&filter=S-Rank">🌟 S-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/characters.html?game=honkai3rd&filter=A-Rank">⭐ A-Rank</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/characters.html?game=honkai3rd&filter=Type">🎭 By Type</a></div></li>
+                            </ul>
+                        </li>
 
-        <aside class="sidebar">
+                        <li>
+                            <div class="menu-item-wrap">
+                                <a href="/honkai3rd/map.html">🗺️ Map</a>
+                                <span class="arrow">▼</span>
+                            </div>
 
-            <div class="side-card">
+                            <ul class="sub-dropdown">
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#stfreya">🏫 St. Freya</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#schicksal">🏛️ Schicksal</a></div></li>
+                                <li><div class="menu-item-wrap"><a href="/honkai3rd/map.html#sea">🌊 Sea of Quanta</a></div></li>
+                            </ul>
+                        </li>
 
-                <h4>🔥 Trending</h4>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/story.html">📖 Story</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/weapons.html">⚔️ Weapons</a></div></li>
+                        <li><div class="menu-item-wrap"><a href="/honkai3rd/stigmata.html">👘 Stigmata</a></div></li>
 
-                <p class="side-card-desc">
-                    What the community is talking about.
+                    </ul>
+                </li>
+
+                <!-- Home -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/index.html">🏠 Home</a>
+                    </div>
+                </li>
+
+                <!-- Community -->
+                <li>
+                    <div class="menu-item-wrap">
+                        <a href="/community/index.html">💬 Community</a>
+                    </div>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================
+    COMMUNITY
+    ========================================================== -->
+    <main class="community-page">
+
+        <section class="community-hero">
+            <div class="community-hero-content">
+
+                <span class="community-badge">
+                    ✦ MIYABI-SUKI COMMUNITY
+                </span>
+
+                <h2>
+                    Welcome to the <span>Community</span>
+                </h2>
+
+                <p>
+                    A place for Travelers, Trailblazers, Proxies, Captains,
+                    and every Hoyoverse fan to share thoughts, discoveries,
+                    memories, and everything they love.
                 </p>
 
-                <div class="trending-list">
+                <div class="community-actions">
+                    <a href="/community/create.html" class="community-btn community-btn-primary">
+                        ✦ Create a Post
+                    </a>
 
-                    <div class="trending-item">
-                        <span class="trending-number">01</span>
-                        <div class="trending-info">
-                            <div class="trending-name">Hoshimi Miyabi</div>
-                            <div class="trending-meta">128 interactions</div>
-                        </div>
-                    </div>
+                    <a href="#feed" class="community-btn community-btn-secondary">
+                        ↓ Explore Posts
+                    </a>
+                </div>
 
-                    <div class="trending-item">
-                        <span class="trending-number">02</span>
-                        <div class="trending-info">
-                            <div class="trending-name">Zenless Zone Zero</div>
-                            <div class="trending-meta">94 interactions</div>
-                        </div>
-                    </div>
+            </div>
+        </section>
 
-                    <div class="trending-item">
-                        <span class="trending-number">03</span>
-                        <div class="trending-info">
-                            <div class="trending-name">New Characters</div>
-                            <div class="trending-meta">71 interactions</div>
+        <!-- Stats -->
+        <section class="community-stats">
+
+            <div class="community-stat">
+                <span class="community-stat-value" id="postCount">—</span>
+                <span class="community-stat-label">Posts</span>
+            </div>
+
+            <div class="community-stat">
+                <span class="community-stat-value" id="commentCount">—</span>
+                <span class="community-stat-label">Comments</span>
+            </div>
+
+            <div class="community-stat">
+                <span class="community-stat-value" id="likeCount">—</span>
+                <span class="community-stat-label">Likes</span>
+            </div>
+
+        </section>
+
+        <!-- Feed -->
+        <section class="community-layout" id="feed">
+
+            <div class="feed-column">
+
+                <div class="community-section-title">
+                    <h3>🔥 Latest Posts</h3>
+                    <span>Fresh from the community</span>
+                </div>
+
+                <div class="feed" id="postsFeed">
+
+                    <article class="post-card">
+
+                        <div class="post-top">
+
+                            <div class="post-author">
+
+                                <div class="author-avatar">
+                                    ✦
+                                </div>
+
+                                <div class="author-info">
+                                    <div class="author-name">
+                                        Miyabi-Suki
+                                    </div>
+
+                                    <div class="post-time">
+                                        Just now
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <button class="post-menu" type="button" aria-label="Post options">
+                                ⋯
+                            </button>
+
                         </div>
-                    </div>
+
+                        <div class="post-content">
+                            <p>
+                                Welcome to the Miyabi-Suki Community! ✦
+
+                                This is where everyone can share their favorite
+                                characters, theories, screenshots, discoveries
+                                and random thoughts about Hoyoverse games.
+
+                                Make yourself at home. ❤️
+                            </p>
+                        </div>
+
+                        <div class="post-footer">
+
+                            <button class="post-action like" type="button">
+                                ♡ <span class="count">0</span>
+                            </button>
+
+                            <button class="post-action" type="button">
+                                💬 <span class="count">0</span>
+                            </button>
+
+                            <button class="post-action" type="button">
+                                ↗ Share
+                            </button>
+
+                        </div>
+
+                    </article>
 
                 </div>
 
             </div>
 
-            <div class="side-card">
+            <!-- Sidebar -->
+            <aside class="sidebar">
 
-                <h4>✦ Community Rules</h4>
+                <div class="side-card">
 
-                <p class="side-card-desc">
-                    Keep the community friendly, respectful and fun.
-                    Share your passion without ruining someone else's.
-                </p>
+                    <h4>🔥 Trending</h4>
 
-                <div class="community-online">
-                    <span class="online-dot"></span>
-                    <span>Community is alive ✦</span>
+                    <p class="side-card-desc">
+                        What the community is talking about.
+                    </p>
+
+                    <div class="trending-list">
+
+                        <div class="trending-item">
+                            <span class="trending-number">01</span>
+                            <div class="trending-info">
+                                <div class="trending-name">Hoshimi Miyabi</div>
+                                <div class="trending-meta">128 interactions</div>
+                            </div>
+                        </div>
+
+                        <div class="trending-item">
+                            <span class="trending-number">02</span>
+                            <div class="trending-info">
+                                <div class="trending-name">Zenless Zone Zero</div>
+                                <div class="trending-meta">94 interactions</div>
+                            </div>
+                        </div>
+
+                        <div class="trending-item">
+                            <span class="trending-number">03</span>
+                            <div class="trending-info">
+                                <div class="trending-name">New Characters</div>
+                                <div class="trending-meta">71 interactions</div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
 
-            </div>
+                <div class="side-card">
 
-        </aside>
+                    <h4>✦ Community Rules</h4>
 
-    </section>
+                    <p class="side-card-desc">
+                        Keep the community friendly, respectful and fun.
+                        Share your passion without ruining someone else's.
+                    </p>
 
-</main>
+                    <div class="community-online">
+                        <span class="online-dot"></span>
+                        <span>Community is alive ✦</span>
+                    </div>
 
-<footer class="community-footer">
-    Made with <span>♥</span> for the Miyabi-Suki community
-</footer>
+                </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/js/supabase.js"></script>
-<script src="/js/auth.js"></script>
-<script src="/js/header-auth.js"></script>
-<script src="/js/script.js"></script>
-<script src="/js/community/index.js"></script>
+            </aside>
+
+        </section>
+
+    </main>
+
+    <!-- ==========================================================
+    FOOTER
+    ========================================================== -->
+    <footer class="footer">
+        <p>✦ Made with <span>❤️</span> for Hoyoverse Fans · All Games ✦</p>
+        <p class="footer-sub">© 2026 · Fan Project · Not affiliated with Hoyoverse</p>
+    </footer>
+
+    <!-- ==========================================================
+    JAVASCRIPT
+    ========================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/header-auth.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/community/index.js"></script>
 
 </body>
 </html>
