@@ -89,8 +89,7 @@
             return;
         }
 
-        // Update back link to go to the correct list
-        backLink.href = `/characters.html?game=${game}`;
+        backLink.href = `/character.html?game=${game}`;
 
         try {
             const response = await fetch(config.json);
@@ -101,13 +100,14 @@
                 document.getElementById('charDescription').textContent = '❌ Character not found.';
                 return;
             }
-            // Populate page
             renderHero(charData);
             renderFeatures(charData);
             renderBio(charData);
             renderSkills(charData);
-            renderGallery(charData);
-            // Set page title
+            
+            // ✅ اینجا دیگه charData رو به renderGallery نمیدیم، فقط id رو می‌گیره
+            await renderGallery(charData);
+            
             pageTitle.textContent = `${charData.name} · ${config.name}`;
         } catch (err) {
             console.error('Error loading character:', err);
@@ -123,11 +123,7 @@
         charName.innerHTML = `${char.name} <span>${getCharacterAttribute(char, 'title', '')}</span>`;
         subTitle.textContent = getCharacterAttribute(char, 'bioSub', '');
         description.textContent = char.description || 'No description available.';
-        // Image
-        const game = getParams().game;
-        const gameFolder = game === 'genshin' ? 'genshin' :
-                          game === 'starrail' ? 'starrail' :
-                          game === 'zzz' ? 'zzz' : 'honkai3rd';
+
         const imgPath = `/img/characters/${getParams().id}.jpg`;
         charImage.src = imgPath;
         charImage.alt = char.name;
@@ -162,7 +158,6 @@
             bioSub.textContent = getCharacterAttribute(char, 'bioSub', '');
             bioContent.innerHTML = char.bioContent.map(p => `<p>${p}</p>`).join('');
 
-            // Stats
             bioStats.innerHTML = '';
             if (char.stats && char.stats.length > 0) {
                 char.stats.forEach(stat => {
@@ -176,7 +171,6 @@
                 });
             }
 
-            // Bio image
             const game = getParams().game;
             const gameFolder = game === 'genshin' ? 'genshin' :
                               game === 'starrail' ? 'starrail' :
@@ -211,35 +205,93 @@
         }
     }
 
-    function renderGallery(char) {
-        // Support both galleryImages (array of strings) and gallery (array of emojis or strings)
-        let images = char.galleryImages || char.gallery || [];
-        if (images.length > 0) {
-            gallerySection.style.display = 'block';
-            galleryGrid.innerHTML = '';
-            images.forEach(src => {
-                const item = document.createElement('div');
-                item.className = 'gallery-item';
-                if (typeof src === 'string' && (src.startsWith('http') || src.startsWith('/'))) {
-                    // It's an image URL
-                    const img = document.createElement('img');
-                    img.src = src;
-                    img.alt = 'Gallery';
-                    img.onerror = function() {
-                        this.style.display = 'none';
-                        this.parentElement.textContent = '🖼️';
-                    };
-                    item.appendChild(img);
-                } else {
-                    // It's an emoji or text
-                    item.textContent = src || '🖼️';
-                }
-                galleryGrid.appendChild(item);
-            });
-        } else {
+    // ============================================================
+    // ✅ گالری با آدرس درست: /img/characters/
+    // ============================================================
+    async function renderGallery(char) {
+        // ✅ کاملاً آرایه‌های JSON رو نادیده می‌گیریم و خودمون عکس‌ها رو پیدا می‌کنیم
+        const images = await generateGalleryImages();
+
+        if (!images || images.length === 0) {
             gallerySection.style.display = 'none';
+            console.log('📷 No gallery images found.');
+            return;
+        }
+
+        gallerySection.style.display = 'block';
+        galleryGrid.innerHTML = '';
+
+        images.forEach(src => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `${char.name} Gallery`;
+            img.loading = 'lazy';
+
+            img.onerror = function() {
+                this.style.display = 'none';
+                this.parentElement.textContent = '🖼️';
+            };
+
+            item.appendChild(img);
+            galleryGrid.appendChild(item);
+        });
+
+        console.log(`📷 Gallery rendered with ${images.length} images.`);
+    }
+
+    /**
+     * ✅ پیدا کردن خودکار عکس‌های گالری از پوشه‌ی /img/characters/
+     * مثلاً: anby-gallery-1.jpg, anby-gallery-2.jpg, ...
+     */
+    async function generateGalleryImages() {
+        const { id } = getParams();
+        if (!id) {
+            console.warn('⚠️ No character ID found');
+            return [];
+        }
+
+        // ✅ آدرس درست: /img/characters/ (نه /img/zzz/)
+        const basePath = `/img/characters/${id}-gallery-`;
+        const foundImages = [];
+        const MAX_IMAGES = 20;
+
+        console.log(`🔍 Looking for gallery images: ${basePath}1.jpg, ${basePath}2.jpg, ...`);
+
+        for (let i = 1; i <= MAX_IMAGES; i++) {
+            const imagePath = `${basePath}${i}.jpg`;
+            console.log(`🔍 Checking: ${imagePath}`);
+
+            const exists = await imageExists(imagePath);
+
+            if (!exists) {
+                console.log(`❌ Not found: ${imagePath}, stopping...`);
+                break;
+            }
+
+            console.log(`✅ Found: ${imagePath}`);
+            foundImages.push(imagePath);
+        }
+
+        console.log(`🎯 Final gallery images (${foundImages.length} found):`, foundImages);
+        return foundImages;
+    }
+
+    /**
+     * ✅ چک کردن وجود فایل با fetch (مطمئن‌تر از Image)
+     */
+    async function imageExists(url) {
+        try {
+            const response = await fetch(url, { method: 'HEAD' });
+            return response.ok;
+        } catch (error) {
+            console.warn('⚠️ Fetch error for:', url, error);
+            return false;
         }
     }
+    // ============================================================
 
     // ----- Init -----
     loadCharacter();
