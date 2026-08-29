@@ -89,7 +89,7 @@
             return;
         }
 
-        backLink.href = `/character.html?game=${game}`;
+        backLink.href = `/characters.html?game=${game}`;
 
         try {
             const response = await fetch(config.json);
